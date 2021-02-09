@@ -1,0 +1,29 @@
+:root {
+    /* Colors */
+    --color-darkestBlue: #13182A;
+    --color-darkBlue: #222E4D;
+    --color-blue: #263867;
+    --color-darkPurple: #3E315E;
+    --color-purple: #687BF7;
+    --color-gray: #B8BCDD;
+    --color-almostWhite: #F0F0F0;
+
+    /* Fonts */
+    --font-family-primary: 'Source Sans Pro', normal;
+    --font-family-secondary: 'Metropolis', normal;
+
+    /* Font sizes */
+    --font-size-h1: 2rem;      /* 32px */
+    --font-size-h2: 1.5rem;    /* 24px */
+    --font-size-h3: 1rem;      /* 16px */
+    --font-size-p:  1rem;      /* 16px */
+
+    /* Line heights */
+    --line-height-h1: 2.5rem;  /* 40px */
+    --line-height-h2: 1.75rem; /* 26px */
+    --line-height-h3: 1.25rem; /* 20px */
+    --line-height-p: 1.5rem;   /* 22px */
+
+    --gradient-darkBlue: linear-gradient(180deg, #13182A 0%, #222E4D 57.62%, #263867 100%);
+    --gradient-purple: linear-gradient(180deg, #13182A 22.92%, #3E315E 100%), #13182A;
+}

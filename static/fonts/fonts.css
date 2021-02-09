@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Metropolis';
+    font-style: normal;
+    font-weight: 400; /* or 400 */
+    src: './Metropolis/Metropolis-Regular.otf';
+}
+@font-face {
+    font-family: 'Metropolis';
+    font-style: normal;
+    font-weight: 600; /* or 500 */
+    src: './Metropolis/Metropolis-SemiBold.otf';
+}
+@font-face {
+    font-family: 'Metropolis';
+    font-style: normal;
+    font-weight: 700; /* or 600 */
+    src: './Metropolis/Metropolis-Bold.otf';
+}
