@@ -8,6 +8,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-offline",
+    "gatsby-plugin-eslint",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
