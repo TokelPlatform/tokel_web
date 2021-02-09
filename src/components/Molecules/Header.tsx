@@ -1,26 +1,22 @@
 import React from "react"
 import styled from "@emotion/styled"
-import logo from "../../images/logo.svg"
+import LogoImg from "../Atoms/LogoImg"
 
 const defaultProps = {
 }
 
 const StyledHeader = styled.header`
-display: flex;
-flex-direction: row;
-align-items: flex-start;
-justify-content: flex-start;
-padding: 1rem 7rem 0 5rem;
-`
-
-const Logo = styled.img`
-    height: 46px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem 7rem 0 5rem;
 `
 
 const Header = () => {
   return (
     <StyledHeader>
-        <Logo src={logo}/>
+        <LogoImg/>
     </StyledHeader>
   )
 }
