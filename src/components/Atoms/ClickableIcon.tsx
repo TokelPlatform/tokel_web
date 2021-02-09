@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import icons from "../../data/icons"
 
 type ClickableIconProps = {
-  link: string
+  link: string,
   icon: string
 }
 

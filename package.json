@@ -12,7 +12,9 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint:fix": "node_modules/eslint/bin/eslint.js './src/' --ext .js,.ts,.tsx --fix",
+    "lint": "node_modules/eslint/bin/eslint.js './src/' --ext .js,.ts,.tsx"
   },
   "dependencies": {
     "@emotion/react": "11.1.5",
@@ -32,7 +34,9 @@
     "react-helmet": "6.1.0"
   },
   "devDependencies": {
+    "babel-eslint": "10.1.0",
     "eslint": "7.19.0",
+    "eslint-plugin-react": "7.22.0",
     "eslint-webpack-plugin": "2.5.0",
     "gatsby-plugin-eslint": "3.0.0"
   }
