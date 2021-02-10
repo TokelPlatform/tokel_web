@@ -8,6 +8,7 @@ import LogoText from "../components/Atoms/LogoText"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
 import PropTypes from 'prop-types';
+import Functionality from "../components/Organisms/Functionality"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -37,8 +38,7 @@ const Links = styled.div`
 
 const Dashboard = styled.div`
   margin: auto;
-  // margin-top: -20rem;
-  transform:  translateY(-20rem);
+  margin-top: -20rem;
   width: 900px;
 `
 
@@ -57,6 +57,7 @@ const IndexPage = ({data})  => {
       <Dashboard>
         <Img fluid={data.dash.childImageSharp.fluid}></Img>
       </Dashboard>
+      <Functionality />
     </MainPage>
   )
 }
