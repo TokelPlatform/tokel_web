@@ -15,17 +15,26 @@ const StyledButton = styled.button`
     width: 230px;
     height: 70px;
     background: ${props => props.theme == 'dark' ? 'var(--color-darkBlue)' : 'transparent' };
-    background: ${props => props.theme == 'dark' ? 'var(--color-darkBlue)' : 'transparent' };
     border: 1px solid var(--color-purple);
     border-radius: 3px;
     font-size: var(--font-size-h2);
     text-transform: uppercase;
     font-weight: 600;
     margin: 0 45px 0 45px;
+    cursor:pointer;
+    transition: transform .3s;
 
     p {
         color: ${props => props.theme == 'dark' ? 'var(--color-almostWhite)' : 'var(--color-darkBlue)' };
         font-family: var(--font-family-primary);
+    }
+
+    &:hover {
+        transform: scale(1.1);
+        background-color: var(--color-darkBlue);
+        p {
+            color: var(--color-almostWhite) ;
+        }
     }
 `
 
