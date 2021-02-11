@@ -7,7 +7,7 @@ import {tabs} from "../../data/constants"
 const defaultProps = {
 }
 
-const Container = styled.header`
+const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +21,7 @@ const Buttons = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 6rem;
+    margin-top: 2rem;
 `
 
 const Functionality = () => {

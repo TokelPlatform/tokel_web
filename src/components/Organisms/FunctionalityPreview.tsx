@@ -9,25 +9,26 @@ import darkHeart from "../../images/icons/icon_heart_dark.svg"
 const defaultProps = {
 }
 
-const Container = styled.header`
+const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 1150px;
     width: 100%;
-    height: 800px;
+    height: 42rem;
     background-color: rgb(184, 188, 221, 0.1);
     p {
         opacity: 0.8;
         text-align: left;
         width: 470px;
     }
-    margin-top: 70px;
-    padding-top: 80px;
+    margin-top: 2rem;
+    padding-top: 3rem;
+    margin-bottom: 5rem;
 `
 const ImageWrapper = styled.div`
     width: 470px;
-    margin-top: 36px;
+    margin-top: 1rem;
 `
 
 const ArtImageWrapper = styled.div`
