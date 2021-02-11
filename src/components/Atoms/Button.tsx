@@ -27,9 +27,10 @@ const StyledButton = styled.button`
     cursor:pointer;
     transition: transform .3s;
 
-    p {
+    h2 {
         color: ${props => props.chosen ? 'var(--color-almostWhite)' : 'var(--color-darkBlue)' };
         font-family: var(--font-family-primary);
+        font-weight: 600;
     }
 
     &:hover {
@@ -38,7 +39,7 @@ const StyledButton = styled.button`
 `
 
 const Button = ({ text, theme, chosen, onClick }: ButtonProps): ReactElement => (
-  <StyledButton onClick={buttonName => onClick(buttonName)} chosen={chosen} theme={theme}><p>{text}</p></StyledButton>
+  <StyledButton onClick={buttonName => onClick(buttonName)} chosen={chosen} theme={theme}><h2>{text}</h2></StyledButton>
 )
 
 Button.defaultProps = defaultProps

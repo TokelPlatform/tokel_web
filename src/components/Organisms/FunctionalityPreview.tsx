@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import {tabs} from "../../data/constants"
 import links from "../../data/links"
+import darkHeart from "../../images/icons/icon_heart_dark.svg"
 
 const defaultProps = {
 }
@@ -11,7 +12,6 @@ const defaultProps = {
 const Container = styled.header`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     max-width: 1150px;
     width: 100%;
@@ -23,6 +23,7 @@ const Container = styled.header`
         width: 470px;
     }
     margin-top: 70px;
+    padding-top: 80px;
 `
 const ImageWrapper = styled.div`
     width: 470px;
@@ -61,6 +62,11 @@ const ImageWithSource = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+`
+
+const HeartImage = styled.img`
+    height: 80px;
+    margin: 50px 0 30px 0;
 `
 
 const FunctionalityPreview = (openTab) => {
@@ -122,6 +128,14 @@ A variety of business, organizations and individuals can benefit from using NFT 
                     </ArtImageWrapper>
                 </Card>
             }            
+           {openTab.openTab === tabs.TOKENS &&         
+                <Card>
+                    <h1>Create your own tokens</h1>
+                    <HeartImage src={darkHeart}></HeartImage>
+                    <h2>Tokenize your business with easy to create and maintain tokens on the TOKEL chain.</h2>
+                    <p>A variety of business and organizations can benefit from using their own tokens, for example, companies looking to create equity based tokens, security tokens, debt issuance tokens or asset backed token ownership. Other examples include charities looking to tokenise and utilize a public ledger for donations, crowdfunding or- ganizations and many others.</p>
+                    </Card>
+            }             
         </Container>
       )}
     />

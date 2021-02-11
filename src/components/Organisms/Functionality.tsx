@@ -12,6 +12,9 @@ const Container = styled.header`
     flex-direction: column;
     align-items: center;
     margin-top: 9rem;
+    h1 {
+      font-family: var(--font-family-secondary);
+    }
 `
 
 const Buttons = styled.div`
