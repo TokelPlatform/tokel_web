@@ -3,18 +3,21 @@ import styled from "@emotion/styled"
 
 type ButtonProps = {
     text: string,
-    theme: string
+    theme: string,
+    chosen: boolean,
+    onClick: (e: string)  => {}
 }
 
 const defaultProps = {
   text: "click me",
+  chosen: false,
   theme: "light"
 }
 
 const StyledButton = styled.button`
     width: 230px;
     height: 70px;
-    background: ${props => props.theme == 'dark' ? 'var(--color-darkBlue)' : 'transparent' };
+    background: ${props => props.chosen ? 'var(--color-darkBlue)' : 'transparent' };
     border: 1px solid var(--color-purple);
     border-radius: 3px;
     font-size: var(--font-size-h2);
@@ -25,21 +28,17 @@ const StyledButton = styled.button`
     transition: transform .3s;
 
     p {
-        color: ${props => props.theme == 'dark' ? 'var(--color-almostWhite)' : 'var(--color-darkBlue)' };
+        color: ${props => props.chosen ? 'var(--color-almostWhite)' : 'var(--color-darkBlue)' };
         font-family: var(--font-family-primary);
     }
 
     &:hover {
-        transform: scale(1.1);
-        background-color: var(--color-darkBlue);
-        p {
-            color: var(--color-almostWhite) ;
-        }
+        transform: ${props => !props.chosen ?  'scale(1.1)' : ''}
     }
 `
 
-const Button = ({ text, theme }: ButtonProps): ReactElement => (
-  <StyledButton theme={theme}><p>{text}</p></StyledButton>
+const Button = ({ text, theme, chosen, onClick }: ButtonProps): ReactElement => (
+  <StyledButton onClick={buttonName => onClick(buttonName)} chosen={chosen} theme={theme}><p>{text}</p></StyledButton>
 )
 
 Button.defaultProps = defaultProps

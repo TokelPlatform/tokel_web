@@ -26,5 +26,7 @@ h3 {
 }
 
 p {
-    color: var(--color-darkBlue);
+    color: var(--color-darkBlue);        
+    line-height: var(--line-height-p);
+    font-weight: 400;
 }
