@@ -18,7 +18,7 @@ const Buttons = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 2rem;
+    margin-top: 5rem;
 `
 
 const Functionality = () => {
