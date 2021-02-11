@@ -30,7 +30,7 @@ const Container = styled.div`
 `
 
 const Content = styled.div`
-    padding: 1.5rem 2.5rem;
+    padding: 2rem 2.5rem 1.5rem 2.5rem;
     h2 {
         text-transform: uppercase;
         color: var(--color-almostWhite);
