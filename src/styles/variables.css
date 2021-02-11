@@ -1,6 +1,7 @@
 :root {
     /* Colors */
     --color-darkestBlue: #13182A;
+    --color-darkestBlue-50opacity: rgb(19, 24, 42, 0.5);
     --color-darkBlue: #222E4D;
     --color-blue: #263867;
     --color-darkPurple: #3E315E;
