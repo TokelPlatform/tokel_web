@@ -9,6 +9,7 @@ import Img from "gatsby-image"
 import { graphql } from "gatsby"
 import PropTypes from 'prop-types';
 import Functionality from "../components/Organisms/Functionality"
+import Features from "../components/Organisms/Features"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -58,6 +59,7 @@ const IndexPage = ({data})  => {
         <Img fluid={data.dash.childImageSharp.fluid}></Img>
       </Dashboard>
       <Functionality />
+      <Features />
     </MainPage>
   )
 }
