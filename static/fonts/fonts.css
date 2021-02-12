@@ -1,18 +1,36 @@
 @font-face {
     font-family: 'Metropolis';
     font-style: normal;
-    font-weight: 400; /* or 400 */
+    font-weight: 400;
     src: './Metropolis/Metropolis-Regular.otf';
 }
 @font-face {
     font-family: 'Metropolis';
     font-style: normal;
-    font-weight: 600; /* or 500 */
+    font-weight: 600; 
     src: './Metropolis/Metropolis-SemiBold.otf';
 }
 @font-face {
     font-family: 'Metropolis';
     font-style: normal;
-    font-weight: 700; /* or 600 */
+    font-weight: 700;
     src: './Metropolis/Metropolis-Bold.otf';
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400; 
+    src: url('/fonts//SourceSansPro/SourceSansPro-Regular.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/fonts/SourceSansPro/SourceSansPro-SemiBold.ttf');
+}
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/fonts/SourceSansPro/SourceSansPro-Bold.ttf');
 }

@@ -27,32 +27,22 @@ module.exports = {
       options: {
     
         /* Font loading mode */
-        mode: "async",
+        mode: "render-blocking",
     
         /* Enable font loading listener to handle FOUT */
         enableListener: true,
     
-        /* Preconnect URL-s. This example is for Google Fonts */
-        preconnect: ["https://fonts.gstatic.com"],
-    
         /* Self-hosted fonts config. Add font files and font CSS files to "static" folder */
         custom: [
           {
-            /* Exact name of the font as defied in @font-face CSS rule */
-            name: ["Metropolis"],
-            /* Path to the font CSS file inside the "static" folder with @font-face definition */
+            name: "Metropolis",
             file: "/fonts/fonts.css",
           },
-        ],
-    
-        /* Web fonts. File link should point to font CSS file. */
-        web: [{
-            /* Exact name of the font as defied in @font-face CSS rule */
-            name: "Sourse Sans Pro",
-            /* URL to the font CSS file with @font-face definition */
-            file: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap",
+          {
+            name: "Source Sans Pro",
+            file: "/fonts/fonts.css",
           },
-        ],
+        ]
       },
     }
     

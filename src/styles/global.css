@@ -6,7 +6,6 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: var(--font-family-primary);
     color: var(--color-darkBlue);
 }
 h1 {
