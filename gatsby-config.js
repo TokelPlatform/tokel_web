@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "tokel",
+    title: "Tokel - The Token pLatform",
     siteUrl: `https://tokel.io`,
   },
   plugins: [
