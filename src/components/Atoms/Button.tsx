@@ -35,6 +35,7 @@ const StyledButton = styled.button`
     &:hover {
         transform: ${props => !props.chosen ?  'scale(1.1)' : ''}
     }
+    z-index: 10;
 `
 
 const Button = ({ text, theme, chosen, onClick }: ButtonProps): ReactElement => (

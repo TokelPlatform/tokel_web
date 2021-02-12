@@ -12,6 +12,9 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 9rem;
+    h1 {
+      z-index: 10;
+    }
 `
 
 const Buttons = styled.div`
