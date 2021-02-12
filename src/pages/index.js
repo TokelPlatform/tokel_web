@@ -48,9 +48,9 @@ const Dashboard = styled.div`
 const IndexPage = ({data})  => {
   return (
     <MainPage>
-      <Stars size={'small'} />
-      <Stars size={'medium'}/>
-      <Stars size={'big'}/>
+      <Stars starSize={'small'} />
+      <Stars starSize={'medium'}/>
+      <Stars starSize={'big'}/>
       <Header />
       <WelcomeText>
         <LogoText/>
