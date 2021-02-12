@@ -1,6 +1,5 @@
 import * as React from "react"
 import styled from "@emotion/styled"
-import { css, keyframes } from '@emotion/react'
 import ClickableIcon from "../components/Atoms/ClickableIcon"
 import icons from "../data/icons"
 import links from "../data/links"
@@ -12,6 +11,7 @@ import PropTypes from 'prop-types';
 import Functionality from "../components/Organisms/Functionality"
 import Features from "../components/Organisms/Features"
 import Footer from "../components/Organisms/Footer"
+import Stars from "../components/Atoms/Stars"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -45,51 +45,12 @@ const Dashboard = styled.div`
   width: 900px;
 `
 
-const rand = () => Math.random() * 2000 + 1
-
-const getStars = (n, div) => {
-  let value = () => rand() + 'px ' + rand() + 'px #F0F0F0'
-  let result = value(n)
-  for (let i = 2; i < n/div; i++) {
-    result = result.concat(', ', value())
-  }
-  return result;
-}
-
-const shadows = {
-  small: getStars(1700, 2),
-  medium: getStars(1700, 4),
-  big: getStars(1700, 6)
-}
-
-const getSize = (type) => type == 'small' ? '0.5px' : (type === 'medium' ? '1px' : '2px')
-const animStar = keyframes`
-    from {transform: translateY(0px)}
-    to {transform: translateY(-700px)}
-`
-
-const Stars = styled.div`
-    width: ${props => getSize(props.size)};
-    height: ${props => getSize(props.size)};
-    background: transparent;
-    box-shadow: ${props => shadows[props.size]};
-    &:after {
-      content: " ";
-      position: absolute;
-      top: 2000px;
-      width: ${props => getSize(props.size)};
-      height: ${props => getSize(props.size)};
-      background: transparent;
-      box-shadow: ${props => shadows[props.size]};
-    }   
-`
-
 const IndexPage = ({data})  => {
   return (
     <MainPage>
-      <Stars size={'small'}  css={css`animation: ${animStar} 120s linear infinite;`} />
-      <Stars size={'medium'} css={css`animation: ${animStar} 120s linear infinite;`}/>
-      <Stars size={'big'}  css={css`animation: ${animStar} 120s linear infinite;`}/>
+      <Stars size={'small'} />
+      <Stars size={'medium'}/>
+      <Stars size={'big'}/>
       <Header />
       <WelcomeText>
         <LogoText/>
