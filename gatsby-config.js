@@ -1,12 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: "tokel",
+    siteUrl: `https://tokel.io`,
   },
   plugins: [
     "gatsby-plugin-emotion",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    // "gatsby-plugin-sitemap",
     "gatsby-plugin-offline",
     "gatsby-plugin-eslint",
     "gatsby-transformer-sharp",
