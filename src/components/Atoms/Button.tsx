@@ -30,6 +30,7 @@ const StyledButton = styled.button`
     h2 {
         color: ${props => props.chosen ? 'var(--color-almostWhite)' : 'var(--color-darkBlue)' };
         font-weight: 600;
+        font-family: var(--font-family-primary);
     }
 
     &:hover {

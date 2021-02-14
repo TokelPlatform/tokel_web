@@ -24,7 +24,7 @@
     --line-height-h1: 2.5rem;  /* 40px */
     --line-height-h2: 1.75rem; /* 26px */
     --line-height-h3: 1.25rem; /* 20px */
-    --line-height-p: 1.25rem;   /* 22px */
+    --line-height-p: 1.4rem;   /* 22px */
 
     --gradient-darkBlue: linear-gradient(180deg, #13182A 0%, #222E4D 57.62%, #263867 100%);
     --gradient-purple: linear-gradient(180deg, #13182A 22.92%, #3E315E 100%), #13182A;

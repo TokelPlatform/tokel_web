@@ -2,32 +2,32 @@ const features = [
     {
         icon: 'coinWallet',
         title: 'coin wallet',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.'
+        desc: 'Manage your coins, with your keys. Maintain control of your private keys with the Tokel wallet.'
     },
     {
         icon: 'explorer',
         title: 'token explorer',
-        desc: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+        desc: 'Gotta find them all! Explore every token on the Tokel blockchain through the token explorer.'
     },
     {
         icon: 'dex',
         title: 'DEX',
-        desc: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+        desc: 'Trade your favourite tokens on the blockchain with the inbuilt tokenDEX.'
     },
     {
         icon: 'tokenWallet',
         title: 'token wallet',
-        desc: 'Facilisis gravida neque convallis a. Malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Et netus et malesuada.'
+        desc: 'One wallet to collect them all. Manage every token on the blockchain with the token wallet.'
     },
     {
         icon: 'market',
         title: 'Nft marketplace',
-        desc: 'Quam nulla porttitor massa id. Sed faucibus turpis in eu mi bibendum neque. Diam quis enim lobortis scelerisque fermentum dui.'
+        desc: 'Buy/Sell/Own/Send through the NFT marketplace. Any token with a supply of 1 is able to be listed.'
     },
     {
         icon: 'heart',
         title: 'token creation tool',
-        desc: ' Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+        desc: 'Want your very own token? Simple. Use the token creation tool and have your token within seconds.'
     }                               
 ]
 

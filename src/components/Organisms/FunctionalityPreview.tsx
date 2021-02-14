@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import {tabs} from "../../data/constants"
 import links from "../../data/links"
 import darkHeart from "../../images/icons/icon_heart_dark.svg"
+import functionalityData from "../../data/functionalityData"
 
 const defaultProps = {
 }
@@ -103,9 +104,9 @@ const FunctionalityPreview = (openTab) => {
             {console.log(openTab.openTab)}
             {openTab.openTab === tabs.TRADE &&         
                 <Card>
-                    <h1>TOKEN DEX</h1>
-                    <h2>Swap tokens easily using TOKEL’s DEX</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
+                    <h1>{functionalityData.dex.title}</h1>
+                    <h2>{functionalityData.dex.subtitle}</h2>
+                    <p>{functionalityData.dex.desc}</p>
                     <ImageWrapper>
                         <Img fluid={data.swap.childImageSharp.fluid}></Img>
                     </ImageWrapper>
@@ -113,10 +114,9 @@ const FunctionalityPreview = (openTab) => {
             }
            {openTab.openTab === tabs.NFT &&         
                 <Card>
-                    <h1>NFT Marketplace</h1>
-                    <h2>Buy Non Fungible Tokens at the marketplace</h2>
-                    <p>There are countless ways of utilizing NFT tokens.
-A variety of business, organizations and individuals can benefit from using NFT tokens. Those include companies and individuals that use loyalty programs, sell tickets, sell art, crowdfunding organizations and many others.</p>
+                    <h1>{functionalityData.nft.title}</h1>
+                    <h2>{functionalityData.nft.subtitle}</h2>
+                    <p>{functionalityData.nft.desc}</p>
                     <ArtImageWrapper>
                         <ImageWithSource>
                             <Img  style={{width: 160, height: 240}} fluid={data.fox.childImageSharp.fluid}></Img>
@@ -131,10 +131,10 @@ A variety of business, organizations and individuals can benefit from using NFT 
             }            
            {openTab.openTab === tabs.TOKENS &&         
                 <Card>
-                    <h1>Create your own tokens</h1>
+                    <h1>{functionalityData.tokens.title}</h1>
                     <HeartImage src={darkHeart}></HeartImage>
-                    <h2>Tokenize your business with easy to create and maintain tokens on the TOKEL chain.</h2>
-                    <p>A variety of business and organizations can benefit from using their own tokens, for example, companies looking to create equity based tokens, security tokens, debt issuance tokens or asset backed token ownership. Other examples include charities looking to tokenise and utilize a public ledger for donations, crowdfunding or- ganizations and many others.</p>
+                    <h2>{functionalityData.tokens.subtitle}</h2>
+                    <p>{functionalityData.tokens.desc}</p>
                     </Card>
             }             
         </Container>
