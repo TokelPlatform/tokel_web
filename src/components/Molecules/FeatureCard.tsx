@@ -27,6 +27,11 @@ const Container = styled.div`
         font-family: var(--font-family-secondary);
         font-weight: 600;
     }
+    &:hover {
+        background-color: rgb(240, 240, 240, 0.15);
+        transition: transform .3s;
+        transform: scale(1.025);
+    }
 `
 
 const Content = styled.div`
