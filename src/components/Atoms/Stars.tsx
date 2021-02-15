@@ -7,8 +7,8 @@ type StarProps = {
     starSize: string
 }
 
-const rand = () => Math.random() * 2000 + 1
-const getSize = (type: string):string => type == 'small' ? '0.5px' : (type === 'medium' ? '1px' : '1.5px')
+const rand = () => Math.random() * 4000 + 1
+const getSize = (type: string):string => type == 'small' ? '0.5px' : (type === 'medium' ? '0.75px' : '1px')
 
 const getStars = (n: number, div: number): string => {
   let value = () => rand() + 'px ' + rand() + 'px #F0F0F0'
@@ -20,15 +20,15 @@ const getStars = (n: number, div: number): string => {
 }
 
 const shadows = {
-    small: getStars(1700, 2),
-    medium: getStars(1700, 4),
-    big: getStars(1700, 6)
+    small: getStars(3000, 2),
+    medium: getStars(3000, 4),
+    big: getStars(3000, 6)
 }
   
 
 const animStar = keyframes`
     from {transform: translateY(0px)}
-    to {transform: translateY(-700px)}
+    to {transform: translateY(-1000px)}
 `
 
 const StarContainer = styled.div`
