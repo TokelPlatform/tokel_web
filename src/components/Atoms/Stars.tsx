@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react"
 import styled from "@emotion/styled"
 import { css, keyframes } from '@emotion/react'
+import breakpoints from "../../styles/breakpoints"
 
 type StarProps = {
     starSize: string
@@ -43,6 +44,10 @@ const StarContainer = styled.div`
       height: ${props => getSize(props.size)};
       background: transparent;
       box-shadow: ${props => shadows[props.size]};
+
+      @media (max-width: ${breakpoints.mobile}) {
+        top: 4000px;
+      }
     }   
 `
 

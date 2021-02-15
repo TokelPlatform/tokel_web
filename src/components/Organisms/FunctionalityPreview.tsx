@@ -29,18 +29,50 @@ const Container = styled.div`
     p {
         opacity: 0.8;
         text-align: left;
-        width: 470px;
+        max-width: 470px;
+        width: 100%;
     }
     margin-top: 2rem;
     padding-top: 3rem;
     margin-bottom: 5rem;
     @media (max-width: ${breakpoints.mobilebig}) {
       background-color: transparent;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: ${breakpoints.mobile}) {
+      height: 39rem;
     }
 `
 const ImageWrapper = styled.div`
-    width: 470px;
+    max-width: 470px;
+    width: 100%;
     margin-top: 1rem;
+`
+
+const Card = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 470px;
+    width: 100%;
+
+    h1 {
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      @media (max-width: ${breakpoints.mobile}) {
+        margin-bottom: -1rem;
+      }
+    }
+    h2 {
+      margin-top: 0;
+      text-align: center;
+      opacity: 0.6;
+    }
+    @media (max-width: ${breakpoints.mobile}) {
+      max-width: 350px;
+      width: 100%;
+    }
 `
 
 const ArtImageWrapper = styled.div`
@@ -52,17 +84,9 @@ const ArtImageWrapper = styled.div`
     @media (max-width: ${breakpoints.mobilebig}) {
       justify-content: center;
     }
-`
-
-const Card = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 470px;
-
-    h1 {
-        text-transform: uppercase;
+    @media (max-width: ${breakpoints.mobile}) {
+      max-width: 350px;
+      width: 100%;
     }
 `
 
@@ -151,8 +175,8 @@ const FunctionalityPreview = ({openTab, hiddenParts}: FunctionalityProps) => {
            {openTab === tabs.TOKENS &&         
                 <Card>
                     <h1>{functionalityData.tokens.title}</h1>
-                    <HeartImage src={darkHeart}></HeartImage>
                     <h2>{functionalityData.tokens.subtitle}</h2>
+                    <HeartImage src={darkHeart}></HeartImage>
                     <p>{functionalityData.tokens.desc}</p>
                     </Card>
             }             

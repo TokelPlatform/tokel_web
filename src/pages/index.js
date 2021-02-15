@@ -13,10 +13,14 @@ import Functionality from "../components/Organisms/Functionality"
 import Features from "../components/Organisms/Features"
 import Footer from "../components/Organisms/Footer"
 import Stars from "../components/Atoms/Stars"
+import breakpoints from "../styles/breakpoints"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
   height: 100vh;
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 35rem;
+  }
 `
 const WelcomeText = styled.div`
   display: flex;
@@ -24,6 +28,9 @@ const WelcomeText = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 35rem;
+  }
 `
 
 const Title = styled.h1`
@@ -33,6 +40,11 @@ const Title = styled.h1`
   font-weight: 400;
   & > a {
     margin: 0 0.5rem 0 0.5rem;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: var(--font-size-h2);
+    font-weigth: 400;
+    margin-top: 1rem;
   }
 `
 
@@ -50,6 +62,9 @@ const Dashboard = css`
   margin: auto;
   margin-top: -20rem;
   max-width: 900px;
+  @media (max-width: ${breakpoints.mobile}) {
+    margin-top: -10rem;
+  }
 `
 
 const IndexPage = ({data})  => {

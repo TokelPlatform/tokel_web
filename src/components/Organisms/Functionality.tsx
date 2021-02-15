@@ -19,7 +19,14 @@ const Container = styled.div`
       @media (max-width: ${breakpoints.mobilebig}) {
         padding-bottom: 2rem;
       } 
+      @media (max-width: ${breakpoints.mobile}) {
+        text-align: center;
+        margin-top: 1rem;
+      }      
     }
+    @media (max-width: ${breakpoints.mobilebig}) {
+      margin-top: 3.5rem;
+    }    
     
 `
 
