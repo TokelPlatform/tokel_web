@@ -13,7 +13,10 @@ const defaultProps = {
 }
 
 const IconLink = styled.a`
-  padding: 1rem 1.5rem 1rem 0;
+  transition: transform .5s ease;
+  &:hover {
+    transform: scale(1.3);
+  }
 `
 
 const ClickableIcon = ({ link, icon }: ClickableIconProps): ReactElement => (

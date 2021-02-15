@@ -1,5 +1,6 @@
 import * as React from "react"
 import styled from "@emotion/styled"
+import { css } from "@emotion/react"
 import ClickableIcon from "../components/Atoms/ClickableIcon"
 import icons from "../data/icons"
 import links from "../data/links"
@@ -30,6 +31,9 @@ const Title = styled.h1`
   font-family: var(--font-family-primary);
   margin-top: 3rem;
   font-weight: 400;
+  & > a {
+    margin: 0 0.5rem 0 0.5rem;
+  }
 `
 
 const Links = styled.div`
@@ -37,12 +41,15 @@ const Links = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  & > a {
+    margin: 0 0.5rem 0 0.5rem;
+  }
 `
 
-const Dashboard = styled.div`
+const Dashboard = css`
   margin: auto;
   margin-top: -20rem;
-  width: 900px;
+  max-width: 900px;
 `
 
 const IndexPage = ({data})  => {
@@ -54,14 +61,13 @@ const IndexPage = ({data})  => {
       <Header />
       <WelcomeText>
         <LogoText/>
-        <Title>Komodo ecosystem’s Token Platform.</Title>        <Links>        
+        <Title>Komodo ecosystem’s Token Platform.</Title>        
+        <Links>        
           <ClickableIcon link={links.github} />
           <ClickableIcon icon={icons.discord} link={links.discord} />
         </Links>
       </WelcomeText>
-      <Dashboard>
-        <Img fluid={data.dash.childImageSharp.fluid}></Img>
-      </Dashboard>
+      <Img css={Dashboard} fluid={data.dash.childImageSharp.fluid}></Img>
       <Functionality />
       <Features />
       <Footer />

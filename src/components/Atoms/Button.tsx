@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react"
 import styled from "@emotion/styled"
+import breakpoints from "../../styles/breakpoints"
 
 type ButtonProps = {
     text: string,
@@ -35,33 +36,14 @@ const StyledButton = styled.button`
 
     &:hover {
         transform: ${props => !props.chosen ?  'scale(1.1)' : ''};
-
-        ${props => props.chosen ?`
-            background: linear-gradient(275deg, #13182A, #263867);
-            background-size: 400% 400%;
-        
-            -webkit-animation: gradientAnimation 3s ease infinite;
-            -moz-animation: gradientAnimation 3s ease infinite;
-            animation: gradientAnimation 3s ease infinite;
-            
-            @-webkit-keyframes gradientAnimation {
-                0%{background-position:0% 50%}
-                50%{background-position:100% 50%}
-                100%{background-position:0% 50%}
-            }
-            @-moz-keyframes gradientAnimation {
-                0%{background-position:0% 50%}
-                50%{background-position:100% 50%}
-                100%{background-position:0% 50%}
-            }
-            @keyframes gradientAnimation {
-                0%{background-position:0% 50%}
-                50%{background-position:100% 50%}
-                100%{background-position:0% 50%}
-            }` : ''
-        }
     }
     z-index: 10;
+    @media (max-width: ${breakpoints.tablet}) {
+        width: 200px;
+        h2 {
+            font-size: var(--font-size-h3);
+        }
+    }
 `
 
 const Button = ({ text, theme, chosen, onClick }: ButtonProps): ReactElement => (

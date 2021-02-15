@@ -7,7 +7,7 @@ type StarProps = {
 }
 
 const rand = () => Math.random() * 2000 + 1
-const getSize = (type: string):string => type == 'small' ? '0.5px' : (type === 'medium' ? '1px' : '2px')
+const getSize = (type: string):string => type == 'small' ? '0.5px' : (type === 'medium' ? '1px' : '1.5px')
 
 const getStars = (n: number, div: number): string => {
   let value = () => rand() + 'px ' + rand() + 'px #F0F0F0'

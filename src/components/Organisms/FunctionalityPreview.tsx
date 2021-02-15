@@ -6,6 +6,7 @@ import {tabs} from "../../data/constants"
 import links from "../../data/links"
 import darkHeart from "../../images/icons/icon_heart_dark.svg"
 import functionalityData from "../../data/functionalityData"
+import breakpoints from "../../styles/breakpoints"
 
 const defaultProps = {
 }
@@ -26,6 +27,9 @@ const Container = styled.div`
     margin-top: 2rem;
     padding-top: 3rem;
     margin-bottom: 5rem;
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 700px;
+  }
 `
 const ImageWrapper = styled.div`
     width: 470px;
@@ -69,6 +73,7 @@ const ImageWithSource = styled.div`
 const HeartImage = styled.img`
     height: 80px;
     margin: 50px 0 30px 0;
+    z-index: 10;
 `
 
 const FunctionalityPreview = (openTab) => {
@@ -101,7 +106,6 @@ const FunctionalityPreview = (openTab) => {
       `}
       render={data => (
         <Container>
-            {console.log(openTab.openTab)}
             {openTab.openTab === tabs.TRADE &&         
                 <Card>
                     <h1>{functionalityData.dex.title}</h1>
