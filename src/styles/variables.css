@@ -1,13 +1,17 @@
 :root {
     /* Colors */
     --color-darkestBlue: #13182A;
-    --color-darkestBlue-50opacity: rgb(19, 24, 42, 0.5);
     --color-darkBlue: #222E4D;
     --color-blue: #263867;
     --color-darkPurple: #3E315E;
     --color-purple: #687BF7;
     --color-gray: #B8BCDD;
     --color-almostWhite: #F0F0F0;
+
+    /* Opacity colors */
+    --color-darkestBlue-10opacity: #696969;
+    --color-gray-10opacity: #E6E7EA;
+
 
     /* Fonts */
     --font-family-primary: 'SourceSansPro', sans-serif;

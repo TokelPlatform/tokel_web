@@ -64,7 +64,7 @@ const Footnote = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-top: 1px solid var(--color-darkestBlue-50opacity);
+    border-top: 1px solid var(--color-darkestBlue-10opacity);
     padding: 0 4rem;
     p, a {
         font-size: 0.75rem;

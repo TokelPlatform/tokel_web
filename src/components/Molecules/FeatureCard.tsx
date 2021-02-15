@@ -20,7 +20,8 @@ const Container = styled.div`
     justify-content: flex-start;
     width: 370px;
     height: 260px;
-    background-color: rgb(240, 240, 240, 0.1);
+    background: rgb(78, 85, 110, 1);
+    background: rgba(78, 85, 110, 0.3);
     border-radius: 10px;
     margin: 0.5rem 0.5rem;
     transition: transform .3s;
@@ -29,7 +30,8 @@ const Container = styled.div`
         font-weight: 600;
     }
     &:hover {
-        background-color: rgb(240, 240, 240, 0.18);
+        background-color: rgb(95, 104, 134);
+        background-color: rgba(95, 104, 134, 0.5);
         transform: scale(1.025);
     }
 `

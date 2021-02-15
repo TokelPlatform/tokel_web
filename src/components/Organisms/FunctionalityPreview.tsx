@@ -25,7 +25,7 @@ const Container = styled.div`
     max-width: 1150px;
     width: 100%;
     height: 42rem;
-    background-color: rgb(184, 188, 221, 0.1);
+    background-color: var(--color-gray-10opacity);
     p {
         opacity: 0.8;
         text-align: left;

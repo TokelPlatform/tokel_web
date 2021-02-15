@@ -20,7 +20,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    background: ${props => (props.idx % 2 === 0 )? 'rgb(222,222,222,0.3)' : 'transparent'};
+    background: ${props => (props.idx % 2 === 0 )? 'var(--color-gray-10opacity)' : 'transparent'};
     padding: 1rem 3rem 1rem 3rem;
     h2 {
         text-transform: uppercase;

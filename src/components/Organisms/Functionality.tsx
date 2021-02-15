@@ -48,7 +48,7 @@ const MobileFunctionality = styled.div`
       flex-direction: column;
       justify-content: center;
       align-content: center;
-      background-color: rgb(184, 188, 221, 0.1);
+      background-color: var(--color-gray-10opacity);
     } 
 `
 
