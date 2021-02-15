@@ -4,7 +4,7 @@ import { css } from "@emotion/react"
 import ClickableIcon from "../components/Atoms/ClickableIcon"
 import icons from "../data/icons"
 import links from "../data/links"
-import Header from "../components/Molecules/Header"
+// import Header from "../components/Molecules/Header"
 import LogoText from "../components/Atoms/LogoText"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
@@ -73,7 +73,7 @@ const IndexPage = ({data})  => {
       <Stars starSize={'small'} />
       <Stars starSize={'medium'}/>
       <Stars starSize={'big'}/>
-      <Header />
+      {/* <Header /> */}
       <WelcomeText>
         <LogoText/>
         <Title>Komodo ecosystem’s Token Platform.</Title>        
