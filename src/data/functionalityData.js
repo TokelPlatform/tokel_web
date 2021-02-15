@@ -5,7 +5,7 @@ export default {
         desc: 'Trustless & decentralized token trading is built into the Tokel blockchain protocol. Each token created on Tokel is automatically listed on the tokenDEX with the token-to-Tokel pair. Users can buy, sell, trade, send and manage their tokens easily, all on the blockchain.'
     },
     nft: {
-        title: 'NFT Matketplace',
+        title: 'NFT Marketplace',
         subtitle: 'Buy & Sell Non-Fungible-Tokens at the Tokel marketplace',
         desc: "Non-fungible-tokens can be instantly traded on the Tokel blockchain. NFT's can be used to virtually manage loyalty programs, sell virtual tickets to an online or in person, tokenize real-world assets, or to signify the ownership of artwork."
     },

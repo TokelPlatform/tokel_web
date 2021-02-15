@@ -9,8 +9,15 @@ import functionalityData from "../../data/functionalityData"
 import breakpoints from "../../styles/breakpoints"
 
 const defaultProps = {
+  openTab: tabs.TRADE,
+  hiddenParts: false
 }
 
+type FunctionalityProps = {
+  openTab: string,
+  hiddenParts: boolean
+
+}
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -27,9 +34,9 @@ const Container = styled.div`
     margin-top: 2rem;
     padding-top: 3rem;
     margin-bottom: 5rem;
-    @media (max-width: ${breakpoints.tablet}) {
-      width: 700px;
-  }
+    @media (max-width: ${breakpoints.mobilebig}) {
+      background-color: transparent;
+    }
 `
 const ImageWrapper = styled.div`
     width: 470px;
@@ -42,6 +49,9 @@ const ArtImageWrapper = styled.div`
     justify-content: space-between;
     width: 470px;
     margin-top: 32px; 
+    @media (max-width: ${breakpoints.mobilebig}) {
+      justify-content: center;
+    }
 `
 
 const Card = styled.div`
@@ -68,6 +78,11 @@ const ImageWithSource = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    ${props => props.hidden ? `
+      display: none; 
+      margin: auto;` 
+      : ''}
+
 `
 
 const HeartImage = styled.img`
@@ -76,7 +91,7 @@ const HeartImage = styled.img`
     z-index: 10;
 `
 
-const FunctionalityPreview = (openTab) => {
+const FunctionalityPreview = ({openTab, hiddenParts}: FunctionalityProps) => {
   return (
     <StaticQuery
       query={graphql`
@@ -106,7 +121,7 @@ const FunctionalityPreview = (openTab) => {
       `}
       render={data => (
         <Container>
-            {openTab.openTab === tabs.TRADE &&         
+            {openTab === tabs.TRADE &&         
                 <Card>
                     <h1>{functionalityData.dex.title}</h1>
                     <h2>{functionalityData.dex.subtitle}</h2>
@@ -116,13 +131,13 @@ const FunctionalityPreview = (openTab) => {
                     </ImageWrapper>
                 </Card>
             }
-           {openTab.openTab === tabs.NFT &&         
+           {openTab === tabs.NFT &&         
                 <Card>
                     <h1>{functionalityData.nft.title}</h1>
                     <h2>{functionalityData.nft.subtitle}</h2>
                     <p>{functionalityData.nft.desc}</p>
                     <ArtImageWrapper>
-                        <ImageWithSource>
+                        <ImageWithSource hidden={hiddenParts}>
                             <Img  style={{width: 160, height: 240}} fluid={data.fox.childImageSharp.fluid}></Img>
                             <ArtSource href={links.openseaImage}>Art Source: Opensea.io</ArtSource>
                         </ImageWithSource>
@@ -133,7 +148,7 @@ const FunctionalityPreview = (openTab) => {
                     </ArtImageWrapper>
                 </Card>
             }            
-           {openTab.openTab === tabs.TOKENS &&         
+           {openTab === tabs.TOKENS &&         
                 <Card>
                     <h1>{functionalityData.tokens.title}</h1>
                     <HeartImage src={darkHeart}></HeartImage>
