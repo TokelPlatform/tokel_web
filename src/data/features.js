@@ -22,7 +22,7 @@ const features = [
     {
         icon: 'market',
         title: 'Nft marketplace',
-        desc: 'Buy/Sell/Own/Send through the NFT marketplace. Any token with a supply of 1 is able to be listed.'
+        desc: 'Buy, sell, own, send through the NFT marketplace. Any token with a supply of 1 is able to be listed.'
     },
     {
         icon: 'heart',

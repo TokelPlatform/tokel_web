@@ -4,6 +4,7 @@ import features from "../../data/features"
 import FeatureCard from "../Molecules/FeatureCard"
 import icons from "../../data/icons"
 import LogoImg from "../Atoms/LogoImg"
+import breakpoints from "../../styles/breakpoints"
 
 const defaultProps = {
 }
@@ -28,6 +29,9 @@ const FeaturesContainer = styled.div`
     width: 780px;
     flex-wrap: wrap;
     margin-top: 4rem;
+    @media (max-width: ${breakpoints.mobilebig}) {
+        width: 100%;
+    }
 `
 
 const Features = () => (
