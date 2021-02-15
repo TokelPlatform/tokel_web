@@ -120,7 +120,7 @@ const FunctionalityPreview = ({openTab, hiddenParts}: FunctionalityProps) => {
     <StaticQuery
       query={graphql`
       query {
-        swap: file(relativePath: { eq: "swap.png" }) {
+        exchange: file(relativePath: { eq: "exchange.png" }) {
           childImageSharp {
             fluid(quality: 100, maxWidth: 570) {
               ...GatsbyImageSharpFluid_withWebp
@@ -151,7 +151,7 @@ const FunctionalityPreview = ({openTab, hiddenParts}: FunctionalityProps) => {
                     <h2>{functionalityData.dex.subtitle}</h2>
                     <p>{functionalityData.dex.desc}</p>
                     <ImageWrapper>
-                        <Img fluid={data.swap.childImageSharp.fluid}></Img>
+                        <Img fluid={data.exchange.childImageSharp.fluid}></Img>
                     </ImageWrapper>
                 </Card>
             }
