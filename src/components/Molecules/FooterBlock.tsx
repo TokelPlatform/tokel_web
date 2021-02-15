@@ -1,6 +1,9 @@
 import React, { ReactElement } from "react"
 import styled from "@emotion/styled"
 import iconImages from "../../data/icons"
+import breakpoints from "../../styles/breakpoints"
+import links from "../../data/links"
+import ClickableIcon from "../Atoms/ClickableIcon"
 
 const defaultProps = {
 }
@@ -32,19 +35,16 @@ const Container = styled.div`
     }
     width: 200px;
     height: 130px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+        width: 175px;
+    }
 `
 const FooterTitle = styled.div`
     display: flex;
     flex-direction: row;
     h2 {
         margin-right: 1rem;
-    }
-    a {
-        margin: 1rem 1rem 0 0;
-    }
-    a:hover {
-        transition: transform .3s;
-        transform: scale(1.3);
     }
 `
 
@@ -54,7 +54,7 @@ const FooterBlock = ({title, desc, icons, idx}: FooterBlockProps): ReactElement 
         <FooterTitle>
             <h2>{title}</h2>
             {icons.map((icon, idx) => (
-                <a key={idx} href="#"><img src={iconImages[icon]} /></a>
+                <ClickableIcon key={idx} link={links[icon]} icon={iconImages[icon]}></ClickableIcon>
             ))}
         </FooterTitle>
         <p>{desc}</p>

@@ -23,13 +23,13 @@ const Container = styled.div`
     background-color: rgb(240, 240, 240, 0.1);
     border-radius: 10px;
     margin: 0.5rem 0.5rem;
+    transition: transform .3s;
     h2 {
         font-family: var(--font-family-secondary);
         font-weight: 600;
     }
     &:hover {
-        background-color: rgb(240, 240, 240, 0.15);
-        transition: transform .3s;
+        background-color: rgb(240, 240, 240, 0.18);
         transform: scale(1.025);
     }
 `
