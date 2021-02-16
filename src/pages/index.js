@@ -62,6 +62,13 @@ const Dashboard = css`
   margin: auto;
   margin-top: -20rem;
   max-width: 900px;
+  @media (max-width: ${breakpoints.smallScreen}) {
+    margin-top: -18rem;
+  }
+  
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: -17rem;
+  }
   @media (max-width: ${breakpoints.mobile}) {
     margin-top: -10rem;
   }
