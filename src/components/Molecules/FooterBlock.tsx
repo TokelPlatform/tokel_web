@@ -31,7 +31,8 @@ const Container = styled.div`
     p {
         font-size: 0.875rem; // 14px
         width: 180px;
-        color: var(--color-darkestBlue-50opacity);
+        color: var(--color-darkestBlue);
+        opacity: 0.5;
         @media (max-width: ${breakpoints.mobilebig}) {
             font-size: 1rem; // 14px
             text-align: center;
