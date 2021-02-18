@@ -105,7 +105,7 @@ const Footer = () => (
             </FooterSecondaryBlock>
         </Container>
         <Footnote>
-            <p>Tokel 2021. Created with love and passion for blockchain and all things centralized by <a href="https://daria.engineer">Daria</a></p>
+            <p>Tokel 2021. Created with love and passion for blockchain and all things decentralized by <a href="https://daria.engineer">Daria</a></p>
             {/* <div>
                 <a href="#">Terms of Service</a>
                 <a href="#">Privacy Policy</a>                
