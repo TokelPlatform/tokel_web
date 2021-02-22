@@ -50,7 +50,7 @@ const WelcomeText = () => {
           <ClickableIcon icon={icons.discord} link={links.discord} />
           <ClickableIcon icon={icons.document} link={links.whitepaper} />          
         </Links>
-        <Roadmap href="/roadmap">Project Roadmap 2021</Roadmap>
+        {/* <Roadmap href="/roadmap">Project Roadmap 2021</Roadmap> */}
       </Container>
   )
 }
