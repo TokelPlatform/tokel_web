@@ -26,6 +26,7 @@ const StyledButton = styled.button`
     font-weight: 600;
     margin: 0 45px 0 45px;
     cursor:pointer;
+    will-change: transform;
     transition: transform .3s;
 
     h2 {

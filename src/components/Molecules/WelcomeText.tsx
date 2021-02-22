@@ -31,6 +31,7 @@ const Links = styled.div`
 const Roadmap = styled.a`
     color: var(--color-almostWhite);
     margin-top: 0.5rem;
+    will-change: transform;
     transition: transform .5s ease;
     &:hover {
       transform: scale(1.3);

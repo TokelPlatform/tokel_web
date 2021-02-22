@@ -24,6 +24,7 @@ const Container = styled.div`
     background: rgba(78, 85, 110, 0.3);
     border-radius: 10px;
     margin: 0.5rem 0.5rem;
+    will-change: transform;
     transition: transform .3s;
     h2 {
         font-family: var(--font-family-secondary);
