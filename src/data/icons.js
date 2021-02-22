@@ -9,8 +9,8 @@ import explorer from "../images/icons/icon_explorer.svg"
 import heart from "../images/icons/icon_heart.svg"
 import market from "../images/icons/icon_market.svg"
 import tokenWallet from "../images/icons/icon_token_wallet.svg"
-import twitter from "../images/icons/icon_twitter.svg"
-import twitter_dark from "../images/icons/icon_twitter_dark.svg"
+import twitter from "../images/icons/icon_twitter_dark.svg"
+import document from "../images/icons/icon_document.svg"
 
 const icons = {
   discord,
@@ -25,7 +25,7 @@ const icons = {
   market,
   tokenWallet,
   twitter,
-  twitter_dark
+  document
 }
 
 export default icons
