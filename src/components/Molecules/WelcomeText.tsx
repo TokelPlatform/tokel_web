@@ -28,17 +28,17 @@ const Links = styled.div`
     margin: 0 0.5rem 0 0.5rem;
   }
 `
-const Roadmap = styled.a`
-    color: var(--color-almostWhite);
-    margin-top: 0.5rem;
-    will-change: transform;
-    transition: transform .5s ease;
-    &:hover {
-      transform: scale(1.3);
-      color: var(--color-purple);
-    }
+// const Roadmap = styled.a`
+//     color: var(--color-almostWhite);
+//     margin-top: 0.5rem;
+//     will-change: transform;
+//     transition: transform .5s ease;
+//     &:hover {
+//       transform: scale(1.3);
+//       color: var(--color-purple);
+//     }
 
-`
+// `
 
 const WelcomeText = () => {
   return (

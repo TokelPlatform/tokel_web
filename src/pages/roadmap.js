@@ -7,6 +7,7 @@ import Footer from "../components/Organisms/Footer"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
+import breakpoints from "../styles/breakpoints"
 
 const Container = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -33,14 +34,51 @@ const Container = styled.div`
 const ProjectTimelineWrapper = styled.div`
   max-height:100%;
   height: 450px;
+  @media (max-width: ${breakpoints.mobilemiddle}) {
+      height: 300px;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+      height: 200px;
+  }
 `
 
 const DevelopmentRoadmapWrapper = styled.div`
     max-height:100%;
     height: 792px;
     padding-bottom: 2rem;
+    @media (max-width: ${breakpoints.tablet}) {
+        height: 500px;
+    }
+    @media (max-width: ${breakpoints.mobilebig}) {
+        height: 400px;
+    }
+    @media (max-width: ${breakpoints.mobile}) {
+        height: 250px;
+    }
 `
 
+const ProjectRoadMap = styled.h1`
+    margin-bottom: 10rem;
+    margin-top: 3rem;
+    @media (max-width: ${breakpoints.mobilebig}) {
+        margin-bottom: 5rem;
+        margin-top: 2rem;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: var(--font-size-h2);
+  }
+`
+const DevelopmentRoadMap = styled.h1`
+    margin-top: 12rem;
+    margin-bottom: 4rem;
+    @media (max-width: ${breakpoints.mobilebig}) {
+        margin-top: 5rem;
+        margin-bottom: 4rem;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: var(--font-size-h2);
+  }
+`
 
 export default function Roadmap({data}) {
   return (
@@ -50,7 +88,7 @@ export default function Roadmap({data}) {
             <Stars starSize={'medium'}/>
             <Stars starSize={'big'}/>
             <LogoText/>
-            <h1 style={{marginBottom: '10rem', marginTop: '3rem'}}>Project Roadmap 2021</h1>
+            <ProjectRoadMap>Project Roadmap 2021</ProjectRoadMap>
             <ProjectTimelineWrapper>
                 <Img  
                     imgStyle={{ objectFit: "contain" }} 
@@ -58,7 +96,7 @@ export default function Roadmap({data}) {
                     fluid={data.timeline.childImageSharp.fluid}
                 />
             </ProjectTimelineWrapper>
-            <h1 style={{marginTop: '12rem', marginBottom: '4rem'}}>DEVELOPMENT ROADMAP 2021</h1>
+            <DevelopmentRoadMap>DEVELOPMENT ROADMAP 2021</DevelopmentRoadMap>
             <DevelopmentRoadmapWrapper>
                 <Img 
                     imgStyle={{ objectFit: "contain" }} 

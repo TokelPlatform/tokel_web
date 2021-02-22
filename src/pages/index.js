@@ -20,12 +20,9 @@ const MainPage = styled.div`
 `
 const Dashboard = css`
   margin: auto;
-  margin-top: -20rem;
+  margin-top: -18rem;
   max-width: 900px;
-  @media (max-width: ${breakpoints.smallScreen}) {
-    margin-top: -18rem;
-  }
-  
+
   @media (max-width: ${breakpoints.tablet}) {
     margin-top: -17rem;
   }
