@@ -31,7 +31,12 @@ const animStar = keyframes`
     to {transform: translateY(-1000px)}
 `
 
-const StarContainer = styled.div`
+/**
+ * will-change was added coz the stars were blurry in Chrome
+ * https://css-tricks.com/almanac/properties/w/will-change/
+ */
+const StarContainer = styled.div` 
+    will-change: transform;
     width: ${props => getSize(props.size)};
     height: ${props => getSize(props.size)};
     background: transparent;

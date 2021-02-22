@@ -74,7 +74,7 @@ export default function Roadmap({data}) {
 
 export const query = graphql`
   query {
-    timeline: file(relativePath: { eq: "projectTimeline.png" }) {
+    timeline: file(relativePath: { eq: "projectRoadmap.png" }) {
       childImageSharp {
         fluid(quality: 100) {
           ...GatsbyImageSharpFluid_withWebp
