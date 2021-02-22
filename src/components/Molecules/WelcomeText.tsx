@@ -44,7 +44,7 @@ const WelcomeText = () => {
   return (
       <Container>
         <LogoText/>
-        <Title>Komodo ecosystem’s Token Platform.</Title>        
+        <Title>Komodo ecosystem’s Token Platform</Title>        
         <Links>        
           <ClickableIcon link={links.github} />
           <ClickableIcon icon={icons.discord} link={links.discord} />
