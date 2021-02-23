@@ -28,17 +28,16 @@ const Links = styled.div`
     margin: 0 0.5rem 0 0.5rem;
   }
 `
-// const Roadmap = styled.a`
-//     color: var(--color-almostWhite);
-//     margin-top: 0.5rem;
-//     will-change: transform;
-//     transition: transform .5s ease;
-//     &:hover {
-//       transform: scale(1.3);
-//       color: var(--color-purple);
-//     }
-
-// `
+const Roadmap = styled.a`
+    color: var(--color-almostWhite);
+    margin-top: 0.5rem;
+    will-change: transform;
+    transition: transform .5s ease;
+    &:hover {
+      transform: scale(1.3);
+      color: var(--color-purple);
+    }
+`
 
 const WelcomeText = () => {
   return (
@@ -50,7 +49,7 @@ const WelcomeText = () => {
           <ClickableIcon icon={icons.discord} link={links.discord} />
           {/* <ClickableIcon icon={icons.document} link={links.whitepaper} />           */}
         </Links>
-        {/* <Roadmap href="/roadmap">Project Roadmap 2021</Roadmap> */}
+        <Roadmap href="/roadmap">Project Roadmap 2021</Roadmap>
       </Container>
   )
 }

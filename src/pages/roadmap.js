@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
-// import { css } from "@emotion/react"
+import { Link } from "gatsby"
+import { css } from "@emotion/react"
 import Stars from "../components/Atoms/Stars"
 import LogoText from "../components/Atoms/LogoText"
 import Footer from "../components/Organisms/Footer"
@@ -10,11 +11,9 @@ import PropTypes from 'prop-types'
 import breakpoints from "../styles/breakpoints"
 
 const Container = styled.div`
-  background: linear-gradient(180deg, #13182A 0%, #263867 100%);
-  height: 300v;
   margin: auto;
   text-align: center;
-  padding-top: 15rem;
+  padding-top: 17rem;
   padding-left: 2rem;
   padding-right: 2rem;
 
@@ -45,7 +44,8 @@ const ProjectTimelineWrapper = styled.div`
 const DevelopmentRoadmapWrapper = styled.div`
     max-height:100%;
     height: 792px;
-    padding-bottom: 2rem;
+    padding-bottom: 8rem;
+    // padding-top: 5rem;
     @media (max-width: ${breakpoints.tablet}) {
         height: 500px;
     }
@@ -79,14 +79,29 @@ const DevelopmentRoadMap = styled.h1`
     font-size: var(--font-size-h2);
   }
 `
+const RoadMapContainer = styled.div`
+  background: linear-gradient(180deg, #13182A 0%, #263867 100%);
+  padding-top: 3rem;
+`
+
+const linkToHome = css`
+  color: var(--color-almostWhite); 
+  opacity: 0.7; 
+  margin-left: 3rem;
+  &:hover {
+    opacity: 1;
+  }
+`
 
 export default function Roadmap({data}) {
   return (
-      <div>
+    <div>
+      <RoadMapContainer>         
+        <Link css={linkToHome} to="/">Back to Homepage</Link>   
+        <Stars starSize={'small'} />
+        <Stars starSize={'medium'}/>
+        <Stars starSize={'big'}/>
         <Container>
-            <Stars starSize={'small'} />
-            <Stars starSize={'medium'}/>
-            <Stars starSize={'big'}/>
             <LogoText/>
             <ProjectRoadMap>Project Roadmap 2021</ProjectRoadMap>
             <ProjectTimelineWrapper>
@@ -105,8 +120,9 @@ export default function Roadmap({data}) {
                 />
             </DevelopmentRoadmapWrapper>
         </Container>
-       <Footer />
-     </div>
+        </RoadMapContainer>
+        <Footer />
+       </div>
   )
 }
 
