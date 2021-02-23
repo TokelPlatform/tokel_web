@@ -45,7 +45,6 @@ const DevelopmentRoadmapWrapper = styled.div`
     max-height:100%;
     height: 792px;
     padding-bottom: 8rem;
-    // padding-top: 5rem;
     @media (max-width: ${breakpoints.tablet}) {
         height: 500px;
     }

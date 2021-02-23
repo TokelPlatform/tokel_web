@@ -33,9 +33,9 @@ const Roadmap = styled.a`
     margin-top: 0.5rem;
     will-change: transform;
     transition: transform .5s ease;
+    opacity: 0.7;
     &:hover {
-      transform: scale(1.3);
-      color: var(--color-purple);
+      opacity: 1;
     }
 `
 
