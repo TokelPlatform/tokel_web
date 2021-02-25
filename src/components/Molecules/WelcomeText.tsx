@@ -47,7 +47,7 @@ const WelcomeText = () => {
         <Links>        
           <ClickableIcon link={links.github} />
           <ClickableIcon icon={icons.discord} link={links.discord} />
-          {/* <ClickableIcon icon={icons.document} link={links.whitepaper} />           */}
+          <ClickableIcon icon={icons.document} link={links.whitepaper} />          
         </Links>
         <Roadmap href="/roadmap">Project Roadmap 2021</Roadmap>
       </Container>
