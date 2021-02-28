@@ -1,6 +1,6 @@
 const links = {
-    discord: 'https://discord.gg/DnajQwps',
-    discord_dark: 'https://discord.gg/DnajQwps',
+    discord: 'https://discord.gg/R9u43zYZka',
+    discord_dark: 'https://discord.gg/R9u43zYZka',
     twitter: 'https://twitter.com',
     github: 'https://github.com/TokelPlatform/tokel_app',
     github_dark: 'https://github.com/TokelPlatform/tokel_app',
