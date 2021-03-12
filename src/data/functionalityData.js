@@ -7,7 +7,7 @@ export default {
     nft: {
         title: 'NFT Marketplace',
         subtitle: 'Buy & Sell Non-Fungible-Tokens at the Tokel marketplace',
-        desc: "Non-fungible-tokens can be instantly traded on the Tokel blockchain. NFT's can be used to virtually manage loyalty programs, sell virtual tickets to an online or in person, tokenize real-world assets, or to signify the ownership of artwork."
+        desc: "Non-fungible-tokens can be instantly traded on the Tokel blockchain. NFT's can be used to signify ownership of digital assets, sell virtual tickets to an online or in person event, tokenize physical assets, or to signify the ownership of artwork."
     },
     tokens: {
         title: 'Create your own tokens',
