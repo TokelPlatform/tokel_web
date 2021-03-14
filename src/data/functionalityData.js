@@ -12,6 +12,6 @@ export default {
     tokens: {
         title: 'Create your own tokens',
         subtitle: 'Tokenize your business on the Tokel chain.',
-        desc: 'Reap the benefits of tokenization or the use of a token economic model. Create equity based tokens, security tokens, debt issuance tokens or asset backed tokens. Other token use cases include charities looking to tokenize and utilize a public ledger for donations, crowdfunding organizations, as well as video game development projects looking to capitilize on token economics or gamifying NFT's.'
+        desc: 'Reap the benefits of tokenization or the use of a token economic model. Create equity based tokens, security tokens, debt issuance tokens or asset backed tokens. Other token use cases include charities looking to tokenize and utilize a public ledger for donations, crowdfunding organizations, as well as video game development projects looking to capitilize on token economics or gamifying NFT\'s.'
     },
 }
