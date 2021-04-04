@@ -83,11 +83,13 @@ const ReactDeveloper = () => {
             <h3 id="requirements"># Requirements</h3>
 
             <ul>
-                <li>Experience with React and Typescript (pretty important)Experience with Electron is preferred.</li>
-                <li>Good level of English, can ask questions, read technical documentation.</li>
-                <li>Design sense - please speak up if something in the design doesn’t make senseIndependence</li>
+                <li>Experience with React and Typescript (pretty important)</li> 
+                <li>Experience with Electron is preferred</li>
+                <li>Good level of English, can ask questions, read technical documentation</li>
+                <li>Design sense - please speak up if something in the design doesn’t make sense</li>
+                <li>Independence</li>
                 <li>Please ask as many questions as you need</li>
-                <li>Communicate everything that is going on, especially if you are unavailable or something has changed. Life happens but I need to know if anything is going on to adjust myself too.</li>
+                <li>Communicate everything that is going on, especially if you are unavailable or something has changed. Life happens but we need to know if anything is going on to adjust ourselves accordingly.</li>
             </ul>
 
             <h3 id="job"># The Job</h3>
@@ -95,9 +97,10 @@ const ReactDeveloper = () => {
             <p>You will work alongside another developer. We will create GitHub issues for you at the start with detailed explanations and later as the work progresses we can decide on what should be done next together, once you are more involved in the project. </p>
             <ul>
                 <li>Continuous Implementation of designs (see below for link)</li>
-                <li>Implementation of React application logicMinimum availability about 10-15hrs/week.</li>
+                <li>Implementation of React application logic</li> 
+                <li>Minimum availability about 10-15hrs/week</li>
                 <li>All the tasks will be submitted as Pull Requests for revision. The smaller pull requests the better.</li>
-                <li>Changes in app structure are welcome.</li>
+                <li>Changes in the app structure are welcome</li>
             </ul>
 
             <h3># Budget</h3>
