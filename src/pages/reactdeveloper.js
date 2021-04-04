@@ -64,7 +64,7 @@ const ReactDeveloper = () => {
         <Stars starSize={'medium'}/>
         <Stars starSize={'big'}/>   
 
-        <h1><LogoText /> is hiring a React developer</h1> 
+        <h1><LogoText /> is looking for a React developer</h1> 
           <Content>
             <Disclaimer>
                 <h4>DISCLAIMER</h4>
@@ -103,10 +103,12 @@ const ReactDeveloper = () => {
                 <li>Changes in the app structure are welcome</li>
             </ul>
 
-            <h3># Budget</h3>
+            <h3># Payment</h3>
 
             <p>Your renumeration is open to dicussion.</p>
             <p>Payment can be made in USD/EUR or if interested in KMD.</p>
+
+            <p>We are not a company that can hire somebody. We are looking for a developer to join the community and give us their time. Efforts in the project are rewarded with bounty payments (not hiring). If people can carry out the bounty work (tasks we allocated them), then they can be given bounties. If they cannot complete the tasks, then they should not receive funds.</p>
             
             <h3># Sources</h3>
 
