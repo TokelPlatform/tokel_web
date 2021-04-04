@@ -107,8 +107,6 @@ const ReactDeveloper = () => {
 
             <p>Your renumeration is open to dicussion.</p>
             <p>Payment can be made in USD/EUR or if interested in KMD.</p>
-
-            <p>We are not a company that can hire somebody. We are looking for a developer to join the community and give us their time. Efforts in the project are rewarded with bounty payments (not hiring). If people can carry out the bounty work (tasks we allocated them), then they can be given bounties. If they cannot complete the tasks, then they should not receive funds.</p>
             
             <h3># Sources</h3>
 
