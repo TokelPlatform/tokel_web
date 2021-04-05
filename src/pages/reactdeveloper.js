@@ -17,6 +17,18 @@ const Container = styled.div`
     a {
         color: var(--color-purple);
     }
+    h1 {
+        @media (max-width: ${breakpoints.mobilebig}) {
+            width: 400px;
+            margin: auto;
+            text-align: left;
+        }
+        @media (max-width: ${breakpoints.mobile}) {
+            width: 360px;
+            margin: auto;
+            text-align: left;
+        }
+    }
 `
 const Disclaimer = styled.div`
     opacity: 0.7;
