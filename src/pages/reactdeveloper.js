@@ -17,13 +17,10 @@ const Container = styled.div`
     a {
         color: var(--color-purple);
     }
-
 `
 const Disclaimer = styled.div`
     opacity: 0.7;
     margin:0;
-    // border-top: 0.5px solid white;
-    // border-bottom: 0.5px solid white;
     margin-top: 3rem;
     margin-bottom: 3rem;
     p {
@@ -59,17 +56,17 @@ const Content = styled.div`
         width: 400px;
       }
     @media (max-width: ${breakpoints.mobile}) {
-        width: 300px;
-      }
+        width: 350px;
+    }
 `
 
 // markup
 const ReactDeveloper = () => {
   return (
       <Container>  
-        <Stars starSize={'small'} />
-        <Stars starSize={'medium'}/>
-        <Stars starSize={'big'}/>   
+        <Stars starSize={'small'} top="2500px" />
+        <Stars starSize={'medium'} top="2500px"/>
+        <Stars starSize={'big'} top="2500px"/>   
 
         <h1><LogoText /> is looking for a React developer</h1> 
           <Content>

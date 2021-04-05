@@ -4,7 +4,8 @@ import { css, keyframes } from '@emotion/react'
 import breakpoints from "../../styles/breakpoints"
 
 type StarProps = {
-    starSize: string
+    starSize: string,
+    top: string
 }
 
 const rand = () => Math.random() * 4000 + 1
@@ -51,13 +52,17 @@ const StarContainer = styled.div`
       box-shadow: ${props => shadows[props.size]};
 
       @media (max-width: ${breakpoints.mobile}) {
-        top: 4000px;
+        top: ${props =>  props.top ? props.top : '4000px'};
       }
     }   
 `
 
-const Stars = ({starSize}: StarProps): ReactElement => (
-    <StarContainer size={starSize}  css={css`animation: ${animStar} 120s linear infinite;`} />
+const Stars = ({starSize, top}: StarProps): ReactElement => (
+    <StarContainer size={starSize} top={top} css={css`animation: ${animStar} 120s linear infinite;`} />
 )
 
+Stars.defaultProps = {
+  starSize: 'small',
+  top: null
+}
 export default Stars
