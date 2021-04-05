@@ -2,6 +2,7 @@ import * as React from "react"
 import styled from "@emotion/styled"
 import Stars from "../components/Atoms/Stars"
 import LogoText from "../components/Atoms/LogoText"
+import breakpoints from "../styles/breakpoints"
 
 const Container = styled.div`
     background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -54,6 +55,12 @@ const Content = styled.div`
     h3 {
         margin-top: 4rem;
     }
+    @media (max-width: ${breakpoints.mobilebig}) {
+        width: 400px;
+      }
+    @media (max-width: ${breakpoints.mobile}) {
+        width: 300px;
+      }
 `
 
 // markup
