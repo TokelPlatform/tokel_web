@@ -1,9 +1,10 @@
 import React, { ReactElement } from "react"
-import styled from "@emotion/styled"
+
 import logoText from "../../images/logo-text.svg"
+import styled from "@emotion/styled"
 
 const Logo = styled.img`
-    width: 200px;
+    width: 100px;
 `
 
 const LogoText = (): ReactElement => (
