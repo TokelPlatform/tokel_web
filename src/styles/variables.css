@@ -13,6 +13,7 @@
     --color-darkestBlue-10opacity: #696969;
     --color-gray-10opacity: #E6E7EA;
 
+    --gradient-purple-direct: linear-gradient(180deg, #8050EF 0%, #687BF7 100%);
 
     /* Fonts */
     --font-family-primary: 'SourceSansPro', sans-serif;

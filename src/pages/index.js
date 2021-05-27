@@ -22,7 +22,6 @@ const MainPage = styled.div`
 `
 const Dashboard = css`
   margin: auto;
-  margin-top: -18rem;
   max-width: 900px;
 
   @media (max-width: ${breakpoints.tablet}) {

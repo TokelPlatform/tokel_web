@@ -3,8 +3,8 @@ import styled from "@emotion/styled"
 
 export const Title = styled.header`
   color: var(--color-almostWhite);
-  font-size: 90px;
-  line-height: 95px;
+  font-size: 80px;
+  line-height: 85px;
   text-align: center;
   font-family: var(--font-family-secondary);
   font-weight: 700;
@@ -21,4 +21,5 @@ export const SubTitle = styled.h1`
   text-transform: uppercase;
   color: var(--color-gray);
   opacity: 0.6;
+  font-weight: 600;
 `
