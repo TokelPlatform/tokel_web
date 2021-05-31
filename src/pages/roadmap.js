@@ -13,9 +13,7 @@ import styled from "@emotion/styled"
 const Container = styled.div`
   margin: auto;
   text-align: center;
-  padding-top: 17rem;
-  padding-left: 12rem;
-  padding-right: 12rem;
+  padding: 17rem 12rem 5rem 12rem;
 
   h1 {
       color: var(--color-lightBlue);

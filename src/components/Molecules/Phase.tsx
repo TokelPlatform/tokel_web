@@ -2,8 +2,13 @@ import React from "react"
 import SquareLabel from "../Atoms/SquareLabel"
 import styled from "@emotion/styled"
 
-const PhaseRoot = styled.div`
-  border: 1px solid var(--color-almostWhite);
+type PhaseRootProps = {
+    current: number;
+    idx: number;
+}
+const PhaseRoot = styled.div<PhaseRootProps>`
+  border: ${props => props.current ? '1px solid var(--color-almostWhite)' :'none'};
+  background-color: ${props => props.current ? 'none' :  (props.idx % 2 === 0) ? 'rgba(240, 240, 240, 0.1)': 'none' };
   box-sizing: border-box;
   border-radius: 10px;
   display: grid;
@@ -11,7 +16,7 @@ const PhaseRoot = styled.div`
   justify-items: flex-start;
   align-items: flex-start;
   padding: 2.5rem 5rem;
-  margin: 10rem 0;
+  margin: 5rem 0rem;
 `
 
 const DescriptionWrapper = styled.div`
@@ -43,14 +48,15 @@ export type PhaseProp = {
 }
 
 export type Props = {
-    data: PhaseProp
+    data: PhaseProp;
+    idx?: number;
 }
 
-const Phase = ({data}: Props) => (
-    <PhaseRoot>
+const Phase = ({data, idx}: Props) => (
+    <PhaseRoot current={data.current} idx={idx}>
         <div>
             <h1>{data.phase.title}</h1>
-            <SquareLabel text={data.phase.label}></SquareLabel>
+            <SquareLabel text={data.phase.label} active={data.current}></SquareLabel>
             <p>{data.phase.timeInformation}</p>
         </div>
         <DescriptionWrapper>
