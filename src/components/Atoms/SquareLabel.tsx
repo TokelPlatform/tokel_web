@@ -3,10 +3,11 @@ import React, { ReactElement } from "react"
 import styled from "@emotion/styled"
 
 type SquareLabelProps = {
-    text: string;
+    text?: string;
+    active: number;
 }
-const SquareLabelRoot = styled.div`
-    background: var(--color-yellow-label);
+const SquareLabelRoot = styled.div<SquareLabelProps>`
+    background: ${props => props.active ? 'var(--color-yellow-label)' : 'var(--color-gray)'};
     border-radius: 5px;
     padding: 8px 16px;
     height: 30px;
@@ -23,8 +24,8 @@ const SquareLabelRoot = styled.div`
     }
 `
 
-const SquareLabel = ({text}: SquareLabelProps): ReactElement => (
-    <SquareLabelRoot>
+const SquareLabel = ({text, active}: SquareLabelProps): ReactElement => (
+    <SquareLabelRoot active={active}>
         <h3>
             {text}
         </h3>
