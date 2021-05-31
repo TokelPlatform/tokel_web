@@ -1,12 +1,11 @@
 import Footer from "../components/Organisms/Footer"
-import { Link } from "gatsby"
 import LogoImg from "../components/Atoms/LogoImg"
 import PropTypes from 'prop-types'
 import React from "react"
 import RoadmapList from "../components/Organisms/RoadmapList"
 import Stars from "../components/Atoms/Stars"
 import { Title } from "../components/Atoms/Title"
-import { css } from "@emotion/react"
+import TopBar from "../components/Molecules/TopBar"
 import { graphql } from "gatsby"
 import planetsTop from '../images/planets-top.svg'
 import styled from "@emotion/styled"
@@ -30,16 +29,6 @@ const Container = styled.div`
 
 const RoadMapContainer = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
-  padding-top: 3rem;
-`
-
-const linkToHome = css`
-  color: var(--color-almostWhite); 
-  opacity: 0.7; 
-  margin-left: 3rem;
-  &:hover {
-    opacity: 1;
-  }
 `
 
 const TopPlanets = styled.img`
@@ -54,7 +43,7 @@ export default function Roadmap() {
   return (
     <div>
       <RoadMapContainer>         
-        <Link css={linkToHome} to="/">Back to Homepage</Link>   
+        <TopBar />  
         <Stars starSize={'small'} />
         <Stars starSize={'medium'}/>
         <Stars starSize={'big'}/>

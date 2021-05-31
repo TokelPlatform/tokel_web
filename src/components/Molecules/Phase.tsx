@@ -8,10 +8,10 @@ const PhaseRoot = styled.div`
   border-radius: 10px;
   display: grid;
   grid-template-columns: 30% 70%;
-  justify-items: center;
+  justify-items: flex-start;
   align-items: flex-start;
-  padding: 2.5rem 2rem;
-  margin: 4rem 0;
+  padding: 2.5rem 5rem;
+  margin: 10rem 0;
 `
 
 const DescriptionWrapper = styled.div`
@@ -48,7 +48,6 @@ export type Props = {
 
 const Phase = ({data}: Props) => (
     <PhaseRoot>
-        {console.log(data)}
         <div>
             <h1>{data.phase.title}</h1>
             <SquareLabel text={data.phase.label}></SquareLabel>
@@ -57,7 +56,7 @@ const Phase = ({data}: Props) => (
         <DescriptionWrapper>
             {data.phaseDetails.map(detail => {
                 return(
-                    <div key={detail.title}>
+                    <div style={{marginBottom: '3rem'}}key={detail.title}>
                         <h3>{detail.title}</h3>
                         <Description>{detail.description}</Description>
                     </div>
