@@ -1,5 +1,6 @@
 import React from "react"
 import SquareLabel from "../Atoms/SquareLabel"
+import breakpoints from "../../styles/breakpoints"
 import styled from "@emotion/styled"
 
 type PhaseRootProps = {
@@ -17,6 +18,18 @@ const PhaseRoot = styled.div<PhaseRootProps>`
   align-items: flex-start;
   padding: 2.5rem 5rem;
   margin: 5rem 0rem;
+  @media (max-width: ${breakpoints.roadmap.breakpoint1}) {
+    grid-template-columns: none;
+    grid-template-rows: 30% 70%;
+  }
+
+  @media (max-width: ${breakpoints.roadmap.breakpoint2}) {
+  padding: 2rem 3rem;
+  }
+
+  @media (max-width: ${breakpoints.roadmap.breakpoint3}) {
+  padding: 1rem 3rem;
+  }
 `
 
 const DescriptionWrapper = styled.div`
@@ -28,10 +41,14 @@ const DescriptionWrapper = styled.div`
       text-transform: uppercase;
         
     }
+    @media (max-width: ${breakpoints.roadmap.breakpoint1}) {
+        padding: 0;
+    }
 `
 const Description =styled.p`
-    max-width: 500px;
+    max-width: 650px;
 `
+
 type PhaseDetailProp = {
     title: string;
     description: string;
@@ -55,7 +72,7 @@ export type Props = {
 const Phase = ({data, idx}: Props) => (
     <PhaseRoot current={data.current} idx={idx}>
         <div>
-            <h1>{data.phase.title}</h1>
+            <h1 className="phaseTitle">{data.phase.title}</h1>
             <SquareLabel text={data.phase.label} active={data.current}></SquareLabel>
             <p>{data.phase.timeInformation}</p>
         </div>

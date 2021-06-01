@@ -37,8 +37,8 @@ const NavigationVertical = styled.div`
 const menuLinks = [
   { link: links.github, name: "Project" },
   { link: links.whitepaper, name: "White Paper" },
-  { link: '/', name: "Roadmap" },
-  { link: '/', name: "Explorer" },
+  { link: '/roadmap', name: "Roadmap" },
+  { link: links.explorer, name: "Explorer" },
 ];
 
 const Navigation = () => {

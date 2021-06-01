@@ -6,15 +6,24 @@ import RoadmapList from "../components/Organisms/RoadmapList"
 import Stars from "../components/Atoms/Stars"
 import { Title } from "../components/Atoms/Title"
 import TopBar from "../components/Molecules/TopBar"
+import breakpoints from "../styles/breakpoints"
 import { graphql } from "gatsby"
 import planetsTop from '../images/planets-top.svg'
 import styled from "@emotion/styled"
 
-const Container = styled.div`
+const RoadmapWrapper = styled.div`
   margin: auto;
   text-align: center;
   padding: 17rem 12rem 5rem 12rem;
+  
+  @media (max-width: ${breakpoints.roadmap.breakpoint2}) {
+    padding: 12rem 6rem 5rem 6rem;
+  }
 
+  @media (max-width: ${breakpoints.roadmap.breakpoint3}) {
+    padding: 0 2rem 5rem 2rem;
+  }
+  
   h1 {
       color: var(--color-lightBlue);
       text-transform: uppercase;
@@ -45,11 +54,11 @@ export default function Roadmap() {
         <Stars starSize={'small'} />
         <Stars starSize={'medium'}/>
         <Stars starSize={'big'}/>
-        <Container>
+        <RoadmapWrapper>
           <TopPlanets src={planetsTop} />
           <Title style={{textAlign: "left"}}>R<LogoImg width="50px"></LogoImg>admap</Title>
           <RoadmapList style={{marginTop: '12rem'}}/>
-        </Container>
+        </RoadmapWrapper>
         </RoadMapContainer>
         <Footer />
        </div>
