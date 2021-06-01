@@ -12,9 +12,8 @@ export const Title = styled.header`
     margin: 0 0.5rem 0 0.5rem;
   }
   @media (max-width: ${breakpoints.mobile}) {
-    font-size: var(--font-size-h2);
-    font-weigth: 400;
-    margin-top: 1rem;
+    font-size: 60px;
+    line-height: 67px;
   }
 `
 export const SubTitle = styled.h1`
@@ -22,4 +21,7 @@ export const SubTitle = styled.h1`
   color: var(--color-gray);
   opacity: 0.6;
   font-weight: 600;
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 20px;
+  }
 `

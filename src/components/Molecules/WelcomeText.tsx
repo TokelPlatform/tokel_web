@@ -15,21 +15,29 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 8rem;
+  padding-bottom: 2rem;
   justify-content: center;
-  /* height: 100vh; */
   @media (max-width: ${breakpoints.mobile}) {
-    height: 35rem;
+    padding-top: 0;
   }
+`
+
+const Download = styled.div`
+  @media (max-width: ${breakpoints.mobile}) {
+    display: none;
+  }    
 `
 
 const WelcomeText = () => {
   return (
       <Container>
-        <SubTitle>Introducing TOKEL</SubTitle>
-        <Title>A grass roots <br /> t<LogoImg width="50px"></LogoImg>ken platform</Title>
-        <VSpacerBig />
-        <a href={links.github_release_page}><Button theme={Colors.PURPLE} text="Download v 1.0.0" width="240px"></Button></a>
-        <VSpacerBig />
+        <SubTitle className="subtitle">Introducing TOKEL</SubTitle>
+        <Title>A grass roots <br /> t<LogoImg mobileWidth="36px" width="50px"></LogoImg>ken platform</Title>
+        <Download>
+          <VSpacerBig />
+          <a href={links.github_release_page}><Button theme={Colors.PURPLE} text="Download v 1.0.0" width="240px"></Button></a>
+          <p style={{textAlign: 'center', color: 'var(--color-gray)'}}>Currently Desktop only</p>
+        </Download>
       </Container>
   )
 }
