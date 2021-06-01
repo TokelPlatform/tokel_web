@@ -29,7 +29,7 @@ const NavigationHorizontal = styled.ul`
 
 const NavigationVertical = styled.div`
   display: none;
-  margin-top: 10rem;
+  margin-bottom: 10rem;
   @media (max-width: 49em) {
     display: block;
   }

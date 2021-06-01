@@ -6,7 +6,7 @@ type StyledBurgerProps = {
 
 export const StyledBurger = styled.button<StyledBurgerProps>`
   position: absolute;
-  top: 5.5%;
+  top: 3rem;
   right: 1.5rem;
   display: flex;
   flex-direction: column;
