@@ -6,7 +6,7 @@ export const Title = styled.header`
   font-size: 80px;
   line-height: 85px;
   text-align: center;
-  font-family: var(--font-family-secondary);
+  font-family: var(--font-family-primary);
   font-weight: 700;
   & > a {
     margin: 0 0.5rem 0 0.5rem;
@@ -22,6 +22,7 @@ export const Title = styled.header`
 `
 export const SubTitle = styled.h1`
   text-transform: uppercase;
+  font-family: var(--font-family-primary);
   color: var(--color-gray);
   opacity: 0.6;
   font-weight: 600;
