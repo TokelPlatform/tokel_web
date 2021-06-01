@@ -43,7 +43,12 @@ const TopPlanets = styled.img`
   width: 370px;
   position: absolute;
   right: 0;
-  top: 0;
+  top: -10px;
+  @media (max-width: ${breakpoints.roadmap.breakpoint3}) {
+    top: -100px;
+    height: 455px;
+    width: 270px;
+  }
 `
 
 export default function Roadmap() {

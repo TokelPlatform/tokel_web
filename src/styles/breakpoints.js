@@ -8,7 +8,7 @@ export default {
         breakpoint1: '1050px',
         breakpoint2: '960px',
         breakpoint3: '550px',
-        breakpoint4: '1000px'
+        breakpoint4: '450px'
     }
 
 }

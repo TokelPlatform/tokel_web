@@ -28,7 +28,11 @@ const PhaseRoot = styled.div<PhaseRootProps>`
   }
 
   @media (max-width: ${breakpoints.roadmap.breakpoint3}) {
-  padding: 1rem 3rem;
+    padding: 1rem 3rem;
+  }
+  @media (max-width: ${breakpoints.roadmap.breakpoint4}) {
+    padding: 1rem 1.5rem;
+    margin: 2rem 0rem;
   }
 `
 
