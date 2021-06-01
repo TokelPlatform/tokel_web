@@ -23,13 +23,6 @@ const MainPage = styled.div`
 const Dashboard = css`
   margin: auto;
   max-width: 900px;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    margin-top: -17rem;
-  }
-  @media (max-width: ${breakpoints.mobile}) {
-    margin-top: -10rem;
-  }
 `
 
 const IndexPage = ({data})  => {
