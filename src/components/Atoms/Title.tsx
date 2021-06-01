@@ -12,8 +12,8 @@ export const Title = styled.header`
     margin: 0 0.5rem 0 0.5rem;
   }
   @media (max-width: ${breakpoints.mobile}) {
-    font-size: 56px;
-    line-height: 60px;
+    font-size: 46px;
+    line-height: 50px;
   }
 `
 export const SubTitle = styled.h1`

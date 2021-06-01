@@ -32,7 +32,7 @@ const WelcomeText = () => {
   return (
       <Container>
         <SubTitle className="subtitle">Introducing TOKEL</SubTitle>
-        <Title>A grass roots <br /> t<LogoImg mobileWidth="36px" width="50px"></LogoImg>ken platform</Title>
+        <Title>A grass roots <br /> t<LogoImg mobileWidth="30px" width="50px"></LogoImg>ken platform</Title>
         <Download>
           <VSpacerBig />
           <a href={links.github_release_page}><Button theme={Colors.PURPLE} text="Download v 1.0.0" width="240px"></Button></a>
