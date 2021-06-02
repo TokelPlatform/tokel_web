@@ -1,15 +1,17 @@
 import * as React from "react"
-import styled from "@emotion/styled"
-import { css } from "@emotion/react"
-import Img from "gatsby-image"
-import { graphql } from "gatsby"
-import PropTypes from 'prop-types'
-import Functionality from "../components/Organisms/Functionality"
+
 import Features from "../components/Organisms/Features"
 import Footer from "../components/Organisms/Footer"
+import Functionality from "../components/Organisms/Functionality"
+import Img from "gatsby-image"
+import PropTypes from 'prop-types'
 import Stars from "../components/Atoms/Stars"
-import breakpoints from "../styles/breakpoints"
+import TopBar from "../components/Molecules/TopBar"
 import WelcomeText from "../components/Molecules/WelcomeText"
+import breakpoints from "../styles/breakpoints"
+import { css } from "@emotion/react"
+import { graphql } from "gatsby"
+import styled from "@emotion/styled"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -20,20 +22,13 @@ const MainPage = styled.div`
 `
 const Dashboard = css`
   margin: auto;
-  margin-top: -18rem;
   max-width: 900px;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    margin-top: -17rem;
-  }
-  @media (max-width: ${breakpoints.mobile}) {
-    margin-top: -10rem;
-  }
 `
 
 const IndexPage = ({data})  => {
   return (
     <MainPage>
+      <TopBar />
       <Stars starSize={'small'} />
       <Stars starSize={'medium'}/>
       <Stars starSize={'big'}/>
