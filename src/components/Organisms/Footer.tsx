@@ -1,9 +1,9 @@
-import React from "react"
-import styled from "@emotion/styled"
 import FooterBlock from "../Molecules/FooterBlock"
+import React from "react"
+import breakpoints from "../../styles/breakpoints"
 import footerData from "../../data/footer"
 import logoTextDark from "../../images/logo-text-dark.svg"
-import breakpoints from "../../styles/breakpoints"
+import styled from "@emotion/styled"
 
 const defaultProps = {
 }
@@ -89,7 +89,7 @@ const Footer = () => (
     <StyledFooter>
         <Container>
             <FooterMainBlock>
-                <img src={logoTextDark} />
+                <img width="120px" src={logoTextDark} />
                 <p>Komodo ecosystem’s Token Platform. </p>
             </FooterMainBlock>
             <FooterSecondaryBlock>
