@@ -59,9 +59,9 @@ export default function Roadmap() {
     <div>
       <RoadMapContainer>         
         <TopBar />  
-        <Stars starSize={'small'} />
-        <Stars starSize={'medium'}/>
-        <Stars starSize={'big'}/>
+        <Stars starSize={'small'} top='3700px' />
+        <Stars starSize={'medium'} top='3700px'/>
+        <Stars starSize={'big'} top='3700px'/>
         <RoadmapWrapper>
           <TopPlanets src={planetsTop} />
           <Title style={{textAlign: "left"}}>R<LogoImg width="50px"></LogoImg>admap</Title>
