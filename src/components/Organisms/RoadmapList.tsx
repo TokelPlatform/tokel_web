@@ -7,11 +7,11 @@ import planetsBottom from "../../images/planets-bottom.svg"
 import styled from "@emotion/styled";
 
 const BottomPlanets = styled.img`
-    height: 300vh; 
-    width: 900px; 
+    height: 1750px; 
+    width: 860px; 
     position: absolute;
-    left: 0;
-    top: 800px;
+    left: -10px;
+    top: 1300px;
     @media (max-width: ${breakpoints.roadmap.breakpoint2}) {
         width: ${breakpoints.roadmap.breakpoint3};
         top: 600px;

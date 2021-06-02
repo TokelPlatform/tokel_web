@@ -34,6 +34,19 @@ const PhaseRoot = styled.div<PhaseRootProps>`
     padding: 1rem 1.5rem;
     margin: 2rem 0rem;
   }
+  h1 {
+        @media (max-width: ${breakpoints.roadmap.breakpoint4}) {            
+            font-size: var(--font-size-h2);
+            text-align: left;
+            margin-bottom: 0.5rem;
+        }        
+    }
+    p {
+        @media (max-width: ${breakpoints.roadmap.breakpoint4}) {            
+            font-size: var(--font-size-p);
+            text-align: left;
+        }        
+    }
 `
 
 const DescriptionWrapper = styled.div`
@@ -78,7 +91,7 @@ const Phase = ({data, idx}: Props) => (
         <div>
             <h1 className="phaseTitle">{data.phase.title}</h1>
             <SquareLabel text={data.phase.label} active={data.current}></SquareLabel>
-            <p>{data.phase.timeInformation}</p>
+            <p style={{textTransform: 'uppercase', opacity: '0.6'}}>{data.phase.timeInformation}</p>
         </div>
         <DescriptionWrapper>
             {data.phaseDetails.map(detail => {

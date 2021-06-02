@@ -23,6 +23,9 @@ const RoadmapWrapper = styled.div`
   @media (max-width: ${breakpoints.roadmap.breakpoint3}) {
     padding: 0 2rem 5rem 2rem;
   }
+  @media (max-width: ${breakpoints.roadmap.breakpoint4}) {
+    padding: 0 1rem 3rem 1rem;
+  }
   
   h1 {
       color: var(--color-lightBlue);
