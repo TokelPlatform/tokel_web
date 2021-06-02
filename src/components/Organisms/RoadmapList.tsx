@@ -13,17 +13,14 @@ const BottomPlanets = styled.img`
     left: 0;
     top: 800px;
     @media (max-width: ${breakpoints.roadmap.breakpoint2}) {
-        /* display: none; */
         width: ${breakpoints.roadmap.breakpoint3};
         top: 600px;
     }
     @media (max-width: ${breakpoints.roadmap.breakpoint3}) {
-        /* display: none; */
         width: ${breakpoints.roadmap.breakpoint4};
         top: 250px;
     }
     @media (max-width: ${breakpoints.roadmap.breakpoint4}) {
-        /* display: none; */
         width: 360px;
         top: 700px;
     }

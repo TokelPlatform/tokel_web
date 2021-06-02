@@ -35,15 +35,15 @@ const phases = [
         phaseDetails: [
             {
                 title: 'TOKEL Chain launch',
-                description: 'TOKEL is going live and right into your wallets. Stay tuned on the news about the official launch.'
+                description: 'We are working hard to ensure everything is in place for the chain launch. Stay tuned for the official announcement and keep your eyes peeled on the website, and the discord for details!.'
             },
             {
                 title: 'TOKEL COIN wallet release',
-                description: 'First planned development release of coin wallet application.' 
+                description: 'Alongside the chain launch, we aim to release the first stage of the Tokel all-in-one application. This release will feature the Tokel main coin wallet, via nspv (super-lite client) [hyperlink for more info on nspv]. This will be one of the first nSPV only wallets available!' 
             },
             {
                 title: 'Tokel Explorer v1 launch',
-                description: 'This quarter focuses on the initial releases of the all-in-one application and the Token explorer launch. Along with that, we plan to launch the Tokel main blockchain for everybody to utilize. This will become a reality after conducting rigorous testing of the Antara modules with the KMD team.'   
+                description: 'Traditional blockchain explorers are not currently setup to handle the exploration of tokens on the Tokel blockchain. We will be releasing an explorer that will allow users to explorer not only the native blockchain, but all of the tokens on it.'   
             }
 
         ]
