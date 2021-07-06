@@ -8,7 +8,7 @@ const Logo = styled.img`
 `
 
 const LogoText = (): ReactElement => (
-    <Logo src={logoText}></Logo>
+    <a href="/"><Logo src={logoText}></Logo></a>
 )
 
 export default LogoText
