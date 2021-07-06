@@ -1,7 +1,8 @@
 import React, { ReactElement } from "react"
-import styled from "@emotion/styled"
 import { css, keyframes } from '@emotion/react'
+
 import breakpoints from "../../styles/breakpoints"
+import styled from "@emotion/styled"
 
 type StarProps = {
     starSize: string,
@@ -32,11 +33,15 @@ const animStar = keyframes`
     to {transform: translateY(-1000px)}
 `
 
+type StarContainerProps = {
+  size: string;
+  top: string;
+}
 /**
  * will-change was added coz the stars were blurry in Chrome
  * https://css-tricks.com/almanac/properties/w/will-change/
  */
-const StarContainer = styled.div` 
+const StarContainer = styled.div<StarContainerProps>` 
     will-change: transform;
     width: ${props => getSize(props.size)};
     height: ${props => getSize(props.size)};

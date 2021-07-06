@@ -1,11 +1,12 @@
+// import Button, { Colors } from "../Atoms/Button"
+import { SubTitle, Title } from "../Atoms/Title"
+
+import LogoImg from "../Atoms/LogoImg"
 import React from "react"
-import styled from "@emotion/styled"
-import Title from "../Atoms/Title"
-import LogoText from "../Atoms/LogoText"
-import ClickableIcon from "../Atoms/ClickableIcon"
-import icons from "../../data/icons"
-import links from "../../data/links"
+// import { VSpacerBig } from "../../styles/common"
 import breakpoints from "../../styles/breakpoints"
+// import links from "../../data/links"
+import styled from "@emotion/styled"
 
 const defaultProps = {
 }
@@ -13,43 +14,30 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 14rem;
+  padding-bottom: 2rem;
   justify-content: center;
-  height: 100vh;
   @media (max-width: ${breakpoints.mobile}) {
-    height: 35rem;
+    padding-top: 0;
   }
 `
-const Links = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  & > a {
-    margin: 0 0.5rem 0 0.5rem;
-  }
-`
-const Roadmap = styled.a`
-    color: var(--color-almostWhite);
-    margin-top: 0.5rem;
-    will-change: transform;
-    transition: transform .5s ease;
-    opacity: 0.7;
-    &:hover {
-      opacity: 1;
-    }
-`
+
+// const Download = styled.div`
+//   @media (max-width: ${breakpoints.mobile}) {
+//     display: none;
+//   }    
+// `
 
 const WelcomeText = () => {
   return (
       <Container>
-        <LogoText/>
-        <Title>Komodo ecosystem’s Token Platform</Title>        
-        <Links>        
-          <ClickableIcon link={links.github} />
-          <ClickableIcon icon={icons.discord} link={links.discord} />
-          <ClickableIcon icon={icons.document} link={links.whitepaper} />          
-        </Links>
-        <Roadmap href="/roadmap">Project Roadmap 2021</Roadmap>
+        <SubTitle className="subtitle">Introducing TOKEL</SubTitle>
+        <Title>A grass roots  <br />t<LogoImg mobileWidth="25px" width="45px"></LogoImg>ken  platform</Title>
+        {/* <Download>
+          <VSpacerBig />
+          <a href={links.github_release_page}><Button theme={Colors.PURPLE} text="Download v 1.0.0" width="240px"></Button></a>
+          <p style={{textAlign: 'center', color: 'var(--color-gray)'}}>Currently Desktop only</p>
+        </Download> */}
       </Container>
   )
 }
