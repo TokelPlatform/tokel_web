@@ -44,6 +44,14 @@ module.exports = {
           },
         ]
       },
+    },
+    {
+      resolve: 'gatsby-plugin-matomo',
+      options: {
+        siteId: '1',
+        matomoUrl: 'https://analytics.tokel.io/matomo.php',
+        siteUrl: 'https://tokel.io'
+      }
     }
     
     
