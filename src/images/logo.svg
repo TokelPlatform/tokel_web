@@ -1,16 +1,16 @@
-<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-<ellipse rx="99.9839" ry="100" transform="matrix(1 0 0.000161611 1 100 100)" fill="#DEDEDE"/>
-<ellipse cx="99.8704" cy="99.5287" rx="81.6841" ry="81.5683" fill="#13182A"/>
-<ellipse cx="99.8708" cy="58.7446" rx="16.3368" ry="16.3137" fill="#DEDEDE"/>
-<path d="M75.3662 60.9171L124.377 52.7602" stroke="#DEDEDE" stroke-width="3"/>
-<ellipse cx="101.913" cy="105.646" rx="6.12631" ry="6.11762" fill="#DEDEDE"/>
-<ellipse cx="159.092" cy="64.8622" rx="2.0421" ry="2.03921" fill="#DEDEDE"/>
-<ellipse cx="148.553" cy="110.483" rx="0.952006" ry="0.952995" fill="#DEDEDE"/>
-<ellipse cx="28.6002" cy="100.953" rx="0.952006" ry="0.952995" fill="#DEDEDE"/>
-<ellipse cx="85.7206" cy="28.5254" rx="0.952006" ry="0.952995" fill="#DEDEDE"/>
-<ellipse cx="108.569" cy="146.697" rx="0.952006" ry="0.952995" fill="#DEDEDE"/>
-<ellipse cx="89.6598" cy="170.901" rx="2.0421" ry="2.03921" fill="#DEDEDE"/>
-<ellipse cx="148.881" cy="148.47" rx="8.16841" ry="8.15683" fill="#DEDEDE"/>
-<ellipse cx="52.6601" cy="136.54" rx="4.08421" ry="4.07841" fill="#DEDEDE"/>
-<ellipse cx="54.9441" cy="75.0583" rx="4.08421" ry="4.07841" fill="#DEDEDE"/>
+<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse rx="24.996" ry="25" transform="matrix(1 0 0.000161611 1 25 25)" fill="#DEDEDE"/>
+<circle cx="25" cy="25" r="21.9697" fill="#13182A"/>
+<ellipse cx="24.968" cy="14.6861" rx="4.08421" ry="4.07841" fill="#DEDEDE"/>
+<path d="M18.8418 15.2293L31.0944 13.1901" stroke="#DEDEDE"/>
+<ellipse cx="25.4779" cy="26.4116" rx="1.53158" ry="1.5294" fill="#DEDEDE"/>
+<ellipse cx="39.7722" cy="16.2156" rx="0.510526" ry="0.509802" fill="#DEDEDE"/>
+<ellipse cx="37.1374" cy="27.6207" rx="0.238002" ry="0.238249" fill="#DEDEDE"/>
+<ellipse cx="7.15109" cy="25.2382" rx="0.238002" ry="0.238249" fill="#DEDEDE"/>
+<ellipse cx="21.4294" cy="7.13132" rx="0.238002" ry="0.238249" fill="#DEDEDE"/>
+<ellipse cx="27.1423" cy="36.6742" rx="0.238002" ry="0.238249" fill="#DEDEDE"/>
+<ellipse cx="22.4148" cy="42.7253" rx="0.510526" ry="0.509802" fill="#DEDEDE"/>
+<ellipse cx="37.2189" cy="37.1175" rx="2.0421" ry="2.03921" fill="#DEDEDE"/>
+<ellipse cx="13.1666" cy="34.1351" rx="1.02105" ry="1.0196" fill="#DEDEDE"/>
+<ellipse cx="13.7369" cy="18.7646" rx="1.02105" ry="1.0196" fill="#DEDEDE"/>
 </svg>

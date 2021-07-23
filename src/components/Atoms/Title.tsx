@@ -1,19 +1,32 @@
-import styled from "@emotion/styled"
 import breakpoints from "../../styles/breakpoints"
+import styled from "@emotion/styled"
 
-const Title = styled.h1`
+export const Title = styled.header`
   color: var(--color-almostWhite);
+  font-size: 80px;
+  line-height: 85px;
+  text-align: center;
   font-family: var(--font-family-primary);
-  margin-top: 3rem;
-  font-weight: 400;
+  font-weight: 700;
   & > a {
     margin: 0 0.5rem 0 0.5rem;
   }
+  @media (max-width: ${breakpoints.mobilemiddle}) {
+    font-size: 70px;
+    line-height: 75px;
+  }
   @media (max-width: ${breakpoints.mobile}) {
-    font-size: var(--font-size-h2);
-    font-weigth: 400;
-    margin-top: 1rem;
+    font-size: 46px;
+    line-height: 50px;
   }
 `
-
-export default Title
+export const SubTitle = styled.h1`
+  text-transform: uppercase;
+  font-family: var(--font-family-primary);
+  color: var(--color-gray);
+  opacity: 0.6;
+  font-weight: 600;
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 20px;
+  }
+`

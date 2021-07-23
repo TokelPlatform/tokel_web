@@ -6,13 +6,15 @@
     --color-lightBlue: #C6CFE7;
     --color-darkPurple: #3E315E;
     --color-purple: #687BF7;
-    --color-gray: #B8BCDD;
+    --color-gray: #A19F9F;
     --color-almostWhite: #F0F0F0;
+    --color-yellow-label: #E7E5C6;
 
     /* Opacity colors */
     --color-darkestBlue-10opacity: #696969;
     --color-gray-10opacity: #E6E7EA;
 
+    --gradient-purple-direct: linear-gradient(180deg, #8050EF 0%, #687BF7 100%);
 
     /* Fonts */
     --font-family-primary: 'SourceSansPro', sans-serif;
