@@ -49,7 +49,7 @@ module.exports = {
       resolve: 'gatsby-plugin-matomo',
       options: {
         siteId: '1',
-        matomoUrl: 'https://analytics.tokel.io/matomo.php',
+        matomoUrl: 'https://analytics.tokel.io',
         siteUrl: 'https://tokel.io'
       }
     }
