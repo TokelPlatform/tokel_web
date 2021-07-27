@@ -1,9 +1,10 @@
 import React, { ReactElement } from "react"
-import styled from "@emotion/styled"
-import iconImages from "../../data/icons"
-import breakpoints from "../../styles/breakpoints"
-import links from "../../data/links"
+
 import ClickableIcon from "../Atoms/ClickableIcon"
+import breakpoints from "../../styles/breakpoints"
+import iconImages from "../../data/icons"
+import links from "../../data/links"
+import styled from "@emotion/styled"
 
 const defaultProps = {
 }
@@ -76,12 +77,12 @@ const FooterTitle = styled.div`
     }
 `
 
-const FooterBlock = ({title, desc, icons, idx}: FooterBlockProps): ReactElement => {
+const FooterBlock = ({title, desc,icons, idx}: FooterBlockProps): ReactElement => {
   return (
     <Container idx={idx}>
         <FooterTitle>
             <h2>{title}</h2>
-            <div>
+            <div style={{marginTop: '2px'}}>
                 {icons.map((icon, idx) => (
                     <ClickableIcon key={idx} link={links[icon]} icon={iconImages[icon]}></ClickableIcon>
                 ))}

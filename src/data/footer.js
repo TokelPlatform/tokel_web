@@ -1,7 +1,7 @@
 export default [
     {
         title: 'Connect',
-        icons: ['discord_dark', 'twitter'],
+        icons: ['discord_dark'],
         desc: 'Reach out to us on Discord. Follow us for project updates.'
     },
     {
