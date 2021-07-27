@@ -18,7 +18,8 @@ const links = {
     floteApp: 'https://flote.app/user/Tokel',
     facebook: 'https://www.facebook.com/TokelPlatform/',
     bittube: 'https://bittube.tv/profile/Tokel',
-    telegram: 'https://t.me/TokelPlatform'
+    telegram: 'https://t.me/TokelPlatform',
+    nspv: 'https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-setup/nspv.html#introduction'
 }
 
 export default links
