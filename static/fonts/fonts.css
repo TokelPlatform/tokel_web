@@ -54,6 +54,14 @@
 }
 
 @font-face {
+    font-family: 'SourceSansPro-italic';
+    src: url('sourcesanspro-italic-webfont.woff2') format('woff2'),
+         url('sourcesanspro-italic-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
     font-family: 'SourceSansPro';
     src: url('sourcesanspro-semibold-webfont.eot');
     src: url('sourcesanspro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
@@ -63,3 +71,31 @@
     font-weight: 600;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'ibm_plex';
+    src: url('ibmplexmono-bold-webfont.woff2') format('woff2'),
+         url('ibmplexmono-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: 700;
+
+}
+
+@font-face {
+    font-family: 'ibm_plex';
+    src: url('ibmplexmono-regular-webfont.woff2') format('woff2'),
+         url('ibmplexmono-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ibm_plex';
+    src: url('ibmplexmono-semibold-webfont.woff2') format('woff2'),
+         url('ibmplexmono-semibold-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+
+}
+

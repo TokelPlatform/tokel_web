@@ -1,7 +1,10 @@
+import ClickableIcon from "../Atoms/ClickableIcon"
 import FooterBlock from "../Molecules/FooterBlock"
 import React from "react"
 import breakpoints from "../../styles/breakpoints"
 import footerData from "../../data/footer"
+import icons from "../../data/icons"
+import links from "../../data/links"
 import logoTextDark from "../../images/logo-text-dark.svg"
 import styled from "@emotion/styled"
 
@@ -85,12 +88,28 @@ const Footnote = styled.div`
     }
 `
 
+const SocialLinks = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+`
+
 const Footer = () => (
     <StyledFooter>
         <Container>
             <FooterMainBlock>
                 <img width="120px" src={logoTextDark} />
                 <p>Komodo ecosystem’s Token Platform. </p>
+                <SocialLinks>
+                    <ClickableIcon link={links.twitter} icon={icons.twitter_dark}></ClickableIcon>
+                    <ClickableIcon link={links.discord} icon={icons.discord_dark}></ClickableIcon>
+                    <ClickableIcon link={links.github} icon={icons.github_dark}></ClickableIcon>
+                    <ClickableIcon link={links.medium} icon={icons.medium}></ClickableIcon>
+                    <ClickableIcon link={links.telegram} icon={icons.telegram_dark}></ClickableIcon>
+                    <ClickableIcon link={links.reddit} icon={icons.reddit}></ClickableIcon>
+                    <ClickableIcon link={links.floteApp} icon={icons.flote}></ClickableIcon>
+                </SocialLinks>
+                
             </FooterMainBlock>
             <FooterSecondaryBlock>
             {footerData.map((col, idx) => (
