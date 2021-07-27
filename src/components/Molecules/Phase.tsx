@@ -18,6 +18,8 @@ const PhaseRoot = styled.div<PhaseRootProps>`
   align-items: flex-start;
   padding: 2.5rem 5rem;
   margin: 5rem 0rem;
+  z-index: 1;
+  position: relative;
   @media (max-width: ${breakpoints.roadmap.breakpoint1}) {
     grid-template-columns: none;
     grid-template-rows: 30% 70%;

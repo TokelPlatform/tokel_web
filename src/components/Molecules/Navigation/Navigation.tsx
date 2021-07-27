@@ -36,11 +36,12 @@ const NavigationVertical = styled.div`
   }
 `
 const menuLinks = [
-  { link: links.github, name: "App" },
+  { link: links.github, name: "How to" },
   { link: '/blockchain', name: "Chain" },
   { link: links.whitepaper, name: "White Paper" },
   { link: '/roadmap', name: "Roadmap" },
   { link: links.explorer, name: "Explorer" },
+  { link: links.documentationChain, name: "Documenation" },
 ];
 
 const Navigation = () => {
