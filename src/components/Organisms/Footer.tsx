@@ -99,7 +99,7 @@ const Footer = () => (
         <Container>
             <FooterMainBlock>
                 <img width="120px" src={logoTextDark} />
-                <p>Komodo ecosystem’s Token Platform. </p>
+                <p>The future of tokenization</p>
                 <SocialLinks>
                     <ClickableIcon link={links.twitter} icon={icons.twitter_dark}></ClickableIcon>
                     <ClickableIcon link={links.discord} icon={icons.discord_dark}></ClickableIcon>
