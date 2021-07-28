@@ -18,7 +18,7 @@ const TopBarRoot = styled.div`
 
 const IconWrapper = styled.div`
   width: 6rem;
-  @media (max-width: ${breakpoints.mobilemiddle}) {
+  @media (max-width: ${breakpoints.mobilebig}) {
     display: none;
   }
 `

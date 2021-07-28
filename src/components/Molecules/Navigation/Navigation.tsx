@@ -16,7 +16,7 @@ const NavigationHorizontal = styled.ul`
   list-style-type: none;
   color: var(--color-almostWhite);
   padding-top: 0.5rem;
-  @media (max-width: ${breakpoints.mobilemiddle}) {
+  @media (max-width: ${breakpoints.mobilebig}) {
     display: none;
   }
   li {
@@ -31,12 +31,12 @@ const NavigationHorizontal = styled.ul`
 const NavigationVertical = styled.div`
   display: none;
   margin-bottom: 10rem;
-  @media (max-width: ${breakpoints.mobilemiddle}) {
+  @media (max-width: ${breakpoints.mobilebig}) {
     display: block;
   }
 `
 const menuLinks = [
-  { link: links.github, name: "How to" },
+  { link: '/how-to', name: "How to" },
   { link: '/blockchain', name: "Chain" },
   { link: links.whitepaper, name: "White Paper" },
   { link: '/roadmap', name: "Roadmap" },
