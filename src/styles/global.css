@@ -35,3 +35,7 @@ p {
 a:hover {
     opacity: 0.7;
 }
+
+a {
+    color: var(--color-almostWhite);
+}

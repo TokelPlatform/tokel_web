@@ -40,7 +40,7 @@ const phases = [
             },
             {
                 title: 'TOKEL COIN wallet release',
-                description: ['Alongside the chain launch, we aim to release the first stage of the Tokel all-in-one application. This release will feature the Tokel main coin wallet, via ', <a href={links.nspv} key='nspvLink'>nspv (super-lite client)</a>, '. This will be one of the first nSPV only wallets available!']
+                description: ['Alongside the chain launch, we aim to release the first stage of the Tokel all-in-one application. This release will feature the Tokel main coin wallet, via ', <a href={links.nspv} key='nspvLink'>nspv</a> ,' (super-lite client)', '. This will be one of the first nSPV only wallets available!']
             },
             {
                 title: 'Tokel Explorer v1 launch',
