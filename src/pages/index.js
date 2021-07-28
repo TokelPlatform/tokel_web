@@ -15,7 +15,7 @@ import styled from "@emotion/styled"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
-  height: 100vh;
+  height: 120vh;
   @media (max-width: ${breakpoints.mobile}) {
     height: 35rem;
   }
