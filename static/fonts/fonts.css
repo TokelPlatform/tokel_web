@@ -76,8 +76,8 @@
     font-family: 'ibm_plex';
     src: url('ibmplexmono-bold-webfont.woff2') format('woff2'),
          url('ibmplexmono-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: 700;
+    font-weight: 700;
+    font-style: normal;
 
 }
 
