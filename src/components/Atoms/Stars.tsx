@@ -50,7 +50,7 @@ const StarContainer = styled.div<StarContainerProps>`
     &:after {
       content: " ";
       position: absolute;
-      top: 2000px;
+      top: ${props =>  props.top ? props.top : '2000px'};
       width: ${props => getSize(props.size)};
       height: ${props => getSize(props.size)};
       background: transparent;

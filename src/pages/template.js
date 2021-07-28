@@ -15,9 +15,9 @@ const PageRootContainer = ({children})  => {
       <div>
         <PageRoot>
             <TopBar />
-            <Stars starSize={'small'} />
-            <Stars starSize={'medium'}/>
-            <Stars starSize={'big'}/>
+            <Stars top='300px' starSize={'small'} />
+            <Stars top='300px' starSize={'medium'}/>
+            <Stars top='300px' starSize={'big'}/>
             {children}
         </PageRoot>
          <Footer />
