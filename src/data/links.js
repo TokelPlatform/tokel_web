@@ -10,7 +10,7 @@ const links = {
     donate: 'https://discord.gg/R9u43zYZka',
     whitepaper: '/TokelPaper1stEdition.pdf',
     explorer: 'http://explorer.komodoplatform.com:20000/TKLTEST',
-    bitcoinTalk: 'https://bitcointalk.org/',
+    bitcoinTalk: 'https://bitcointalk.org/index.php?topic=5352009.msg57581170#msg57581170',
     medium: 'https://medium.com/@tokel-platform/',
     documentationChain: 'https://docs.tokel.io/',
     reddit: 'https://www.reddit.com/r/tokel/',
