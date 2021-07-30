@@ -1,17 +1,19 @@
-import Footer from "../components/Organisms/Footer"
-import PropTypes from 'prop-types'
 import React from "react"
+import PropTypes from 'prop-types'
+
+import styled from "@emotion/styled"
+
 import Stars from "../components/Atoms/Stars"
 import TopBar from "../components/Molecules/TopBar"
-import breakpoints from "../styles/breakpoints"
+import Footer from "../components/Organisms/Footer"
+import links from "../data/links"
 import features from '../images/launch/features.svg'
 import flyingTokel from '../images/launch/flying-tokel.svg'
-import links from "../data/links"
 import planets from '../images/launch/planets-bg-desktop.svg'
 import planetsMobile from '../images/launch/planets-bg-mobile.svg'
 import planetsOrbits from '../images/launch/planets-orbits.svg'
 import pointer from '../images/launch/pointer.svg'
-import styled from "@emotion/styled"
+import breakpoints from "../styles/breakpoints"
 
 const ChainLaunchRoot = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%); 
@@ -330,13 +332,16 @@ export default function ChainLaunch() {
         <TerminalWrapper>
           <Terminal>
             <KomodoCommand>
-            ./komodod -ac_name=TKL -ac_supply=xxx -ac_reward=xxx -ac_decay=xxx -ac_halving=xxx -ac_cc=xxx  -ac_ccenable=xxx -ac_adaptivepow=xxx -addnode=xxx &
+            ./komodod -ac_name=TOKEL -ac_supply=100000000 -ac_eras=2 -ac_cbmaturity=1 -ac_reward=100000000,4250000000 -ac_end=80640,0 -ac_decay=0,77700000 -ac_halving=0,525600 -ac_cc=555 -ac_ccenable=236,245,246,247 -ac_adaptivepow=6 -addnode=135.125.204.169 -addnode=192.99.71.125 -addnode=144.76.140.197 -addnode=135.181.92.123 &
             </KomodoCommand>
             <KomodoExplanatory>
               komodod..........<HiddenDots>........</HiddenDots>.....komodo daemon <br/>
               -ac_name........<HiddenDots>........</HiddenDots>......chain name <br/>
               -ac_supply<HiddenDots>........</HiddenDots>............total supply <br/>
+              -ac_eras<HiddenDots>........</HiddenDots>..............reward variation<br/>
+              -ac_cbmaturity<HiddenDots>........</HiddenDots>........cb maturity alteration <br/>
               -ac_reward<HiddenDots>........</HiddenDots>............reward/block <br/>
+              -ac_end<HiddenDots>........</HiddenDots>...............rewards end <br/>
               -ac_decay<HiddenDots>........</HiddenDots>.............reward decrease <br/>
               -ac_halving<HiddenDots>........</HiddenDots>...........halving blocks <br/>
               -ac_cc<HiddenDots>........</HiddenDots>................network cluster <br/>
