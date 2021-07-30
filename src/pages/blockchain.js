@@ -324,7 +324,7 @@ export default function ChainLaunch() {
       <TopBar />  
       <Hero>
         <h1>We have launched the Tokel chain!</h1>
-        <h2>Sell art, browse NFTs, trade tokens, create tokens for your projects on a hassle free inexpensive platform</h2>
+        <h2>Sell art. Browse NFTs. Create and trade tokens for your projects. All on a unified and inexpensive platform.</h2>
         <h3>IDO coming soon on <a href="https://komodoplatform.com/en/wallets.html">Atomic DEX</a></h3>
         
         <TerminalWrapper>
@@ -367,7 +367,7 @@ export default function ChainLaunch() {
                 <li>Create, manage and trade tokens for your project.</li>
                 <li>Simplify the way you interact with the blockchain.</li>
                 <li>Bring ease to your token project processes.</li>
-                <li>Remove the unnecessary hassle coming with running your own blockchain, explorer and wallet.</li>
+                <li>Remove the unnecessary hassle that comes with running your own blockchain, explorer and wallet.</li>
               </ul>
             </Answer>
           </div>
@@ -376,7 +376,7 @@ export default function ChainLaunch() {
             WHAT IS TOKEL?
             </WhiteHeader>
             <Answer>
-            ALL in ONE platform for your token projects. Tokel is a Komodo smart chain, it is secure against 51% attacks and uses delayed Proof of Work.
+            An ALL-in-ONE platform for your token projects. Tokel is a Komodo smart chain, secured against 51% attacks with dPoW (delayed Proof of Work).
             <FeaturesImage src={features}/>
             </Answer>
           </div>
@@ -398,13 +398,13 @@ export default function ChainLaunch() {
             Your token will have immediate token explorer integration.<br/> <br/>
 
             <Hightlighted>safe from 51% attacks</Hightlighted>
-            Your token is safe from 51% attacks as Tokel is secured through dPoW. Tokel and your tokens are protected by Bitcoin’s hashrate using KMD dPoW technology.<br/> <br/>
+            Your token is safe from 51% attacks as Tokel is secured through dPoW. Tokel and your tokens are protected by Bitcoin’s hashrate using Komodo's dPoW technology.<br/> <br/>
 
             <Hightlighted>sell your tokens immediately</Hightlighted> 
-            You will have the ability to sell your tokens immediately after creation with Tokel’s inbuilt tokenDEX and NFT marketplace integration.<br/> <br/>
+            You will have the ability to sell your tokens immediately after creation with Tokel’s built-in tokenDEX and NFT marketplace integration.<br/> <br/>
 
             <Hightlighted>exchange partnerships</Hightlighted>
-            Tokel exchange partnerships mean your token will have a centralized exchange listing option. The exchanges are only required to run the Tokel chain to access every single token on it.
+            Tokel exchange partnerships mean your token will have a centralized exchange listing option. Exchanges only need to run the Tokel chain in order to access every single token on it.
 
             </Answer>
           </TokelTokenBenefits>
@@ -413,9 +413,11 @@ export default function ChainLaunch() {
             Where can I download the application from?
             </WhiteHeader>
             <Answer>
-            You can download it from our <a href={links.github_release_page}>Release page</a>. <br/><br/>
-            
-            Please beware we are still in heavy development, and currently you can use application as a coin wallet only. All the other features are active on our blockchain but to use them you would have to use terminal. See our <a href={links.documentationChain}>documentation</a> for instructions.  <br/> <br/> Also have a look at our <a href='/roadmap'>Roadmap</a> for our development plans.
+            You can download it from our <a href={links.github_release_page}>Release page</a>. 
+            <br /><br />
+            Please be aware we are still in heavy development, and currently the GUI application only functions as a coin wallet. All other features are already active on the Tokel blockchain and can be accessed via the command line. See our <a href={links.documentationChain}>documentation</a> for instructions. 
+            <br /><br /> 
+            Also have a look at the <a href="/roadmap">Roadmap</a> for development plans.
             </Answer>
           </div> 
           <div>
@@ -423,7 +425,7 @@ export default function ChainLaunch() {
             What features are currently available?
             </WhiteHeader>
             <Answer>
-            Application currently works as a coin wallet and we are working on the next deliverable which is a token wallet. NFT marketplace and DEX are coming soon too. <br/> <br/> However you can access all our feature using terminal, because our chain support all the features from the start. See our <a href={links.documentationChain}>documentation</a> for instructions.
+            The GUI application currently works as a coin wallet and the token wallet is currently in progress. NFT marketplace and DEX are coming soon too. <br /> <br /> However, you can access all feature using the command line, as the chain itself supports all the features from the start. See the <a href={links.documentationChain}>documentation</a> for instructions.
             </Answer>
           </div>
           <div>
@@ -431,7 +433,7 @@ export default function ChainLaunch() {
             Is the application still in development?
             </WhiteHeader>
             <Answer>
-            Yes, we are still in development but we are moving fast. You can use our coin wallet by downloading first release <a href={links.github_release_page}>here</a>.
+            Yes, the Tokel desktop application is currently in development and is moving fast. You can already use it as a functional coin wallet by downloading the first release <a href={links.github_release_page}>here</a>.
             </Answer>
           </div>
           <div>
@@ -439,7 +441,7 @@ export default function ChainLaunch() {
             IS THIS AN OPEN SOURCE PROJECT?
             </WhiteHeader>
             <Answer>
-            Yes, we are very proud to be a completely transparent and open source project. Please check out our github  or join our Discord to see for yourself.
+            Yes, we are very proud to be a completely transparent and open source project. Please check out the <a href="https://github.com/TokelPlatform">github</a> or join the <a href="https://discord.gg/SQzdUQWXrn">Discord server</a> and get involved with the community!
             </Answer>
           </div>   
           <div>
@@ -455,7 +457,7 @@ export default function ChainLaunch() {
             HOW DO I CREATE TOKENS?
             </WhiteHeader>
             <Answer>
-            Currently, we are working on a easy to use GUI to create tokens. In the meantime you can try the cli interface, see our documentation for details.
+            Currently, we are working on a easy to use GUI to create tokens. In the meantime, you can try the CLI interface. See the documentation for details.
             </Answer>
           </div>          
           <div>
@@ -480,7 +482,7 @@ export default function ChainLaunch() {
           </div>  
         </WhyTokel>
         <Contact>
-          <h3>Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join <a href="">Tokel Discord</a> </h3>
+          <h3>Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join <a href="https://discord.gg/SQzdUQWXrn">Tokel Discord</a> </h3>
           <img src={flyingTokel}></img>
         </Contact>
       </TokelQuestionsWrapper>
