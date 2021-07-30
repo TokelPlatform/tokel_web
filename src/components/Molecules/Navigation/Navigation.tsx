@@ -41,7 +41,7 @@ const menuLinks = [
   { link: links.whitepaper, name: "White Paper" },
   { link: '/roadmap', name: "Roadmap" },
   { link: links.explorer, name: "Explorer" },
-  { link: links.documentationChain, name: "Documenation" },
+  { link: links.documentationChain, name: "Documentation" },
 ];
 
 const Navigation = () => {
