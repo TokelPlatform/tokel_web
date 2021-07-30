@@ -1,19 +1,17 @@
-import React from "react"
+import Footer from "../components/Organisms/Footer"
 import PropTypes from 'prop-types'
-
-import styled from "@emotion/styled"
-
+import React from "react"
 import Stars from "../components/Atoms/Stars"
 import TopBar from "../components/Molecules/TopBar"
-import Footer from "../components/Organisms/Footer"
-import links from "../data/links"
+import breakpoints from "../styles/breakpoints"
 import features from '../images/launch/features.svg'
 import flyingTokel from '../images/launch/flying-tokel.svg'
+import links from "../data/links"
 import planets from '../images/launch/planets-bg-desktop.svg'
 import planetsMobile from '../images/launch/planets-bg-mobile.svg'
 import planetsOrbits from '../images/launch/planets-orbits.svg'
 import pointer from '../images/launch/pointer.svg'
-import breakpoints from "../styles/breakpoints"
+import styled from "@emotion/styled"
 
 const ChainLaunchRoot = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%); 
@@ -327,7 +325,7 @@ export default function ChainLaunch() {
       <Hero>
         <h1>We have launched the Tokel chain!</h1>
         <h2>Sell art. Browse NFTs. Create and trade tokens for your projects. All on a unified and inexpensive platform.</h2>
-        <h3>IDO coming soon on <a href="https://komodoplatform.com/en/wallets.html">Atomic DEX</a></h3>
+        <h3>IDO coming soon on <a href={links.atomicDex}>Atomic DEX</a></h3>
         
         <TerminalWrapper>
           <Terminal>
@@ -403,7 +401,7 @@ export default function ChainLaunch() {
             Your token will have immediate token explorer integration.<br/> <br/>
 
             <Hightlighted>safe from 51% attacks</Hightlighted>
-            Your token is safe from 51% attacks as Tokel is secured through dPoW. Tokel and your tokens are protected by Bitcoin’s hashrate using Komodo's dPoW technology.<br/> <br/>
+            Your token is safe from 51% attacks as Tokel is secured through dPoW. Tokel and your tokens are protected by Bitcoin’s hashrate using Komodo dPoW technology.<br/> <br/>
 
             <Hightlighted>sell your tokens immediately</Hightlighted> 
             You will have the ability to sell your tokens immediately after creation with Tokel’s built-in tokenDEX and NFT marketplace integration.<br/> <br/>
