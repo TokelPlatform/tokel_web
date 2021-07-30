@@ -64,7 +64,7 @@ export default function Roadmap() {
         <Stars starSize={'big'} top='3700px'/>
         <RoadmapWrapper>
           <TopPlanets src={planetsTop} />
-          <Title style={{textAlign: "left"}}>R<LogoImg width="50px"></LogoImg>admap</Title>
+          <Title style={{textAlign: "left"}}>R<LogoImg width="42px"></LogoImg>admap</Title>
           <RoadmapList style={{marginTop: '12rem'}}/>
         </RoadmapWrapper>
         </RoadMapContainer>

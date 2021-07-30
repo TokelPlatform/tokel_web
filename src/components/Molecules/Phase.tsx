@@ -64,8 +64,9 @@ const DescriptionWrapper = styled.div`
         padding: 0;
     }
 `
-const Description =styled.p`
+const Description =styled.div`
     max-width: 650px;
+    color: var(--color-lightBlue);
 `
 
 type PhaseDetailProp = {
