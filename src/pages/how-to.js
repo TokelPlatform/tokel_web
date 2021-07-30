@@ -1,13 +1,14 @@
 import * as React from "react"
-
-import Img from 'gatsby-image'
-import PageRootContainer from "./template"
 import PropTypes from 'prop-types'
-import breakpoints from "../styles/breakpoints"
+
 import { css } from "@emotion/react"
-import { graphql } from "gatsby"
-import links from "../data/links"
 import styled from '@emotion/styled'
+import { graphql } from "gatsby"
+import Img from 'gatsby-image'
+
+import links from "../data/links"
+import breakpoints from "../styles/breakpoints"
+import PageRootContainer from "./template"
 
 const HowToRoot = styled.div`
     padding: 50px 50px 150px 50px;
@@ -26,7 +27,10 @@ const HowToRoot = styled.div`
             font-size: 30px;
             line-height: 35px;
             margin-top: 50px;
-        }        
+        }      
+      @media (max-width: ${breakpoints.mobile}) {
+        padding: 20px;
+      }   
     }
 `
 const Disclaimer = styled.p`
@@ -68,14 +72,16 @@ const OptionWrapper = styled.div`
 
     }
 `
-const imgStyle = css`
-max-width: 400px;
-    /* @media (max-width: ${breakpoints.mobile}) {
-        width: 300px;
-    } 
-    @media (max-width: ${breakpoints.minimobile}) {
-        width: 250px;
-    }  */
+
+const ImgWrapper = styled.div`
+  width: 400px;
+  margin: auto;
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 300px;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 70vw;
+  }
 `
 
 const HowTo = ({data})  => {
@@ -83,16 +89,22 @@ const HowTo = ({data})  => {
     <PageRootContainer>
         <HowToRoot>
             <h1>How to use Tokel blockchain</h1>
-            <Disclaimer>DISCLAIMER <br/>The Tokel application currently only supports the TKL coin wallet. Other GUI features such as: a token wallet, a token creation tool, an NFT marketplace, the tokenDEX, are under development. All of these features are currently accessible directly on the blockchain via terminal commands</Disclaimer>
+            <Disclaimer>DISCLAIMER <br/>The Tokel application currently only supports the TKL coin wallet. Other GUI features such as: a token wallet, a token creation tool, an NFT marketplace, token DEX are under development. All of these features are currently accessible directly on the blockchain via terminal commands.</Disclaimer>
             <Options>
                 <OptionWrapper>
                     <h2>For all users: <br/>Tokel All-in-one Application</h2>
-                    <Img css={imgStyle} fluid={data.app.childImageSharp.fluid}></Img>
+                    <ImgWrapper>
+                      <Img fluid={data.app.childImageSharp.fluid}></Img>
+                    </ImgWrapper>
                     <h3><a href={links.github_release_page}>Download latest release (Desktop)</a></h3>
                 </OptionWrapper>
                 <OptionWrapper>
-                    <h2>For tech savvy or curious: <br/>Cli interface </h2>
-                    <Img css={imgStyle} fluid={data.cli.childImageSharp.fluid}></Img>
+                    <div>
+                      <h2>For tech savvy or curious: <br/>Cli interface </h2>
+                      <ImgWrapper>
+                        <Img fluid={data.cli.childImageSharp.fluid}></Img>
+                      </ImgWrapper>
+                    </div>
                     <h3><a href={links.documentationChain + 'guides/LaunchTheChain/'}>Run Tokel blockchain</a></h3>
                     <h3><a href={links.documentationChain + '/api/tokens/#introduction/'}>Create your tokens/NFTs</a></h3>
                     <h3><a href={links.documentationChain + '/api/assets/#introduction/'}>Use the tokenDEX</a></h3>
