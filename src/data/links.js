@@ -13,6 +13,7 @@ const links = {
     bitcoinTalk: 'https://bitcointalk.org/index.php?topic=5352009.msg57581170#msg57581170',
     medium: 'https://medium.com/@tokel-platform/',
     documentationChain: 'https://docs.tokel.io/',
+    documentationCreateTokenNFT: 'https://docs.tokel.io/guides/CreateAToken/#how-to-create-a-token-or-nft',
     reddit: 'https://www.reddit.com/r/tokel/',
     youtube: 'https://www.youtube.com/channel/UCW9C_EuW54yOFArqJjRMJmQ',
     floteApp: 'https://flote.app/user/Tokel',
@@ -20,6 +21,7 @@ const links = {
     bittube: 'https://bittube.tv/profile/Tokel',
     telegram: 'https://t.me/TokelPlatform',
     nspv: 'https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-setup/nspv.html#introduction'
+    
 }
 
 export default links

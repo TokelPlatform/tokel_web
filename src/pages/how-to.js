@@ -105,7 +105,7 @@ const HowTo = ({data})  => {
                       </ImgWrapper>
                     </div>
                     <h3><a href={links.documentationChain + 'guides/LaunchTheChain/'}>Run Tokel blockchain</a></h3>
-                    <h3><a href={links.documentationChain + '/api/tokens/#introduction/'}>Create your tokens/NFTs</a></h3>
+                    <h3><a href={links.documentationCreateTokenNFT}>Create your tokens/NFTs</a></h3>
                     <h3><a href={links.documentationChain + '/api/assets/#introduction/'}>Use the tokenDEX</a></h3>
                 </OptionWrapper>
             </Options>
