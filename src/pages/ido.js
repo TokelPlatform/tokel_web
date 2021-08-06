@@ -217,7 +217,7 @@ const Ido = ()  => {
             <div>
                 <Title>TOKEL IDO</Title>
                 <Subtitle><a href="https://developers.komodoplatform.com/basic-docs/start-here/core-technology-discussions/initial-dex-offering.html">Initial Decentralized Offering</a></Subtitle>
-                <p>Time left: {dateCounter}</p>
+                <p style={{textAlign: 'center'}}>Time left: {dateCounter}</p>
                 <InfoTable>
                     <table>
                         <tr>
