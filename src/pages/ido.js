@@ -1,5 +1,8 @@
 import * as React from "react"
 
+import { formatDuration, intervalToDuration } from 'date-fns'
+import { useEffect, useState } from "react"
+
 import LogoImg from "../components/Atoms/LogoImg"
 import PageRootContainer from "./template"
 import PropTypes from 'prop-types'
@@ -9,6 +12,7 @@ import idoBgMobile from '../images/ido/ido-bg-mobile.svg'
 import links from "../data/links"
 import styled from '@emotion/styled'
 import tokelGalaxy from '../images/ido/galaxy.svg'
+import useCountDown from 'react-countdown-hook';
 
 const IdoRoot = styled.div`
     background-image: url(${idoBg});
@@ -70,7 +74,7 @@ const Phases = styled.div`
 const Participate = styled.div`
     width: 600px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
     &>p {
         text-align: justify;
         @media (max-width: ${breakpoints.mobile}) {
@@ -158,12 +162,16 @@ const Subtitle = styled.h2`
     }    
 `
 
-const Download = styled.div`
+const SectionHeader = styled.h3`
+    margin-bottom: 0px;
+`
+
+const Section = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 600px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     text-align: left;
     @media (max-width: ${breakpoints.tablet}) {
         width: 400px;
@@ -181,23 +189,44 @@ const Galaxy = styled.img`
     } 
 `
 
+const initialTime = Date.UTC('2021', '07', '30', '20', '00', '00', '00'); // initial time in milliseconds
+
 const Ido = ()  => {
+    const [timeLeft, { start }] = useCountDown(initialTime, 1000);
+    const [dateCounter, setDateCounter] = useState(timeLeft)
+    useEffect(() => {
+        start();
+    }, []);
+
+    useEffect(() => {
+        let duration = intervalToDuration({
+            end: new Date(initialTime), 
+            start: new Date(),
+        })
+        console.log(new Date(initialTime))
+        console.log(new Date())
+        setDateCounter(formatDuration(duration, {
+            delimiter: ', '
+        }))
+    }, [timeLeft]);
+
   return (
     <PageRootContainer>
         <IdoRoot>
             <LogoImg width="80px" mobileWidth="50px"/>
             <div>
                 <Title>TOKEL IDO</Title>
-                <Subtitle>Initial Decentralized Offering</Subtitle>
+                <Subtitle><a href="https://developers.komodoplatform.com/basic-docs/start-here/core-technology-discussions/initial-dex-offering.html">Initial Decentralized Offering</a></Subtitle>
+                <p>Time left: {dateCounter}</p>
                 <InfoTable>
                     <table>
                         <tr>
                             <td>START?</td>
-                            <td className="yellow">15.02.2021 10:00:00</td>
+                            <td className="yellow">30th August 2021 8pm UTC</td>
                         </tr>
                         <tr>
                             <td>FINISH?</td>
-                            <td className="yellow">15.02.2021 10:00:00</td>
+                            <td className="yellow">15th Sept 2021 8pm UTC</td>
                         </tr>                    
                         <tr>
                             <td>WHERE?</td>
@@ -219,7 +248,7 @@ const Ido = ()  => {
                 </InfoTable>
             </div>
             <Participate>
-                <h3>HOW to participate</h3>
+                <SectionHeader>HOW to participate</SectionHeader>
                 <p>In order to participate, make sure you have downloaded AtomicDEX and have created a wallet there. All you need to do is purchase KMD and have it ready in your AtomicDEX wallet. Then, check AtomicDEX for KMD/TOKEL orders and purchase them during the 2 week period. It is as simple as that.</p>
             </Participate>
 
@@ -250,23 +279,28 @@ const Ido = ()  => {
                 <div className="phase">
                     <h3>Phase 2: Main ido</h3>
                     <p style={{fontSize: '14px'}}>During this phase, the total 19.5 million TOKEL will listed at a single price. This price will be 70% of the final Phase 1 price. You can swap any amount of KMD for TOKEL at your convenience within the 14 days that Phase 2 will be running. 
-</p><br/><br/>
+                        </p><br/><br/>
                     <p>Total TKL: 19 500 000 + leftover Phase 1 <br/><br/>
                         Time period: 14 days<br/><br/>
                         Tokel price: 70% of the Phase 1 price<br/><br/><br/><br/><br/></p>
                 </div>                
             </Phases>
-            <Download>
-                <h3>In depth IDO details</h3>
-                <p>If you would like a more indepth look into the IDO details and offers, please take a look at this excel document that outlines every Phase 1 offer, and the equivalent Phase 2 price should the price discovery stop on that offer.</p>
-                <a href="/IDODetails.xlsx">IDO details for download</a>
-            </Download>
+            <Section>
+                <SectionHeader>In depth IDO details</SectionHeader>
+                <p>If you would like a more indepth look into the IDO details and offers, please take a look at this excel document that outlines every Phase 1 offer, and the equivalent Phase 2 price should the price discovery stop on that offer. <br/> <a href="/IDODetails.xlsx">IDO details for download</a></p>                
+            </Section>
+            <Section>
+                <SectionHeader>
+                    DISCLAIMER
+                </SectionHeader>
+                <p>As always, you are required to do your own research and not take any of this as financial advice; we do not endorse any specific activity. Ownership of the Tokel (TKL) coin carries no rights; it is used to create tokens and send transactions on the Tokel blockchain. All trades on AtomicDEX, including those conducted during the IDO, are non-refundable. Owning/trading cryptocurrencies is extremely risky; there are no guarantees of TKLs future value. Nobody in the Tokel community or team are liable for any loss caused, whether due to negligence or otherwise arising from the use of, or reliance on, any information provided directly or indirectly.</p>
+            </Section> 
             <div style={{marginBottom: '150px', textAlign: 'center'}}>
-                <h3>
+                <SectionHeader>
                     QUESTIONS?
-                </h3>
+                </SectionHeader>
                 <p style={{textAlign: 'center', marginBottom: '20px'}}>Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join <a href={links.discord}>Tokel Discord</a> </p>
-            </div>
+            </div>           
             <Galaxy className="tokelGalaxy" src={tokelGalaxy}/>
         </IdoRoot>
     </PageRootContainer>
