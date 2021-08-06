@@ -234,7 +234,7 @@ const Ido = ()  => {
                         </tr>
                         <tr>
                             <td>WHAT PAIRS?</td>
-                            <td className="yellow">KMD/TOKEL</td>
+                            <td className="yellow">KMD/TKL</td>
                         </tr>
                         <tr>
                             <td>CAN I JOIN?</td>
@@ -249,40 +249,40 @@ const Ido = ()  => {
             </div>
             <Participate>
                 <SectionHeader>HOW to participate</SectionHeader>
-                <p>In order to participate, make sure you have downloaded AtomicDEX and have created a wallet there. All you need to do is purchase KMD and have it ready in your AtomicDEX wallet. Then, check AtomicDEX for KMD/TOKEL orders and purchase them during the 2 week period. It is as simple as that.</p>
+                <p>In order to participate, make sure you have downloaded AtomicDEX and have created a wallet there. All you need to do is purchase KMD and have it ready in your AtomicDEX wallet. Then, check AtomicDEX for KMD/TKL orders and purchase them during the 2 week period. It is as simple as that.</p>
             </Participate>
 
 
             <Phases>
                 <div className="phase">
                     <h3>PHASE 1: Price discovery</h3>
-                    <p style={{fontSize: '14px'}}>The purpose of this phase is to conduct a level of price discovery. If you think TOKEL is worth more than the current lowest offer, purchase it. If you do not, wait for Phase 2 to purchase more. If you wish to wait until the price has been discovered, wait for Phase 2 to start before participating. </p><br/>
+                    <p style={{fontSize: '14px'}}>The purpose of this phase is to conduct a level of price discovery. If you think TKL is worth more than the current lowest offer, purchase it. If you do not, wait for Phase 2 to purchase more. If you wish to wait until the price has been discovered, wait for Phase 2 to start before participating. </p><br/>
                     <p>Total TKL: 500 000 TKL <br/><br/>
                         Time period: 48 hrs<br/><br/>
                         Total offers: 50<br/><br/>
-                        Amount per offer: 10,000 TOKEL each<br/><br/>
-                        Starting at: 0.01 KMD/TOKEL<br/><br/>
+                        Amount per offer: 10,000 TKL each<br/><br/>
+                        Starting at: 0.01 KMD/TKL<br/><br/>
                         Increasing by: 0.008 per offer<br/><br/>
-                        Ending at: 0.402 KMD/TOKEL<br/><br/><br/>
+                        Ending at: 0.402 KMD/TKL<br/><br/><br/>
 
                         I.e<br/><br/>
-                        Order 1: 10,000 TOKEL @ 0.01 KMD/TOKEL<br/>
-                        Order 2: 10,000 TOKEL @ 0.018 KMD/TOKEL<br/>
-                        Order 3: 10,000 TOKEL @ 0.026 KMD/TOKEL<br/>
+                        Order 1: 10,000 TKL @ 0.01 KMD/TKL<br/>
+                        Order 2: 10,000 TKL @ 0.018 KMD/TKL<br/>
+                        Order 3: 10,000 TKL @ 0.026 KMD/TKL<br/>
                         ...<br/> 
                         ...<br/>
                         ...<br/>
-                        Order 48: 10,000 TOKEL @ 0.386 KMD/TOKEL<br/>
-                        Order 49: 10,000 TOKEL @ 0.394 KMD/TOKEL<br/>
-                        Order 50: 10,000 TOKEL @ 0.402 KMD/TOKEL<br/><br/></p>
+                        Order 48: 10,000 TKL @ 0.386 KMD/TKL<br/>
+                        Order 49: 10,000 TKL @ 0.394 KMD/TKL<br/>
+                        Order 50: 10,000 TKL @ 0.402 KMD/TKL<br/><br/></p>
                 </div>
                 <div className="phase">
                     <h3>Phase 2: Main ido</h3>
-                    <p style={{fontSize: '14px'}}>During this phase, the total 19.5 million TOKEL will listed at a single price. This price will be 70% of the final Phase 1 price. You can swap any amount of KMD for TOKEL at your convenience within the 14 days that Phase 2 will be running. 
+                    <p style={{fontSize: '14px'}}>During this phase, the total 19.5 million TKL will listed at a single price. This price will be 70% of the final Phase 1 price. You can swap any amount of KMD for TKL at your convenience within the 14 days that Phase 2 will be running. 
                         </p><br/><br/>
                     <p>Total TKL: 19 500 000 + leftover Phase 1 <br/><br/>
                         Time period: 14 days<br/><br/>
-                        Tokel price: 70% of the Phase 1 price<br/><br/><br/><br/><br/></p>
+                        TKL price: 70% of the Phase 1 price<br/><br/><br/><br/><br/></p>
                 </div>                
             </Phases>
             <Section>
@@ -293,7 +293,7 @@ const Ido = ()  => {
                 <SectionHeader>
                     DISCLAIMER
                 </SectionHeader>
-                <p>As always, you are required to do your own research and not take any of this as financial advice; we do not endorse any specific activity. Ownership of the Tokel (TKL) coin carries no rights; it is used to create tokens and send transactions on the Tokel blockchain. All trades on AtomicDEX, including those conducted during the IDO, are non-refundable. Owning/trading cryptocurrencies is extremely risky; there are no guarantees of TKLs future value. Nobody in the Tokel community or team are liable for any loss caused, whether due to negligence or otherwise arising from the use of, or reliance on, any information provided directly or indirectly.</p>
+                <p>As always, you are required to do your own research and not take any of this as financial advice; we do not endorse any specific activity. Ownership of the TKL coin carries no rights; it is used to create tokens and send transactions on the Tokel blockchain. All trades on AtomicDEX, including those conducted during the IDO, are non-refundable. Owning/trading cryptocurrencies is extremely risky; there are no guarantees of TKLs future value. Nobody in the Tokel community or team are liable for any loss caused, whether due to negligence or otherwise arising from the use of, or reliance on, any information provided directly or indirectly.</p>
             </Section> 
             <div style={{marginBottom: '150px', textAlign: 'center'}}>
                 <SectionHeader>
