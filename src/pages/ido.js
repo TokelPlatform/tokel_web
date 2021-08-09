@@ -234,7 +234,7 @@ const Ido = ()  => {
                         </tr>
                         <tr>
                             <td>WHAT PAIRS?</td>
-                            <td className="yellow">KMD/TKL</td>
+                            <td className="yellow">TKL/KMD</td>
                         </tr>
                         <tr>
                             <td>CAN I JOIN?</td>
@@ -261,20 +261,20 @@ const Ido = ()  => {
                         Time period: 48 hrs<br/><br/>
                         Total offers: 50<br/><br/>
                         Amount per offer: 10,000 TKL each<br/><br/>
-                        Starting at: 0.01 KMD/TKL<br/><br/>
-                        Increasing by: 0.008 per offer<br/><br/>
-                        Ending at: 0.402 KMD/TKL<br/><br/><br/>
+                        Starting at: 0.01 KMD<br/><br/>
+                        Increasing by: 0.008 KMD per offer<br/><br/>
+                        Ending at: 0.402 KMD<br/><br/>
 
                         I.e<br/><br/>
-                        Order 1: 10,000 TKL @ 0.01 KMD/TKL<br/>
-                        Order 2: 10,000 TKL @ 0.018 KMD/TKL<br/>
-                        Order 3: 10,000 TKL @ 0.026 KMD/TKL<br/>
+                        Order 1: 10,000 TKL @ 1 TKL for 0.01 KMD<br/>
+                        Order 2: 10,000 TKL @ 1 TKL for 0.018 KMD<br/>
+                        Order 3: 10,000 TKL @ 1 TKL for 0.026 KMD<br/>
                         ...<br/> 
                         ...<br/>
                         ...<br/>
-                        Order 48: 10,000 TKL @ 0.386 KMD/TKL<br/>
-                        Order 49: 10,000 TKL @ 0.394 KMD/TKL<br/>
-                        Order 50: 10,000 TKL @ 0.402 KMD/TKL<br/><br/></p>
+                        Order 48: 10,000 TKL @ 1 TKL for 0.386 KMD<br/>
+                        Order 49: 10,000 TKL @ 1 TKL for 0.394 KMD<br/>
+                        Order 50: 10,000 TKL @ 1 TKL for 0.402 KMD<br/><br/></p>
                 </div>
                 <div className="phase">
                     <h3>Phase 2: Main ido</h3>
@@ -293,7 +293,7 @@ const Ido = ()  => {
                 <SectionHeader>
                     DISCLAIMER
                 </SectionHeader>
-                <p>As always, you are required to do your own research and not take any of this as financial advice; we do not endorse any specific activity. Ownership of the TKL coin carries no rights; it is used to create tokens and send transactions on the Tokel blockchain. All trades on AtomicDEX, including those conducted during the IDO, are non-refundable. Owning/trading cryptocurrencies is extremely risky; there are no guarantees of TKLs future value. Nobody in the Tokel community or team are liable for any loss caused, whether due to negligence or otherwise arising from the use of, or reliance on, any information provided directly or indirectly.</p>
+                <p>As always, you are required to do your own research and not take any of this as financial advice; we do not endorse any specific activity. Ownership of the TKL coin carries no rights; it is used to create tokens and send transactions on the Tokel blockchain. These TKL are being sold to creators and users of the blockchain for this sole purpose. There are no guarantees of TKLs future value. There should be no expectation that TKL will ever generate any value other than for the use case described. All trades on AtomicDEX are non-refundable. Nobody in the Tokel community or team are liable for any loss caused, whether due to negligence or otherwise arising from the use of, or reliance on, any information provided directly or indirectly.</p>
             </Section> 
             <div style={{marginBottom: '150px', textAlign: 'center'}}>
                 <SectionHeader>
