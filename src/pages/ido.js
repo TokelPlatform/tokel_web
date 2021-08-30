@@ -1,5 +1,8 @@
 import * as React from "react"
 
+import { formatDuration, intervalToDuration } from 'date-fns'
+import { useEffect, useState } from "react"
+
 import LogoImg from "../components/Atoms/LogoImg"
 import PageRootContainer from "./template"
 import PropTypes from 'prop-types'
@@ -9,11 +12,7 @@ import idoBgMobile from '../images/ido/ido-bg-mobile.svg'
 import links from "../data/links"
 import styled from '@emotion/styled'
 import tokelGalaxy from '../images/ido/galaxy.svg'
-
-// import { formatDuration, intervalToDuration } from 'date-fns'
-// import { useEffect, useState } from "react"
-
-// import useCountDown from 'react-countdown-hook';
+import useCountDown from 'react-countdown-hook';
 
 const IdoRoot = styled.div`
     background-image: url(${idoBg});
@@ -190,26 +189,26 @@ const Galaxy = styled.img`
     } 
 `
 
-// const initialTime = Date.UTC('2021', '07', '30', '20', '00', '00', '00'); // initial time in milliseconds
+const initialTime = Date.UTC('2021', '08', '01', '20', '00', '00', '00'); 
 
 const Ido = ()  => {
-    // const [timeLeft, { start }] = useCountDown(initialTime, 1000);
-    // const [dateCounter, setDateCounter] = useState(timeLeft)
-    // useEffect(() => {
-    //     start();
-    // }, []);
+    const [timeLeft, { start }] = useCountDown(initialTime, 1000);
+    const [dateCounter, setDateCounter] = useState(timeLeft)
+    useEffect(() => {
+        start();
+    }, []);
 
-    // useEffect(() => {
-    //     let duration = intervalToDuration({
-    //         end: new Date(initialTime), 
-    //         start: new Date(),
-    //     })
-    //     console.log(new Date(initialTime))
-    //     console.log(new Date())
-    //     setDateCounter(formatDuration(duration, {
-    //         delimiter: ', '
-    //     }))
-    // }, [timeLeft]);
+    useEffect(() => {
+        let duration = intervalToDuration({
+            end: new Date(initialTime), 
+            start: new Date(),
+        })
+        console.log(new Date(initialTime))
+        console.log(new Date())
+        setDateCounter(formatDuration(duration, {
+            delimiter: ', '
+        }))
+    }, [timeLeft]);
 
   return (
     <PageRootContainer>
@@ -218,7 +217,7 @@ const Ido = ()  => {
             <div>
                 <Title>TOKEL IDO</Title>
                 <Subtitle><a href="https://developers.komodoplatform.com/basic-docs/start-here/core-technology-discussions/initial-dex-offering.html">Initial Decentralized Offering</a></Subtitle>
-                <p style={{textAlign: 'center'}}>Phase 1 Price Discovery Started at 8pm UTC 30th August</p>
+                <p style={{textAlign: 'center'}}>Phase 2 in: {dateCounter}</p>
                 <InfoTable>
                     <table>
                         <tr>
