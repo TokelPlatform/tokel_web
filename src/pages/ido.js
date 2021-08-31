@@ -17,8 +17,8 @@ import useCountDown from 'react-countdown-hook';
 const IdoRoot = styled.div`
     background-image: url(${idoBg});
     background-repeat: no-repeat;
-    background-position: center 150px;
-    padding: 150px 50px 150px 50px;
+    background-position: center 190px;
+    padding: 120px 50px 150px 50px;
     @media (max-width: ${breakpoints.mobilebig}) {
         background-image: url(${idoBgMobile});
         background-position: center 150px;
@@ -74,7 +74,7 @@ const Phases = styled.div`
 const Participate = styled.div`
     width: 600px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 90px;
     &>p {
         text-align: justify;
         @media (max-width: ${breakpoints.mobile}) {
@@ -127,7 +127,18 @@ const InfoTable = styled.div`
         color: #FAB64B;
     }
 `
-
+const Phase1Table = styled.table`
+    margin-left: 0;
+    padding-left: 0;
+    text-align: left;
+    .uppercase {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    td {
+        padding: 10px 20px 0px 0px;
+    }
+`
 const Title = styled.h1 `
     margin-bottom: 0px;
     font-size: 50px;
@@ -150,18 +161,6 @@ const Title = styled.h1 `
         margin-top: 0px;
     }
 `
-const Subtitle = styled.h2`
-    font-size: 16px;
-    text-align: center;
-    @media (max-width: ${breakpoints.mobile}) {
-        font-size: 14px;
-        margin-top: 0px;
-    }
-    @media (max-width: ${breakpoints.minimobile}) {
-        font-size: 14px;
-    }    
-`
-
 const SectionHeader = styled.h3`
     margin-bottom: 0px;
 `
@@ -172,6 +171,7 @@ const Section = styled.div`
     align-items: center;
     width: 600px;
     margin-bottom: 50px;
+    margin-top: 50px;
     text-align: left;
     @media (max-width: ${breakpoints.tablet}) {
         width: 400px;
@@ -216,22 +216,25 @@ const Ido = ()  => {
             <LogoImg width="80px" mobileWidth="50px"/>
             <div>
                 <Title>TOKEL IDO</Title>
-                <Subtitle><a href="https://developers.komodoplatform.com/basic-docs/start-here/core-technology-discussions/initial-dex-offering.html">Initial Decentralized Offering</a></Subtitle>
                 <p style={{textAlign: 'center'}}>Phase 2 in: {dateCounter}</p>
                 <InfoTable>
                     <table>
                         <tr>
                             <td>START?</td>
-                            <td className="yellow">30th August 2021 8pm UTC</td>
+                            <td className="yellow">1st Sept 2021 8pm UTC</td>
                         </tr>
                         <tr>
                             <td>FINISH?</td>
                             <td className="yellow">15th Sept 2021 8pm UTC</td>
+                        </tr>
+                        <tr>
+                            <td>WHAT PHASE?</td>
+                            <td className="yellow">Phase 2</td>
                         </tr>                    
                         <tr>
                             <td>WHERE?</td>
                             <td className="yellow">Atomic DEX</td>
-                        </tr>
+                        </tr>                                                
                         <tr>
                             <td>WHAT PAIRS?</td>
                             <td className="yellow">TKL/KMD</td>
@@ -244,18 +247,55 @@ const Ido = ()  => {
                             <td>GET READY?</td>
                             <td className="yellow">BUY KMD</td>
                         </tr>
+                        <tr>
+                            <td>PHASE 1?</td>
+                            <td className="yellow"> <a href={links.idoLiveStream}>Watch Finished Live Stream</a></td>
+                        </tr>
                     </table>
                 </InfoTable>
             </div>
             <Participate>
                 <SectionHeader>HOW to participate</SectionHeader>
                 <p>In order to participate, make sure you have downloaded AtomicDEX and have created a wallet there. All you need to do is purchase KMD and have it ready in your AtomicDEX wallet. Then, check AtomicDEX for KMD/TKL orders and purchase them during the 2 week period. It is as simple as that.</p>
+                <p style={{textAlign: 'center'}}><a href={links.aDEXStepByStep}>AtomicDEX Step by Step tutorial</a></p>
+                <p style={{textAlign: 'center'}}><a href={links.ca333interview}>Komodo CTO ca333 talks about AtomicDEX</a></p>
             </Participate>
 
-
+            {/* <Section>
+                <SectionHeader>
+                All you need to know about TOKEL IDO
+                </SectionHeader>
+            </Section>
+             */}
             <Phases>
-                <div className="phase">
-                    <h3>PHASE 1: Price discovery</h3>
+                <div className="phase"><h3>PHASE 1: Price discovery</h3>
+
+                    <h4><a style={{color: '#FAB64B', marginLeft: '0'}} href={links.idoLiveStream}>Watch Finished Live Stream</a></h4>
+                    <br></br>
+                    <Phase1Table>
+                        <tr>
+                            <td className="uppercase">Started</td>
+                            <td>30th Aug 8:00 PM UTC</td>
+                        </tr>
+                        <tr>
+                        <td className="uppercase">Finished</td>
+                            <td>30th Aug 8:30pm UTC</td>
+                        </tr>
+                        <tr>
+                            <td className="uppercase">TKL sold</td>
+                            <td>500 000</td>
+                        </tr>
+                        <tr>
+                        <td className="uppercase">TKL left</td>
+                            <td>0</td>
+                        </tr> 
+                        <tr>
+                        <td className="uppercase">KMD raised</td>
+                            <td>102953.6</td>
+                        </tr>                                                
+                    </Phase1Table>
+                    <br/><br/>
+                   <h3>Phase 1: About</h3>
                     <p style={{fontSize: '14px'}}>The purpose of this phase is to conduct a level of price discovery. If you think TKL is worth more than the current lowest offer, purchase it. If you do not, wait for Phase 2 to purchase more. If you wish to wait until the price has been discovered, wait for Phase 2 to start before participating. </p><br/>
                     <p>Total TKL: 500 000 TKL <br/><br/>
                         Time period: 48 hrs<br/><br/>

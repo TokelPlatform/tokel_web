@@ -21,7 +21,10 @@ const links = {
     bittube: 'https://bittube.tv/profile/Tokel',
     telegram: 'https://t.me/TokelPlatform',
     nspv: 'https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-setup/nspv.html#introduction',
-    atomicDex: 'https://atomicdex.io/'
+    atomicDex: 'https://atomicdex.io/',
+    idoLiveStream: 'https://www.youtube.com/watch?v=WQ39eTAgdB0',
+    aDEXStepByStep: 'https://docs.tokel.io/guides/HowToUseAtomicDEX/',
+    ca333interview: 'https://youtu.be/-sZc7DHcuI8'
 }
 
 export default links
