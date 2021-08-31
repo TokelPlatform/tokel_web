@@ -355,6 +355,17 @@ const Ido = ()  => {
                 <SectionHeader>In depth IDO details</SectionHeader>
                 <p>If you would like a more indepth look into the IDO details and offers, please take a look at this excel document that outlines every Phase 1 offer, and the equivalent Phase 2 price should the price discovery stop on that offer. <br/> <a href="/IDODetails.xlsx">IDO details for download</a></p>                
             </Section>
+
+            <Section>
+                <SectionHeader>
+                Tokel Platform Showcase
+                </SectionHeader>
+                <Video>
+                <iframe
+                    src="https://www.youtube.com/embed/rcNCMYblk2M">
+                </iframe>
+                </Video>
+            </Section>
             <Section>
                 <SectionHeader>
                     DISCLAIMER
