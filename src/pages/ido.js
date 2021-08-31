@@ -237,7 +237,7 @@ const Ido = ()  => {
             <LogoImg width="80px" mobileWidth="50px"/>
             <div>
                 <Title>TOKEL IDO</Title>
-                <p style={{textAlign: 'center'}}>Phase 2 in: {dateCounter}</p>
+                <p style={{textAlign: 'center'}}>Main IDO in: {dateCounter}</p>
                 <InfoTable>
                     <table>
                         <tr>
@@ -250,7 +250,7 @@ const Ido = ()  => {
                         </tr>
                         <tr>
                             <td>WHAT PHASE?</td>
-                            <td className="yellow">Phase 2</td>
+                            <td className="yellow">Phase 2: Main IDO</td>
                         </tr>                    
                         <tr>
                             <td>WHERE?</td>
