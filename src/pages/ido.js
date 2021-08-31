@@ -59,7 +59,7 @@ const Phases = styled.div`
     display: flex;
     flex-direction: row;
     gap: 100px;
-    margin: 100px 0;
+    margin: 100px 0 0 0;
     .phase {
         width: 400px;
         @media (max-width: ${breakpoints.mobile}) {
@@ -163,6 +163,9 @@ const Title = styled.h1 `
 `
 const SectionHeader = styled.h3`
     margin-bottom: 0px;
+    @media (max-width: ${breakpoints.mobile}) {
+        text-align: center;
+    } 
 `
 
 const Section = styled.div`
@@ -170,8 +173,8 @@ const Section = styled.div`
     flex-direction: column;
     align-items: center;
     width: 600px;
-    margin-bottom: 50px;
-    margin-top: 50px;
+    /* margin-bottom: 50px; */
+    margin-top: 70px;
     text-align: left;
     @media (max-width: ${breakpoints.tablet}) {
         width: 400px;
@@ -187,6 +190,24 @@ const Galaxy = styled.img`
     @media (max-width: ${breakpoints.mobile}) {
         display: none;
     } 
+`
+const Video = styled.div`
+    margin-top: 30px;
+    border: 3px solid #9F9F9F;
+    border-radius: 4px;
+    iframe {
+        border: none;
+        width: 600px;
+        height: 300px;
+        @media (max-width: ${breakpoints.tablet}) {
+            width: 400px;
+            height: 200px;
+        }
+        @media (max-width: ${breakpoints.mobile}) {
+            width: 300px;
+            height: 150px;
+        }
+    }
 `
 
 const initialTime = Date.UTC('2021', '08', '01', '20', '00', '00', '00'); 
@@ -261,13 +282,17 @@ const Ido = ()  => {
                 <p style={{textAlign: 'center'}}><a href={links.ca333interview}>Komodo CTO ca333 talks about AtomicDEX</a></p>
             </Participate>
 
-            {/* <Section>
+            <Section>
                 <SectionHeader>
                 All you need to know about TOKEL IDO
                 </SectionHeader>
-            </Section>
-             */}
-            <Phases>
+                <Video>
+                <iframe
+                    src="https://www.youtube.com/embed/6Neor1_xRnU">
+                </iframe>
+                </Video>
+            
+             <Phases>
                 <div className="phase"><h3>PHASE 1: Price discovery</h3>
 
                     <h4><a style={{color: '#FAB64B', marginLeft: '0'}} href={links.idoLiveStream}>Watch Finished Live Stream</a></h4>
@@ -322,9 +347,10 @@ const Ido = ()  => {
                         </p><br/><br/>
                     <p>Total TKL: 19 500 000 + leftover Phase 1 <br/><br/>
                         Time period: 14 days<br/><br/>
-                        TKL price: 70% of the Phase 1 price<br/><br/><br/><br/><br/></p>
+                        TKL price: 0.2814 KMD/TKL<br/><br/><br/><br/><br/></p>
                 </div>                
             </Phases>
+            </Section>
             <Section>
                 <SectionHeader>In depth IDO details</SectionHeader>
                 <p>If you would like a more indepth look into the IDO details and offers, please take a look at this excel document that outlines every Phase 1 offer, and the equivalent Phase 2 price should the price discovery stop on that offer. <br/> <a href="/IDODetails.xlsx">IDO details for download</a></p>                
@@ -335,12 +361,14 @@ const Ido = ()  => {
                 </SectionHeader>
                 <p>As always, you are required to do your own research and not take any of this as financial advice; we do not endorse any specific activity. Ownership of the TKL coin carries no rights; it is used to create tokens and send transactions on the Tokel blockchain. These TKL are being sold to creators and users of the blockchain for this sole purpose. There are no guarantees of TKLs future value. There should be no expectation that TKL will ever generate any value other than for the use case described. All trades on AtomicDEX are non-refundable. Nobody in the Tokel community or team are liable for any loss caused, whether due to negligence or otherwise arising from the use of, or reliance on, any information provided directly or indirectly.</p>
             </Section> 
-            <div style={{marginBottom: '150px', textAlign: 'center'}}>
-                <SectionHeader>
-                    QUESTIONS?
-                </SectionHeader>
-                <p style={{textAlign: 'center', marginBottom: '20px'}}>Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join <a href={links.discord}>Tokel Discord</a> </p>
-            </div>           
+            <Section>
+                <div style={{marginBottom: '150px', textAlign: 'center'}}>
+                    <SectionHeader>
+                        QUESTIONS?
+                    </SectionHeader>
+                    <p style={{textAlign: 'center', marginBottom: '20px'}}>Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join <a href={links.discord}>Tokel Discord</a> </p>
+                </div>    
+            </Section>       
             <Galaxy className="tokelGalaxy" src={tokelGalaxy}/>
         </IdoRoot>
     </PageRootContainer>
