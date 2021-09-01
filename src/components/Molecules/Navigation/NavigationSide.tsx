@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import { MenuLink } from "./types"
 import React from "react"
 import { StyledSideMenu } from "../../Atoms/StyledSideMenu"
@@ -19,9 +18,9 @@ const NavigationSide = ({ open, setOpen, menuLinks }: NavigationSideProps) => {
   return (
     <StyledSideMenu open={open}>
       {menuLinks.map(link => (
-        <Link to={link.link} key={link.name} onClick={() => setOpen(false)}>
+        <a href={link.link} key={link.name} onClick={() => setOpen(false)}>
           {link.name}
-        </Link>
+        </a>
       ))}
     </StyledSideMenu>
   )
