@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import LogoImg from "../components/Atoms/LogoImg"
 import PageRootContainer from "./template"
 import PropTypes from 'prop-types'
-// import axios from 'axios';
+import axios from 'axios';
 import breakpoints from "../styles/breakpoints"
 import idoBg from '../images/ido/ido-bg.svg'
 import idoBgMobile from '../images/ido/ido-bg-mobile.svg'
@@ -141,19 +141,19 @@ const Phase1Table = styled.table`
     }
 `
 
-// const Phase2Table = styled.table`
-//     margin-top: 20px;
-//     border-spacing: 40px 8px;
-//     text-align: left;
-//     .uppercase {
-//         text-transform: uppercase;
-//         font-weight: 600;
-//         color: #B8BCDD;
-//     }
-//     .purple {
-//         font-size: 30px;
-//     }
-// `
+const Phase2Table = styled.table`
+    margin-top: 20px;
+    border-spacing: 40px 8px;
+    text-align: left;
+    .uppercase {
+        text-transform: uppercase;
+        font-weight: 600;
+        color: #B8BCDD;
+    }
+    .purple {
+        font-size: 30px;
+    }
+`
 
 const Title = styled.h1 `
     margin-bottom: 0px;
@@ -190,7 +190,7 @@ const Section = styled.div`
     align-items: center;
     width: 600px;
     /* margin-bottom: 50px; */
-    margin-top: 70px;
+    margin-top: 45px;
     text-align: left;
     @media (max-width: ${breakpoints.tablet}) {
         width: 400px;
@@ -227,14 +227,30 @@ const Video = styled.div`
 `
 
 const initialTime = Date.UTC('2021', '08', '01', '20', '00', '00', '00'); 
-// const INTERVAL_MS = 5 * 1000
+const INTERVAL_MS = 60 * 1000
+
+
+const getIDOData = () =>
+    axios('https://api1.barterdexapi.net/tokeldico.php')
+    .then(res => {  
+        if (res.data) {
+            return res.data
+        }
+    })
+    .catch(e => console.error(e));
 
 const Ido = ()  => {
     const [timeLeft, { start, pause  }] = useCountDown(initialTime, 1000);
     const [dateCounter, setDateCounter] = useState(timeLeft)
     const [started, setStarted] = useState(false);
+    const [kmdRaised, setKmdRaised] = useState(0);
+    const [usdRaised, setUsdRaised] = useState(0);
+    const [tklSold, setTklSold] = useState(0);
+    
     useEffect(() => {
         start();
+        getIDOData()
+        .then(res => setIDOData(res))
     }, []);
 
     useEffect(() => {
@@ -252,23 +268,22 @@ const Ido = ()  => {
     }, [timeLeft]);
 
 
-//   useEffect(() => {
-//     const config = {
-//         url: 'https://api1.barterdexapi.net/tokeldico.php',
-//         method: "get",
-//     };
+    const setIDOData = (res) => {
+        setTklSold(res.sold);
+        setKmdRaised(res.KMDraised);
+        setUsdRaised(res.USDraised);
+    }
+  useEffect(() => {
+    const idoDataInterval = setInterval(() => {
+        getIDOData()
+        .then(res => setIDOData(res))
 
-//     const idoDataInterval = setInterval(() => {
-//         console.log('interval')
-//         axios.request(config)
-//         .then(res => console.log(res))
+    }, INTERVAL_MS);
 
-//     }, INTERVAL_MS);
-
-//     return () => {
-//       clearInterval(idoDataInterval);
-//     };
-//   }, []);
+    return () => {
+      clearInterval(idoDataInterval);
+    };
+  }, []);
   return (
     <PageRootContainer>
         <IdoRoot>
@@ -318,13 +333,12 @@ const Ido = ()  => {
                     </table>
                 </InfoTable>
             </div>
-            {/* {started && 
-                <Section>
+            <Section>
                 <SectionHeader>
                     IDO LIVE data
                 </SectionHeader>
-
-                <Phase2Table>
+                {(tklSold && kmdRaised && usdRaised) ?
+                    <Phase2Table>
                         <thead>
                             <tr>
                                 <td className="uppercase">TKL Sold</td>
@@ -334,16 +348,16 @@ const Ido = ()  => {
                         </thead>
                         <tbody>
                             <tr>
-                                <td className="purple">500000</td>
-                                <td className="purple">140700</td>
-                                <td className="purple">163212</td>
+                                <td className="purple">{tklSold}</td>
+                                <td className="purple">{kmdRaised}</td>
+                                <td className="purple">{usdRaised}</td>
                             </tr>
                         </tbody>
-                                                
-                </Phase2Table>
+                                            
+                    </Phase2Table>   
+                    : <h3>loading...</h3>
+            }
             </Section>
-             }
-        */}
             <Participate>
                 <SectionHeader>HOW to participate</SectionHeader>
                 <p>In order to participate, make sure you have downloaded AtomicDEX and have created a wallet there. All you need to do is purchase KMD and have it ready in your AtomicDEX wallet. Then, check AtomicDEX for KMD/TKL orders and purchase them during the 2 week period. It is as simple as that.</p>
