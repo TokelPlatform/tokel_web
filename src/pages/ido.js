@@ -141,20 +141,6 @@ const Phase1Table = styled.table`
     }
 `
 
-const Phase2Table = styled.table`
-    margin-top: 20px;
-    border-spacing: 40px 8px;
-    text-align: left;
-    .uppercase {
-        text-transform: uppercase;
-        font-weight: 600;
-        color: #B8BCDD;
-    }
-    .purple {
-        font-size: 30px;
-    }
-`
-
 const Title = styled.h1 `
     margin-bottom: 0px;
     font-size: 50px;
@@ -226,6 +212,28 @@ const Video = styled.div`
     }
 `
 
+const IDOResults = styled.div`
+    display: flex;
+    flex-direction: row;
+
+    .col {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    @media (max-width: ${breakpoints.mobile}) {
+        flex-direction: column;
+    }
+
+    .big {
+        font-size: 30px;
+        color: white;
+    }
+    .label {
+        color: #B8BCDD;
+    }
+    
+`
+
 const initialTime = Date.UTC('2021', '08', '01', '20', '00', '00', '00'); 
 const INTERVAL_MS = 60 * 1000
 
@@ -269,9 +277,9 @@ const Ido = ()  => {
 
 
     const setIDOData = (res) => {
-        setTklSold(res.sold);
-        setKmdRaised(res.KMDraised);
-        setUsdRaised(res.USDraised);
+        setTklSold(res.sold.toFixed(0));
+        setKmdRaised(res.KMDraised.toFixed(0));
+        setUsdRaised(res.USDraised.toFixed(0));
     }
   useEffect(() => {
     const idoDataInterval = setInterval(() => {
@@ -337,24 +345,23 @@ const Ido = ()  => {
                 <SectionHeader>
                     IDO LIVE data
                 </SectionHeader>
+
                 {(tklSold && kmdRaised && usdRaised) ?
-                    <Phase2Table>
-                        <thead>
-                            <tr>
-                                <td className="uppercase">TKL Sold</td>
-                                <td className="uppercase">KMD raised</td>
-                                <td className="uppercase">USD raised</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td className="purple">{tklSold}</td>
-                                <td className="purple">{kmdRaised}</td>
-                                <td className="purple">{usdRaised}</td>
-                            </tr>
-                        </tbody>
-                                            
-                    </Phase2Table>   
+                        <IDOResults>
+                            <div className="col">
+                                <h3 className="label">TKL Sold</h3>
+                                <p className="big">{tklSold}</p>
+                            </div>
+                            <div className="col">
+                                <h3 className="label">KMD Raised</h3>
+                                <p className="big">{kmdRaised}</p>
+                            </div>
+                            <div className="col">
+                                <h3 className="label">USD Raised</h3>
+                                <p className="big">{usdRaised}</p>
+                            </div>                    
+                        </IDOResults>
+
                     : <h3>loading...</h3>
             }
             </Section>
