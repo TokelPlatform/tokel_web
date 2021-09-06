@@ -30,7 +30,8 @@ align-items: center;
 `
 
 const Label = styled.h3`
-  font-family: 'ibm_plex';
+
+font-family: 'ibm_plex', monospace;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -45,7 +46,8 @@ const Label = styled.h3`
   color: #7C91A7;
 `
 const Result = styled.p`
-font-family: 'ibm_plex';
+
+font-family: 'ibm_plex', monospace;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
@@ -68,7 +70,8 @@ const Submit = styled.button`
   box-sizing: border-box;
   font-size: 20px;
   color: #000000;
-  font-family: 'ibm_plex';
+
+  font-family: 'ibm_plex', monospace;
 
 `
 
@@ -78,7 +81,8 @@ const Input = styled.input`
   font-size: 20px;
   color: white;
   padding: 1px 10px;
-  font-family: 'ibm_plex';
+
+  font-family: 'ibm_plex', monospace;
 
   border: 1px solid #DEDEDE;
   box-sizing: border-box;
