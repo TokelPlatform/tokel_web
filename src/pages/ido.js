@@ -3,6 +3,7 @@ import * as React from "react"
 import { formatDuration, intervalToDuration } from 'date-fns'
 import { useEffect, useState } from "react"
 
+import Announcement from "../components/Molecules/Announcement"
 import LogoImg from "../components/Atoms/LogoImg"
 import PageRootContainer from "./template"
 import PropTypes from 'prop-types'
@@ -294,6 +295,7 @@ const Ido = ()  => {
   }, []);
   return (
     <PageRootContainer>
+        <Announcement />
         <IdoRoot>
             <LogoImg width="80px" mobileWidth="50px"/>
             <div>

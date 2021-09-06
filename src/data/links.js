@@ -24,7 +24,8 @@ const links = {
     atomicDex: 'https://atomicdex.io/',
     idoLiveStream: 'https://www.youtube.com/watch?v=WQ39eTAgdB0',
     aDEXStepByStep: 'https://docs.tokel.io/guides/HowToUseAtomicDEX/',
-    ca333interview: 'https://youtu.be/-sZc7DHcuI8'
+    ca333interview: 'https://youtu.be/-sZc7DHcuI8',
+    mediumEarlyAdopters: 'https://medium.com/@tokel-platform/tokel-early-adopter-initiative-time-lock-reward-plan-9806f4ffc74'
 }
 
 export default links
