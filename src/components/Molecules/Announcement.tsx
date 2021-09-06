@@ -37,7 +37,7 @@ const Announcement = () => {
     <AnnouncementRoot>
         <div>
             
-            <a href={links.mediumEarlyAdopters}><h1>Latest IDO Announcement</h1></a>
+            <a href={links.mediumEarlyAdopters}><h1>TKL Time Lock Rewards</h1></a>
             <h2>Early Adopter Initiative + FAQ</h2>
         </div>
 
