@@ -147,7 +147,7 @@ const Rewards = () => {
         }
     })
     .catch(e => {
-      setError(e);
+      setError(e.message);
       setFetching(null);
     });
      
