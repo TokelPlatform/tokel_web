@@ -119,6 +119,9 @@ const Note = styled.div`
   color: white;
   height: 20px;
 `
+
+export const isAddressValid = (address) => /^[a-km-zA-HJ-NP-Z1-9]{26,35}$/.test(address);
+
 const Rewards = () => {
   const [address, setAddress] = React.useState(null);
   const [balance, setBalance] = React.useState(null);
@@ -126,20 +129,22 @@ const Rewards = () => {
   const [rewards2, setRewards2] = React.useState(null);
   const [error, setError] = React.useState(null);
   const [fetching, setFetching] = React.useState(null);
+  const [success, setSuccess]= React.useState(null);
   
   const getData = (address) => {
-  setError(null)
-  setFetching('Fetching data...')
+    setSuccess(false);
+    setError(null)
+    setFetching('Fetching data...')
    
-  if(!address || address.length < 26) {
+  if(!address || address.length < 26 || !isAddressValid(address)) {
     setError('Invalid address');
     setFetching(null);
     return;
   }
   return axios(`https://dexstats.info/api/rewardstokel.php?address=${address}`)
     .then(res => {  
-      console.log(res)
         if (res.data) {
+          setSuccess(true)
           setFetching(null);
           setBalance(res.data.balance);
           setRewards1(res.data.FirstUnlock)
@@ -147,6 +152,7 @@ const Rewards = () => {
         }
     })
     .catch(e => {
+      setSuccess(false);
       setError(e.message);
       setFetching(null);
     });
@@ -174,7 +180,7 @@ const Rewards = () => {
       <Input placeholder="Your TKL address"onChange={val => handleChange(val.target.value)}></Input>
       <Submit onClick={() => getData(address)}> Submit </Submit>
     </div>
-        {balance && rewards1 && rewards2 &&
+        {success &&
         <div style={{marginTop: '30px'}}>
           <ResultBlock>
             <Label>Address</Label>
@@ -182,7 +188,7 @@ const Rewards = () => {
           </ResultBlock>
           <ResultBlock>
             <Label>current balance</Label>
-            <Result>{balance} TKL</Result>
+            <Result>{Number(balance)} TKL</Result>
           </ResultBlock>
           <ResultBlock>
             <Label>Rewards unlockable 15th June 2022</Label>
