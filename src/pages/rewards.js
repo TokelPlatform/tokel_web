@@ -120,6 +120,35 @@ const Note = styled.div`
   height: 20px;
 `
 
+const SectionHeader = styled.h3`
+    color: white;
+    opacity: 0.8;
+    margin-bottom: 0px;
+    @media (max-width: ${breakpoints.mobile}) {
+        text-align: center;
+    } 
+`
+
+const Section = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    margin-top: 45px;
+    text-align: left;
+    @media (max-width: ${breakpoints.tablet}) {
+        width: 400px;
+    }
+    @media (max-width: ${breakpoints.mobile}) {
+        width: 100%;
+        text-align: left;
+    }   
+    p {
+      color: white;
+      opacity: 0.8;
+    }
+`
+
 export const isAddressValid = (address) => /^[a-km-zA-HJ-NP-Z1-9]{26,35}$/.test(address);
 
 const Rewards = () => {
@@ -200,6 +229,12 @@ const Rewards = () => {
           </ResultBlock>
         </div>
         }
+        <Section>
+          <SectionHeader>
+              DISCLAIMER
+          </SectionHeader>
+          <p>This rewards calculator uses current conditions to populate these estimations. These estimations should be used as a guide based on the current amount of TKL sold, and is in no way a guarantee that you will eventually receive this many coins.</p>
+      </Section> 
       </RewardsRoot>
     </PageRootContainer>
   )

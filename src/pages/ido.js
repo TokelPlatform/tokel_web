@@ -367,6 +367,9 @@ const Ido = ()  => {
                     : <h3>loading...</h3>
             }
             </Section>
+            <Section>
+                <SectionHeader><a href="/rewards">Calculate your rewards here</a></SectionHeader>
+            </Section>
             <Participate>
                 <SectionHeader>HOW to participate</SectionHeader>
                 <p>In order to participate, make sure you have downloaded AtomicDEX and have created a wallet there. All you need to do is purchase KMD and have it ready in your AtomicDEX wallet. Then, check AtomicDEX for KMD/TKL orders and purchase them during the 2 week period. It is as simple as that.</p>
