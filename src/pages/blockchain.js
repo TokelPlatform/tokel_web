@@ -325,7 +325,7 @@ export default function ChainLaunch() {
       <Hero>
         <h1>We have launched the Tokel chain!</h1>
         <h2>Sell art. Browse NFTs. Create and trade tokens for your projects. All on a unified and inexpensive platform.</h2>
-        <h3>IDO coming soon on <a href={links.atomicDex}>Atomic DEX</a></h3>
+        <h3>Join Tokel IDO! <a href="/ido">Details here</a></h3>
         
         <TerminalWrapper>
           <Terminal>
