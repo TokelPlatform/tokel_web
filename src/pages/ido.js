@@ -302,7 +302,7 @@ const Ido = ()  => {
                 <Title>TOKEL IDO</Title>
                 {!started ?
                     <p style={{textAlign: 'center'}}>Main IDO in: {dateCounter}</p>:
-                    <p style={{textAlign: 'center'}}>Main IDO IN PROGRESS</p>
+                    <p style={{textAlign: 'center'}}>IDO successfully finished on 15th Sept 2021 8pm UTC</p>
                 }
                 <InfoTable>
                     <table>
