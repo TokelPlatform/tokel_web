@@ -35,6 +35,7 @@ const PhaseRoot = styled.div<PhaseRootProps>`
   @media (max-width: ${breakpoints.roadmap.breakpoint4}) {
     padding: 1rem 1.5rem;
     margin: 2rem 0rem;
+    grid-template-rows: ${props => props.current ? '15% 85%': '25% 75%'};
   }
   h1 {
         @media (max-width: ${breakpoints.roadmap.breakpoint4}) {            
