@@ -3,7 +3,6 @@ import links from "../../data/links"
 import styled from "@emotion/styled"
 
 const AnnouncementRoot = styled.div`
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,12 +34,8 @@ const AnnouncementRoot = styled.div`
 const Announcement = () => {
   return (
     <AnnouncementRoot>
-        <div>
-            
-            <a href={links.mediumEarlyAdopters}><h1>TKL Time Lock Rewards</h1></a>
-            <h2>Early Adopter Initiative + FAQ</h2>
-        </div>
-
+        <a href={links.mediumEarlyAdopters}><h1>TKL Time Lock Rewards</h1></a>
+        <h2>Early Adopter Initiative + FAQ</h2>
     </AnnouncementRoot>
   )
 }
