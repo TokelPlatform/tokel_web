@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import Announcement from "../components/Molecules/Announcement"
+import { Helmet } from "react-helmet"
 import LogoImg from "../components/Atoms/LogoImg"
 import PageRootContainer from "./template"
 import PropTypes from 'prop-types'
@@ -193,6 +194,11 @@ const Ido = ()  => {
 
   return (
     <PageRootContainer>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>The Tokel IDO for TKL on AtomicDEX | Tokel Platform</title>
+          <meta name="description" content="To participate download the AtomicDEX and create a wallet there. All you need to do is purchase KMD and store it in your AtomicDEX wallet." />
+       </Helmet>
         <Announcement />
         <IdoRoot>
             <LogoImg width="80px" mobileWidth="50px"/>

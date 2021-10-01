@@ -1,4 +1,5 @@
 import Footer from "../components/Organisms/Footer"
+import { Helmet } from "react-helmet"
 import PropTypes from 'prop-types'
 import React from "react"
 import Stars from "../components/Atoms/Stars"
@@ -316,6 +317,11 @@ const HiddenDots = styled.span`
 export default function ChainLaunch() {
   return (
     <div>
+    <Helmet>
+        <meta charSet="utf-8" />
+        <title>We have launched the Tokel chain! | Tokel Platform </title>
+        <meta name="description" content="With the Tokel App you can sell art, browse NFTs, create and trade tokens for your projects. All on a unified and inexpensive platform." />
+    </Helmet>
     <ChainLaunchRoot>  
       <ChainLaunchWrapper>
       <Stars starSize={'small'} />

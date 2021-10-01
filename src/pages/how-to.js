@@ -1,13 +1,13 @@
 import * as React from "react"
-import PropTypes from 'prop-types'
 
-import styled from '@emotion/styled'
-import { graphql } from "gatsby"
+import { Helmet } from "react-helmet"
 import Img from 'gatsby-image'
-
-import links from "../data/links"
-import breakpoints from "../styles/breakpoints"
 import PageRootContainer from "./template"
+import PropTypes from 'prop-types'
+import breakpoints from "../styles/breakpoints"
+import { graphql } from "gatsby"
+import links from "../data/links"
+import styled from '@emotion/styled'
 
 const HowToRoot = styled.div`
     padding: 50px 50px 150px 50px;
@@ -86,6 +86,11 @@ const ImgWrapper = styled.div`
 const HowTo = ({data})  => {
   return (
     <PageRootContainer>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>How to use the Tokel blockchain | Tokel Platform </title>
+          <meta name="description" content="The Tokel application supports the TKL coin wallet. All features are currently accessible directly on the blockchain via terminal commands." />
+      </Helmet>
         <HowToRoot>
             <h1>How to use Tokel blockchain</h1>
             <Disclaimer>DISCLAIMER <br/>The Tokel application currently only supports the TKL coin wallet. Other GUI features such as: a token wallet, a token creation tool, an NFT marketplace, token DEX are under development. All of these features are currently accessible directly on the blockchain via terminal commands.</Disclaimer>

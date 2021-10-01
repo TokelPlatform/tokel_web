@@ -3,6 +3,7 @@ import * as React from "react"
 import Features from "../components/Organisms/Features"
 import Footer from "../components/Organisms/Footer"
 import Functionality from "../components/Organisms/Functionality"
+import { Helmet } from "react-helmet"
 import Img from "gatsby-image"
 import PropTypes from 'prop-types'
 import Stars from "../components/Atoms/Stars"
@@ -28,6 +29,11 @@ const Dashboard = css`
 const IndexPage = ({data})  => {
   return (
     <MainPage>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Tokel | Making NFT & Token Creation Easy For Everyone</title>
+          <meta name="description" content="Tokel truly opens the door for every single person to create & access tokens and NFTs in an inexpensive, decentralized fashion." />
+      </Helmet>
       <TopBar />
       <Stars starSize={'small'} />
       <Stars starSize={'medium'}/>

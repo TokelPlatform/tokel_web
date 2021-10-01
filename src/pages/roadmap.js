@@ -1,4 +1,5 @@
 import Footer from "../components/Organisms/Footer"
+import { Helmet } from "react-helmet"
 import LogoImg from "../components/Atoms/LogoImg"
 import PropTypes from 'prop-types'
 import React from "react"
@@ -57,6 +58,11 @@ const TopPlanets = styled.img`
 export default function Roadmap() {
   return (
     <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Project Roadmap 2021 - 2022 | Tokel Platform</title>
+          <meta name="description" content="A complete roadmap of the Tokel Platform project to showcase the development plans and goals for the next 2 years." />
+       </Helmet>
       <RoadMapContainer>         
         <TopBar />  
         <Stars starSize={'small'} top='3700px' />
