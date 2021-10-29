@@ -35,10 +35,10 @@ const WelcomeText = () => {
   return (
       <Container>
         <SubTitle className="subtitle">Introducing TOKEL</SubTitle>
-        <Title>The future of <br />t<LogoImg mobileWidth="25px" width="45px"></LogoImg>kenization</Title>
+        <Title>T<LogoImg mobileWidth="25px" width="45px"></LogoImg>ken Wallet <br />Alpha Version</Title>
         <Download>
           <VSpacerBig />
-          <a href={links.github_release_page}><Button theme={Colors.PURPLE} text="Download v 1.0.0" width="240px"></Button></a>
+          <a href={links.github_release_page}><Button theme={Colors.PURPLE} text="Download" width="240px"></Button></a>
           <p style={{textAlign: 'center', color: 'var(--color-gray)'}}>Currently Desktop only</p>
         </Download>
       </Container>
