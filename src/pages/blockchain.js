@@ -407,7 +407,7 @@ export default function ChainLaunch() {
             Your token will have immediate token explorer integration.<br/> <br/>
 
             <Hightlighted>safe from 51% attacks</Hightlighted>
-            Your token is safe from 51% attacks as Tokel is secured through dPoW. Tokel and your tokens are protected by Bitcoin’s hashrate using Komodo dPoW technology.<br/> <br/>
+            Your token is safe from 51% attacks as Tokel is secured through dPoW. Tokel and your tokens are protected by Komodo&apos;s &amp; Litecoin&apos;s hashrate using Komodo dPoW technology.<br/> <br/>
 
             <Hightlighted>sell your tokens immediately</Hightlighted> 
             You will have the ability to sell your tokens immediately after creation with Tokel’s built-in tokenDEX and NFT marketplace integration.<br/> <br/>

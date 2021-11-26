@@ -19,7 +19,7 @@ const links = {
     floteApp: 'https://flote.app/user/Tokel',
     facebook: 'https://www.facebook.com/TokelPlatform/',
     bittube: 'https://bittube.tv/profile/Tokel',
-    telegram: 'https://t.me/TokelPlatform',
+    telegram: 'https://t.me/TokelPlatformchat',
     nspv: 'https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-setup/nspv.html#introduction',
     atomicDex: 'https://atomicdex.io/',
     idoLiveStream: 'https://www.youtube.com/watch?v=WQ39eTAgdB0',
