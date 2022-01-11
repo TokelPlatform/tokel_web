@@ -36,13 +36,13 @@ const NavigationVertical = styled.div`
   }
 `
 const menuLinks = [
-  { link: '/how-to', name: "How to" },
-  { link: '/blockchain', name: "Chain" },
-  { link: '/ido', name: "IDO" },
-  { link: links.whitepaper, name: "White Paper" },
+  { link: '/how-to', name: "Get Started" },
+  { link: '/exchanges', name: "Exchanges" },
   { link: '/roadmap', name: "Roadmap" },
+  { link: links.whitepaper, name: "White Paper" },
+  // { link: '/news', name: "News" },
   { link: links.explorer, name: "Explorer" },
-  { link: links.documentationChain, name: "Documentation" },
+  { link: '/faq', name: "FAQ" },
 ];
 
 const Navigation = () => {

@@ -5,6 +5,7 @@ const links = {
     github: 'https://github.com/TokelPlatform/',
     github_dark: 'https://github.com/TokelPlatform',
     github_release_page: "https://github.com/TokelPlatform/tokel_app/releases",
+    github_nspv: "https://github.com/TokelPlatform/nspv-js",
     openseaImage: 'https://opensea.io/assets/0xc2c747e0f7004f9e8817db2ca4997657a7746928/8064',
     superrareImage: 'https://superrare.co/artwork-v2/cochleanaut-18746',
     donate: 'https://discord.gg/R9u43zYZka',
@@ -25,7 +26,10 @@ const links = {
     idoLiveStream: 'https://www.youtube.com/watch?v=WQ39eTAgdB0',
     aDEXStepByStep: 'https://docs.tokel.io/guides/HowToUseAtomicDEX/',
     ca333interview: 'https://youtu.be/-sZc7DHcuI8',
-    mediumEarlyAdopters: 'https://medium.com/@tokel-platform/tokel-early-adopter-initiative-time-lock-reward-plan-9806f4ffc74'
+    mediumEarlyAdopters: 'https://medium.com/@tokel-platform/tokel-early-adopter-initiative-time-lock-reward-plan-9806f4ffc74',
+    spotify: 'https://open.spotify.com/show/7oe8Wt6gz3dMDnYYkbRhsG?si=9304884cd13c44df',
+    apple_podcasts: 'https://podcasts.apple.com/us/podcast/tokel-talk/id1598762562',
+    tokenCreationTool: 'https://www.youtube.com/embed/dZikw30vO2U'
 }
 
 export default links

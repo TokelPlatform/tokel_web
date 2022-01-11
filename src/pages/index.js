@@ -26,6 +26,12 @@ const Dashboard = css`
   max-width: 900px;
 `
 
+const Preview = styled.a`
+  &:hover {
+    opacity: 1
+  }
+`
+
 const IndexPage = ({data})  => {
   return (
     <MainPage>
@@ -39,7 +45,9 @@ const IndexPage = ({data})  => {
       <Stars starSize={'medium'}/>
       <Stars starSize={'big'}/>
       <WelcomeText />
-      <Img css={Dashboard} fluid={data.dash.childImageSharp.fluid}></Img>
+      <Preview href='https://www.youtube.com/watch?v=dZikw30vO2U'>
+        <Img css={Dashboard} fluid={data.dash.childImageSharp.fluid}></Img>
+      </Preview>
       <Functionality />
       <Features />
       <Footer />

@@ -25,19 +25,28 @@ const BottomPlanets = styled.img`
         top: 700px;
     }
 ` 
+const RoadmapListRoot = styled.div`
+    h1 {
+        color: var(--color-lightBlue);
+        text-transform: uppercase;
+    }
+    p {
+        color: var(--color-lightBlue);
+    }
+`
 
 const RoadmapList = () => {
     const current = phases.find(a => a.current);
     const past = phases.filter(a => !a.current);
     
     return (
-        <div>
+        <RoadmapListRoot>
             <BottomPlanets src={planetsBottom} />
             {current && <Phase data={current} />}
             <FuturePlans />
             <h1 style={{textAlign: 'left', marginBottom: 0}}>Completed phases</h1>
             {past && past.map((data, idx) => (<Phase key={idx} idx={idx} data={data}/>))}
-        </div>
+        </RoadmapListRoot>
   )
 }
 

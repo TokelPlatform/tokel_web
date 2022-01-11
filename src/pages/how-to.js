@@ -93,7 +93,8 @@ const HowTo = ({data})  => {
       </Helmet>
         <HowToRoot>
             <h1>How to use Tokel blockchain</h1>
-            <Disclaimer>DISCLAIMER <br/>The Tokel application currently only supports the TKL coin wallet. Other GUI features such as: a token wallet, a token creation tool, an NFT marketplace, token DEX are under development. All of these features are currently accessible directly on the blockchain via terminal commands.</Disclaimer>
+            <Disclaimer>DISCLAIMER <br/>The Tokel application currently supports: TKL coin wallet, Token wallet, Token Creation Tool.
+             Token DEX is currently only accessible directly on the blockchain via terminal.</Disclaimer>
             <Options>
                 <OptionWrapper>
                     <h2>For all users: <br/>Tokel All-in-one Application</h2>
@@ -114,6 +115,28 @@ const HowTo = ({data})  => {
                     <h3><a href={links.documentationChain + '/api/assets/#introduction/'}>Use the tokenDEX</a></h3>
                 </OptionWrapper>
             </Options>
+            <Options>
+                <OptionWrapper>
+                    <h2>For all users: <br/>Tokel Documenation</h2>
+                    <ImgWrapper>
+                      <Img fluid={data.docs.childImageSharp.fluid}></Img>
+                    </ImgWrapper>
+                    <h3><a href={links.documentationChain + '#what-is-the-tokel-platform'}>What is the Tokel Platform?</a></h3>
+                    <h3><a href={links.documentationChain + '#tokel-blockchain-specifics'}>Tokel Blockchain Specifics</a></h3>
+                    <h3><a href={links.documentationChain + 'guides/FindYourPubkey/'}>Find your pubkey to receive tokens</a></h3>
+                </OptionWrapper>
+                <OptionWrapper>
+                    <div>
+                      <h2>For developers: <br/>Nspv-js</h2>
+                      <ImgWrapper>
+                        <Img fluid={data.nspv.childImageSharp.fluid}></Img>
+                      </ImgWrapper>
+                    </div>
+                    <h3><a href={links.github_nspv + '#why-nspv'}>Why Nspv-js?</a></h3>
+                    <h3><a href={links.github_nspv + '#prerequisites'}>Installation Prerequisites</a></h3>
+                    <h3><a href={links.github_nspv + '/blob/development/API.md'}>Nspv-js API</a></h3>
+                </OptionWrapper>
+            </Options>
         </HowToRoot>
     </PageRootContainer>
   )
@@ -128,12 +151,26 @@ export const query = graphql`
       }
     }
     cli: file(relativePath: { eq: "howto/cli.png" }) {
-        childImageSharp {
-          fluid(quality: 100, maxWidth: 400) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 400) {
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
+    }
+    docs: file(relativePath: { eq: "howto/docs.png" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 400) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    nspv: file(relativePath: { eq: "howto/nspv.png" }) {
+      childImageSharp {
+        fluid(quality: 100, maxWidth: 400) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
   }
 `
 HowTo.propTypes = {
