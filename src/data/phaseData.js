@@ -5,9 +5,37 @@ const phases = [
     {
         current: 1,
         phase: {
-            title: 'Phase 3',
+            title: 'Phase 4',
             label: 'In progress',
-            timeInformation: 'Started July 2021'
+            timeInformation: 'Started November 2021'
+
+        },
+        phaseDetails: [
+            {
+                title: 'Improve current dApp release',
+                description: 'The token wallet release was a huge milestone in the Tokel All-in-one decentralized application efforts. As we have completely changed the backend of the dApp from a libnspv binary, to the CC Javascript implementation, we will be allocating a lot of time ensuring this new backend works without fault. By doing this now, it ensures that future releases occur more seamlessly and are easier to implement.'
+            },
+            {
+                title: 'DApp token creation tool (released 16.12.2021)',
+                description: 'We are starting to shift focus to the in-dApp token creation tool. This tool will allow anybody to easily create a token or NFT through a step by step process, all within the dApp, and all over nSPV (a super light and quick blockchain client).'
+            },
+            {
+                title: 'Development of Js CryptoConditions library via nSPV',
+                description: 'This Javascript CryptoConditions library will form the foundation of a software development kit. It will allow for easy integration with TOKEL blockchain and any other notarization based chains. The library will expose an API which developers can use for free to retrieve information about transactions, sign transactions and send them over nSPV to the blockchain of their choice. The developer will be able to run a superlite client to achieve needed manipulations with the chain. It takes almost no time to start the client and all communication between client and the blockchain is extrememely quick.'
+            },
+            {
+                title: 'more marketing efforts',
+                description: ['We aim to further understand the needs and requirements of the main Tokel user groups. This user research will allow us to conduct marketing campaigns in a more targeted fashion. Focusing our efforts to where they are needed most.', <br key="nl1" />,<br key="nl22" />, 'The main Tokel target user groups:', <ul key="userList">  <li>Video game design/creation studios/projects</li>  <li>Digital content creators/buyers/sellers</li> <li>Software projects/companies that could integrate our API into their app/software</li></ul>]
+            }
+
+        ]
+    },
+    {
+        current: 0,
+        phase: {
+            title: 'Phase 3',
+            label: 'Completed',
+            timeInformation: 'Finished October 2021'
 
         },
         phaseDetails: [
