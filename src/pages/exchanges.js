@@ -9,6 +9,7 @@ import TopBar from "../components/Molecules/TopBar"
 import breakpoints from "../styles/breakpoints"
 import flyingTokel from '../images/launch/flying-tokel.svg'
 import { graphql } from "gatsby"
+import links from '../data/links'
 import planetsOrbits from '../images/launch/planets-orbits.svg'
 import styled from "@emotion/styled"
 
@@ -111,8 +112,8 @@ export default function Exchanges({data}) {
       <TokelQuestionsWrapper>
         <WhyTokel>
           <PageHeader>Exchanges</PageHeader>
-          <a href="https://atomicdex.io/"><Img fluid={data.atomic.childImageSharp.fluid}></Img></a>
-          <a href="https://dex-trade.com/"><Img fluid={data.dex.childImageSharp.fluid}></Img></a>
+          <a href={links.atomicDex}><Img fluid={data.atomic.childImageSharp.fluid}></Img></a>
+          <a href={links.dexTrade}><Img fluid={data.dex.childImageSharp.fluid}></Img></a>
         </WhyTokel>
         <Contact>
           <h3>Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join <a href="https://discord.gg/SQzdUQWXrn">Tokel Discord</a> </h3>

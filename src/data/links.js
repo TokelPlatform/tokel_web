@@ -29,7 +29,8 @@ const links = {
     mediumEarlyAdopters: 'https://medium.com/@tokel-platform/tokel-early-adopter-initiative-time-lock-reward-plan-9806f4ffc74',
     spotify: 'https://open.spotify.com/show/7oe8Wt6gz3dMDnYYkbRhsG?si=9304884cd13c44df',
     apple_podcasts: 'https://podcasts.apple.com/us/podcast/tokel-talk/id1598762562',
-    tokenCreationTool: 'https://www.youtube.com/embed/dZikw30vO2U'
+    tokenCreationTool: 'https://www.youtube.com/embed/dZikw30vO2U',
+    dexTrade: 'https://dex-trade.com/refcode/uk7ztz'
 }
 
 export default links
