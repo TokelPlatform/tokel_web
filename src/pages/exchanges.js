@@ -99,7 +99,7 @@ export default function Exchanges({data}) {
     <div>
     <Helmet>
         <meta charSet="utf-8" />
-        <title>Excahnges | Tokel Platform </title>
+        <title>Exchanges | Tokel Platform </title>
         <meta name="description" content="With the Tokel App you can sell art, browse NFTs, create and trade tokens for your projects. All on a unified and inexpensive platform." />
     </Helmet>
     <ChainLaunchRoot> 
