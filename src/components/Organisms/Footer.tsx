@@ -124,7 +124,7 @@ const Footer = () => (
             </FooterSecondaryBlock>
         </Container>
         <Footnote>
-            <p>Tokel 2021. Created with love and passion for blockchain and all things decentralized by <a href="mailto:hello@daria.engineer">Daria</a></p>
+            <p>Tokel {new Date().getFullYear()}. Created with 💙 for blockchain and all things decentralized by Daria</p>
             {/* <div>
                 <a href="#">Terms of Service</a>
                 <a href="#">Privacy Policy</a>                

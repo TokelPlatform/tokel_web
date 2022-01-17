@@ -30,7 +30,15 @@ const links = {
     spotify: 'https://open.spotify.com/show/7oe8Wt6gz3dMDnYYkbRhsG?si=9304884cd13c44df',
     apple_podcasts: 'https://podcasts.apple.com/us/podcast/tokel-talk/id1598762562',
     tokenCreationTool: 'https://www.youtube.com/embed/dZikw30vO2U',
-    dexTrade: 'https://dex-trade.com/refcode/uk7ztz'
+    dexTrade: 'https://dex-trade.com/refcode/uk7ztz',
+    podcast: {
+        spotify: 'https://open.spotify.com/show/7oe8Wt6gz3dMDnYYkbRhsG',
+        deezer: 'https://www.deezer.com/en/show/3156892',
+        stitcher: 'https://www.stitcher.com/show/tokel-talk',
+        google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xODg3ODA1LnJzcw==',
+        amazon: 'https://music.amazon.com/podcasts/efe0404f-76f8-499b-9fd0-d95dfa403161/tokel-talk',
+        apple: 'https://podcasts.apple.com/fr/podcast/tokel-talk/id1598762562'
+    }
 }
 
 export default links
