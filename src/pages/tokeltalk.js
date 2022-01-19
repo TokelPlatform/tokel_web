@@ -4,25 +4,28 @@ import { Helmet } from "react-helmet"
 import Img from "gatsby-image"
 import PodcastRoot from "./template"
 import PropTypes from 'prop-types'
+import breakpoints from "../styles/breakpoints"
 import { graphql } from "gatsby"
 import links from "../data/links"
 import styled from "@emotion/styled"
 
 const PlayerContainer = styled.div`
+  width: 100%;
+  display: flex;
+  max-width: 850px;
   margin: auto;
-  width: 800px;
-`
-
-const ImageWraper = styled.div`
-  width: 300px;
 `
 
 const HeaderWrapper = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  gap: 2rem;
+  @media (max-width: ${breakpoints.mobilemiddle}) {
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  }
 `
+
 const Content = styled.div`
   padding: 10rem 0;
   display: flex;
@@ -32,12 +35,21 @@ const Content = styled.div`
   h1 {
     font-size: 50px;
     line-height: 60px;
-    max-width: 500px;
+  }
+  @media (max-width: ${breakpoints.smallScreen}) {
+    padding: 5rem;
+  }
+  @media (max-width: ${breakpoints.mobilemiddle}) {
+    padding: 2rem;
+    h1 {
+      font-size: 40px;
+      line-height: 50px;
+    }
   }
 `
 
 const Desc = styled.p`
-  max-width: 500px;
+  max-width: 800px;
   color: white;
 `
 
@@ -64,19 +76,18 @@ const TokelTalk = ({data})  => {
             <meta charSet="utf-8" />
             <title>Tokel | Making NFT & Token Creation Easy For Everyone</title>
             <meta name="description" content="Tokel truly opens the door for every single person to create & access tokens and NFTs in an inexpensive, decentralized fashion." />
-            <script type='text/javascript' charset='utf-8' src='https://www.buzzsprout.com/1887805.js?container_id=buzzsprout-large-player&player=large'></script>
         </Helmet>
         <Content>
           <HeaderWrapper>
-            <ImageWraper>
-              <Img fluid={data.tokeltalk.childImageSharp.fluid}></Img>
-            </ImageWraper>
             <div>
               <h1><a href="https://www.bcast.fm/blog/best-nft-podcasts">One of the TOP best NFT podcasts</a></h1>              
               <Desc>Tokel Talk is the live stream and podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform Tokel. The Tokel platform provides end-to-end token solutions to creators, businesses and projects alike.</Desc>
             </div>
 
           </HeaderWrapper>
+          <PlayerContainer>
+             <iframe src="https://embed.podcasts.apple.com/us/podcast/tokel-talk/id1598762562?itsct=podcast_box_player&amp;itscg=30200&amp;ls=1&amp;theme=dark" height="450px" frameBorder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style={{width: "100%", overflow: "hidden", borderRadius: "10px", background: "transparent"}}></iframe>
+          </PlayerContainer>  
           <ListenOn>
               <a href={links.podcast.apple}><Img fixed={data.apple.childImageSharp.fixed}></Img></a>
               <a href={links.podcast.amazon}><Img fixed={data.amazon.childImageSharp.fixed}></Img></a>
@@ -86,9 +97,6 @@ const TokelTalk = ({data})  => {
               <a href={links.podcast.stitcher}><Img fixed={data.stitcher.childImageSharp.fixed}></Img></a>
 
           </ListenOn>
-          <PlayerContainer>
-            <div id='buzzsprout-large-player'></div>
-          </PlayerContainer>
 
         </Content>
 
