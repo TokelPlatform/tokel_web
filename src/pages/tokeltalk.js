@@ -12,7 +12,7 @@ import styled from "@emotion/styled"
 const PlayerContainer = styled.div`
   width: 100%;
   display: flex;
-  max-width: 850px;
+  max-width: 800px;
   margin: auto;
 `
 
@@ -33,8 +33,18 @@ const Content = styled.div`
   justify-content: center;
   align-content: center;
   h1 {
+    color: #FFFFFF;
+    text-align: center;
     font-size: 50px;
     line-height: 60px;
+  }
+  h2 {
+    text-align: left;
+    color: #FFFFFF;
+  }
+  h3 {
+    text-align: left;
+    color: #7C91A7;
   }
   @media (max-width: ${breakpoints.smallScreen}) {
     padding: 5rem;
@@ -80,7 +90,9 @@ const TokelTalk = ({data})  => {
         <Content>
           <HeaderWrapper>
             <div>
-              <h1><a href="https://www.bcast.fm/blog/best-nft-podcasts">One of the TOP best NFT podcasts</a></h1>              
+              <h1>Tokel Talk</h1>
+              <h2><a href="https://www.bcast.fm/blog/best-nft-podcasts">Voted in the Top 10 of best NFT podcasts</a></h2>           
+              <h3>Listened to in 49 countries. Downloaded in 142 cities. Streamed on 7 social networks.</h3>
               <Desc>Tokel Talk is the live stream and podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform Tokel. The Tokel platform provides end-to-end token solutions to creators, businesses and projects alike.</Desc>
             </div>
 

@@ -41,6 +41,7 @@ const menuLinks = [
   { link: '/roadmap', name: "Roadmap" },
   { link: links.whitepaper, name: "White Paper" },
   // { link: '/news', name: "News" },
+  { link: '/tokeltalk', name: "Tokel Talk" },
   { link: links.explorer, name: "Explorer" },
   { link: '/faq', name: "FAQ" },
 ];
