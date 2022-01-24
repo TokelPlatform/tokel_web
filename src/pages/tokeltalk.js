@@ -84,8 +84,8 @@ const TokelTalk = ({data})  => {
       <PodcastRoot>
         <Helmet>
             <meta charSet="utf-8" />
-            <title>Tokel | Making NFT & Token Creation Easy For Everyone</title>
-            <meta name="description" content="Tokel truly opens the door for every single person to create & access tokens and NFTs in an inexpensive, decentralized fashion." />
+            <title>Tokel Talk: NFT & Tokenization Podcast & Live Stream</title>
+            <meta name="description" content="Podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform, Tokel. Listen to the latest episodes." />
         </Helmet>
         <Content>
           <HeaderWrapper>
