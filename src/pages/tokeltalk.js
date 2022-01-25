@@ -150,7 +150,7 @@ const ReachOutToUs = styled.p`
   opacity: 0.8;
   margin-top: 2rem;
 `
-const hook = process.env.DISCORD_HOOK;
+const hook = process.env.GATSBY_DISCORD_HOOK;
 
 const TokelTalk = ({data})  => {
   const [submitted, setSubmitted] = React.useState(false);
@@ -211,7 +211,6 @@ const TokelTalk = ({data})  => {
                       })
                     }
                   })
-                  console.log(hook)
                   axios.post(hook, {
                       content: "New Guest Form Submission",
                       embeds: [
@@ -261,8 +260,6 @@ const TokelTalk = ({data})  => {
                       <option value="otheroption">Other</option>
                     </select>
                   </FormRow>
-                  {console.log('VALUES')}
-                  {console.log(values)}
                   {values.contactMethod === 'emailoption' && 
                     <FormRow>
                       <label htmlFor="guestName">Contact email</label>
