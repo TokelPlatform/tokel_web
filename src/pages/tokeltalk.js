@@ -1,5 +1,7 @@
 import * as React from "react"
 
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+
 import { Helmet } from "react-helmet"
 import Img from "gatsby-image"
 import PodcastRoot from "./template"
@@ -31,7 +33,9 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+  max-width: 800px;
+  margin: auto;
   h1 {
     color: #FFFFFF;
     text-align: center;
@@ -39,8 +43,9 @@ const Content = styled.div`
     line-height: 60px;
   }
   h2 {
-    text-align: left;
+    text-align: center;
     color: #FFFFFF;
+    font-size: 30px;
   }
   h3 {
     text-align: left;
@@ -79,7 +84,62 @@ const ListenOn = styled.div`
   }
 `
 
+const FormRow = styled.div`
+  color: white;
+  font-size: 16px;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-right: 2rem;
+    padding-bottom: 0.25rem;
+    opacity: 0.8;
+  }
+  input {
+    min-width: 300px;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    background-color: #D6D6D6;
+    border: none;
+    font-size: var(--font-size-h3);
+  }
+  select {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    background-color: #D6D6D6;
+    border-radius: 0.25rem;
+    border: none;
+    font-size: var(--font-size-h3);
+
+  }
+`
+
+const GuestSignUp = styled.div`
+  min-width: 300px;
+  max-width: 500px;
+  p {
+    color: #FFFFFF;
+  }
+`
+
+const SubmitButton = styled.button`
+  margin-top: 2rem;
+  height: 3rem;
+  min-width: 300px;
+  font-size: var(--font-size-h3);
+  text-transform: uppercase;
+  background-color:  var(--color-cornFlowerHard);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0.25rem;
+  opacity: 1;
+  z-index: 2;
+`
+
 const TokelTalk = ({data})  => {
+
+  // const contactMethod = React.useState('');
+  const handleSelectChange = (event) =>
+  console.log(event)
   return (
       <PodcastRoot>
         <Helmet>
@@ -109,7 +169,91 @@ const TokelTalk = ({data})  => {
               <a href={links.podcast.stitcher}><Img fixed={data.stitcher.childImageSharp.fixed}></Img></a>
 
           </ListenOn>
+          <GuestSignUp>
+            <h2>Join Tokel Talk as a Guest</h2>
+            <p>Would you like to be the guest on Tokel Talk Podcast? If yes, please fill in the  form below and we will get in touch with you as soon as we can.</p>
+            <Formik
+              initialValues={{ guestName: '', projectName: '', email: '', website: '', discord: '', discordHandle: '', telegramHandle: '', contactMethod: 'emailoption'}}
+              validate={values => {
+                const errors = {};
+                if (!values.email) {
+                  errors.email = 'Required';
+                } else if (
+                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+      
+                ) {
+      
+                  errors.email = 'Invalid email address';
+      
+                }
+      
+                return errors;
+      
+              }}
+      
+              onSubmit={(values, { setSubmitting }) => {
+      
+                setTimeout(() => {
+      
+                  console.log(JSON.stringify(values, null, 2));
+      
+                  setSubmitting(false);
+      
+                }, 400);
+      
+              }}
+      
+            >
+      
+              {({ values, isSubmitting }) => (
+      
+                <Form style={{display: 'flex', flexDirection: 'column'}}>
+                  <FormRow>
+                    <label htmlFor="guestName">Guest Name</label>
+                    <Field type="text" name="guestName" />
+                    <ErrorMessage name="guestName" component="div" />
+                  </FormRow>
 
+                  <FormRow>
+                    <label htmlFor="guestName">Project Name</label>
+                    <Field type="text" name="projectName" />
+                    <ErrorMessage name="projectName" component="div" />                
+                  </FormRow>
+
+
+                  <FormRow>
+                    <label htmlFor="guestName">Website</label>
+                    <Field type="text" name="website" />
+                    <ErrorMessage name="website" component="div" />                  
+                  </FormRow>
+
+                  <FormRow>
+                    <label htmlFor="contactMethod">Preferred method of contact</label>
+                    <select label="Preferred method of contact" name="contactMethod" onChange={handleSelectChange}>
+                      <option value="emailoption">Email</option>
+                      <option value="telegram">Telegram</option>
+                      <option value="discord">Discord</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </FormRow>
+                  {console.log(values)}
+                  {values.contactMethod === 'emailoption' && 
+                    <FormRow>
+                      <label htmlFor="guestName">Contact email</label>
+                      <Field type="email" name="email" />
+                      <ErrorMessage name="email" component="div" />
+                    </FormRow>
+                  }
+                  <SubmitButton type="submit" disabled={isSubmitting}>
+                  Join Tokel Talk
+                  </SubmitButton>
+                </Form>
+      
+              )}
+      
+            </Formik>
+
+          </GuestSignUp>
         </Content>
 
       </PodcastRoot>
