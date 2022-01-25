@@ -6,9 +6,11 @@ import { Helmet } from "react-helmet"
 import Img from "gatsby-image"
 import PodcastRoot from "./template"
 import PropTypes from 'prop-types'
+import axios from "axios";
 import breakpoints from "../styles/breakpoints"
 import { graphql } from "gatsby"
 import links from "../data/links"
+import podcastValidationSchema from '../helpers/podcastValidationSchema'
 import styled from "@emotion/styled"
 
 const PlayerContainer = styled.div`
@@ -104,12 +106,15 @@ const FormRow = styled.div`
     font-size: var(--font-size-h3);
   }
   select {
-    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
     background-color: #D6D6D6;
     border-radius: 0.25rem;
     border: none;
     font-size: var(--font-size-h3);
-
+    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 5px;
   }
 `
 
@@ -127,19 +132,29 @@ const SubmitButton = styled.button`
   min-width: 300px;
   font-size: var(--font-size-h3);
   text-transform: uppercase;
-  background-color:  var(--color-cornFlowerHard);
+  background-color:  ${p => p.submitted ? 'var(--color-tellurian)' : 'var(--color-cornFlowerHard'});
   color: #FFFFFF;
   border: none;
   border-radius: 0.25rem;
   opacity: 1;
   z-index: 2;
+  cursor: ${p => p.submitted ? 'disabled': 'pointer'};
 `
 
-const TokelTalk = ({data})  => {
+const MyErr = styled(ErrorMessage)`
+  color: var(--color-eventHorizon);
+`
 
-  // const contactMethod = React.useState('');
-  const handleSelectChange = (event) =>
-  console.log(event)
+const ReachOutToUs = styled.p`
+  color: #FFFFFF;
+  opacity: 0.8;
+  margin-top: 2rem;
+`
+const hook = process.env.DISCORD_HOOK;
+
+const TokelTalk = ({data})  => {
+  const [submitted, setSubmitted] = React.useState(false);
+
   return (
       <PodcastRoot>
         <Helmet>
@@ -173,87 +188,125 @@ const TokelTalk = ({data})  => {
             <h2>Join Tokel Talk as a Guest</h2>
             <p>Would you like to be the guest on Tokel Talk Podcast? If yes, please fill in the  form below and we will get in touch with you as soon as we can.</p>
             <Formik
-              initialValues={{ guestName: '', projectName: '', email: '', website: '', discord: '', discordHandle: '', telegramHandle: '', contactMethod: 'emailoption'}}
-              validate={values => {
-                const errors = {};
-                if (!values.email) {
-                  errors.email = 'Required';
-                } else if (
-                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-      
-                ) {
-      
-                  errors.email = 'Invalid email address';
-      
-                }
-      
-                return errors;
-      
+              initialValues={{ 
+                guestName: '', 
+                projectName: '', 
+                website: '', 
+                contactMethod: 'telegramoption',
+                email: '',
+                discord: '', 
+                discordHandle: '', 
+                telegramHandle: '', 
+                other: ''
               }}
-      
-              onSubmit={(values, { setSubmitting }) => {
-      
-                setTimeout(() => {
-      
-                  console.log(JSON.stringify(values, null, 2));
-      
-                  setSubmitting(false);
-      
-                }, 400);
-      
+              validationSchema={podcastValidationSchema}
+              onSubmit={(values) => {
+                  const fields = Object.keys(values);
+                  const requestFields = [];
+                  fields.forEach( field => {
+                    if (field !== 'contactMethod' && values[field] !== '') {
+                      requestFields.push({
+                        name: field,
+                        value: values[field]
+                      })
+                    }
+                  })
+                  console.log(hook)
+                  axios.post(hook, {
+                      content: "New Guest Form Submission",
+                      embeds: [
+                        {
+                            title: "Details",
+                            fields: requestFields
+                        }
+                    ]
+                  })
+                  .then(res => {
+                    if (res.status < 300) {
+                      setSubmitted(true);
+                    } 
+                  })
+                  .catch(err => console.log(err))
               }}
-      
             >
       
-              {({ values, isSubmitting }) => (
+              {({ values, isSubmitting, setFieldValue }) => (
       
                 <Form style={{display: 'flex', flexDirection: 'column'}}>
                   <FormRow>
                     <label htmlFor="guestName">Guest Name</label>
                     <Field type="text" name="guestName" />
-                    <ErrorMessage name="guestName" component="div" />
+                    <MyErr name="guestName" component="div" />
                   </FormRow>
 
                   <FormRow>
                     <label htmlFor="guestName">Project Name</label>
                     <Field type="text" name="projectName" />
-                    <ErrorMessage name="projectName" component="div" />                
+                    <MyErr name="projectName" component="div" />                
                   </FormRow>
 
 
                   <FormRow>
                     <label htmlFor="guestName">Website</label>
                     <Field type="text" name="website" />
-                    <ErrorMessage name="website" component="div" />                  
+                    <MyErr name="website" component="div" />                  
                   </FormRow>
 
                   <FormRow>
                     <label htmlFor="contactMethod">Preferred method of contact</label>
-                    <select label="Preferred method of contact" name="contactMethod" onChange={handleSelectChange}>
+                    <select label="Preferred method of contact" name="contactMethod" onChange={a => setFieldValue('contactMethod', a.target.value)}>
+                      <option value="telegramoption">Telegram</option>
                       <option value="emailoption">Email</option>
-                      <option value="telegram">Telegram</option>
-                      <option value="discord">Discord</option>
-                      <option value="other">Other</option>
+                      <option value="discordoption">Discord</option>
+                      <option value="otheroption">Other</option>
                     </select>
                   </FormRow>
+                  {console.log('VALUES')}
                   {console.log(values)}
                   {values.contactMethod === 'emailoption' && 
                     <FormRow>
                       <label htmlFor="guestName">Contact email</label>
                       <Field type="email" name="email" />
-                      <ErrorMessage name="email" component="div" />
+                      <MyErr name="email" component="div" />
                     </FormRow>
                   }
-                  <SubmitButton type="submit" disabled={isSubmitting}>
-                  Join Tokel Talk
+                  {values.contactMethod === 'telegramoption' && 
+                    <FormRow>
+                      <label htmlFor="telegramHandle">Telegram handle</label>
+                      <Field type="text" name="telegramHandle" />
+                      <MyErr name="telegramHandle" component="div" />
+                    </FormRow>
+                  }
+                  {values.contactMethod === 'discordoption' && 
+                    <div>
+                      <FormRow>
+                        <label htmlFor="discordLink">Discord</label>
+                        <Field type="text" name="discordLink" />
+                        <MyErr name="discordLink" component="div" />
+                      </FormRow>
+                      <FormRow>
+                        <label htmlFor="discordHandle">Discord handle</label>
+                        <Field type="text" name="discordHandle" />
+                        <MyErr name="discordHandle" component="div" />
+                      </FormRow>
+
+                    </div>
+                  }
+                  {values.contactMethod === 'otheroption' && 
+                    <FormRow>
+                      <label htmlFor="otherWay">Other way to contact you</label>
+                      <Field type="text" name="otherWay" />
+                      <MyErr name="otherWay" component="div" />
+                    </FormRow>
+                  }                                    
+                  <SubmitButton type="submit" disabled={isSubmitting} submitted={submitted}>
+                  {!submitted ? 'Join Tokel Talk' : 'Thank you. We will get back to you soon.'}
                   </SubmitButton>
                 </Form>
-      
               )}
-      
             </Formik>
-
           </GuestSignUp>
+          <ReachOutToUs>If you are experiencing any difficulties, feel free to reach out to us in <a href={links.discord}>Tokel Discord</a> or email us at <a href="mailto:suppor@tokel.io">suppor@tokel.io</a></ReachOutToUs>
         </Content>
 
       </PodcastRoot>
