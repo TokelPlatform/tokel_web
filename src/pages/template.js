@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import Footer from "../components/Organisms/Footer"
+import PropTypes from 'prop-types'
 import Stars from "../components/Atoms/Stars"
 import TopBar from "../components/Molecules/TopBar"
 import { graphql } from "gatsby"
@@ -10,14 +11,14 @@ const PageRoot = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
 `
 
-const PageRootContainer = ({children})  => {
+const PageRootContainer = ({starsTop = '300px', children})  => {
   return (
       <div>
         <PageRoot>
             <TopBar />
-            <Stars top='300px' starSize={'small'} />
-            <Stars top='300px' starSize={'medium'}/>
-            <Stars top='300px' starSize={'big'}/>
+            <Stars top={starsTop} starSize={'small'} />
+            <Stars top={starsTop} starSize={'medium'}/>
+            <Stars top={starsTop} starSize={'big'}/>
             {children}
         </PageRoot>
          <Footer />
@@ -37,6 +38,7 @@ export const query = graphql`
   }
 `
 PageRootContainer.propTypes = {
-    children: React.ReactNode
+    children: React.ReactNode,
+    starsTop: PropTypes.string
 }
 export default PageRootContainer
