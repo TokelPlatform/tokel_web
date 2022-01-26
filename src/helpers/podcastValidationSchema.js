@@ -24,7 +24,7 @@ const podcastValidationSchema = () =>
         }),
         otherWay: yup.string().when("contactMethod", {
           is: 'otheroption',
-          then: yup.string().max(5, "Max 100 characters").required("Must specify a way to contact you")
+          then: yup.string().max(100, "Max 100 characters").required("Must specify a way to contact you")
         }),
     });
 

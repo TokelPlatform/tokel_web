@@ -1,7 +1,9 @@
 import * as React from "react"
 
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 
+import FormRow from "../components/Atoms/FormRow";
+import FormRowBlock from "../components/Molecules/FormRowBlock";
 import { Helmet } from "react-helmet"
 import Img from "gatsby-image"
 import PodcastRoot from "./template"
@@ -86,38 +88,6 @@ const ListenOn = styled.div`
   }
 `
 
-const FormRow = styled.div`
-  color: white;
-  font-size: 16px;
-  padding: 0.5rem 0;
-  display: flex;
-  flex-direction: column;
-  label {
-    margin-right: 2rem;
-    padding-bottom: 0.25rem;
-    opacity: 0.8;
-  }
-  input {
-    min-width: 300px;
-    border-radius: 0.25rem;
-    padding: 0.5rem 0.5rem 0.5rem 1rem;
-    background-color: #D6D6D6;
-    border: none;
-    font-size: var(--font-size-h3);
-  }
-  select {
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    background-color: #D6D6D6;
-    border-radius: 0.25rem;
-    border: none;
-    font-size: var(--font-size-h3);
-    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-    background-repeat: no-repeat;
-    background-position-x: 100%;
-    background-position-y: 5px;
-  }
-`
-
 const GuestSignUp = styled.div`
   min-width: 300px;
   max-width: 500px;
@@ -141,16 +111,50 @@ const SubmitButton = styled.button`
   cursor: ${p => p.submitted ? 'disabled': 'pointer'};
 `
 
-const MyErr = styled(ErrorMessage)`
-  color: var(--color-eventHorizon);
-`
-
 const ReachOutToUs = styled.p`
   color: #FFFFFF;
   opacity: 0.8;
   margin-top: 2rem;
 `
+
 const hook = process.env.GATSBY_DISCORD_HOOK;
+
+const toSubmit = requestFields => ({
+    content: "New Guest Form Submission",
+    embeds: [
+      {
+          title: "Details",
+          fields: requestFields
+      }
+  ]
+})
+
+const discordOption = (
+  <div>
+    <FormRowBlock name="discordLink" labelText="Discord" type="text" / > 
+    <FormRowBlock name="discordHandle" labelText="Discord handle" type="text" />
+  </div>
+)
+
+const pickFields = option => {
+  switch(option) {
+    case 'emailoption':
+      return (<FormRowBlock name="email" labelText="Contact email" type="email" />);
+    case 'telegramoption':
+      return (<FormRowBlock name="telegramHandle" labelText="Telegram handle" type="text" />);  
+    case 'discordoption':
+      return discordOption;
+    case 'otheroption':
+      return (<FormRowBlock name="otherWay" labelText="Other way to contact you" type="text" / >);
+    default:
+      return (<div/>);
+  }
+}
+
+const getPodcastLinks = data => 
+  Object.keys(links.podcast).map(podcastPlatform => 
+     <a key={podcastPlatform} href={links.podcast[podcastPlatform]}><Img fixed={data[podcastPlatform].childImageSharp.fixed}></Img></a>
+  )
 
 const TokelTalk = ({data})  => {
   const [submitted, setSubmitted] = React.useState(false);
@@ -176,16 +180,10 @@ const TokelTalk = ({data})  => {
              <iframe src="https://embed.podcasts.apple.com/us/podcast/tokel-talk/id1598762562?itsct=podcast_box_player&amp;itscg=30200&amp;ls=1&amp;theme=dark" height="450px" frameBorder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" allow="autoplay *; encrypted-media *;" style={{width: "100%", overflow: "hidden", borderRadius: "10px", background: "transparent"}}></iframe>
           </PlayerContainer>  
           <ListenOn>
-              <a href={links.podcast.apple}><Img fixed={data.apple.childImageSharp.fixed}></Img></a>
-              <a href={links.podcast.amazon}><Img fixed={data.amazon.childImageSharp.fixed}></Img></a>
-              <a href={links.podcast.deezer}><Img fixed={data.deezer.childImageSharp.fixed}></Img></a>
-              <a href={links.podcast.google}><Img fixed={data.google.childImageSharp.fixed}></Img></a>
-              <a href={links.podcast.spotify}><Img fixed={data.spotify.childImageSharp.fixed}></Img></a>
-              <a href={links.podcast.stitcher}><Img fixed={data.stitcher.childImageSharp.fixed}></Img></a>
-
+            {getPodcastLinks(data)}
           </ListenOn>
           <GuestSignUp>
-            <h2>Join Tokel Talk as a Guest</h2>
+            <h2 id="#join-tokel-talk-as-a-guest">Join Tokel Talk as a Guest</h2>
             <p>Would you like to be the guest on Tokel Talk Podcast? If yes, please fill in the  form below and we will get in touch with you as soon as we can.</p>
             <Formik
               initialValues={{ 
@@ -200,104 +198,43 @@ const TokelTalk = ({data})  => {
                 other: ''
               }}
               validationSchema={podcastValidationSchema}
-              onSubmit={(values) => {
-                  const fields = Object.keys(values);
+              onSubmit={async (values) => {
                   const requestFields = [];
-                  fields.forEach( field => {
+                  Object.keys(values).forEach(field => {
                     if (field !== 'contactMethod' && values[field] !== '') {
-                      requestFields.push({
-                        name: field,
-                        value: values[field]
-                      })
+                      requestFields.push({name: field, value: values[field]})
                     }
                   })
-                  axios.post(hook, {
-                      content: "New Guest Form Submission",
-                      embeds: [
-                        {
-                            title: "Details",
-                            fields: requestFields
-                        }
-                    ]
-                  })
-                  .then(res => {
-                    if (res.status < 300) {
-                      setSubmitted(true);
-                    } 
-                  })
-                  .catch(err => console.log(err))
+                  setSubmitted(true);
+                  try {
+                    await axios.post(hook, toSubmit(requestFields))
+                  } catch (e) {
+                    console.log(e);
+                  }
               }}
             >
       
               {({ values, isSubmitting, setFieldValue }) => (
       
                 <Form style={{display: 'flex', flexDirection: 'column'}}>
-                  <FormRow>
-                    <label htmlFor="guestName">Guest Name</label>
-                    <Field type="text" name="guestName" />
-                    <MyErr name="guestName" component="div" />
-                  </FormRow>
-
-                  <FormRow>
-                    <label htmlFor="guestName">Project Name</label>
-                    <Field type="text" name="projectName" />
-                    <MyErr name="projectName" component="div" />                
-                  </FormRow>
-
-
-                  <FormRow>
-                    <label htmlFor="guestName">Website</label>
-                    <Field type="text" name="website" />
-                    <MyErr name="website" component="div" />                  
-                  </FormRow>
-
+                  <FormRowBlock name="guestName" labelText="Guest Name" type="text"/ >
+                  <FormRowBlock name="projectName" labelText="Project Name" type="text"/ >
+                  <FormRowBlock name="website" labelText="Website" type="text" / >
                   <FormRow>
                     <label htmlFor="contactMethod">Preferred method of contact</label>
-                    <select label="Preferred method of contact" name="contactMethod" onChange={a => setFieldValue('contactMethod', a.target.value)}>
+                    <select 
+                      label="Preferred method of contact" 
+                      name="contactMethod" 
+                      onChange={a => setFieldValue('contactMethod', a.target.value)}>
                       <option value="telegramoption">Telegram</option>
                       <option value="emailoption">Email</option>
                       <option value="discordoption">Discord</option>
                       <option value="otheroption">Other</option>
                     </select>
                   </FormRow>
-                  {values.contactMethod === 'emailoption' && 
-                    <FormRow>
-                      <label htmlFor="guestName">Contact email</label>
-                      <Field type="email" name="email" />
-                      <MyErr name="email" component="div" />
-                    </FormRow>
-                  }
-                  {values.contactMethod === 'telegramoption' && 
-                    <FormRow>
-                      <label htmlFor="telegramHandle">Telegram handle</label>
-                      <Field type="text" name="telegramHandle" />
-                      <MyErr name="telegramHandle" component="div" />
-                    </FormRow>
-                  }
-                  {values.contactMethod === 'discordoption' && 
-                    <div>
-                      <FormRow>
-                        <label htmlFor="discordLink">Discord</label>
-                        <Field type="text" name="discordLink" />
-                        <MyErr name="discordLink" component="div" />
-                      </FormRow>
-                      <FormRow>
-                        <label htmlFor="discordHandle">Discord handle</label>
-                        <Field type="text" name="discordHandle" />
-                        <MyErr name="discordHandle" component="div" />
-                      </FormRow>
-
-                    </div>
-                  }
-                  {values.contactMethod === 'otheroption' && 
-                    <FormRow>
-                      <label htmlFor="otherWay">Other way to contact you</label>
-                      <Field type="text" name="otherWay" />
-                      <MyErr name="otherWay" component="div" />
-                    </FormRow>
-                  }                                    
-                  <SubmitButton type="submit" disabled={isSubmitting} submitted={submitted}>
-                  {!submitted ? 'Join Tokel Talk' : 'Thank you. We will get back to you soon.'}
+                  {pickFields(values.contactMethod)}   
+                  <SubmitButton type="submit" disabled={isSubmitting || submitted} submitted={submitted} name="SubmitButton">
+                    {(!submitted) ? 'Join Tokel Talk' : 'Thank you. We will get back to you soon.'}
                   </SubmitButton>
                 </Form>
               )}
