@@ -26,6 +26,7 @@ const podcastValidationSchema = () =>
           is: 'otheroption',
           then: yup.string().max(100, "Max 100 characters").required("Must specify a way to contact you")
         }),
+        message: yup.string().max(500, "Max 500 characters")
     });
 
 export default podcastValidationSchema;

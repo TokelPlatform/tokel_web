@@ -10,14 +10,16 @@ const defaultProps = {
 type FormRowProps = {
     name: string,
     labelText: string,
-    type: string
+    type: string,
+    component: string,
+    rows: number
 }
 
-const FormRowBlock = ({name, labelText, type}: FormRowProps): ReactElement => {
+const FormRowBlock = ({name, labelText, type, component, rows=1}: FormRowProps): ReactElement => {
   return (
     <FormRow>
         <label htmlFor={name}>{labelText}</label>
-        <Field type={type} name={name} />
+        <Field type={type} name={name} component={component} rows={rows} />
         <FormikErr name={name} component="div" />       
     </FormRow>
   )

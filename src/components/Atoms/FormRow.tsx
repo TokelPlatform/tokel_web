@@ -11,7 +11,7 @@ const FormRow = styled.div`
     padding-bottom: 0.25rem;
     opacity: 0.8;
   }
-  input {
+  input, textarea {
     min-width: 300px;
     border-radius: 0.25rem;
     padding: 0.5rem 0.5rem 0.5rem 1rem;

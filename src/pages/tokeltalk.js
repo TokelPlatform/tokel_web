@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Form, Formik } from 'formik';
+import {Form, Formik} from 'formik';
 
 import FormRow from "../components/Atoms/FormRow";
 import FormRowBlock from "../components/Molecules/FormRowBlock";
@@ -89,6 +89,7 @@ const ListenOn = styled.div`
 `
 
 const GuestSignUp = styled.div`
+  margin-top: 5rem;
   min-width: 300px;
   max-width: 500px;
   p {
@@ -101,7 +102,6 @@ const SubmitButton = styled.button`
   height: 3rem;
   min-width: 300px;
   font-size: var(--font-size-h3);
-  text-transform: uppercase;
   background-color:  ${p => p.submitted ? 'var(--color-tellurian)' : 'var(--color-cornFlowerHard'});
   color: #FFFFFF;
   border: none;
@@ -131,21 +131,21 @@ const toSubmit = requestFields => ({
 
 const discordOption = (
   <div>
-    <FormRowBlock name="discordLink" labelText="Discord" type="text" / > 
-    <FormRowBlock name="discordHandle" labelText="Discord handle" type="text" />
+    <FormRowBlock name="discordLink" labelText="Discord*" type="text" / > 
+    <FormRowBlock name="discordHandle" labelText="Discord handle*" type="text" />
   </div>
 )
 
 const pickFields = option => {
   switch(option) {
     case 'emailoption':
-      return (<FormRowBlock name="email" labelText="Contact email" type="email" />);
+      return (<FormRowBlock name="email" labelText="Contact email*" type="email" />);
     case 'telegramoption':
-      return (<FormRowBlock name="telegramHandle" labelText="Telegram handle" type="text" />);  
+      return (<FormRowBlock name="telegramHandle" labelText="Telegram handle*" type="text" />);  
     case 'discordoption':
       return discordOption;
     case 'otheroption':
-      return (<FormRowBlock name="otherWay" labelText="Other way to contact you" type="text" / >);
+      return (<FormRowBlock name="otherWay" labelText="Other way to contact you*" type="text" / >);
     default:
       return (<div/>);
   }
@@ -195,7 +195,8 @@ const TokelTalk = ({data})  => {
                 discord: '', 
                 discordHandle: '', 
                 telegramHandle: '', 
-                other: ''
+                other: '',
+                message: ''
               }}
               validationSchema={podcastValidationSchema}
               onSubmit={async (values) => {
@@ -213,15 +214,13 @@ const TokelTalk = ({data})  => {
                   }
               }}
             >
-      
               {({ values, isSubmitting, setFieldValue }) => (
-      
                 <Form style={{display: 'flex', flexDirection: 'column'}}>
-                  <FormRowBlock name="guestName" labelText="Guest Name" type="text"/ >
-                  <FormRowBlock name="projectName" labelText="Project Name" type="text"/ >
+                  <FormRowBlock name="guestName" labelText="Guest Name*" type="text"/ >
+                  <FormRowBlock name="projectName" labelText="Project Name*" type="text"/ >
                   <FormRowBlock name="website" labelText="Website" type="text" / >
                   <FormRow>
-                    <label htmlFor="contactMethod">Preferred method of contact</label>
+                    <label htmlFor="contactMethod">Preferred method of contact*</label>
                     <select 
                       label="Preferred method of contact" 
                       name="contactMethod" 
@@ -233,6 +232,7 @@ const TokelTalk = ({data})  => {
                     </select>
                   </FormRow>
                   {pickFields(values.contactMethod)}   
+                  <FormRowBlock name="message" labelText="Message" type="textarea" component="textarea" rows="4" / >
                   <SubmitButton type="submit" disabled={isSubmitting || submitted} submitted={submitted} name="SubmitButton">
                     {(!submitted) ? 'Join Tokel Talk' : 'Thank you. We will get back to you soon.'}
                   </SubmitButton>
