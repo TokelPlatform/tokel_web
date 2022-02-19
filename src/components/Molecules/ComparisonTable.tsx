@@ -46,7 +46,7 @@ type TableProps = {
 const TableComponent = styled.table`
   font-size: 26px;
   p {
-    color: white;
+    color: rgb(255,255,255,0.8);
   }
   
   padding: 1rem;
@@ -54,6 +54,7 @@ const TableComponent = styled.table`
   
   tr > td:first-child {
     color: rgb(255,255,255,0.8);
+    text-align: left;
     font-size: 18px;
     font-weight: 400;
     text-transform: uppercase;
@@ -74,7 +75,7 @@ const TableComponent = styled.table`
 
   td {
     margin: 0;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     border-bottom: 1px solid rgb(255,255,255,0.5);
     border-right: 1px solid rgb(255,255,255,0.5);
 
@@ -86,21 +87,21 @@ const TableComponent = styled.table`
   tr:first-child {
     td:last-child {
       border-top: 10px solid;
-      border-image-source: var(--gradient-purple-direct);
+      // border-image-source: var(--gradient-purple-direct);
 
     }
   }
   tr:last-child {
     td:last-child {
       border-bottom: 10px solid;
-      border-image-source: var(--gradient-purple-direct);
+      // border-image-source: var(--gradient-purple-direct);
     }
   }
   
   td:nth-child(4) {
       border-right: 10px solid;
       border-left: 10px solid;
-      border-image-source: var(--gradient-purple-direct);
+      // border-image-source: var(--gradient-purple-direct);
   }
 
 `
@@ -205,25 +206,25 @@ function ComparisonTable() {
   const data = React.useMemo(() => 
       [
           {
-              rowname: 'GAS FEE per transaction',
+              rowname: <p>GAS FEE per <br/>transaction</p>,
               solana: '$0.00025',
               ethereum: '$4.04++',
               tokel: '$0'
           },
           {
-              rowname: 'COST TO CREATE 10000 NFTs',
+              rowname: <p>COST TO CREATE <br/> 10000 NFTs</p>,
               solana: '$21,600',
               ethereum: '$700,000++',
               tokel: '$0.003'
           },
           {
-            rowname: 'COST TO CREATE ONE NFT',
+            rowname: <p>COST TO CREATE<br/> ONE NFT</p>,
             solana: '$2.16',
             ethereum: '$70.00++',
             tokel: '$0.000003'
           },
           {
-            rowname: 'ENVIROMENTALLY FRIENDLY',
+            rowname: <p>ENVIROMENTALLY <br/> FRIENDLY</p>,
             solana: tableImage(green, 2),
             ethereum: tableImage(green, 1),
             tokel: tableImage(green, 3),
@@ -235,7 +236,7 @@ function ComparisonTable() {
             tokel: tableImage(check)
           },
           {
-            rowname: 'ALL IN ONE APPLICATION',
+            rowname: <p>ALL IN ONE <br /> APPLICATION</p>,
             solana: tableImage(close),
             ethereum: tableImage(close),
             tokel: tableImage(check)
