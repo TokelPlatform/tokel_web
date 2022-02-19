@@ -1,28 +1,31 @@
 import Button, { Colors } from "../Atoms/Button"
-import { SubTitle, Title } from "../Atoms/Title"
+import { HSpacerBig, VSpacerBig } from "../../styles/common"
+import {Header2, Title} from "../Atoms/Title"
 
-import LogoImg from "../Atoms/LogoImg"
 import React from "react"
-import { VSpacerBig } from "../../styles/common"
 import breakpoints from "../../styles/breakpoints"
-import links from "../../data/links"
 import styled from "@emotion/styled"
 
 const defaultProps = {
 }
 const Container = styled.div`
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 14rem;
+  align-items: left;
+  padding-top: 10rem;
   padding-bottom: 2rem;
-  justify-content: center;
+  justify-content: left;
   @media (max-width: ${breakpoints.mobilemiddle}) {
     padding-top: 7rem;
   }
   @media (max-width: ${breakpoints.mobile}) {
     padding-top: 0;
   }
+  background-image: url( '/galaxy.svg' );
+  background-repeat: no-repeat;
+  background-position: 100% 0;
 `
 
 const Download = styled.div`
@@ -31,16 +34,31 @@ const Download = styled.div`
   }    
 `
 
+const CATs = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const WelcomeText = () => {
   return (
       <Container>
-        <SubTitle className="subtitle">Introducing TOKEL</SubTitle>
-        <Title>T<LogoImg mobileWidth="25px" width="45px"></LogoImg>kenization <br />made easy</Title>
-        <Download>
+        <div style={{marginLeft: '5rem'}}>
+          <Title>Create NFTs and tokens easily.</Title>
+          <Header2>No Complicated smart contracts.<br />
+            No Gas Fees.
+          </Header2>
+          <h4>One of our main goals is to make Tokel and blockchain technology usable  <br / > and accessible to everyone. </h4>
           <VSpacerBig />
-          <a href={links.github_release_page}><Button theme={Colors.PURPLE} text="Download" width="240px"></Button></a>
-          <p style={{textAlign: 'center', color: 'var(--color-gray)'}}>Currently Desktop only</p>
-        </Download>
+          <CATs>
+            <Download>
+              <a href="#">
+                <Button theme={Colors.TRANSPARENT} text="Download dApp" width="240px"></Button>
+              </a>
+            </Download>
+            <HSpacerBig />
+            <a href="#"> <h5>Explore Our Ecosystem</h5></a>
+          </CATs>
+        </div>
       </Container>
   )
 }

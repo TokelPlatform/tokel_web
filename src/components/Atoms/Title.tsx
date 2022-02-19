@@ -1,16 +1,8 @@
 import breakpoints from "../../styles/breakpoints"
 import styled from "@emotion/styled"
 
-export const Title = styled.header`
-  color: var(--color-almostWhite);
-  font-size: 80px;
-  line-height: 85px;
-  text-align: center;
-  font-family: var(--font-family-primary);
-  font-weight: 700;
-  & > a {
-    margin: 0 0.5rem 0 0.5rem;
-  }
+export const Title = styled.h1`
+  margin: 0;
   @media (max-width: ${breakpoints.mobilemiddle}) {
     font-size: 70px;
     line-height: 75px;
@@ -20,16 +12,16 @@ export const Title = styled.header`
     line-height: 50px;
   }
 `
-export const SubTitle = styled.h1`
-  text-transform: uppercase;
-  font-family: var(--font-family-primary);
-  color: var(--color-gray);
-  opacity: 0.6;
-  font-weight: 600;
+export const Header2 = styled.h2`
+  margin: 0;
   @media (max-width: ${breakpoints.mobile}) {
     font-size: 20px;
   }
 `
+
+export const Header3 = styled.h3``
+
+
 export const PageHeader = styled.h1`
     margin-top: 50px;
     font-size: 50px;

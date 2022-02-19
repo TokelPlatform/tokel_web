@@ -13,7 +13,7 @@ const TopBarRoot = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   padding-top: 3rem;
-  padding-left: 2rem;
+  padding-left: 5rem;
 `
 
 const IconWrapper = styled.div`

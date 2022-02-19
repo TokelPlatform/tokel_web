@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react"
 
 import breakpoints from "../../styles/breakpoints"
+import buttonDecor from "../../images/general/button-decoration.svg"
 import styled from "@emotion/styled"
 
 type ButtonProps = {
@@ -51,13 +52,9 @@ const getTheme = (theme, chosen) => {
         }
         return `
           background: transparent;
-          border-radius: 3px;
-          border: 1px solid var(--color-purple);
-          h2 {
-            color: var(--color-darkBlue);
-            font-weight: 600;
-
-          }
+          border-radius: 4px;
+          background: none;
+          border: 4px solid var(--color-almostWhite);
         `;
     }
   };
@@ -72,17 +69,16 @@ const StyledButton = styled.button<StyledButtonProps>`
     ${props => getTheme(props.theme, props.chosen)};
     width: ${props => props.width};
     height: 70px;
-    font-size: var(--font-size-h2);
-    text-transform: uppercase;
-    margin: 0 45px 0 45px;
-    cursor:pointer;
+    cursor: pointer;
     will-change: transform;
     transition: transform .3s;
-
-    h2 {
-        font-family: var(--font-family-primary);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    p {
+      font-size: 22px;
     }
-
     &:hover {
         transform: ${props => !props.chosen ?  'scale(1.1)' : ''};
     }
@@ -96,7 +92,10 @@ const StyledButton = styled.button<StyledButtonProps>`
 `
 
 const Button = ({ text, theme, chosen, width, onClick }: ButtonProps): ReactElement => (
-  <StyledButton onClick={() => onClick()} width={width} chosen={chosen} theme={theme}><h2>{text}</h2></StyledButton>
+  <StyledButton onClick={() => onClick()} width={width} chosen={chosen} theme={theme}>
+    <img src={buttonDecor}></img>
+    <h5>{text}</h5>
+  </StyledButton>
 )
 
 Button.defaultProps = defaultProps

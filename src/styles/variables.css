@@ -17,25 +17,24 @@
     --color-darkestBlue-10opacity: #696969;
     --color-gray-10opacity: #E6E7EA;
 
-    --gradient-purple-direct: linear-gradient(180deg, #8050EF 0%, #687BF7 100%);
-
     /* Fonts */
     --font-family-primary: 'SourceSansPro', sans-serif;
     --font-family-secondary: 'Metropolis', normal;
 
     /* Font sizes */
-    --font-size-h1: 2rem;      /* 32px */
-    --font-size-h2: 1.375rem;  /* 22px */
-    --font-size-h3: 1.125rem;  /* 18px */
-    --font-size-h4: 1rem;      /* 16px */
-    --font-size-p:  1rem;      /* 16px */
+    --font-size-h1: 4.5rem;    /* 72px */
+    --font-size-h2: 3.25rem;   /* 52px */
+    --font-size-h3: 2.5rem;    /* 40px */
+    --font-size-h4: 1.5rem;    /* 24px */
+    --font-size-h5: 1.25rem;   /* 20px */
+    --font-size-p:  1.125rem;  /* 18px */
 
     /* Line heights */
-    --line-height-h1: 2.5rem;  /* 40px */
-    --line-height-h2: 1.75rem; /* 26px */
-    --line-height-h3: 1.25rem; /* 20px */
-    --line-height-p: 1.4rem;   /* 22px */
+    --line-height-h2: 4rem;    /* 64px */
 
+    /* Gradients */
     --gradient-darkBlue: linear-gradient(180deg, #13182A 0%, #222E4D 57.62%, #263867 100%);
     --gradient-purple: linear-gradient(180deg, #13182A 22.92%, #3E315E 100%), #13182A;
+    --gradient-purple-direct: linear-gradient(180deg, #8050EF 0%, #687BF7 100%);
+    --gradient-deep-sky: linear-gradient(180deg, #111F31 0%, #0D0D0D 2.54%, #040F1D 17.71%, #080E15 43.23%, #0A2445 59.16%, #000000 97.4%);
 }

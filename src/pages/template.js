@@ -8,7 +8,7 @@ import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 
 const PageRoot = styled.div`
-  background: linear-gradient(180deg, #192432 0%, #000000 100%);
+  background: var(--gradient-deep-sky);
 `
 
 const PageRootContainer = ({starsTop = '300px', children})  => {
