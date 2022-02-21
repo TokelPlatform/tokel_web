@@ -30,20 +30,27 @@ const TextBoxRoot = styled.div<TextBoxRootProps>`
   border: ${p => (p.border ? '1px solid var(--color-base-slate)' : 'none')};
 `;
 
+const LinksWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 const TextBox = ({ title, icon = null, desc, links = null, border = false }: TextBoxProps) => {
   return (
     <TextBoxRoot border={border}>
       <BoxTitle>
-        <h4 style={{ marginTop: '0.5rem' }}>{title}</h4>
+        <h4 style={{ marginTop: '0.5rem', fontWeight: 700 }}>{title}</h4>
         {icon && <img height="40" width="40" src={icon}></img>}
       </BoxTitle>
-      <p style={{ height: '120px' }}>{desc}</p>
-      {links &&
-        links.map((link, idx) => (
-          <a key={idx} href={link.url}>
-            {link.urlName}
-          </a>
-        ))}
+      <p style={{ minHeight: '120px' }}>{desc}</p>
+      <LinksWrapper>
+        {links &&
+          links.map((link, idx) => (
+            <a key={idx} href={link.url}>
+              {link.urlName}
+            </a>
+          ))}
+      </LinksWrapper>
     </TextBoxRoot>
   );
 };
