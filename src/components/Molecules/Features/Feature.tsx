@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { FlexCol } from 'styles/common';
 import FeatureHeader from './FeatureHeader';
-import TextBox from './TextBox';
+import TextBox from '../TextBox';
 
 type FeatureProps = {
   title: string;

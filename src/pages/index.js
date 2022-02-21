@@ -9,13 +9,7 @@ import WelcomeText from "../components/Molecules/WelcomeText"
 import breakpoints from "../styles/breakpoints"
 import styled from "@emotion/styled"
 import UseCases from "components/Organisms/UseCases"
-import Feature from "components/Molecules/Feature"
-import easytouse from 'images/features/easytouse.svg'
-import nSPVLinks from "data/nSpvLinks"
-import easyToUseData from 'data/feature-easyToUseData';
-import nspv from 'images/features/nspv.svg';
-import transparent from 'images/features/transparent.svg'
-import openSourceData from 'data/feature-opensourceData'
+import Features from "components/Organisms/Features"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -23,10 +17,6 @@ const MainPage = styled.div`
   @media (max-width: ${breakpoints.mobile}) {
     height: 35rem;
   }
-`
-
-const Features = styled.div`
-  // margin: 0 20rem;
 `
 
 const IndexPage = ()  => {
@@ -42,29 +32,7 @@ const IndexPage = ()  => {
         <PageBreaker1 />
         <Comparison />
         <UseCases />
-        <Features>
-          <Feature 
-          title="Tokel is Easy to Use"
-          subtitle="Created with people in mind"
-          desc="We are focusing on bringing simple, easy to use blockchain technology to everybody, in an inexclusive, inexpensive way."
-          image={easytouse}
-          data={easyToUseData}
-          />
-          <Feature 
-            title="Truly Decentralized Technology"
-            subtitle="nSPV - Super Light Client"
-            desc="Over 100x quicker, lighter & actually decentralized when compared to SPV servers."
-            links={nSPVLinks}
-            bg={nspv}
-          />
-           <Feature 
-            title="Open Source. Open Community"
-            subtitle="Tokel is Transparent "
-            desc="We are a proud open source project which will always stay that way."
-            image={transparent}
-            data={openSourceData}
-          />
-        </Features>
+        <Features />
        
       </PageRoot>
 
