@@ -44,6 +44,7 @@
     "eslint": "7.19.0",
     "eslint-plugin-react": "7.22.0",
     "eslint-webpack-plugin": "2.5.0",
-    "gatsby-plugin-eslint": "3.0.0"
+    "gatsby-plugin-eslint": "3.0.0",
+    "gatsby-plugin-root-import": "^2.0.8"
   }
 }

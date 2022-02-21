@@ -14,6 +14,7 @@ module.exports = {
     // "gatsby-plugin-sitemap",
     "gatsby-plugin-offline",
     "gatsby-plugin-eslint",
+    "gatsby-plugin-root-import",
     "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
