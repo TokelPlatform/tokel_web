@@ -1,22 +1,22 @@
-import ComparisonTable from "../Molecules/ComparisonTable";
-import React from "react"
+import ComparisonTable from '../Molecules/ComparisonTable';
+import React from 'react';
 // import breakpoints from "../../styles/breakpoints";
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const ComparisonRoot = styled.div`
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5rem;
-`
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+`;
 
 const Comparison = () => {
-    return(
+  return (
     <ComparisonRoot>
-        <ComparisonTable />
+      <ComparisonTable />
     </ComparisonRoot>
-    );
-}
+  );
+};
 
-export default Comparison
+export default Comparison;
