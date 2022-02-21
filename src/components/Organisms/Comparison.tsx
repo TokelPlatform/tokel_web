@@ -1,4 +1,4 @@
-import ComparisonTable from '../Molecules/ComparisonTable';
+import ComparisonTable from '../Molecules/table/ComparisonTable';
 import React from 'react';
 // import breakpoints from "../../styles/breakpoints";
 import styled from '@emotion/styled';

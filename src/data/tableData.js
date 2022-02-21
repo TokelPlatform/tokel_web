@@ -1,20 +1,12 @@
-import { FlexCenterRow } from 'styles/common';
 import React from 'react';
-import TableHeaderLogo from 'components/Atoms/table/TableHeaderLogo';
+import TableHeaderLogo from 'components/Molecules/table/TableHeaderLogo';
 import check from 'images/table/check.svg';
 import close from 'images/table/close.svg';
 import ether from 'images/table/ether.svg';
 import green from 'images/table/green.svg';
 import solana from 'images/table/solana.svg';
 import tokel from 'images/table/tokel.svg';
-
-const tableImage = (src: string, c: number = 1) => {
-  let imgs = [];
-  for (let i = 0; i < c; i++) {
-    imgs.push(<img key={i} src={src} />);
-  }
-  return <FlexCenterRow>{imgs}</FlexCenterRow>;
-};
+import tableImage from 'components/Atoms/RepeatedIcon';
 
 export const columns = [
   {
