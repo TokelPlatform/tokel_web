@@ -1,12 +1,12 @@
 import * as React from "react"
 
-import Comparison from "../components/Organisms/Comparison"
+import Comparison from "components/Organisms/Comparison"
 import { Helmet } from "react-helmet"
-import PageBreaker1 from "../components/Molecules/PageBreaker1"
+import PageBreaker1 from "components/Molecules/banners/BannerHeadline"
 import PageRoot from "./template"
 import PropTypes from 'prop-types'
-import WelcomeText from "../components/Molecules/WelcomeText"
-import breakpoints from "../styles/breakpoints"
+import WelcomeText from "components/Molecules/WelcomeText"
+import breakpoints from "styles/breakpoints"
 import styled from "@emotion/styled"
 import UseCases from "components/Organisms/UseCases"
 import Features from "components/Organisms/Features"

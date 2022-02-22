@@ -1,7 +1,10 @@
 import styled from '@emotion/styled';
+import BannerRewards from 'components/Molecules/banners/BannerRewards';
+import CommunityDriven from 'components/Molecules/Features/CommunityDriven';
 import Feature from 'components/Molecules/Features/Feature';
 import features from 'data/features';
 import React from 'react';
+import { VSpacerBig } from 'styles/common';
 
 export const BoxTitle = styled.div`
   display: flex;
@@ -36,8 +39,18 @@ const Features = () => (
         data={feat.data}
         links={feat.links}
         bg={feat.bg}
+        banner={feat.banner}
       />
     ))}
+    <CommunityDriven
+      subtitle="Community Driven"
+      title="Join The Tokel Community"
+      desc="Tokel has a vibrant community of digital creators, engineers, game designers and blockchain developers."
+    />
+    <VSpacerBig />
+    <VSpacerBig />
+    <BannerRewards />
+    <VSpacerBig />
   </FeaturesRoot>
 );
 

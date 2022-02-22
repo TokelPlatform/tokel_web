@@ -18,6 +18,7 @@ type FeatureProps = {
   ];
   data?: any;
   bg?: boolean;
+  banner?: any;
 };
 
 export const BoxTitle = styled.div`
@@ -66,7 +67,16 @@ const TextBoxWrapper = styled.div`
   padding-bottom: 2rem;
 `;
 
-const Feature = ({ title, subtitle, desc, image, data, links, bg = null }: FeatureProps) => (
+const Feature = ({
+  title,
+  subtitle,
+  desc,
+  image,
+  data,
+  links,
+  bg = null,
+  banner = null,
+}: FeatureProps) => (
   <FeatureRoot bg={bg}>
     <FeatureHeader title={title} subtitle={subtitle} desc={desc} image={image} />
     {!links ? (
@@ -85,6 +95,7 @@ const Feature = ({ title, subtitle, desc, image, data, links, bg = null }: Featu
         </FlexCol>
       </LinksWrapper>
     )}
+    {banner && banner}
   </FeatureRoot>
 );
 

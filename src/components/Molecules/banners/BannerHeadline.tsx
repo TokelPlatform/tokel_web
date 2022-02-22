@@ -1,9 +1,9 @@
 import React from 'react';
-import astro from '../../images/astro.svg';
+import astro from 'images/astro.svg';
 // import breakpoints from "../../styles/breakpoints"
 import styled from '@emotion/styled';
 
-const PageBreaker1Root = styled.div`
+const BannerHeadlineRoot = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,16 +19,15 @@ const ImageWrapper = styled.div`
   margin-top: 1rem;
 `;
 
-const PageBreaker1 = () => {
+const BannerHeadline = () => {
   return (
-    <PageBreaker1Root>
+    <BannerHeadlineRoot>
       <h1>It only costs $0.000003 USD to mint an NFT or a token</h1>
       <ImageWrapper>
         <img src={astro}></img>
       </ImageWrapper>
-    </PageBreaker1Root>
+    </BannerHeadlineRoot>
   );
 };
 
-PageBreaker1.propTypes = {};
-export default PageBreaker1;
+export default BannerHeadline;

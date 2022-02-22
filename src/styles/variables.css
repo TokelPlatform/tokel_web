@@ -16,6 +16,8 @@
   --color-base-slate: #7c91a7;
   --color-base-lilac: hsla(258, 83%, 63%, 1);
 
+  --color-base-richyellow: hsla(42, 100%, 47%, 1);
+
   /* Opacity colors */
   --color-darkestBlue-10opacity: #696969;
   --color-gray-10opacity: #e6e7ea;

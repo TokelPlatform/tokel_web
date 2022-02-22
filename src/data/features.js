@@ -5,6 +5,8 @@ import nSPVLinks from "data/nSpvLinks"
 import nspv from 'images/features/nspv.svg';
 import transparent from 'images/features/transparent.svg'
 import openSourceData from 'data/feature-opensourceData'
+import BannerBorder from 'components/Molecules/banners/BannerBorder';
+import React from 'react';
 
 const features = [
     {
@@ -19,7 +21,9 @@ const features = [
         subtitle: "nSPV - Super Light Client",
         desc: "Over 100x quicker, lighter & actually decentralized when compared to SPV servers.",
         links: nSPVLinks,
-        bg: nspv
+        bg: nspv,
+        // eslint-disable-next-line react/display-name
+        banner: <BannerBorder />
     },
     {
         title: "Open Source. Open Community",
