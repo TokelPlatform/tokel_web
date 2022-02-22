@@ -15,6 +15,9 @@ import googlePodcasts from 'images/icons/google-podcasts.svg'
 import instagram from 'images/icons/instagram.svg'
 import spotify from 'images/icons/spotify.svg'
 import stitcher from 'images/icons/stitcher.svg'
+import lin from 'images/lin.svg'
+import mac from 'images/mac.svg'
+import win from 'images/win.svg'
 
 const icons = {
   amazonMusic,
@@ -34,6 +37,9 @@ const icons = {
   telegram,
   twitter,
   youtube,
+  lin,
+  mac,
+  win
 }
 
 export default icons

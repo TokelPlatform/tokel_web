@@ -43,8 +43,8 @@ const FeatureRoot = styled.div<FeatureRootProps>`
     color: var(--color-base-lilac);
   }
   background: url(${p => (p.bg ? p.bg : 'none')});
-    background-repeat: no-repeat; 
-    background-position: center 200px;'
+  background-repeat: no-repeat;
+  background-position: center 200px;
 `;
 
 const LinksWrapper = styled.div`

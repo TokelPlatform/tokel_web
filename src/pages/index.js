@@ -10,6 +10,7 @@ import breakpoints from "styles/breakpoints"
 import styled from "@emotion/styled"
 import UseCases from "components/Organisms/UseCases"
 import Features from "components/Organisms/Features"
+import Ecosystem from "components/Organisms/Ecosystem"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -33,6 +34,7 @@ const IndexPage = ()  => {
         <Comparison />
         <UseCases />
         <Features />
+        <Ecosystem />
        
       </PageRoot>
 

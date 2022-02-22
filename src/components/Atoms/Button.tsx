@@ -128,4 +128,5 @@ const Button = ({
   </StyledButton>
 );
 
+Button.defaultProps = defaultProps;
 export default Button;
