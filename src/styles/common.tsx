@@ -21,10 +21,18 @@ export const FlexCenterRow = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 4rem;
 `;
 
 export const FlexCol = styled.div`
   display: flex;
   flex-direction: column;
   align-items: right;
+`;
+
+export const FlexCenterCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;

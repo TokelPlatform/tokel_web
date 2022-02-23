@@ -18,6 +18,9 @@ import stitcher from 'images/icons/stitcher.svg'
 import lin from 'images/lin.svg'
 import mac from 'images/mac.svg'
 import win from 'images/win.svg'
+import komodo from 'images/logos/komodo.svg';
+import atomicDex from 'images/logos/atomicDex.svg';
+import dexTrade from 'images/logos/dexTrade.svg';
 
 const icons = {
   amazonMusic,
@@ -39,7 +42,10 @@ const icons = {
   youtube,
   lin,
   mac,
-  win
+  win,
+  komodo,
+  atomicDex,
+  dexTrade
 }
 
 export default icons
