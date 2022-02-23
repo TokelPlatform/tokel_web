@@ -8,7 +8,6 @@ import ecosystem from 'images/ecosystem.svg';
 import icons from 'data/icons';
 import ClickableIcon from 'components/Atoms/ClickableIcon';
 import links from 'data/links';
-import { VSpacerBig } from 'styles/common';
 
 const EcosystemRoot = styled.div`
   color: white;
@@ -91,14 +90,12 @@ const Ecosystem = () => {
               Tokel Talk podcast aims to educate and inform listeners of the latest in NFT and token
               trends while discussing the future of the space with top guests in the cryptosphere.
             </p>
-            <VSpacerBig />
             {podcastIcons.map((icon, key) => (
               <ClickableIcon key={key} link={links[icon]} icon={icons[icon]} />
             ))}{' '}
             <br />
             <br />
             <a href="#">Apply to Be a Guest on Tokel Talk Podcast</a>
-            <VSpacerBig />
           </div>
         }
       />

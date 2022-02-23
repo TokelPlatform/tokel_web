@@ -2,10 +2,10 @@ import React, { ReactElement } from 'react';
 
 // import breakpoints from '../../styles/breakpoints';
 import styled from '@emotion/styled';
-import { FlexCenterCol, FlexCenterRow, VSpacerMedium } from 'styles/common';
+import { FlexColCenter, FlexCenterRow, VSpacerMedium } from 'styles/common';
 import icons from 'data/icons';
 
-const SectionListRoot = styled(FlexCenterCol)`
+const SectionListRoot = styled(FlexColCenter)`
   margin-top: 5rem;
 `;
 

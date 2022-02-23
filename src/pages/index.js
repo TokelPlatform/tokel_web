@@ -15,6 +15,7 @@ import SectionList from "components/Molecules/SectionList"
 import partnersData from 'data/partnersData'
 import exchangeData from 'data/exchangeData'
 import { FlexCenterRow } from "styles/common"
+import BannerSubscribe from "components/Molecules/banners/BannerSubscribe"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -48,8 +49,8 @@ const IndexPage = ()  => {
         <FlexCenterRow>
           <h4><a href="#">Tokel is also available through direct swaps</a></h4>
         </FlexCenterRow>
+        <BannerSubscribe />
       </IndexPageRoot>
-
     </MainPage>
   )
 }

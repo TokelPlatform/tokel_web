@@ -57,8 +57,13 @@ module.exports = {
         matomoUrl: 'https://analytics.tokel.io',
         siteUrl: 'https://tokel.io'
       }
-    }
-    
-    
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+          endpoint: "https://tokel.us20.list-manage.com/subscribe/post?u=0783e89d9e8585986386d7bef&amp;id=413a1692b6", // string; add your MC list endpoint here; see instructions below
+          timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
   ],
 };

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import React from 'react';
-import { FlexCol } from 'styles/common';
+import { FlexColRight } from 'styles/common';
 import FeatureHeader from './FeatureHeader';
 import TextBox from '../TextBox';
 
@@ -87,12 +87,12 @@ const Feature = ({
       </TextBoxWrapper>
     ) : (
       <LinksWrapper>
-        <FlexCol>
+        <FlexColRight>
           {links.map((one, idx) => idx % 2 == 0 && link(idx, one.url, one.urlName))}
-        </FlexCol>
-        <FlexCol>
+        </FlexColRight>
+        <FlexColRight>
           {links.map((one, idx) => idx % 2 != 0 && link(idx, one.url, one.urlName))}
-        </FlexCol>
+        </FlexColRight>
       </LinksWrapper>
     )}
     {banner && banner}

@@ -16,9 +16,12 @@ export const HSpacerBig = styled.div`
   width: 3rem;
 `;
 
-export const FlexCenterRow = styled.div`
+export const FlexRow = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+export const FlexCenterRow = styled(FlexRow)`
   justify-content: center;
   align-items: center;
   gap: 4rem;
@@ -30,9 +33,11 @@ export const FlexCol = styled.div`
   align-items: right;
 `;
 
-export const FlexCenterCol = styled.div`
-  display: flex;
-  flex-direction: column;
+export const FlexColRight = styled(FlexCol)`
+  align-items: right;
+`;
+
+export const FlexColCenter = styled(FlexCol)`
   align-items: center;
   justify-content: center;
 `;
