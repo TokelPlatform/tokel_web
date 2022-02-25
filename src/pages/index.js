@@ -44,7 +44,7 @@ const IndexPage = ()  => {
         <Features />
         <Ecosystem />
         <SectionList title="Our Partners" data={partnersData}/>
-        <SectionList title="Buy Tokel on" data={exchangeData}/>
+        <SectionList id="buy-tkl" title="Buy Tokel on" data={exchangeData}/>
         <FlexRowCenter>
           <h4><a href="#">Tokel is also available through direct swaps</a></h4>
         </FlexRowCenter>

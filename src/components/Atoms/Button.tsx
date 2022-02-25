@@ -88,8 +88,8 @@ const getTheme = (theme, chosen) => {
       return `
           background: transparent;
           border-radius: 4px;
-          background: none;
           border: 4px solid var(--color-almostWhite);
+          font-weigth: bold;
         `;
   }
 };
@@ -117,6 +117,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
   &:hover {
     transform: ${props => (!props.chosen ? 'scale(1.1)' : '')};
+    border-color: var(--color-purple);
   }
   z-index: 10;
   @media (max-width: ${breakpoints.tablet}) {

@@ -3,7 +3,6 @@ import TableHeaderLogo from 'components/Molecules/table/TableHeaderLogo';
 import check from 'images/table/check.svg';
 import close from 'images/table/close.svg';
 import ether from 'images/table/ether.svg';
-import green from 'images/table/green.svg';
 import solana from 'images/table/solana.svg';
 import tokel from 'images/table/tokel.svg';
 import tableImage from 'components/Atoms/RepeatedIcon';
@@ -42,16 +41,6 @@ export const data = [
   {
     rowname: (
       <p>
-        COST TO CREATE <br /> 10000 NFTs
-      </p>
-    ),
-    solana: '$21,600',
-    ethereum: '$700,000++',
-    tokel: '$0.003',
-  },
-  {
-    rowname: (
-      <p>
         COST TO CREATE
         <br /> ONE NFT
       </p>
@@ -59,16 +48,6 @@ export const data = [
     solana: '$2.16',
     ethereum: '$70.00++',
     tokel: '$0.000003',
-  },
-  {
-    rowname: (
-      <p>
-        ENVIROMENTALLY <br /> FRIENDLY
-      </p>
-    ),
-    solana: tableImage(green, 2),
-    ethereum: tableImage(green, 1),
-    tokel: tableImage(green, 3),
   },
   {
     rowname: 'OPEN SOURCE',

@@ -17,10 +17,8 @@ const Container = styled.div`
   padding-top: 10rem;
   justify-content: left;
   @media (max-width: ${breakpoints.mobilemiddle}) {
-    padding-top: 7rem;
   }
   @media (max-width: ${breakpoints.mobile}) {
-    padding-top: 0;
   }
   background-image: url('/galaxy.svg');
   background-repeat: no-repeat;
@@ -55,7 +53,7 @@ const WelcomeText = () => {
         <VSpacerBig />
         <CATs>
           <Download>
-            <a href="#">
+            <a href="#download" style={{ textDecoration: 'none' }}>
               <Button
                 showButtonDecor
                 theme={Colors.TRANSPARENT}
@@ -73,7 +71,9 @@ const WelcomeText = () => {
       </div>
       <VSpacerBig />
       <VSpacerBig />
-      <img height="50px" src={chevron}></img>
+      <a href="#compare" style={{ margin: 'auto' }}>
+        <img height="50px" src={chevron}></img>
+      </a>
     </Container>
   );
 };

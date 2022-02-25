@@ -1,5 +1,5 @@
 import ComparisonTable from '../Molecules/table/ComparisonTable';
-import React from 'react';
+import React, { useRef } from 'react';
 // import breakpoints from "../../styles/breakpoints";
 import styled from '@emotion/styled';
 import FeatureHeader from 'components/Molecules/Features/FeatureHeader';
@@ -11,8 +11,9 @@ const ComparisonRoot = styled(FlexColCenter)`
 `;
 
 const Comparison = () => {
+  const comparisonRef = useRef();
   return (
-    <ComparisonRoot>
+    <ComparisonRoot ref={comparisonRef} id="compare">
       <FeatureHeader title="Inexpensive And Non-Exclusive" subtitle="Compare us with others" />
       <ComparisonTable />
     </ComparisonRoot>

@@ -21,6 +21,8 @@ import win from 'images/win.svg'
 import komodo from 'images/logos/komodo.svg';
 import atomicDex from 'images/logos/atomicDex.svg';
 import dexTrade from 'images/logos/dexTrade.svg';
+import swapBTC from 'images/swap-btc-tkl.svg'
+import swapKMD from 'images/swap-kmd-tkl.svg'
 
 const icons = {
   amazonMusic,
@@ -45,7 +47,9 @@ const icons = {
   win,
   komodo,
   atomicDex,
-  dexTrade
+  dexTrade,
+  swapBTC,
+  swapKMD
 }
 
 export default icons

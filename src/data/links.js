@@ -25,6 +25,7 @@ const links = {
     atomicDex: 'https://atomicdex.io/',
     idoLiveStream: 'https://www.youtube.com/watch?v=WQ39eTAgdB0',
     aDEXStepByStep: 'https://docs.tokel.io/guides/HowToUseAtomicDEX/',
+    aDexBuyTKLVideo: 'https://www.youtube.com/watch?v=fUs2l8kkBRQ',
     ca333interview: 'https://youtu.be/-sZc7DHcuI8',
     mediumEarlyAdopters: 'https://medium.com/@tokel-platform/tokel-early-adopter-initiative-time-lock-reward-plan-9806f4ffc74',
     spotify: 'https://open.spotify.com/show/7oe8Wt6gz3dMDnYYkbRhsG?si=9304884cd13c44df',
@@ -38,6 +39,15 @@ const links = {
         google: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xODg3ODA1LnJzcw==',
         amazon: 'https://music.amazon.com/podcasts/efe0404f-76f8-499b-9fd0-d95dfa403161/tokel-talk',
         apple: 'https://podcasts.apple.com/fr/podcast/tokel-talk/id1598762562'
+    },
+    dexTradeTutorials: {
+        signup: 'https://www.youtube.com/watch?v=_xEUhYNDYe0',
+        deposit: 'https://www.youtube.com/watch?v=B1ZylW2SM4Q'
+    },
+    downloads:{
+        linux: 'https://github.com/TokelPlatform/tokel_dapp/releases/download/v1.2.1/LINUX-TokelPlatform-1.2.1.AppImage',
+        win: 'https://github.com/TokelPlatform/tokel_dapp/releases/download/v1.2.1/WINDOWS-TokelPlatform-Setup-1.2.1.exe',
+        mac: 'https://github.com/TokelPlatform/tokel_dapp/releases/download/v1.2.1/MAC-TokelPlatform-1.2.1.dmg'
     }
 }
 

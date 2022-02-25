@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
 import icons from 'data/icons';
+import axios from 'axios';
 const DownloadRoot = styled.div``;
-type DownloadProps = {
-  win: string;
-  mac: string;
-  lin: string;
-};
 
 const Box = styled.div`
   border: 8px solid;
@@ -18,21 +14,45 @@ const Box = styled.div`
   }
 `;
 
-const Download = ({ win, mac, lin }: DownloadProps) => (
-  <DownloadRoot>
-    <h5>DONWLOAD</h5>
-    <Box>
-      <a href={win}>
-        <img src={icons.win} />
-      </a>
-      <a href={mac}>
-        <img src={icons.mac} />
-      </a>
-      <a href={lin}>
-        <img src={icons.lin} />
-      </a>
-    </Box>
-  </DownloadRoot>
-);
+const Download = () => {
+  const [linBin, setLinBin] = useState('');
+  const [macBin, setMacBin] = useState('');
+  const [winBin, setWinBin] = useState('');
+
+  useEffect(async () => {
+    const release = await axios.get(
+      'https://api.github.com/repos/tokelPlatform/tokel_dapp/releases/latest'
+    );
+    release.data.assets.map(binary => {
+      const ext = binary.browser_download_url.split('.');
+      const uri = binary.browser_download_url;
+      switch (ext[ext.length - 1]) {
+        case 'AppImage':
+          return setLinBin(uri);
+        case 'dmg':
+          return setMacBin(uri);
+        case 'exe':
+          return setWinBin(uri);
+      }
+    });
+  }, []);
+
+  return (
+    <DownloadRoot id="download">
+      <h5 style={{ fontWeight: 'bold' }}>DOWNLOAD DAPP</h5>
+      <Box>
+        <a href={linBin}>
+          <img src={icons.lin} />
+        </a>
+        <a href={winBin}>
+          <img src={icons.win} />
+        </a>
+        <a href={macBin}>
+          <img src={icons.mac} />
+        </a>
+      </Box>
+    </DownloadRoot>
+  );
+};
 
 export default Download;

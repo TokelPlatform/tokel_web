@@ -1,10 +1,7 @@
-// import ClickableIcon from '../Atoms/ClickableIcon';
 import LogoText from '../Atoms/LogoText';
 import Navigation from './Navigation';
 import React from 'react';
 // import breakpoints from '../../styles/breakpoints';
-// import icons from '../../data/icons';
-// import links from '../../data/links';
 import styled from '@emotion/styled';
 import Button, { Colors } from 'components/Atoms/Button';
 import { Link } from 'gatsby';
@@ -33,7 +30,7 @@ const TopBar = () => {
       <LogoText />
       <Navigation />
       <IconWrapper>
-        <ButtonLink to="/tkl-swap">
+        <ButtonLink to="/exchanges">
           <Button
             height="50px"
             width="150px"
