@@ -19,22 +19,24 @@ const Download = () => {
   const [macBin, setMacBin] = useState('');
   const [winBin, setWinBin] = useState('');
 
-  useEffect(async () => {
-    const release = await axios.get(
-      'https://api.github.com/repos/tokelPlatform/tokel_dapp/releases/latest'
-    );
-    release.data.assets.map(binary => {
-      const ext = binary.browser_download_url.split('.');
-      const uri = binary.browser_download_url;
-      switch (ext[ext.length - 1]) {
-        case 'AppImage':
-          return setLinBin(uri);
-        case 'dmg':
-          return setMacBin(uri);
-        case 'exe':
-          return setWinBin(uri);
-      }
-    });
+  useEffect(() => {
+    axios
+      .get('https://api.github.com/repos/tokelPlatform/tokel_dapp/releases/latest')
+      .then(release => {
+        release.data.assets.map(binary => {
+          const ext = binary.browser_download_url.split('.');
+          const uri = binary.browser_download_url;
+          switch (ext[ext.length - 1]) {
+            case 'AppImage':
+              return setLinBin(uri);
+            case 'dmg':
+              return setMacBin(uri);
+            case 'exe':
+              return setWinBin(uri);
+          }
+        });
+      })
+      .catch(e => console.log(e));
   }, []);
 
   return (

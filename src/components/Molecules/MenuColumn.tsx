@@ -37,7 +37,7 @@ const MenuColumn = ({ title, menuItems }: SectionListProps): ReactElement => (
     <h5>{title}</h5>
     <List>
       {menuItems.map((menuItem, idx) => {
-        if (!menuItem.url) return <p>{menuItem.name}</p>;
+        if (!menuItem.url) return <p key={idx + 100}>{menuItem.name}</p>;
         return (
           <a key={idx} href={menuItem.url}>
             {menuItem.name}
