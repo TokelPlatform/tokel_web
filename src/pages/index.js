@@ -46,7 +46,7 @@ const IndexPage = ()  => {
         <SectionList title="Our Partners" data={partnersData}/>
         <SectionList id="buy-tkl" title="Buy Tokel on" data={exchangeData}/>
         <FlexRowCenter>
-          <h4><a href="#">Tokel is also available through direct swaps</a></h4>
+          <h4>Tokel will soon be also available through direct swaps</h4>
         </FlexRowCenter>
         <BannerSubscribe />
       </IndexPageRoot>

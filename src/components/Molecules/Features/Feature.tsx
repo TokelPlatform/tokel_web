@@ -44,7 +44,7 @@ const FeatureRoot = styled.div<FeatureRootProps>`
   }
   background: url(${p => (p.bg ? p.bg : 'none')});
   background-repeat: no-repeat;
-  background-position: center 200px;
+  background-position: center 60px;
 `;
 
 const LinksWrapper = styled.div`

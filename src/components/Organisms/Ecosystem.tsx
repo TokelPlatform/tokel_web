@@ -34,12 +34,12 @@ const podcastIcons = [
 const Ecosystem = () => {
   return (
     <EcosystemRoot>
+      <div id="ecosystem"></div>
       <FeatureHeader
         title="Get to know what we create at Tokel"
         subtitle="Tokel Ecosystem"
         desc="Try out the dApp, we know you will love it!"
       />
-      <div></div>
       <Project
         title="Tokel All In One Platform"
         desc={
@@ -52,7 +52,7 @@ const Ecosystem = () => {
               <li>Uses a leading edge, decentralized, super light client</li>
               <li>Does not require blockchain download</li>
             </ul>
-            <h5>FEATURES</h5>
+            <h5 style={{ fontWeight: 'bold' }}>FEATURES</h5>
             <p>TOKEN and COIN WALLET</p>
             <p>TOKEN DEX</p>
             <p>TOKEN CREATION TOOL</p>
@@ -95,7 +95,9 @@ const Ecosystem = () => {
             ))}{' '}
             <br />
             <br />
-            <a href="#">Apply to Be a Guest on Tokel Talk Podcast</a>
+            <a href="/tokeltalk#join-tokel-talk-as-a-guest">
+              Apply to Be a Guest on Tokel Talk Podcast
+            </a>
           </div>
         }
       />

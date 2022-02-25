@@ -16,7 +16,7 @@ export const BoxTitle = styled.div`
 `;
 
 const FeatureHeaderRoot = styled.div`
-  margin-top: 15rem;
+  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

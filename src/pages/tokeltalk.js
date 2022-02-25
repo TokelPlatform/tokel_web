@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import axios from "axios";
 import breakpoints from "../styles/breakpoints"
 import { graphql } from "gatsby"
-import links from "../data/links"
+import links, { podcasts } from "../data/links"
 import podcastValidationSchema from '../helpers/podcastValidationSchema'
 import styled from "@emotion/styled"
 import { PageHeader } from "components/Atoms/Title";
@@ -154,8 +154,7 @@ const pickFields = option => {
 }
 
 const getPodcastLinks = data => 
-  Object.keys(links.podcast).map(podcastPlatform => 
-     <a key={podcastPlatform} href={links.podcast[podcastPlatform]}><Img fixed={data[podcastPlatform].childImageSharp.fixed}></Img></a>
+  Object.keys(podcasts).map(podcastPlatform => <a key={podcastPlatform} href={links[podcastPlatform]}><Img fixed={data[podcastPlatform].childImageSharp.fixed}></Img></a>
   )
 
 const TokelTalk = ({data})  => {
@@ -184,7 +183,7 @@ const TokelTalk = ({data})  => {
             {getPodcastLinks(data)}
           </ListenOn>
           <GuestSignUp>
-            <h2 id="#join-tokel-talk-as-a-guest">Join Tokel Talk as a Guest</h2>
+            <h2 id="join-tokel-talk-as-a-guest">Join Tokel Talk as a Guest</h2>
             <p>Would you like to be the guest on Tokel Talk Podcast? If yes, please fill in the  form below and we will get in touch with you as soon as we can.</p>
             <Formik
               initialValues={{ 
@@ -257,14 +256,14 @@ export const query = graphql`
         }
       }
     }
-    apple: file(relativePath: { eq: "podcast/listen-on-apple.png" }) {
+    applePodcasts: file(relativePath: { eq: "podcast/listen-on-apple.png" }) {
       childImageSharp {
         fixed(height: 58) {
           ...GatsbyImageSharpFixed
         }
       }
     } 
-    amazon: file(relativePath: { eq: "podcast/listen-on-amazon.png" }) {
+    amazonMusic: file(relativePath: { eq: "podcast/listen-on-amazon.png" }) {
       childImageSharp {
         fixed(height: 58) {
           ...GatsbyImageSharpFixed
@@ -278,7 +277,7 @@ export const query = graphql`
         }
       }
     } 
-    google: file(relativePath: { eq: "podcast/listen-on-google.png" }) {
+    googlePodcasts: file(relativePath: { eq: "podcast/listen-on-google.png" }) {
       childImageSharp {
         fixed(height: 58) {
           ...GatsbyImageSharpFixed

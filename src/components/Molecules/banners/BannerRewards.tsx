@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Button, { Colors } from 'components/Atoms/Button';
 import tokelist from 'images/tokelist.svg';
+import links from 'data/links';
 
 const BannerRewardsRoot = styled.div`
   display: flex;
@@ -46,7 +47,9 @@ const BannerRewards = () => {
         <YellowLine />
       </div>
       <ButtonWrapper>
-        <Button theme={Colors.BLACK} text="Learn More" />
+        <a style={{ textDecoration: 'none' }} href={links.tokelistArticle}>
+          <Button theme={Colors.BLACK} text="Learn More" />
+        </a>
       </ButtonWrapper>
     </BannerRewardsRoot>
   );

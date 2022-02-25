@@ -63,8 +63,7 @@ const WelcomeText = () => {
             </a>
           </Download>
           <HSpacerBig />
-          <a href="#">
-            {' '}
+          <a href="#ecosystem">
             <h5>Explore Our Ecosystem</h5>
           </a>
         </CATs>
