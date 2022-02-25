@@ -40,7 +40,6 @@ const menuLinks = [
   { link: '/exchanges', name: 'Exchanges' },
   { link: '/wallets', name: 'Wallets' },
   { link: '/roadmap', name: 'Roadmap' },
-  { link: '/documentation', name: 'Documentation' },
   { link: links.whitepaper, name: 'White Paper' },
   { link: '/news', name: 'News' },
   { link: '/tokeltalk', name: 'Tokel Talk' },
