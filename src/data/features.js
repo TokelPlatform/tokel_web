@@ -1,5 +1,5 @@
 
-import easytouse from 'images/features/easytouse.svg'
+import easytouse from 'images/features/easyToUse.svg'
 import easyToUseData from 'data/feature-easyToUseData';
 import nSPVLinks from "data/nSpvLinks"
 import nspv from 'images/features/nspv.svg';
