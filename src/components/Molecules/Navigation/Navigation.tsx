@@ -1,10 +1,10 @@
-import React, { useRef, useState } from "react"
+import React, { useRef, useState } from 'react';
 
-import Burger from "./Burger"
-import NavigationSide from "./NavigationSide"
-import breakpoints from "../../../styles/breakpoints"
-import links from "../../../data/links"
-import styled from "@emotion/styled"
+import Burger from './Burger';
+import NavigationSide from './NavigationSide';
+import breakpoints from '../../../styles/breakpoints';
+import links from '../../../data/links';
+import styled from '@emotion/styled';
 
 const NavigationHorizontal = styled.ul`
   display: flex;
@@ -26,7 +26,7 @@ const NavigationHorizontal = styled.ul`
     color: var(--color-almostWhite);
     text-decoration: none;
   }
-`
+`;
 
 const NavigationVertical = styled.div`
   display: none;
@@ -34,26 +34,30 @@ const NavigationVertical = styled.div`
   @media (max-width: ${breakpoints.mobilebig}) {
     display: block;
   }
-`
+`;
 const menuLinks = [
-  { link: '/how-to', name: "Get Started" },
-  { link: '/exchanges', name: "Exchanges" },
-  { link: '/roadmap', name: "Roadmap" },
-  { link: links.whitepaper, name: "White Paper" },
-  // { link: '/news', name: "News" },
-  { link: '/tokeltalk', name: "Tokel Talk" },
-  { link: links.explorer, name: "Explorer" },
-  { link: '/faq', name: "FAQ" },
+  { link: '/how-to', name: 'Get Started' },
+  { link: '/exchanges', name: 'Exchanges' },
+  { link: '/wallets', name: 'Wallets' },
+  { link: '/roadmap', name: 'Roadmap' },
+  { link: '/documentation', name: 'Documentation' },
+  { link: links.whitepaper, name: 'White Paper' },
+  { link: '/news', name: 'News' },
+  { link: '/tokeltalk', name: 'Tokel Talk' },
+  { link: links.explorer, name: 'Explorer' },
+  { link: '/faq', name: 'FAQ' },
 ];
 
 const Navigation = () => {
-    const [open, setOpen] = useState(false);
-    const node = useRef();
+  const [open, setOpen] = useState(false);
+  const node = useRef();
   return (
     <div>
       <NavigationHorizontal>
-        { menuLinks.map((item, idx) => (
-            <li key={idx}><a href={item.link}>{item.name}</a></li>          
+        {menuLinks.map((item, idx) => (
+          <li key={idx}>
+            <a href={item.link}>{item.name}</a>
+          </li>
         ))}
       </NavigationHorizontal>
       <NavigationVertical ref={node}>
@@ -61,6 +65,6 @@ const Navigation = () => {
         <NavigationSide menuLinks={menuLinks} open={open} setOpen={setOpen} />
       </NavigationVertical>
     </div>
-  )
-}
-export default Navigation
+  );
+};
+export default Navigation;

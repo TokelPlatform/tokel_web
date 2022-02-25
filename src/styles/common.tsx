@@ -21,10 +21,9 @@ export const FlexRow = styled.div`
   flex-direction: row;
 `;
 
-export const FlexCenterRow = styled(FlexRow)`
+export const FlexRowCenter = styled(FlexRow)`
   justify-content: center;
   align-items: center;
-  gap: 4rem;
 `;
 
 export const FlexCol = styled.div`

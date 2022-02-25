@@ -7,13 +7,15 @@ import { FlexCol, FlexRow } from 'styles/common';
 const BannerSubscribeRoot = styled(FlexRow)`
   align-items: center;
   justify-content: space-between;
-  max-width: 1000px;
+  max-width: 1180px;
   width: 100%;
   border: 8px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(97.43deg, #973af5 0%, #4ca6fe 100%);
   padding: 1rem 2rem;
-  margin: 3rem auto 3rem auto;
+  margin: auto;
+  margin-top: 6rem;
+
   h4 {
     font-weight: 700;
     margin-bottom: 0;

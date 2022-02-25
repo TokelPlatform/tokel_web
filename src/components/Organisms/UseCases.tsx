@@ -3,6 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import UseCaseBox from 'components/Molecules/TextBox';
 import data from 'data/useCaseData';
+import FeatureHeader from 'components/Molecules/Features/FeatureHeader';
 
 const UseCasesRoot = styled.div`
   color: white;
@@ -29,11 +30,12 @@ const UseCaseContainer = styled.div`
 const UseCases = () => {
   return (
     <UseCasesRoot>
-      <h2>Tokel is For Everyone</h2>
-      <h5 style={{ maxWidth: '450px', textAlign: 'center' }}>
-        Whether you’re a content creator, collector, blockchain enthusiast, entrepeneur or in
-        business, Tokel has the solution for you.
-      </h5>
+      <FeatureHeader
+        title="Tokel is For Everyone"
+        subtitle="Everyone can use Tokel"
+        desc="Whether you’re a content creator, collector, blockchain enthusiast, entrepeneur or in
+      business, Tokel has the solution for you."
+      />
       <UseCaseContainer>
         {data.map((useCase, idx) => (
           <UseCaseBox

@@ -44,20 +44,23 @@ const TableComponent = styled.table`
   tr:first-child {
     td:last-child {
       border-top: 10px solid;
-      // border-image-source: var(--gradient-purple-direct);
+      /* border-image-slice: 1; */
+      /* border-image-source: var(--gradient-purple-direct); */
     }
   }
   tr:last-child {
     td:last-child {
       border-bottom: 10px solid;
-      // border-image-source: var(--gradient-purple-direct);
+      /* border-image-slice: 1; */
+      /* border-image-source: var(--gradient-purple-direct); */
     }
   }
 
   td:nth-child(4) {
     border-right: 10px solid;
     border-left: 10px solid;
-    // border-image-source: var(--gradient-purple-direct);
+    /* border-image-slice: 1; */
+    /* border-image-source: var(--gradient-purple-direct); */
   }
 `;
 

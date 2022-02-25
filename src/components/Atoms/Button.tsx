@@ -9,6 +9,7 @@ type ButtonProps = {
   theme: string;
   chosen: boolean;
   width?: string;
+  height?: string;
   onClick: () => {};
   showButtonDecor: boolean;
 };
@@ -26,6 +27,7 @@ export const Colors = {
   TRANSPARENT: 'transparent',
   WHITE: 'white',
   BLACK: 'black',
+  YELLOW: 'yellow',
 };
 
 const getTheme = (theme, chosen) => {
@@ -34,7 +36,7 @@ const getTheme = (theme, chosen) => {
       return `
           background: var(--gradient-purple-direct);
           border-radius: 5px;
-          border: none;
+          border: 4px solid white;
           h2 { 
             color: var(--color-almostWhite);
             font-weight: 700;
@@ -57,6 +59,16 @@ const getTheme = (theme, chosen) => {
               border: 1px solid var(--color-base-richyellow);
               h5 { 
                 color: var(--color-base-richyellow);
+                font-weight: 700;
+              }
+            `;
+    case Colors.YELLOW:
+      return `
+              background: var(--color-base-richyellow);
+              border-radius: 5px;
+              border: 3px solid white;
+              h5 { 
+                color: black;
                 font-weight: 700;
               }
             `;
@@ -86,12 +98,13 @@ type StyledButtonProps = {
   chosen: boolean;
   theme: string;
   width: string;
+  height?: string;
 };
 
 const StyledButton = styled.button<StyledButtonProps>`
   ${props => getTheme(props.theme, props.chosen)};
   width: ${props => props.width};
-  height: 70px;
+  height: ${props => (props.height ? props.height : '70px')};
   cursor: pointer;
   will-change: transform;
   transition: transform 0.3s;
@@ -119,10 +132,17 @@ const Button = ({
   theme,
   chosen,
   width,
+  height,
   onClick,
   showButtonDecor = null,
 }: ButtonProps): ReactElement => (
-  <StyledButton onClick={() => onClick()} width={width} chosen={chosen} theme={theme}>
+  <StyledButton
+    onClick={() => onClick()}
+    width={width}
+    height={height}
+    chosen={chosen}
+    theme={theme}
+  >
     {showButtonDecor && <img src={buttonDecor}></img>}
     <h5>{text}</h5>
   </StyledButton>

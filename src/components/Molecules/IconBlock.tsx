@@ -14,22 +14,29 @@ type IconBlockProps = {
 };
 
 const FooterBlockRoot = styled.div`
-  width: 300px;
-
+  width: 270px;
   h5 {
     font-weight: 700;
   }
+  display: grid;
+  padding: 2rem;
 `;
 
 const IconsWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  justify-items: start;
+  align-items: flex-start;
 `;
 
 const IconBlock = ({ title, desc, iconsList }: IconBlockProps): ReactElement => {
   return (
     <FooterBlockRoot>
-      <h5>{title}</h5>
-      <p>{desc}</p>
+      <div>
+        <h5>{title}</h5>
+        <p>{desc}</p>
+      </div>
       <IconsWrapper>
         {iconsList.map((icon, key) => (
           <ClickableIcon key={key} link={links[icon]} icon={icons[icon]} />

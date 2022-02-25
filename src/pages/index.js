@@ -2,7 +2,6 @@ import * as React from "react"
 
 import Comparison from "components/Organisms/Comparison"
 import { Helmet } from "react-helmet"
-import PageBreaker1 from "components/Molecules/banners/BannerHeadline"
 import PageRoot from "./template"
 import PropTypes from 'prop-types'
 import WelcomeText from "components/Molecules/WelcomeText"
@@ -14,7 +13,7 @@ import Ecosystem from "components/Organisms/Ecosystem"
 import SectionList from "components/Molecules/SectionList"
 import partnersData from 'data/partnersData'
 import exchangeData from 'data/exchangeData'
-import { FlexCenterRow } from "styles/common"
+import { FlexRowCenter, VSpacerBig } from "styles/common"
 import BannerSubscribe from "components/Molecules/banners/BannerSubscribe"
 
 const MainPage = styled.div`
@@ -37,18 +36,18 @@ const IndexPage = ()  => {
           <title>Tokel | Making NFT & Token Creation Easy For Everyone</title>
           <meta name="description" content="Tokel truly opens the door for every single person to create & access tokens and NFTs in an inexpensive, decentralized fashion." />
       </Helmet>
-      <IndexPageRoot starsTop='9000px'>
+      <IndexPageRoot starsTop='8000px'>
         <WelcomeText />
-        <PageBreaker1 />
+        <VSpacerBig/>
         <Comparison />
         <UseCases />
         <Features />
         <Ecosystem />
         <SectionList title="Our Partners" data={partnersData}/>
         <SectionList title="Buy Tokel on" data={exchangeData}/>
-        <FlexCenterRow>
+        <FlexRowCenter>
           <h4><a href="#">Tokel is also available through direct swaps</a></h4>
-        </FlexCenterRow>
+        </FlexRowCenter>
         <BannerSubscribe />
       </IndexPageRoot>
     </MainPage>

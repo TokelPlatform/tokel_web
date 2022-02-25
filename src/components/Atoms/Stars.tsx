@@ -23,9 +23,9 @@ const getStars = (n: number, div: number): string => {
 };
 
 const shadows = {
-  small: getStars(3000, 2),
-  medium: getStars(3000, 4),
-  big: getStars(3000, 6),
+  small: getStars(5000, 2),
+  medium: getStars(5000, 4),
+  big: getStars(5000, 6),
 };
 
 const animStar = keyframes`

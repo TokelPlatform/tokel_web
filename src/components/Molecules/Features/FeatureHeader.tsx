@@ -6,7 +6,7 @@ type FeatureHeaderProps = {
   title: string;
   subtitle: string;
   image?: string;
-  desc: string;
+  desc?: string;
 };
 
 export const BoxTitle = styled.div`
