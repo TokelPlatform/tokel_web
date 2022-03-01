@@ -28,6 +28,10 @@ const FeatureHeaderRoot = styled.div`
   h3 {
     color: var(--color-base-lilac);
   }
+  p {
+    max-width: 700px;
+    text-align: center;
+  }
 `;
 
 const FeatureHeader = ({ title, subtitle, desc, image }: FeatureHeaderProps) => (

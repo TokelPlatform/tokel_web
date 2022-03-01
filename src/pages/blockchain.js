@@ -478,7 +478,7 @@ export default function ChainLaunch() {
                 <a href={links.bitcoinTalk}>Bitcoin talk</a><br/>              
                 <a href={links.discord}>Discord</a><br/>
                 <a href={links.documentationChain}>Documentation</a> <br/>                
-                <a href={links.floteApp}>Flote</a> <br/>
+                <a href={links.flote}>Flote</a> <br/>
                 <a href={links.github}>Github</a><br/>           
                 <a href={links.medium}>Medium</a> <br/>
                 <a href={links.reddit}>Reddit</a> <br/>

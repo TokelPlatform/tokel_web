@@ -12,7 +12,7 @@ const features = [
     {
         title: "Tokel is Easy to Use",
         subtitle: "Created with people in mind",
-        desc: "We are focusing on bringing simple, easy to use blockchain technology to everybody, in an inexclusive, inexpensive way.",
+        desc: "We are focusing on bringing simple, easy to use blockchain technology to everybody, in an non exclusive, inexpensive way.",
         image: easytouse,
         data: easyToUseData
     },

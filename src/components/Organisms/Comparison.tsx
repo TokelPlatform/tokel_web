@@ -37,8 +37,8 @@ const Comparison = () => {
         <p>
           The above numbers are as of 24th February 2022. Crypto markets fluctuate and fees on
           networks change depending on how busy the network is. Some of the above fees can be
-          different at the moment of you reading this. Tokel fees can fluctuate mildly depending on
-          the current market state, but generally will always stay extremely low.
+          different at the moment of you reading this. The cost to create on Tokel will change
+          depending on the price per Tokel when you create.
         </p>
         <FlexRow style={{ gap: '0.5rem' }}>
           <div>
@@ -47,14 +47,7 @@ const Comparison = () => {
               Tx Fee: <a href="https://solana.com/">https://solana.com/</a>
               <br />
               NFT creation cost:{' '}
-              <a href="https://solana.com/developers/nfts">
-                https://solana.com/developers/nfts
-              </a>{' '}
-              <br />
-              Open Source:{' '}
-              <a href="https://github.com/solana-labs/solana">
-                https://github.com/solana-labs/solana
-              </a>
+              <a href="https://solana.com/developers/nfts">https://solana.com/developers/nfts</a>
             </p>
           </div>
           <div>
@@ -68,10 +61,7 @@ const Comparison = () => {
               Gas Fee:{' '}
               <a href="https://crypto.com/defi/dashboard/gas-fees">
                 https://crypto.com/defi/dashboard/gas-fees
-              </a>{' '}
-              <br />
-              Open Source: <a href="https://github.com/ethereum">https://github.com/ethereum</a>
-              <br />
+              </a>
             </p>
           </div>
         </FlexRow>

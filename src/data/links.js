@@ -17,7 +17,7 @@ const links = {
     documentationCreateTokenNFT: 'https://docs.tokel.io/guides/CreateAToken/#how-to-create-a-token-or-nft',
     reddit: 'https://www.reddit.com/r/tokel/',
     youtube: 'https://www.youtube.com/channel/UCW9C_EuW54yOFArqJjRMJmQ',
-    floteApp: 'https://flote.app/user/Tokel',
+    flote: 'https://flote.app/user/Tokel',
     facebook: 'https://www.facebook.com/TokelPlatform/',
     bittube: 'https://bittube.tv/profile/Tokel',
     telegram: 'https://t.me/TokelPlatformchat',
@@ -37,6 +37,7 @@ const links = {
     googlePodcasts: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8xODg3ODA1LnJzcw==',
     amazonMusic: 'https://music.amazon.com/podcasts/efe0404f-76f8-499b-9fd0-d95dfa403161/tokel-talk',
     applePodcasts: 'https://podcasts.apple.com/fr/podcast/tokel-talk/id1598762562',
+    instagram: 'https://instagram.com/TokelPlatform',
     dexTradeTutorials: {
         signup: 'https://www.youtube.com/watch?v=_xEUhYNDYe0',
         deposit: 'https://www.youtube.com/watch?v=B1ZylW2SM4Q'

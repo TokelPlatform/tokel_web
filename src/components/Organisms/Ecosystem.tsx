@@ -62,7 +62,7 @@ const Ecosystem = () => {
         }
       />
       <Project
-        title="Saturn"
+        title="Tokel Saturn"
         desc={
           <div>
             <p>Shhhh....... Nothing to see here!</p>
