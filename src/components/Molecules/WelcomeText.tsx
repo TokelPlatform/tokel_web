@@ -1,6 +1,5 @@
 import Button, { Colors } from '../Atoms/Button';
 import { HSpacerBig, VSpacerBig } from '../../styles/common';
-import { Header2, Title } from '../Atoms/Title';
 
 import React from 'react';
 import breakpoints from '../../styles/breakpoints';
@@ -16,13 +15,14 @@ const Container = styled.div`
   align-items: left;
   padding-top: 10rem;
   justify-content: left;
-  @media (max-width: ${breakpoints.mobilemiddle}) {
+  background-image: url('/galaxy.svg');
+  background-repeat: no-repeat;
+  background-position: 100% 20%;
+  @media (max-width: ${breakpoints.tablet}) {
+    background-size: cover;
   }
   @media (max-width: ${breakpoints.mobile}) {
   }
-  background-image: url('/galaxy.svg');
-  background-repeat: no-repeat;
-  background-position: 100% 0;
 `;
 
 const Download = styled.div`
@@ -40,12 +40,12 @@ const WelcomeText = () => {
   return (
     <Container>
       <div style={{ marginLeft: '5rem' }}>
-        <Title>Create NFTs and tokens easily.</Title>
-        <Header2>
+        <h1>Create NFTs and tokens easily.</h1>
+        <h2>
           No Complicated smart contracts.
           <br />
           No Gas Fees.
-        </Header2>
+        </h2>
         <h4>
           One of our main goals is to make Tokel and blockchain technology usable <br /> and
           accessible to everyone.{' '}

@@ -1,19 +1,19 @@
 import React from 'react';
-// import breakpoints from "../../styles/breakpoints"
+import breakpoints from 'styles/breakpoints';
 import styled from '@emotion/styled';
 import MailchimpForm from '../MailchimpForm';
-import { FlexCol, FlexRow } from 'styles/common';
+import { FlexCol } from 'styles/common';
 
-const BannerSubscribeRoot = styled(FlexRow)`
+const BannerSubscribeRoot = styled.div`
+  display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 1180px;
-  width: 100%;
+  margin: auto;
   border: 8px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(97.43deg, #973af5 0%, #4ca6fe 100%);
   padding: 1rem 2rem;
-  margin: auto;
   margin-top: 6rem;
 
   h4 {
@@ -23,6 +23,16 @@ const BannerSubscribeRoot = styled(FlexRow)`
   p {
     margin-top: 1rem;
     max-width: 500px;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
 `;
 

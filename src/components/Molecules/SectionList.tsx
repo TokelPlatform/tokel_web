@@ -24,10 +24,10 @@ const SectionList = ({ title, data }: SectionListProps): ReactElement => (
     <VSpacerMedium />
     <Wrapper>
       {data.map((p, idx) => (
-        <div key={idx}>
-          {p.name && <h4>{p.name}</h4>}
+        <FlexColCenter key={idx}>
           <img src={icons[p.icon]}></img>
-        </div>
+          {p.name && <h4>{p.name}</h4>}
+        </FlexColCenter>
       ))}
     </Wrapper>
   </SectionListRoot>

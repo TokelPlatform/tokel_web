@@ -15,6 +15,8 @@ import partnersData from 'data/partnersData'
 import exchangeData from 'data/exchangeData'
 import { FlexRowCenter, VSpacerBig } from "styles/common"
 import BannerSubscribe from "components/Molecules/banners/BannerSubscribe"
+import { FlexCol } from "styles/common"
+import partnersBg from "images/backgrounds/partners.svg"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -26,6 +28,13 @@ const MainPage = styled.div`
 
 const IndexPageRoot = styled(PageRoot)`
   padding-bottom: 10rem;
+`
+const PartnersSection = styled(FlexCol)`
+  padding-top: 10rem;
+  background: url(${partnersBg});
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 `
 
 const IndexPage = ()  => {
@@ -43,8 +52,10 @@ const IndexPage = ()  => {
         <UseCases />
         <Features />
         <Ecosystem />
-        <SectionList title="Our Partners" data={partnersData}/>
-        <SectionList id="buy-tkl" title="Buy Tokel on" data={exchangeData}/>
+        <PartnersSection>
+          <SectionList title="Our Partners" data={partnersData}/>
+          <SectionList id="buy-tkl" title="Buy Tokel on" data={exchangeData}/>
+        </PartnersSection>
         <FlexRowCenter>
           <h4>Tokel will soon be also available through direct swaps</h4>
         </FlexRowCenter>

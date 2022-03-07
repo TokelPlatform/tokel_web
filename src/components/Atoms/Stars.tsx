@@ -9,7 +9,7 @@ type StarProps = {
   top: string;
 };
 
-const rand = () => Math.random() * 4000 + 1;
+const rand = () => Math.random() * 5000 + 1;
 const getSize = (type: string): string =>
   type == 'small' ? '1px' : type === 'medium' ? '1.5px' : '2px';
 

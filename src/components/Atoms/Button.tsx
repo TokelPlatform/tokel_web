@@ -11,7 +11,7 @@ type ButtonProps = {
   width?: string;
   height?: string;
   onClick: () => {};
-  showButtonDecor: boolean;
+  showButtonDecor?: boolean;
 };
 
 const defaultProps = {
@@ -121,7 +121,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   }
   z-index: 10;
   @media (max-width: ${breakpoints.tablet}) {
-    width: 200px;
+    /* width: 200px; */
     h2 {
       font-size: var(--font-size-h3);
     }

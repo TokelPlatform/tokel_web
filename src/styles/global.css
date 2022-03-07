@@ -19,11 +19,24 @@ h5 {
 h1 {
   font-size: var(--font-size-h1);
   font-weight: 700;
+  margin: 0;
+}
+@media screen and (max-width: 59rem) {
+  h1 {
+    font-size: var(--font-size-h2);
+  }
 }
 h2 {
   line-height: var(--line-height-h2);
   font-size: var(--font-size-h2);
   font-weight: 700;
+  margin: 0;
+}
+
+@media screen and (max-width: 59rem) {
+  h2 {
+    font-size: var(--font-size-h3);
+  }
 }
 h3 {
   font-size: var(--font-size-h3);

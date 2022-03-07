@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-// import breakpoints from '../../styles/breakpoints';
+import breakpoints from 'styles/breakpoints';
 import styled from '@emotion/styled';
 import ClickableIcon from 'components/Atoms/ClickableIcon';
 import links from 'data/links';
@@ -20,6 +20,9 @@ const FooterBlockRoot = styled.div`
   }
   display: grid;
   padding: 2rem;
+  @media (max-width: ${breakpoints.mediumScreen}) {
+    width: 230px;
+  }
 `;
 
 const IconsWrapper = styled.div`
@@ -34,7 +37,7 @@ const IconBlock = ({ title, desc, iconsList }: IconBlockProps): ReactElement => 
   return (
     <FooterBlockRoot>
       <div>
-        <h5>{title}</h5>
+        <h5 style={{ height: '30px' }}>{title}</h5>
         <p>{desc}</p>
       </div>
       <IconsWrapper>

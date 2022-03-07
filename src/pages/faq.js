@@ -4,7 +4,7 @@ import { PageHeader } from "../components/Atoms/Title"
 import PropTypes from 'prop-types'
 import React from "react"
 import Stars from "../components/Atoms/Stars"
-import TopBar from "../components/Molecules/TopBar"
+import TopBar from "../components/Organisms/TopBar"
 import { Video } from "../components/Atoms/Video"
 import breakpoints from "../styles/breakpoints"
 import features from '../images/launch/features.svg'

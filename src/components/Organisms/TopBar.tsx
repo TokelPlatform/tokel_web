@@ -1,10 +1,11 @@
 import LogoText from '../Atoms/LogoText';
-import Navigation from './Navigation';
+import Navigation from 'components/Organisms/Navigation';
 import React from 'react';
 // import breakpoints from '../../styles/breakpoints';
 import styled from '@emotion/styled';
 import Button, { Colors } from 'components/Atoms/Button';
 import { Link } from 'gatsby';
+// import { FlexRow } from 'styles/common';
 
 const TopBarRoot = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ const TopBarRoot = styled.div`
   padding-right: 5rem;
 `;
 
-const IconWrapper = styled.div`
+const ButtonWrapper = styled.div`
   z-index: 2;
 `;
 
@@ -24,12 +25,14 @@ const ButtonLink = styled(Link)`
   text-decoration: none;
 `;
 
+// const NavigationWrapper = styled(FlexRow)``;
+
 const TopBar = () => {
   return (
     <TopBarRoot>
       <LogoText />
       <Navigation />
-      <IconWrapper>
+      <ButtonWrapper>
         <ButtonLink to="/exchanges">
           <Button
             height="50px"
@@ -39,7 +42,7 @@ const TopBar = () => {
             onClick={() => null}
           ></Button>
         </ButtonLink>
-      </IconWrapper>
+      </ButtonWrapper>
     </TopBarRoot>
   );
 };

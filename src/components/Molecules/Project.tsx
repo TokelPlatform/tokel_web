@@ -9,7 +9,7 @@ const ProjectRoot = styled.div`
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
-  h2 {
+  h3 {
     margin-bottom: 0.5rem;
   }
 `;
@@ -21,7 +21,7 @@ type ProjectProps = {
 
 const Project = ({ title, desc }: ProjectProps): ReactElement => (
   <ProjectRoot>
-    <h2>{title}</h2>
+    <h3>{title}</h3>
     <p>{desc}</p>
   </ProjectRoot>
 );

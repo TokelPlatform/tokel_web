@@ -6,17 +6,23 @@ import { FlexCol, FlexColCenter } from 'styles/common';
 
 const MenuColumnRoot = styled(FlexColCenter)`
   margin-top: 1rem;
-  max-width: 150px;
+  width: 120px;
+
   align-items: flex-start;
   justify-content: flex-start;
-  p {
-    color: white;
+  p,
+  a {
+    color: #000000;
     font-size: inherit;
     margin-top: 0.5rem;
   }
   h5 {
+    color: #000000;
     font-weight: 700;
     margin-bottom: 0.75rem;
+  }
+  a:hover {
+    color: var(--color-purple);
   }
 `;
 

@@ -15,7 +15,7 @@ export default [
         desc: 'Useful articles, videos and discussions.'
     },
     {
-        title: 'Tune in to Tokel Talk Podcast',
+        title: 'Tune in to Tokel Talk',
         icons: ['deezer', 'applePodcasts', 'spotify', 'amazonMusic', 'googlePodcasts', 'stitcher'],
         desc: 'We talk about the latest in NFTs, tokenization, blockchain and the future, every 2 weeks.'
     }

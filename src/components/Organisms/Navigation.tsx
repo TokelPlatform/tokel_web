@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
 
-import Burger from './Burger';
-import NavigationSide from './NavigationSide';
-import breakpoints from '../../../styles/breakpoints';
-import links from '../../../data/links';
+import Burger from 'components/Molecules/Navigation/Burger';
+import NavigationSide from 'components/Molecules/Navigation/NavigationSide';
+import breakpoints from 'styles/breakpoints';
+import links from 'data/links';
 import styled from '@emotion/styled';
+
+const changeNavigationStyleAt = breakpoints.smallScreen;
 
 const NavigationHorizontal = styled.ul`
   display: flex;
@@ -16,7 +18,7 @@ const NavigationHorizontal = styled.ul`
   list-style-type: none;
   color: var(--color-almostWhite);
   padding-top: 0.5rem;
-  @media (max-width: ${breakpoints.mobilebig}) {
+  @media (max-width: ${changeNavigationStyleAt}) {
     display: none;
   }
   li {
@@ -30,20 +32,20 @@ const NavigationHorizontal = styled.ul`
 
 const NavigationVertical = styled.div`
   display: none;
-  margin-bottom: 10rem;
-  @media (max-width: ${breakpoints.mobilebig}) {
+  padding-bottom: 4rem;
+  @media (max-width: ${changeNavigationStyleAt}) {
     display: block;
   }
 `;
 const menuLinks = [
   { link: '/how-to', name: 'Get Started' },
-  { link: '/exchanges', name: 'Exchanges' },
-  { link: '/wallets', name: 'Wallets' },
+  // { link: '/exchanges', name: 'Exchanges' },
+  // { link: '/wallets', name: 'Wallets' },
   { link: '/roadmap', name: 'Roadmap' },
   { link: links.whitepaper, name: 'White Paper' },
   { link: '/news', name: 'News' },
   { link: '/tokeltalk', name: 'Tokel Talk' },
-  { link: links.explorer, name: 'Explorer' },
+  // { link: links.explorer, name: 'Explorer' },
   { link: '/faq', name: 'FAQ' },
 ];
 
