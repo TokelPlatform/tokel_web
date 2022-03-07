@@ -5,6 +5,7 @@ import Feature from 'components/Molecules/Features/Feature';
 import features from 'data/features';
 import React from 'react';
 import { VSpacerBig } from 'styles/common';
+import featuresBg from 'images/backgrounds/features-bg.svg';
 
 export const BoxTitle = styled.div`
   display: flex;
@@ -13,6 +14,10 @@ export const BoxTitle = styled.div`
 `;
 
 const FeaturesRoot = styled.div`
+  background-image: url(${featuresBg});
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: 100px -5px; */
   margin-top: 15rem;
   display: flex;
   flex-direction: column;

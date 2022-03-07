@@ -35,7 +35,7 @@ const TextBoxRoot = styled.div<TextBoxRootProps>`
   border: ${p => (!p.border ? 'none' : '1px solid')};
   border-image-slice: 1;
   border-image-source: linear-gradient(97.43deg, #973af5 0%, #4ca6fe 100%);
-  background-color: ${p => (p.border ? ' #000000;' : 'none')};
+  /* background-color: ${p => (p.border ? ' #000000;' : 'none')}; */
   z-index: 1;
   p {
     opacity: 0.8;
