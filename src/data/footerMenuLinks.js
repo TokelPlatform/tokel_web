@@ -1,3 +1,4 @@
+import links from "./links";
 
 const menuLinks = [
     {
@@ -12,20 +13,20 @@ const menuLinks = [
           url: '#',
         },
         {
-          name: 'Exchange',
-          url: '#',
+          name: 'Exchanges',
+          url: '/exchanges',
         },
         {
           name: 'Partners',
-          url: '#',
+          url: '#partners',
         },
         {
           name: 'Roadmap',
-          url: '#',
+          url: '/roadmap',
         },
         {
           name: 'Whitepaper',
-          url: '#',
+          url: links.whitepaper,
         },
       ],
     },
@@ -42,7 +43,7 @@ const menuLinks = [
         },
         {
           name: 'GitHub',
-          url: '#',
+          url: links.github,
         },
       ],
     },
@@ -73,7 +74,7 @@ const menuLinks = [
       links: [
         {
           name: 'Tokel Talks',
-          url: '#',
+          url: '/tokeltalk',
         },
         {
           name: 'News',

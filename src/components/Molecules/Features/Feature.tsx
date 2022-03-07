@@ -65,6 +65,7 @@ const TextBoxWrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding-bottom: 2rem;
+  gap: 2rem;
 `;
 
 const Feature = ({
@@ -82,7 +83,7 @@ const Feature = ({
     {!links ? (
       <TextBoxWrapper>
         {data.map((one, idx) => (
-          <TextBox key={idx} title={one.title} desc={one.desc} links={one.links} />
+          <TextBox border={true} key={idx} title={one.title} desc={one.desc} links={one.links} />
         ))}
       </TextBoxWrapper>
     ) : (

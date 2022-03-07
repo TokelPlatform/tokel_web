@@ -26,6 +26,7 @@ const UseCaseContainer = styled.div`
   flex-wrap: wrap;
   justify-content: start;
   margin-top: 2rem;
+  gap: 2rem;
 `;
 
 const UseCases = () => {

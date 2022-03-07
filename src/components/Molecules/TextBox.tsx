@@ -30,8 +30,11 @@ type TextBoxRootProps = {
 };
 const TextBoxRoot = styled.div<TextBoxRootProps>`
   padding: 1.5rem;
-  max-width: 300px;
-  border: ${p => (p.border ? '0.5px solid var(--color-base-slate)' : 'none')};
+  max-width: 270px;
+  border-radius: 10px;
+  border: ${p => (!p.border ? 'none' : '1px solid')};
+  border-image-slice: 1;
+  border-image-source: linear-gradient(97.43deg, #973af5 0%, #4ca6fe 100%);
   background-color: ${p => (p.border ? ' #000000;' : 'none')};
   z-index: 1;
   p {
