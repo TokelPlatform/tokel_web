@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import { keyframes } from '@emotion/react';
 import { curves } from 'data/constants';
+import breakpoints from '../../styles/breakpoints';
 
 type Props = {
   randomNumber?: number;
@@ -52,6 +53,10 @@ const AnimatedObject = styled.img<Props>`
     console.log(p.bottom);
     return p.bottom ? 'bottom: 100px' : p.right ? 'right: -200px' : 'left: -200px';
   }};
+  @media (max-width: ${breakpoints.mobilebig}) {
+    animation: none;
+    display: none;
+  }
 `;
 
 const CurveAnimationRoot = styled.div<Props>`
@@ -59,10 +64,17 @@ const CurveAnimationRoot = styled.div<Props>`
   animation: ${p => yAxis(p.right)} 60s ${p => curves[p.curve]} infinite;
   position: relative;
   z-index: 3;
+  @media (max-width: ${breakpoints.mobilebig}) {
+    animation: none;
+    transform: none;
+  }
 `;
 
 const ZAxisMotion = styled.div`
   animation: ${zRotate} 120s infinite ease-in-out;
+  @media (max-width: ${breakpoints.mobilebig}) {
+    animation: none;
+  }
 `;
 
 const CurveAnimation = ({
