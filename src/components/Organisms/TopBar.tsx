@@ -38,7 +38,7 @@ const TopBar = () => {
             height="50px"
             width="150px"
             text="BUY TKL"
-            theme={Colors.YELLOW}
+            theme={Colors.PURPLE}
             onClick={() => null}
           ></Button>
         </ButtonLink>
