@@ -12,6 +12,10 @@ const Box = styled.div`
   img {
     padding: 1rem;
   }
+  img:hover {
+    transform: scale(1.2);
+    transition: transform 0.5s ease-in-out;
+  }
 `;
 
 const Download = () => {
@@ -41,7 +45,6 @@ const Download = () => {
 
   return (
     <DownloadRoot id="download">
-      <h5 style={{ fontWeight: 'bold' }}>DOWNLOAD DAPP</h5>
       <Box>
         <a href={linBin}>
           <img src={icons.lin} />

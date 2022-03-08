@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
 
 import { keyframes } from '@emotion/react';
-import { curves } from 'data/constants';
+// import { curves } from 'data/constants';
 import breakpoints from '../../styles/breakpoints';
 
 type Props = {
@@ -19,40 +19,32 @@ type CurveAnimationProps = {
   curve?: string;
 };
 
-const xAxis = right => keyframes`
+const xAxis = keyframes`
     50% {
-      transform: translateX(${right ? '-90vw' : '70vw'});
+      transform: translateX(100vh);
     }
 `;
-const yAxis = right => keyframes`
+const yAxis = keyframes`
     50% {
-      transform: translateY(${right ? '70vh' : '30vh'});
+      transform: translateY(10vw);
     }
 `;
-
 const zRotate = keyframes`
     O {
-      transform: rotateZ(70deg);
+      transform: rotateZ(0deg);
     }
     20% {
       transform: rotateZ(180deg);
     }
-    50% {
+    /* 50% {
       transform: rotateZ(270deg);
     }
     80% {
       transform: rotateZ(70deg);
-    }
+    } */
 `;
 const AnimatedObject = styled.img<Props>`
-  animation: ${p => xAxis(p.right)} 60s linear infinite;
-  position: absolute;
-  z-index: 2;
-  // starting point of the animation;
-  ${p => {
-    console.log(p.bottom);
-    return p.bottom ? 'bottom: 100px' : p.right ? 'right: -200px' : 'left: -200px';
-  }};
+  animation: ${xAxis} 18s linear infinite;
   @media (max-width: ${breakpoints.mobilebig}) {
     animation: none;
     display: none;
@@ -60,10 +52,7 @@ const AnimatedObject = styled.img<Props>`
 `;
 
 const CurveAnimationRoot = styled.div<Props>`
-  transform: ${p => (p.bottom ? 'translateX(-200px)' : 'translateY(-200px)')};
-  animation: ${p => yAxis(p.right)} 60s ${p => curves[p.curve]} infinite;
-  position: relative;
-  z-index: 3;
+  animation: ${yAxis} 26s ease-in-out infinite;
   @media (max-width: ${breakpoints.mobilebig}) {
     animation: none;
     transform: none;

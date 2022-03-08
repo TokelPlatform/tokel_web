@@ -5,6 +5,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import Button, { Colors } from 'components/Atoms/Button';
 import { Link } from 'gatsby';
+// import WhiteButton from 'components/Atoms/WhiteButton';
 // import { FlexRow } from 'styles/common';
 
 const TopBarRoot = styled.div`
@@ -38,7 +39,7 @@ const TopBar = () => {
             height="50px"
             width="150px"
             text="BUY TKL"
-            theme={Colors.PURPLE}
+            theme={Colors.WHITE}
             onClick={() => null}
           ></Button>
         </ButtonLink>
