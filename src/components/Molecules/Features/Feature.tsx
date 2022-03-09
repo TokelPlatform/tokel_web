@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
 import React from 'react';
-import { FlexColRight } from 'styles/common';
 import FeatureHeader from './FeatureHeader';
 import TextBox from '../TextBox';
+import breakpoints from 'styles/breakpoints';
 
 type FeatureProps = {
   title: string;
@@ -45,6 +45,9 @@ const FeatureRoot = styled.div<FeatureRootProps>`
   background: url(${p => (p.bg ? p.bg : 'none')});
   background-repeat: no-repeat;
   background-position: center 60px;
+  @media (max-width: ${breakpoints.mobilemiddle}) {
+    background-size: 60%;
+  }
 `;
 
 const LinksWrapper = styled.div`
@@ -52,7 +55,11 @@ const LinksWrapper = styled.div`
   justify-content: center;
   margin-top: 13rem;
   max-width: 1000px;
-  column-gap: 20rem;
+  column-gap: 260px;
+  flex-wrap: wrap;
+  @media (max-width: ${breakpoints.mobilemiddle}) {
+    column-gap: 2rem;
+  }
 `;
 
 const link = (idx, url, urlName) => (
@@ -66,6 +73,9 @@ const TextBoxWrapper = styled.div`
   flex-direction: row;
   padding-bottom: 2rem;
   gap: 2rem;
+  @media (max-width: ${breakpoints.mobilemiddle}) {
+    flex-direction: column;
+  }
 `;
 
 const Feature = ({
@@ -87,14 +97,7 @@ const Feature = ({
         ))}
       </TextBoxWrapper>
     ) : (
-      <LinksWrapper>
-        <FlexColRight>
-          {links.map((one, idx) => idx % 2 == 0 && link(idx, one.url, one.urlName))}
-        </FlexColRight>
-        <FlexColRight>
-          {links.map((one, idx) => idx % 2 != 0 && link(idx, one.url, one.urlName))}
-        </FlexColRight>
-      </LinksWrapper>
+      <LinksWrapper>{links.map((one, idx) => link(idx, one.url, one.urlName))}</LinksWrapper>
     )}
     {banner && banner}
   </FeatureRoot>

@@ -29,6 +29,10 @@ const BannerBorderRoot = styled(FlexRow)`
 const ButtonWrapper = styled.div`
   display: flex;
   gap: 2rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const BannerBorder = () => {

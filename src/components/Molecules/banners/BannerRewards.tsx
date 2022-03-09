@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import Button, { Colors } from 'components/Atoms/Button';
 import tokelist from 'images/tokelist.svg';
 import links from 'data/links';
+import breakpoints from 'styles/breakpoints';
 
 const BannerRewardsRoot = styled.div`
   display: flex;
@@ -13,6 +14,10 @@ const BannerRewardsRoot = styled.div`
   max-width: 1000px;
   width: 100%;
   margin: auto;
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 // const ImageWrapper = styled.div`
@@ -24,7 +29,7 @@ const BannerRewardsRoot = styled.div`
 const YellowLine = styled.div`
   height: 10px;
   width: 300px;
-  background: var(--color-base-richyellow);
+  background: var(--gradient-purple);
   margin: 1rem 0;
 `;
 

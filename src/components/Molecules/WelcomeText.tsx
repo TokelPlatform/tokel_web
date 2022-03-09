@@ -25,7 +25,7 @@ import Button, { Colors } from 'components/Atoms/Button';
 
 const defaultProps = {};
 const Container = styled(FlexCol)`
-  width: 100vw;
+  /* width: 100vw; */
   padding-top: 5rem;
   @media (max-width: ${breakpoints.mobile}) {
     padding-top: 1rem;
@@ -91,7 +91,7 @@ const PlanetMain = styled.img`
 const PlanetLow = styled.img`
   position: absolute;
   bottom: -140px;
-  right: 60%;
+  right: 70%;
   @media (orientation: portrait) {
     bottom: 40%;
     width: 20%;
@@ -164,11 +164,7 @@ const WelcomeText = () => {
         <PlanetLow src={PlanetWithCircles} />
 
         <CATs>
-          <a
-            href="#download"
-            className="desktopOnly"
-            style={{ textDecoration: 'none', marginBottom: '1rem' }}
-          >
+          <a href="#download" className="desktopOnly" style={{ textDecoration: 'none' }}>
             <SpecialButton>
               <h5>Download dApp</h5>
             </SpecialButton>

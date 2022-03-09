@@ -8,6 +8,7 @@ import { FlexRow } from 'styles/common';
 import { Field, Form, Formik } from 'formik';
 import FormikErr from 'components/Atoms/FormikErr';
 import * as yup from 'yup';
+import breakpoints from 'styles/breakpoints';
 
 const MailchimpFormRoot = styled(FlexRow)`
   display: grid;
@@ -25,6 +26,12 @@ const SubmitButton = styled.button`
   font-size: var(--font-size-p);
   font-family: var(--font-family-primary);
   z-index: 1;
+  @media (max-width: ${breakpoints.mobile}) {
+    height: 100px;
+    width: 200px;
+    border-radius: 0.25rem;
+    margin: auto;
+  }
 `;
 
 const Row = styled.div`
@@ -42,12 +49,19 @@ const Row = styled.div`
     border: 1px solid white;
     font-size: var(--font-size-p);
     font-family: var(--font-family-primary);
+    @media (max-width: ${breakpoints.mobile}) {
+      border-radius: 0.25rem;
+    }
   }
 `;
 
 const Wrapper = styled.div`
   display: flex;
   height: 100%;
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 const SubscriptionForm = styled(Form)`
   display: flex;

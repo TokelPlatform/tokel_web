@@ -4,9 +4,11 @@ import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
 import { FlexColCenter, FlexRowCenter, VSpacerMedium } from 'styles/common';
 import icons from 'data/icons';
+import breakpoints from 'styles/breakpoints';
 
 const SectionListRoot = styled(FlexColCenter)`
   margin-top: 5rem;
+  padding: 2rem;
 `;
 
 type SectionListProps = {
@@ -16,6 +18,9 @@ type SectionListProps = {
 
 const Wrapper = styled(FlexRowCenter)`
   gap: 4rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 const SectionList = ({ title, data }: SectionListProps): ReactElement => (

@@ -9,7 +9,7 @@ import breakpoints from 'styles/breakpoints';
 const ComparisonRoot = styled(FlexColCenter)`
   color: white;
   margin-top: 5rem;
-  @media (max-width: ${breakpoints.mobile}) {
+  @media (max-width: ${breakpoints.mobilebig}) {
     display: none;
   }
 `;
@@ -32,11 +32,11 @@ const Footnote = styled(FlexCol)`
 
 const Comparison = () => {
   return (
-    <ComparisonRoot id="compare">
+    <ComparisonRoot>
       <FeatureHeader title="Inexpensive And Non-Exclusive" subtitle="Compare us with others" />
       <ComparisonTable />
       <Footnote>
-        <p>* no gas fee exists as such</p>
+        <p>* no gas fee exists, only tx fees</p>
         <p>** can be less or more depending on the network congestion</p>
         <p>
           The above numbers are as of 24th February 2022. Crypto markets fluctuate and fees on

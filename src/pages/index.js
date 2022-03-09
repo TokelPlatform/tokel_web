@@ -38,11 +38,6 @@ const PartnersSection = styled(FlexCol)`
   background-size: cover;
 `
 
-// const ComparisonElement = styled(Comparison)`
-//   @media (max-width: ${breakpoints.mobile}) {
-//     display: none;
-//   }
-// `
 
 const IndexPage = ()  => {
   return (
@@ -55,6 +50,7 @@ const IndexPage = ()  => {
       <IndexPageRoot starsTop='8000px'>
         <WelcomeText />
         <VSpacerBig/>
+        <div id="compare"/>
         <Comparison />
         <UseCases />
         <Features />

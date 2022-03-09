@@ -34,9 +34,9 @@ export const data = [
         transaction
       </p>
     ),
-    solana: '$0.00025',
-    ethereum: '$4.04++',
-    tokel: '$0',
+    solana: '$0.00025*',
+    ethereum: '$4.04++**',
+    tokel: '$0*',
   },
   {
     rowname: (
@@ -46,7 +46,7 @@ export const data = [
       </p>
     ),
     solana: '$2.16',
-    ethereum: '$70.00++',
+    ethereum: '$70.00++**',
     tokel: '$0.000003',
   },
   {

@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
+import borderBG from 'images/backgrounds/border.svg';
 
 const TableComponent = styled.table`
+  background-image: url(${borderBG});
+  background-repeat: no-repeat;
+  background-position-x: 560px;
   font-size: 26px;
   p {
     color: rgb(255, 255, 255, 0.8);
@@ -38,30 +42,34 @@ const TableComponent = styled.table`
 
     :last-child {
       border-right: 0;
+      border-left: 0;
+    }
+    :nth-child(3) {
+      border-right: 0;
     }
   }
 
-  tr:first-child::before {
+  /* tr:first-child::before {
     height: 30px;
     width: 40px;
     background-color: red;
     display: inline-block;
-  }
-  tr:first-child {
+  } */
+  /* tr:first-child {
     td:last-child {
       border-top: 10px solid;
     }
-  }
-  tr:last-child {
+  } */
+  /* tr:last-child {
     td:last-child {
       border-bottom: 10px solid;
     }
-  }
+  } */
 
-  td:nth-child(4) {
+  /* td:nth-child(4) {
     border-right: 10px solid;
     border-left: 10px solid;
-  }
+  } */
 `;
 
 export default TableComponent;

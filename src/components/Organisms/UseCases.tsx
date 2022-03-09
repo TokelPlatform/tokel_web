@@ -11,7 +11,7 @@ const UseCasesRoot = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 15rem;
+  margin-top: 3rem;
   h2 {
     margin-bottom: 0;
   }
@@ -24,8 +24,8 @@ const UseCaseContainer = styled.div`
   display: flex;
   max-width: 1050px;
   flex-wrap: wrap;
-  justify-content: start;
-  margin-top: 2rem;
+  justify-content: center;
+
   gap: 2rem;
 `;
 

@@ -9,6 +9,7 @@ import styled from '@emotion/styled';
 import PageMeta from 'components/Molecules/PageMeta';
 import { FlexCol, FlexColCenter, FlexRowCenter, VSpacerBig } from 'styles/common';
 import icons from 'data/icons';
+import breakpoints from 'styles/breakpoints';
 
 const Contact = styled.div`
   text-align: center;
@@ -24,6 +25,13 @@ const ExchangesRoot = styled(PageRoot)`
   }
 `;
 
+const Items = styled(FlexRowCenter)`
+  gap: 4rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+  }
+`;
+
 export default function Exchanges() {
   return (
     <div>
@@ -35,7 +43,7 @@ export default function Exchanges() {
         <PageHeader>BUY TKL</PageHeader>
         <FlexColCenter>
           <h3>Exchanges</h3>
-          <FlexRowCenter style={{ gap: '4rem' }}>
+          <Items>
             <FlexCol>
               <a href={links.atomicDex}>
                 <img src={icons.atomicDex}></img>
@@ -51,7 +59,7 @@ export default function Exchanges() {
               <a href={links.dexTradeTutorials.signup}>Video: Sign up on Dex Trade</a>
               <a href={links.dexTradeTutorials.deposit}>Video: How to make a deposit</a>
             </FlexCol>
-          </FlexRowCenter>
+          </Items>
         </FlexColCenter>
         <VSpacerBig />
         <FlexColCenter>

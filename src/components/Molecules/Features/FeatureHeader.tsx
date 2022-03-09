@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import React from 'react';
+import breakpoints from 'styles/breakpoints';
 
 type FeatureHeaderProps = {
   title: string;
@@ -31,6 +32,12 @@ const FeatureHeaderRoot = styled.div`
   p {
     max-width: 700px;
     text-align: center;
+  }
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 2rem;
+  }
+  @media (max-width: ${breakpoints.mobile}) {
+    margin-top: 1rem;
   }
 `;
 
