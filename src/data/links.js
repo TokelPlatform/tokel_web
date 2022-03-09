@@ -1,9 +1,9 @@
 const links = {
     discord: 'https://discord.gg/R9u43zYZka',
-    discord_dark: 'https://discord.gg/R9u43zYZka',
     twitter: 'https://twitter.com/TokelPlatform',
     github: 'https://github.com/TokelPlatform/',
-    github_dark: 'https://github.com/TokelPlatform',
+    github_dapp: 'https://github.com/TokelPlatform/tokel_dapp',
+    github_chain: 'https://github.com/TokelPlatform/komodo',
     github_release_page: "https://github.com/TokelPlatform/tokel_app/releases",
     github_nspv: "https://github.com/TokelPlatform/nspv-js",
     openseaImage: 'https://opensea.io/assets/0xc2c747e0f7004f9e8817db2ca4997657a7746928/8064',

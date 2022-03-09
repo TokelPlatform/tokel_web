@@ -3,6 +3,7 @@ import breakpoints from 'styles/breakpoints';
 import styled from '@emotion/styled';
 import Button, { Colors } from 'components/Atoms/Button';
 import { FlexRow } from 'styles/common';
+import links from 'data/links';
 
 const BannerBorderRoot = styled(FlexRow)`
   align-items: center;
@@ -40,14 +41,13 @@ const BannerBorder = () => {
     <BannerBorderRoot>
       <h4>Explore Tokel Technology</h4>
       <ButtonWrapper>
-        <Button width="200px" theme={Colors.WHITE} text="White Paper">
-          White Paper
-        </Button>
+        <Button width="200px" theme={Colors.WHITE} text="White Paper" url={links.whitepaper} />
         <Button
           width="200px"
           theme={Colors.TRANSPARENT}
           text="Documentation"
           showButtonDecor={false}
+          url={links.documentationChain}
         ></Button>
       </ButtonWrapper>
     </BannerBorderRoot>

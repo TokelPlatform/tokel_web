@@ -47,6 +47,7 @@ const FeatureRoot = styled.div<FeatureRootProps>`
   background-position: center 60px;
   @media (max-width: ${breakpoints.mobilemiddle}) {
     background-size: 60%;
+    margin-top: 2rem;
   }
 `;
 
@@ -59,6 +60,7 @@ const LinksWrapper = styled.div`
   flex-wrap: wrap;
   @media (max-width: ${breakpoints.mobilemiddle}) {
     column-gap: 2rem;
+    margin-top: 7rem;
   }
 `;
 
