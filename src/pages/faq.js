@@ -8,8 +8,8 @@ import TopBar from "../components/Organisms/TopBar"
 import { Video } from "../components/Atoms/Video"
 import breakpoints from "../styles/breakpoints"
 import features from '../images/launch/features.svg'
-import flyingTokel from '../images/launch/flying-tokel.svg'
 import links from "../data/links"
+import Contact from "components/Molecules/Contact"
 import planetsOrbits from '../images/launch/planets-orbits.svg'
 import styled from "@emotion/styled"
 
@@ -48,17 +48,6 @@ const Hightlighted = styled.h3`
     font-size: 16px;
   } 
 `
-
-const Contact = styled.div`
-  text-align: center;
-  padding: 50px 0 50px 0;
-  h3 {
-    font-size: 26px;
-    color: white;
-    line-height: 36px;
-  }
-`
-
 
 const WhiteHeader = styled.h2`
   font-size: 26px;
@@ -251,10 +240,7 @@ export default function Faq() {
             </Answer>
           </div>  
         </WhyTokel>
-        <Contact>
-          <h3>Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join <a href="https://discord.gg/SQzdUQWXrn">Tokel Discord</a> </h3>
-          <img src={flyingTokel}></img>
-        </Contact>
+        <Contact />
       </TokelQuestionsWrapper>
     </ChainLaunchRoot>
       <Footer/>

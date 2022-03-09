@@ -52,7 +52,7 @@ const TextBox = ({ title, icon = null, desc, links = null, border = false }: Tex
     <TextBoxRoot border={border}>
       <BoxTitle>
         <h4 style={{ fontWeight: 700 }}>{title}</h4>
-        {icon && <img height="40" width="40" src={icon}></img>}
+        {icon && <img alt="textbox-icon" height="40" width="40" src={icon}></img>}
       </BoxTitle>
       <p style={{ minHeight: '120px' }}>{desc}</p>
       <LinksWrapper>

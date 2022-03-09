@@ -30,7 +30,7 @@ const SectionList = ({ title, data }: SectionListProps): ReactElement => (
     <Wrapper>
       {data.map((p, idx) => (
         <FlexColCenter key={idx}>
-          <img src={icons[p.icon]}></img>
+          <img alt={'sectionImage' + idx} src={icons[p.icon]}></img>
           {p.name && <h4>{p.name}</h4>}
         </FlexColCenter>
       ))}

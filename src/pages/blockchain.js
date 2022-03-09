@@ -6,7 +6,7 @@ import Stars from "../components/Atoms/Stars"
 import TopBar from "../components/Organisms/TopBar"
 import breakpoints from "../styles/breakpoints"
 import features from '../images/launch/features.svg'
-import flyingTokel from '../images/launch/flying-tokel.svg'
+import Contact from "components/Molecules/Contact"
 import links from "../data/links"
 import planets from '../images/launch/planets-bg-desktop.svg'
 import planetsMobile from '../images/launch/planets-bg-mobile.svg'
@@ -224,17 +224,6 @@ const Hightlighted = styled.h3`
     font-size: 16px;
   } 
 `
-
-const Contact = styled.div`
-  text-align: center;
-  padding: 50px 0 50px 0;
-  h3 {
-    font-size: 26px;
-    color: white;
-    line-height: 36px;
-  }
-`
-
 const HowToRun = styled.div`
   display: flex;
   flex-direction: row;
@@ -357,7 +346,7 @@ export default function ChainLaunch() {
           </Terminal>
 
           <HowToRun>
-            <img width="90px"src={pointer}/>
+            <img alt="pointer" width="90px"src={pointer}/>
             <a href="https://docs.tokel.io/guides/LaunchTheChain/">how to run Tokel chain</a>
           </HowToRun>
         </TerminalWrapper>
@@ -490,10 +479,7 @@ export default function ChainLaunch() {
             </Answer>
           </div>  
         </WhyTokel>
-        <Contact>
-          <h3>Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join <a href="https://discord.gg/SQzdUQWXrn">Tokel Discord</a> </h3>
-          <img src={flyingTokel}></img>
-        </Contact>
+        <Contact />
       </TokelQuestionsWrapper>
       </ChainLaunchWrapper> 
     </ChainLaunchRoot>

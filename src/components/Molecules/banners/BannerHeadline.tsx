@@ -24,7 +24,7 @@ const BannerHeadline = () => {
     <BannerHeadlineRoot>
       <h1>It only costs $0.000003 USD to mint an NFT or a token</h1>
       <ImageWrapper>
-        <img src={astro}></img>
+        <img alt="astro" src={astro}></img>
       </ImageWrapper>
     </BannerHeadlineRoot>
   );

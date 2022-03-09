@@ -190,7 +190,7 @@ const Button = ({
       chosen={chosen}
       theme={theme}
     >
-      {showButtonDecor && <img src={buttonDecor}></img>}
+      {showButtonDecor && <img alt="buttondecoration" src={buttonDecor}></img>}
       <h5>{text}</h5>
     </StyledButton>
   </ButtonLink>

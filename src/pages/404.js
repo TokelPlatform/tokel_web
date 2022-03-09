@@ -41,7 +41,7 @@ const NotFoundPage = ({data}) => {
             <Link to="/">Home</Link>
           </h3>
           <ImageWrapper>
-            <Img fluid={data.satelite.childImageSharp.fluid}></Img>
+            <Img alt="satelite" fluid={data.satelite.childImageSharp.fluid}></Img>
           </ImageWrapper>
         </PageContent>
     </PageRoot>

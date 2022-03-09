@@ -46,7 +46,7 @@ const FeatureHeader = ({ title, subtitle, desc, image }: FeatureHeaderProps) => 
     <h3>{subtitle}</h3>
     <h2>{title}</h2>
     <p>{desc}</p>
-    <img src={image}></img>
+    <img alt="feature-header-image" src={image}></img>
   </FeatureHeaderRoot>
 );
 

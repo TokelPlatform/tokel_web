@@ -155,7 +155,7 @@ const pickFields = option => {
 
 const getPodcastLinks = data => 
     Object.keys(podcasts).map(podcastPlatform => 
-    <a key={podcastPlatform} href={links[podcastPlatform]}><Img fixed={data[podcastPlatform].childImageSharp.fixed}></Img></a>
+    <a key={podcastPlatform} href={links[podcastPlatform]}><Img alt={podcastPlatform} fixed={data[podcastPlatform].childImageSharp.fixed}></Img></a>
   )
 
 const TokelTalk = ({data})  => {

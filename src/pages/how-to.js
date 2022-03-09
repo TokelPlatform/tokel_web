@@ -99,7 +99,7 @@ const HowTo = ({data})  => {
                 <OptionWrapper>
                     <h2>For all users: <br/>Tokel All-in-one Application</h2>
                     <ImgWrapper>
-                      <Img fluid={data.app.childImageSharp.fluid}></Img>
+                      <Img alt="all-users-screen"  fluid={data.app.childImageSharp.fluid}></Img>
                     </ImgWrapper>
                     <h3><a href={links.github_release_page}>Download latest release (Desktop)</a></h3>
                 </OptionWrapper>
@@ -107,7 +107,7 @@ const HowTo = ({data})  => {
                     <div>
                       <h2>For tech savvy or curious: <br/>Cli interface </h2>
                       <ImgWrapper>
-                        <Img fluid={data.cli.childImageSharp.fluid}></Img>
+                        <Img alt="tech-savvy-screen"  fluid={data.cli.childImageSharp.fluid}></Img>
                       </ImgWrapper>
                     </div>
                     <h3><a href={links.documentationChain + 'guides/LaunchTheChain/'}>Run Tokel blockchain</a></h3>
@@ -119,7 +119,7 @@ const HowTo = ({data})  => {
                 <OptionWrapper>
                     <h2>For all users: <br/>Tokel Documenation</h2>
                     <ImgWrapper>
-                      <Img fluid={data.docs.childImageSharp.fluid}></Img>
+                      <Img alt="users-screen" fluid={data.docs.childImageSharp.fluid}></Img>
                     </ImgWrapper>
                     <h3><a href={links.documentationChain + '#what-is-the-tokel-platform'}>What is the Tokel Platform?</a></h3>
                     <h3><a href={links.documentationChain + '#tokel-blockchain-specifics'}>Tokel Blockchain Specifics</a></h3>
@@ -129,7 +129,7 @@ const HowTo = ({data})  => {
                     <div>
                       <h2>For developers: <br/>Nspv-js</h2>
                       <ImgWrapper>
-                        <Img fluid={data.nspv.childImageSharp.fluid}></Img>
+                        <Img alt="developers-screen" fluid={data.nspv.childImageSharp.fluid}></Img>
                       </ImgWrapper>
                     </div>
                     <h3><a href={links.github_nspv + '#why-nspv'}>Why Nspv-js?</a></h3>

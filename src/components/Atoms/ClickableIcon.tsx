@@ -16,7 +16,7 @@ const IconLink = styled.a`
 
 const ClickableIcon = ({ link, icon }: ClickableIconProps): ReactElement => (
   <IconLink target="_blank" href={link}>
-    <img src={icon}></img>
+    <img alt="clickableicon" src={icon}></img>
   </IconLink>
 );
 

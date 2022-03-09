@@ -47,13 +47,13 @@ const Download = () => {
     <DownloadRoot id="download">
       <Box>
         <a href={linBin}>
-          <img src={icons.lin} />
+          <img alt="linux-download" src={icons.lin} />
         </a>
         <a href={winBin}>
-          <img src={icons.win} />
+          <img alt="windows-download" src={icons.win} />
         </a>
         <a href={macBin}>
-          <img src={icons.mac} />
+          <img alt="mac-download" src={icons.mac} />
         </a>
       </Box>
     </DownloadRoot>
