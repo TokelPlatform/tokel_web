@@ -13,7 +13,8 @@ import Ecosystem from "components/Organisms/Ecosystem"
 import SectionList from "components/Molecules/SectionList"
 import partnersData from 'data/partnersData'
 import exchangeData from 'data/exchangeData'
-import { FlexRowCenter, VSpacerBig } from "styles/common"
+import {  VSpacerBig } from "styles/common"
+import { FlexRowCenter } from "styles/common"
 import BannerSubscribe from "components/Molecules/banners/BannerSubscribe"
 import { FlexCol } from "styles/common"
 import partnersBg from "images/backgrounds/partners.svg"
@@ -36,6 +37,12 @@ const PartnersSection = styled(FlexCol)`
   background-position: center center;
   background-size: cover;
 `
+
+// const ComparisonElement = styled(Comparison)`
+//   @media (max-width: ${breakpoints.mobile}) {
+//     display: none;
+//   }
+// `
 
 const IndexPage = ()  => {
   return (

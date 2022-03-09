@@ -16,43 +16,77 @@ h5 {
   font-family: var(--font-family-primary);
   color: var(--color-almostWhite);
 }
+
+/********** H1 *********/
+
 h1 {
   font-size: var(--font-size-h1);
   font-weight: 700;
   margin: 0;
 }
 @media screen and (max-width: 59rem) {
+  /* tablet */
   h1 {
     font-size: var(--font-size-h2);
   }
 }
+@media screen and (max-width: 45rem) {
+  /* mobile middle */
+  h1 {
+    font-size: var(--font-size-h3);
+  }
+}
+
+/********* H2 *********/
+
 h2 {
-  line-height: var(--line-height-h2);
   font-size: var(--font-size-h2);
   font-weight: 700;
   margin: 0;
 }
 
 @media screen and (max-width: 59rem) {
+  /* tablet */
   h2 {
     font-size: var(--font-size-h3);
   }
 }
+@media screen and (max-width: 35rem) {
+  /* mobile middle */
+  h2 {
+    font-size: var(--font-size-h4);
+  }
+}
+
+/********* H3 *********/
+
 h3 {
   font-size: var(--font-size-h3);
   font-weight: 600;
 }
+@media screen and (max-width: 35rem) {
+  /* middle */
+  h3 {
+    font-size: var(--font-size-h5);
+  }
+}
+
+/********* H4 *********/
 
 h4 {
   font-size: var(--font-size-h4);
+  font-weight: 400;
+}
+
+@media screen and (max-width: 55rem) {
+  /* mobile */
+  h4 {
+    font-size: var(--font-size-h5);
+  }
 }
 
 h5 {
   font-size: var(--font-size-h5);
-}
-
-h4 {
-  font-weight: 400;
 }
 
 p {
@@ -66,4 +100,26 @@ a {
 
 a:hover {
   color: var(--color-purple);
+}
+
+.mobileonly {
+  display: none;
+}
+
+@media screen and (max-width: 55rem) {
+  /* mobile big */
+  .mobileonly {
+    display: block;
+  }
+}
+
+.desktopOnly {
+  display: block;
+}
+
+@media screen and (max-width: 55rem) {
+  /* mobile big */
+  .desktopOnly {
+    display: none;
+  }
 }

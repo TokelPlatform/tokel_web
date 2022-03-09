@@ -4,10 +4,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 import FeatureHeader from 'components/Molecules/Features/FeatureHeader';
 import { FlexCol, FlexColCenter, FlexRow } from 'styles/common';
+import breakpoints from 'styles/breakpoints';
 
 const ComparisonRoot = styled(FlexColCenter)`
   color: white;
   margin-top: 5rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    display: none;
+  }
 `;
 const Footnote = styled(FlexCol)`
   align-items: flex-start;

@@ -41,7 +41,7 @@
   /* Gradients */
   --gradient-darkBlue: linear-gradient(180deg, #13182a 0%, #222e4d 57.62%, #263867 100%);
   --gradient-purple: linear-gradient(180deg, #13182a 22.92%, #3e315e 100%), #13182a;
-  --gradient-purple-direct: linear-gradient(180deg, #8050ef 0%, #687bf7 100%);
+  --gradient-purple-direct: linear-gradient(180deg, #8050ef 0%, #687bf7 100%, #8050ef 0%);
   --gradient-deep-sky: linear-gradient(
     180deg,
     #111f31 0%,

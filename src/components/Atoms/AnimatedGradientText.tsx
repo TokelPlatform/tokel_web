@@ -11,12 +11,14 @@ const shine = keyframes`
 `;
 
 const AnimatedGradientText = styled.h5`
+  z-index: 1;
+  position: relative;
   &:hover {
     background-size: 200% auto;
     background-image: var(--gradient-purple-direct);
     background-clip: text;
     text-fill-color: transparent;
-    animation: ${shine} 3s linear infinite;
+    animation: ${shine} 1s linear infinite;
   }
 `;
 

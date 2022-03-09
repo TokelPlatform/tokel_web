@@ -4,6 +4,7 @@ import breakpoints from '../../styles/breakpoints';
 import buttonDecor from '../../images/general/button-decoration.svg';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/react';
+import ButtonLink from './ButtonLink';
 
 type ButtonProps = {
   text: string;
@@ -12,6 +13,8 @@ type ButtonProps = {
   width?: string;
   height?: string;
   onClick: () => {};
+  url?: string;
+  className: string;
   showButtonDecor?: boolean;
 };
 
@@ -92,9 +95,11 @@ const getTheme = (theme, chosen) => {
       return `
               background: #000000;
               border-radius: 5px;
-              border: 1px solid var(--color-base-richyellow);
+              border: 1px solid;
+              border-image-slice: 1;
+              border-image-source: linear-gradient(97.43deg, #973af5 0%, #4ca6fe 100%);
               h5 { 
-                color: var(--color-base-richyellow);
+                color: var(--color-almostWhite);
                 font-weight: 700;
               }
 
@@ -173,18 +178,22 @@ const Button = ({
   width,
   height,
   onClick,
+  className,
+  url,
   showButtonDecor = null,
 }: ButtonProps): ReactElement => (
-  <StyledButton
-    onClick={() => onClick()}
-    width={width}
-    height={height}
-    chosen={chosen}
-    theme={theme}
-  >
-    {showButtonDecor && <img src={buttonDecor}></img>}
-    <h5>{text}</h5>
-  </StyledButton>
+  <ButtonLink className={className} to={url}>
+    <StyledButton
+      onClick={() => onClick()}
+      width={width}
+      height={height}
+      chosen={chosen}
+      theme={theme}
+    >
+      {showButtonDecor && <img src={buttonDecor}></img>}
+      <h5>{text}</h5>
+    </StyledButton>
+  </ButtonLink>
 );
 
 Button.defaultProps = defaultProps;
