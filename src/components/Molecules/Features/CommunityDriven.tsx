@@ -4,6 +4,7 @@ import React from 'react';
 import FeatureHeader from './FeatureHeader';
 import footerData from 'data/footer';
 import IconBlock from '../IconBlock';
+import breakpoints from 'styles/breakpoints';
 
 type FeatureProps = {
   title: string;
@@ -27,6 +28,9 @@ const BlocksWrapper = styled.div`
   column-gap: 3rem;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: ${breakpoints.mobilebig}) {
+    justify-content: center;
+  }
 `;
 
 const CommunityDriven = ({ title, subtitle, desc, image }: FeatureProps) => (

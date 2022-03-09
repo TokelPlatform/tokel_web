@@ -22,6 +22,7 @@ const FeatureHeaderRoot = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
   h3,
   h2 {
     margin: 0;
@@ -38,6 +39,7 @@ const FeatureHeaderRoot = styled.div`
   }
   @media (max-width: ${breakpoints.mobile}) {
     margin-top: 1rem;
+    text-align: center;
   }
 `;
 

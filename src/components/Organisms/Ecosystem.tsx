@@ -8,6 +8,9 @@ import ecosystem from 'images/ecosystem.svg';
 import icons from 'data/icons';
 import ClickableIcon from 'components/Atoms/ClickableIcon';
 import links from 'data/links';
+import tokelLogo from 'images/logo.svg';
+import asteroid from 'images/planets/asteroid.svg';
+import satelite from 'images/planets/satelite.svg';
 
 const EcosystemRoot = styled.div`
   color: white;
@@ -35,12 +38,9 @@ const Ecosystem = () => {
   return (
     <EcosystemRoot>
       <div id="ecosystem"></div>
-      <FeatureHeader
-        title="Get to know what we create at Tokel"
-        subtitle="Tokel Ecosystem"
-        desc="Try out the dApp, we know you will love it!"
-      />
+      <FeatureHeader title="Tokel Ecosystem" subtitle="Created on Tokel Blockchain" desc="" />
       <Project
+        logo={tokelLogo}
         title="Tokel All In One Platform"
         desc={
           <div>
@@ -62,6 +62,7 @@ const Ecosystem = () => {
         }
       />
       <Project
+        logo={asteroid}
         title="Tokel Saturn"
         desc={
           <div>
@@ -76,15 +77,16 @@ const Ecosystem = () => {
         }
       />
       <Project
+        logo={satelite}
         title="Tokel Talk Podcast"
         desc={
           <div>
             <p>
               <a href="#">Voted #2 in the Top 10 best NFT podcasts</a>{' '}
             </p>
-            <p>
+            <h5 style={{ opacity: '0.8' }}>
               Listened to in 49 countries. Downloaded in 142 cities. Streamed on 7 social networks.
-            </p>
+            </h5>
             <p>
               Listen live and engage with the guests, or listen anywhere you get your podcasts. The
               Tokel Talk podcast aims to educate and inform listeners of the latest in NFT and token

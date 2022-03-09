@@ -19,7 +19,7 @@ const features = [
     {
         title: "Truly Decentralized Technology",
         subtitle: "nSPV - Super Light Client",
-        desc: "Over 100x quicker, lighter & actually decentralized when compared to SPV servers.",
+        desc: "Over 100x quicker and lighter when compared traditional SPV.",
         links: nSPVLinks,
         bg: nspv,
         // eslint-disable-next-line react/display-name
