@@ -13,7 +13,7 @@ const TableComponent = styled.table`
   padding: 1rem;
   border-spacing: 0;
 
-  tr > td:first-child {
+  tr > td:first-of-type {
     color: rgb(255, 255, 255, 0.8);
     text-align: left;
     font-size: var(--font-size-p);
@@ -44,18 +44,18 @@ const TableComponent = styled.table`
       border-right: 0;
       border-left: 0;
     }
-    :nth-child(3) {
+    :nth-of-type(3) {
       border-right: 0;
     }
   }
 
-  /* tr:first-child::before {
+  /* tr:first-of-type::before {
     height: 30px;
     width: 40px;
     background-color: red;
     display: inline-block;
   } */
-  /* tr:first-child {
+  /* tr:first-of-type {
     td:last-child {
       border-top: 10px solid;
     }
@@ -66,7 +66,7 @@ const TableComponent = styled.table`
     }
   } */
 
-  /* td:nth-child(4) {
+  /* td:nth-of-type(4) {
     border-right: 10px solid;
     border-left: 10px solid;
   } */

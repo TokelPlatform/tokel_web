@@ -22,7 +22,7 @@ type ProjectProps = {
 const Project = ({ title, desc }: ProjectProps): ReactElement => (
   <ProjectRoot>
     <h3>{title}</h3>
-    <p>{desc}</p>
+    <div>{desc}</div>
   </ProjectRoot>
 );
 

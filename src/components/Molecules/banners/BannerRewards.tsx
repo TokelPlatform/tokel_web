@@ -1,14 +1,12 @@
 import React from 'react';
-// import breakpoints from "../../styles/breakpoints"
 import styled from '@emotion/styled';
 import Button, { Colors } from 'components/Atoms/Button';
 import tokelist from 'images/tokelist.svg';
 import links from 'data/links';
 import breakpoints from 'styles/breakpoints';
+import { FlexRow } from 'styles/common';
 
-const BannerRewardsRoot = styled.div`
-  display: flex;
-  flex-direction: row;
+const BannerRewardsRoot = styled(FlexRow)`
   justify-content: space-between;
   align-items: center;
   max-width: 1000px;
@@ -20,16 +18,10 @@ const BannerRewardsRoot = styled.div`
   }
 `;
 
-// const ImageWrapper = styled.div`
-//   max-width: 270px;
-//   width: 100%;
-//   margin-top: 1rem;
-// `;
-
 const YellowLine = styled.div`
   height: 10px;
   width: 300px;
-  background: var(--gradient-purple);
+  background: var(--color-base-richyellow);
   margin: 1rem 0;
 `;
 
@@ -52,9 +44,7 @@ const BannerRewards = () => {
         <YellowLine />
       </div>
       <ButtonWrapper>
-        <a style={{ textDecoration: 'none' }} href={links.tokelistArticle}>
-          <Button theme={Colors.BLACK} text="Learn More" />
-        </a>
+        <Button url={links.tokelistArticle} theme={Colors.BLACK} text="Learn More" />
       </ButtonWrapper>
     </BannerRewardsRoot>
   );

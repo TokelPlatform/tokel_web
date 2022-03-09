@@ -27,9 +27,6 @@ const MainPage = styled.div`
   }
 `
 
-const IndexPageRoot = styled(PageRoot)`
-  padding-bottom: 10rem;
-`
 const PartnersSection = styled(FlexCol)`
   padding-top: 10rem;
   background: url(${partnersBg});
@@ -47,7 +44,7 @@ const IndexPage = ()  => {
           <title>Tokel | Making NFT & Token Creation Easy For Everyone</title>
           <meta name="description" content="Tokel truly opens the door for every single person to create & access tokens and NFTs in an inexpensive, decentralized fashion." />
       </Helmet>
-      <IndexPageRoot starsTop='8000px'>
+      <PageRoot starsTop='8000px'>
         <WelcomeText />
         <VSpacerBig/>
         <div id="compare"/>
@@ -63,7 +60,7 @@ const IndexPage = ()  => {
           <h4>Tokel will soon be also available through direct swaps</h4>
         </FlexRowCenter>
         <BannerSubscribe />
-      </IndexPageRoot>
+      </PageRoot>
     </MainPage>
   )
 }

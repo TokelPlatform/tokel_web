@@ -9,33 +9,17 @@ import PropTypes from 'prop-types'
 
 const PageRoot = styled.div`
   background: var(--gradient-deep-sky);
-  /* Set a specific height
-  /* min-height: 500px;  */
-
-  /* Create the parallax scrolling effect */
-  /* background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;  */
-`
-
-const Planets = styled.div`
-  background-image: url('/backgrounds/planet1.svg');
 `
 
 const PageRootContainer = ({starsTop = '300px', children})  => {
   return (
       <div>
         <PageRoot>
-          <Planets>
-
             <TopBar />
             <Stars top={starsTop} starSize={'small'} />
             <Stars top={starsTop} starSize={'medium'}/>
             <Stars top={starsTop} starSize={'big'}/>
             {children}
-
-          </Planets>
         </PageRoot>
          <Footer />
       </div>
@@ -54,7 +38,7 @@ export const query = graphql`
   }
 `
 PageRootContainer.propTypes = {
-    children: React.ReactNode,
+    children: PropTypes.node,
     starsTop: PropTypes.string
 }
 export default PageRootContainer
