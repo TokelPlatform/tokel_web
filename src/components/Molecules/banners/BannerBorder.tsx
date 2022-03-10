@@ -12,7 +12,7 @@ const BannerBorderRoot = styled(FlexRow)`
 
   border: 8px solid;
   border-image-slice: 1;
-  border-image-source: linear-gradient(97.43deg, #973af5 0%, #4ca6fe 100%);
+  border-image-source: var(--gradient-purple-to-lighblue);
 
   padding: 1rem 2rem;
   margin: 4rem auto;

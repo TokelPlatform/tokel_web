@@ -252,7 +252,7 @@ const Ido = ()  => {
                 </Video>
             
              <Phases>
-                <div id="phases" className="phase"><h3>PHASE 1: Price discovery</h3>
+                <div Tid="phases" className="phase"><h3>PHASE 1: Price discovery</h3>
 
                     <h4><a style={{color: '#FAB64B', marginLeft: '0'}} href={links.idoLiveStream}>Watch Finished Live Stream</a></h4>
                     <br></br>

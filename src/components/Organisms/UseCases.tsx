@@ -1,14 +1,12 @@
 import React from 'react';
-// import breakpoints from "../../styles/breakpoints";
 import styled from '@emotion/styled';
 import UseCaseBox from 'components/Molecules/TextBox';
 import data from 'data/useCaseData';
 import FeatureHeader from 'components/Molecules/Features/FeatureHeader';
+import { FlexCol, FlexRow } from 'styles/common';
 
-const UseCasesRoot = styled.div`
-  color: white;
-  display: flex;
-  flex-direction: column;
+const UseCasesRoot = styled(FlexCol)`
+  color: var(--color-almostWhite);
   align-items: center;
   justify-content: center;
   margin-top: 3rem;
@@ -20,12 +18,10 @@ const UseCasesRoot = styled.div`
   }
 `;
 
-const UseCaseContainer = styled.div`
-  display: flex;
+const UseCaseContainer = styled(FlexRow)`
   max-width: 1050px;
   flex-wrap: wrap;
   justify-content: center;
-
   gap: 2rem;
 `;
 

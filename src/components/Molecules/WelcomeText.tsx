@@ -1,20 +1,12 @@
-// import Button, { Colors } from '../Atoms/Button';
 import { FlexCol, HSpacerBig } from '../../styles/common';
-
 import React from 'react';
 import breakpoints from '../../styles/breakpoints';
 import chevron from '../../images/chevron.svg';
 import styled from '@emotion/styled';
-// import WhiteButton from 'components/Atoms/WhiteButton';
-
 import CurveAnimation from './CurveAnimation';
-
 import PlanetWithRing from 'images/planets/planetWithRing.svg';
-
 import PlanetWithCircles from 'images/planets/planetWithCircles.svg';
 import moon from 'images/planets/moon.svg';
-// import asteroid from 'images/planets/asteroid.svg';
-// import asteroidBig from 'images/planets/asteroidBig.svg';
 import satelite from 'images/planets/satelite.svg';
 import fadedPlanet from 'images/planets/fadedPlanet.svg';
 import { curves } from 'data/constants';
@@ -25,7 +17,6 @@ import Button, { Colors } from 'components/Atoms/Button';
 
 const defaultProps = {};
 const Container = styled(FlexCol)`
-  /* width: 100vw; */
   padding-top: 5rem;
   @media (max-width: ${breakpoints.mobile}) {
     padding-top: 1rem;
@@ -134,14 +125,7 @@ const PlanetSide = styled.img`
 const WelcomeText = () => {
   return (
     <Container>
-      {/* <CurveAnimation image={asteroid} startFromRight={false} curve={curves.EaseIn} /> */}
       <CurveAnimation image={satelite} startFromRight={true} curve={curves.EaseInOut} />
-      {/* <CurveAnimation
-        image={asteroidBig}
-        startFromRight={false}
-        startFromBottom={true}
-        curve={curves.EaseInOut}
-      /> */}
       <MainText>
         <div>
           <h1>Create NFTs and tokens easily.</h1>

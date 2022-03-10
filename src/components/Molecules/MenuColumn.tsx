@@ -1,12 +1,10 @@
 import React, { ReactElement } from 'react';
 
-// import breakpoints from '../../styles/breakpoints';
 import styled from '@emotion/styled';
 import { FlexCol, FlexColCenter } from 'styles/common';
 
 const MenuColumnRoot = styled(FlexColCenter)`
   margin-top: 1rem;
-  /* width: 140px; */
   padding: 0 2rem;
 
   align-items: flex-start;
@@ -27,8 +25,6 @@ const MenuColumnRoot = styled(FlexColCenter)`
   }
 `;
 
-const List = styled(FlexCol)``;
-
 type SectionListProps = {
   menuItems: [
     {
@@ -42,7 +38,7 @@ type SectionListProps = {
 const MenuColumn = ({ title, menuItems }: SectionListProps): ReactElement => (
   <MenuColumnRoot>
     <h5>{title}</h5>
-    <List>
+    <FlexCol>
       {menuItems.map((menuItem, idx) => {
         if (!menuItem.url) return <p key={idx + 100}>{menuItem.name}</p>;
         return (
@@ -51,7 +47,7 @@ const MenuColumn = ({ title, menuItems }: SectionListProps): ReactElement => (
           </a>
         );
       })}
-    </List>
+    </FlexCol>
   </MenuColumnRoot>
 );
 

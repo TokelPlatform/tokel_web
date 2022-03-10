@@ -13,7 +13,6 @@ const NavigationHorizontal = styled.ul`
   flex-direction: row;
   margin: 0;
   padding: 0;
-  /* margin-left: -6rem; */
   justify-content: center;
   list-style-type: none;
   color: var(--color-almostWhite);

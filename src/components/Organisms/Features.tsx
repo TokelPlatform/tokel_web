@@ -17,7 +17,6 @@ const FeaturesRoot = styled.div`
   background-image: url(${featuresBg});
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-position: 100px -5px; */
   margin-top: 15rem;
   display: flex;
   flex-direction: column;

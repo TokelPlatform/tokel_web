@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
 
 import { keyframes } from '@emotion/react';
-// import { curves } from 'data/constants';
 import breakpoints from '../../styles/breakpoints';
 
 type Props = {

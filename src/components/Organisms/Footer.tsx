@@ -3,15 +3,9 @@ import React from 'react';
 import breakpoints from 'styles/breakpoints';
 import footerData from '../../data/footer';
 import styled from '@emotion/styled';
-import { FlexCol, FlexRow, FlexColCenter } from 'styles/common';
+import { FlexRow, FlexColCenter } from 'styles/common';
 import MenuColumn from 'components/Molecules/MenuColumn';
 import menuLinks from 'data/footerMenuLinks';
-
-const defaultProps = {};
-
-const Container = styled(FlexCol)`
-  align-items: center;
-`;
 
 const FooterIcons = styled(FlexRow)`
   flex-wrap: wrap;
@@ -37,10 +31,10 @@ const BottomMenuLinks = styled(FlexRow)`
 `;
 
 const StyledFooter = styled.div`
-  background-color: black;
+  background-color: #000;
   p,
   a {
-    color: white;
+    color: var(--color-almostWhite);
   }
 `;
 
@@ -49,13 +43,13 @@ const Footnote = styled.div`
   margin-top: 2rem;
   p {
     font-size: 0.75rem;
-    color: black;
+    color: #000;
   }
 `;
 
 const Footer = () => (
   <StyledFooter>
-    <Container>
+    <FlexColCenter>
       <FooterIcons>
         {footerData.map((col, idx) => (
           <IconBlock title={col.title} iconsList={col.icons} desc={col.desc} key={idx} idx={idx} />
@@ -74,9 +68,8 @@ const Footer = () => (
           </p>
         </Footnote>
       </BottomMenuLinksWrapper>
-    </Container>
+    </FlexColCenter>
   </StyledFooter>
 );
 
-Footer.defaultProps = defaultProps;
 export default Footer;

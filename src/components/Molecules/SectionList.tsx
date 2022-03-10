@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 
-// import breakpoints from '../../styles/breakpoints';
 import styled from '@emotion/styled';
 import { FlexColCenter, FlexRowCenter, VSpacerMedium } from 'styles/common';
 import icons from 'data/icons';

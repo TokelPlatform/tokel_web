@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
 
-// import breakpoints from '../../styles/breakpoints';
 import styled from '@emotion/styled';
 import { FlexRow } from 'styles/common';
 // import addToMailchimp from 'gatsby-plugin-mailchimp';

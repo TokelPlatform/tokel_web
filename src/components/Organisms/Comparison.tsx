@@ -1,13 +1,12 @@
 import ComparisonTable from '../Molecules/table/ComparisonTable';
 import React from 'react';
-// import breakpoints from "../../styles/breakpoints";
 import styled from '@emotion/styled';
 import FeatureHeader from 'components/Molecules/Features/FeatureHeader';
 import { FlexCol, FlexColCenter, FlexRow } from 'styles/common';
 import breakpoints from 'styles/breakpoints';
 
 const ComparisonRoot = styled(FlexColCenter)`
-  color: white;
+  color: var(--color-almostWhite);
   margin-top: 5rem;
   @media (max-width: ${breakpoints.mobilebig}) {
     display: none;

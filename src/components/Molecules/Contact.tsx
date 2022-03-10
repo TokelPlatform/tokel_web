@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
 import flyingTokel from 'images/launch/flying-tokel.svg';
+import links from 'data/links';
 
 const ContactStyled = styled.div`
   text-align: center;
@@ -13,7 +14,7 @@ const Contact = () => (
   <ContactStyled>
     <h4>
       Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join{' '}
-      <a href="https://discord.gg/SQzdUQWXrn">Tokel Discord</a>{' '}
+      <a href={links.discord}>Tokel Discord</a>{' '}
     </h4>
     <img alt="flying-tokel" src={flyingTokel}></img>
   </ContactStyled>
