@@ -33,6 +33,9 @@ const PartnersSection = styled(FlexCol)`
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  @media (max-width: ${breakpoints.mobile}) {
+    padding-top: 0;
+  }
 `
 
 
@@ -57,7 +60,7 @@ const IndexPage = ()  => {
           <SectionList id="buy-tkl" title="Buy Tokel on" data={exchangeData}/>
         </PartnersSection>
         <FlexRowCenter>
-          <h4 style={{textAlign: 'center'}}>Tokel will soon be also available through direct swaps</h4>
+          <h4 style={{textAlign: 'center', padding: '0 2rem'}}>Tokel will soon be also available through direct swaps</h4>
         </FlexRowCenter>
         <BannerSubscribe />
       </PageRoot>

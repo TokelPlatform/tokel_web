@@ -6,7 +6,8 @@ import { FlexCol, FlexColCenter } from 'styles/common';
 
 const MenuColumnRoot = styled(FlexColCenter)`
   margin-top: 1rem;
-  width: 120px;
+  /* width: 140px; */
+  padding: 0 2rem;
 
   align-items: flex-start;
   justify-content: flex-start;

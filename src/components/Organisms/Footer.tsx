@@ -28,9 +28,12 @@ const BottomMenuLinksWrapper = styled(FlexColCenter)`
 const BottomMenuLinks = styled(FlexRow)`
   flex-wrap: wrap;
   align-items: flex-start;
-  justify-content: space-between;
-  max-width: 1270px;
+  justify-content: space-evenly;
+  max-width: 1300px;
   width: 100%;
+  @media (orientation: portrait) {
+    justify-content: flex-start;
+  }
 `;
 
 const StyledFooter = styled.div`
@@ -46,6 +49,7 @@ const Footnote = styled.div`
   margin-top: 2rem;
   p {
     font-size: 0.75rem;
+    color: black;
   }
 `;
 

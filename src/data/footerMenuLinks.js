@@ -55,7 +55,7 @@ const menuLinks = [
           url: '#',
         },
         {
-          name: 'More tutorials coming soon...',
+          name: 'Coming soon...',
           url: null,
         },
       ],
@@ -64,7 +64,7 @@ const menuLinks = [
       title: 'Businesses',
       links: [
         {
-          name: 'Tutorials and use cases coming soon.....',
+          name: 'Coming soon.....',
           url: null,
         },
       ],
