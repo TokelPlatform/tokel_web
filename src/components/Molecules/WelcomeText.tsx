@@ -135,8 +135,7 @@ const WelcomeText = () => {
             No Gas Fees.
           </h2>
           <Description>
-            One of our main goals is to make Tokel and blockchain technology usable and accessible
-            to everyone.{' '}
+            The Tokel UTXO chain makes tokenization easy, accessible and cheap for everyone.{' '}
           </Description>
         </div>
         <PlanetMain src={PlanetWithRing} />
