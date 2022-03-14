@@ -73,7 +73,7 @@ const getTheme = (theme, chosen) => {
         border-radius: 5px;
         border: 1px solid;
         border-image-slice: 1;
-        border-image-source: linear-gradient(97.43deg, #973af5 0%, #4ca6fe 100%);
+        border-image-source: var(--gradient-purple-to-lighblue);
         h5 {
           color: var(--color-almostWhite);
           font-weight: 700;

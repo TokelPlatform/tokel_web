@@ -20,9 +20,14 @@ import mac from 'images/mac.svg'
 import win from 'images/win.svg'
 import komodo from 'images/logos/komodo.svg';
 import atomicDex from 'images/logos/atomicDex.svg';
+import atomicDexSmall from 'images/icons/atomicDexSmall.svg';
 import dexTrade from 'images/logos/dexTrade.svg';
+import dexTradeSmall from 'images/icons/dexTradeSmall.svg';
 import swapBTC from 'images/swap-btc-tkl.svg'
 import swapKMD from 'images/swap-kmd-tkl.svg'
+import tokel from 'images/icons/tokel.svg'
+import cli from 'images/icons/cli.svg'
+import magic from 'images/icons/magic.svg'
 
 const icons = {
   amazonMusic,
@@ -49,7 +54,12 @@ const icons = {
   atomicDex,
   dexTrade,
   swapBTC,
-  swapKMD
+  swapKMD,
+  tokel,
+  dexTradeSmall,
+  atomicDexSmall,
+  cli,
+  magic
 }
 
 export default icons

@@ -23,6 +23,9 @@ const FooterBlockRoot = styled.div`
   @media (max-width: ${breakpoints.mediumScreen}) {
     width: 230px;
   }
+  p {
+    opacity: 0.8;
+  }
 `;
 
 const IconsWrapper = styled.div`

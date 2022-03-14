@@ -20,6 +20,7 @@
     "@emotion/react": "11.1.5",
     "@emotion/styled": "11.1.5",
     "axios": "0.21.1",
+    "dot-prop-immutable": "^2.1.1",
     "formik": "^2.2.9",
     "gatsby": "^2.32.3",
     "gatsby-image": "2.11.0",
@@ -37,6 +38,7 @@
     "react-countdown-hook": "1.1.0",
     "react-dom": "^16.13.1",
     "react-helmet": "6.1.0",
+    "react-onclickoutside": "^6.12.1",
     "react-table": "^7.7.0",
     "svgjs": "^2.6.2",
     "yup": "^0.32.11"

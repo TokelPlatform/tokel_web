@@ -80,26 +80,30 @@ const menuLinks = [
           name: 'News',
           url: '#',
         },
-        {
-          name: 'Media package',
-          url: '#',
-        },
+        // {
+        //   name: 'Media package',
+        //   url: '#',
+        // },
       ],
     },
     {
       title: 'Contact',
       links: [
-        {
-          name: 'Report Bug',
-          url: '#',
-        },
+        // {
+        //   name: 'Report Bug',
+        //   url: '#',
+        // },
         {
           name: 'Become Partner',
-          url: '#',
+          url: 'mailto:contact@tokel.io',
         },
         {
           name: 'Join Discord',
-          url: '#',
+          url: links.discord,
+        },
+        {
+          name: 'contact@tokel.io',
+          url: 'mailto:contact@tokel.io',
         },
       ],
     },
