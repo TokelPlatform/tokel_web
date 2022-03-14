@@ -130,7 +130,7 @@ const bigMenuLinks = [
           ]},
     { link: '/blog', name: 'Tokel News' },
     { link: '/tokeltalk', name: 'Tokel Talk' },
-    // { link: links.explorer, name: 'About' },
+    { link: '#', name: 'About' },
     { link: '/faq', name: 'FAQ' },
   ];
 
