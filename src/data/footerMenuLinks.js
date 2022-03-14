@@ -2,23 +2,11 @@ import links from "./links";
 
 const menuLinks = [
     {
-      title: 'About',
+      title: 'Get Started',
       links: [
-        {
-          name: 'nSPV',
-          url: '#',
-        },
-        {
-          name: 'Wallets',
-          url: '#',
-        },
         {
           name: 'Exchanges',
           url: '/exchanges',
-        },
-        {
-          name: 'Partners',
-          url: '#partners',
         },
         {
           name: 'Roadmap',
@@ -27,6 +15,10 @@ const menuLinks = [
         {
           name: 'Whitepaper',
           url: links.whitepaper,
+        },        
+        {
+          name: 'Explorer',
+          url: links.explorer,
         },
       ],
     },
@@ -35,15 +27,19 @@ const menuLinks = [
       links: [
         {
           name: 'How-to Guides',
-          url: '#',
+          url: links.documentationChain,
         },
         {
-          name: 'API',
-          url: '#',
+          name: 'nSPV',
+          url: links.github_nspv,
         },
         {
-          name: 'GitHub',
-          url: links.github,
+          name: 'nSPV API',
+          url: links.nspvApi,
+        },
+        {
+          name: 'Tokel Blockchain',
+          url: links.github_chain,
         },
       ],
     },
@@ -52,7 +48,7 @@ const menuLinks = [
       links: [
         {
           name: 'How-to Guides',
-          url: '#',
+          url: links.documentationCreateTokenNFT,
         },
         {
           name: 'Coming soon...',
@@ -73,12 +69,12 @@ const menuLinks = [
       title: 'Media',
       links: [
         {
-          name: 'Tokel Talks',
+          name: 'Tokel Talk',
           url: '/tokeltalk',
         },
         {
-          name: 'News',
-          url: '#',
+          name: 'Tokel News',
+          url: '/blog',
         },
         // {
         //   name: 'Media package',
