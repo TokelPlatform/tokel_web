@@ -3,6 +3,7 @@ import React from 'react';
 import { FlexCol, FlexRow } from 'styles/common';
 import styled from '@emotion/styled';
 import icons from 'data/icons';
+import DropDownMenuItemsSide from 'components/Atoms/navigation/DropDownMenuItemsSide';
 // import icons from 'data/icons';
 
 type NavigationSideProps = {
@@ -17,14 +18,7 @@ const defaultProps = {
   menuLinks: [],
 };
 
-const HeaderMenuRoot = styled.div`
-  width: 500px;
-  background-color: var(--color-almostWhite);
-  flex-wrap: wrap;
-  column-gap: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 2rem;
+const HeaderMenuRoot = styled(DropDownMenuItemsSide)`
   p {
     margin-top: 4px;
   }

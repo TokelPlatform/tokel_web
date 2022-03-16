@@ -1,18 +1,18 @@
-import { MenuLink } from "./types"
-import React from "react"
-import { StyledSideMenu } from "../../Atoms/StyledSideMenu"
+import { MenuLink } from '../types';
+import React from 'react';
+import { StyledSideMenu } from 'components/Atoms/navigation/mobile/StyledSideMenu';
 
 type NavigationSideProps = {
-  open: boolean,
-  setOpen: Function,
-  menuLinks: Array<MenuLink>
-}
+  open: boolean;
+  setOpen: Function;
+  menuLinks: Array<MenuLink>;
+};
 
 const defaultProps = {
   open: false,
   setOpen: o => !o,
   menuLinks: [],
-}
+};
 
 const NavigationSide = ({ open, setOpen, menuLinks }: NavigationSideProps) => {
   return (
@@ -23,8 +23,8 @@ const NavigationSide = ({ open, setOpen, menuLinks }: NavigationSideProps) => {
         </a>
       ))}
     </StyledSideMenu>
-  )
-}
+  );
+};
 
-NavigationSide.defaultProps = defaultProps
-export default NavigationSide
+NavigationSide.defaultProps = defaultProps;
+export default NavigationSide;

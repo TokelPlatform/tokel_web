@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
 
-import Burger from 'components/Molecules/Navigation/Burger';
-import NavigationSide from 'components/Molecules/Navigation/NavigationSide';
+import Burger from 'components/Molecules/Navigation/mobile/Burger';
+import NavigationSide from 'components/Molecules/Navigation/mobile/NavigationSide';
 import breakpoints from 'styles/breakpoints';
 import styled from '@emotion/styled';
 import bigMenuLinks from 'data/navigation/bigMenuLinks';
 import MenuLink from 'components/Atoms/navigation/MenuLink';
-import DropDownMenu from 'components/Molecules/Navigation/DropDownMenu';
+import DropDownMenu from 'components/Molecules/Navigation/fullmenu/DropDownMenu';
 const changeNavigationStyleAt = breakpoints.smallScreen;
 
 const NavigationHorizontal = styled.ul`

@@ -1,10 +1,10 @@
 import DropDownMenuRoot from 'components/Atoms/navigation/DropDownMenuRoot';
 import Tail from 'components/Atoms/navigation/Tail';
 import React from 'react';
-import HeaderMenu from './FullMenu/HeaderMenu';
-import ListingMenu from './FullMenu/ListingMenu';
-import FullNavigationSideMenu from './FullMenu/SideMenu';
-import SimpleDropDown from './FullMenu/SimpleDropDown';
+import HeaderMenu from './HeaderMenu';
+import ListingMenu from './ListingMenu';
+import FullNavigationSideMenu from './SideMenu';
+import SimpleDropDown from './SimpleDropDown';
 
 type DropDownMenuProps = {
   data: any;

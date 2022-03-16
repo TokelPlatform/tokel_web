@@ -12,7 +12,7 @@ const bigMenuLinks = [
             {
               name: 'Tokel dAPP',
               desc: 'Store, send,  receive and create NFTs and tokens',
-              link: '#ecosystem',
+              link: '/#ecosystem',
               logo: 'tokel',
             },
             {

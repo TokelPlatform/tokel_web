@@ -3,6 +3,7 @@ import React from 'react';
 import { FlexCol, FlexRow } from 'styles/common';
 import styled from '@emotion/styled';
 import icons from 'data/icons';
+import DropDownMenuItemsSide from 'components/Atoms/navigation/DropDownMenuItemsSide';
 
 type NavigationSideProps = {
   open: boolean;
@@ -16,15 +17,6 @@ const defaultProps = {
   menuLinks: [],
 };
 
-const ListingMenuRoot = styled(FlexRow)`
-  width: 500px;
-  background-color: var(--color-almostWhite);
-  flex-wrap: wrap;
-  column-gap: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 2rem;
-`;
 const HoverMenuRow = styled(FlexRow)`
   align-items: flex-start;
   justify-content: flex-start;
@@ -35,7 +27,7 @@ const HoverMenuRow = styled(FlexRow)`
 
 const ListingMenu = ({ menuLinks }: NavigationSideProps) => {
   return (
-    <ListingMenuRoot>
+    <DropDownMenuItemsSide>
       {menuLinks.map(link => (
         <div key={link.title}>
           <h4>{link.title}</h4>
@@ -54,7 +46,7 @@ const ListingMenu = ({ menuLinks }: NavigationSideProps) => {
           ))}
         </div>
       ))}
-    </ListingMenuRoot>
+    </DropDownMenuItemsSide>
   );
 };
 

@@ -1,16 +1,16 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement } from 'react';
 
-import { StyledBurger } from "../../Atoms/StyledBurger"
+import { StyledBurger } from 'components/Atoms/navigation/mobile/StyledBurger';
 
 type BurgerProps = {
-  open: boolean,
-  setOpen: Function
-}
+  open: boolean;
+  setOpen: Function;
+};
 
 const defaultProps = {
   open: false,
   setOpen: o => !o,
-}
+};
 
 const Burger = ({ open, setOpen }: BurgerProps): ReactElement => {
   return (
@@ -19,8 +19,8 @@ const Burger = ({ open, setOpen }: BurgerProps): ReactElement => {
       <div />
       <div />
     </StyledBurger>
-  )
-}
+  );
+};
 
-Burger.defaultProps = defaultProps
-export default Burger
+Burger.defaultProps = defaultProps;
+export default Burger;

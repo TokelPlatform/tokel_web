@@ -3,7 +3,9 @@ import { FlexRow } from 'styles/common';
 
 type DropDownMenuRootProps = {
   open: boolean;
+  wide: boolean;
 };
+
 const DropDownMenuRoot = styled(FlexRow)<DropDownMenuRootProps>`
   display: ${p => (p.open ? 'flex' : 'none')};
   width: ${p => (p.wide ? '800px' : 'inherit')};
