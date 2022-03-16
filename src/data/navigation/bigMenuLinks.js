@@ -4,6 +4,7 @@ const bigMenuLinks = [
     {
       link: '#',
       name: 'Get Started',
+      type: 'listing',
       submenu: [
         {
           title: 'Wallets',
@@ -74,6 +75,7 @@ const bigMenuLinks = [
     { 
         link: '#', 
         name: 'Developers',
+        type: 'header',
         submenu: [
             {
             title: 'Documentation',
@@ -130,7 +132,26 @@ const bigMenuLinks = [
           ]},
     { link: '/blog', name: 'Tokel News' },
     { link: '/tokeltalk', name: 'Tokel Talk' },
-    { link: '#', name: 'About' },
+    { 
+      link: '#', 
+      name: 'About',
+      type: 'simple',
+      submenu: {
+        // title: 'About Tokel',
+        subitems: [{
+          title: 'Tokel Team',
+          url: '/team'
+        },
+        {
+          title: 'White Paper',
+          url: links.whitepaper
+        },
+        {
+          title: 'Roadmap',
+          url: '/roadmap'
+        }] 
+      }
+    },
     { link: '/faq', name: 'FAQ' },
   ];
 

@@ -23,6 +23,7 @@ const ListingMenuRoot = styled(FlexRow)`
   column-gap: 2rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  padding-left: 2rem;
 `;
 const HoverMenuRow = styled(FlexRow)`
   align-items: flex-start;

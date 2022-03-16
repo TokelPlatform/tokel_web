@@ -24,6 +24,7 @@ const HeaderMenuRoot = styled.div`
   column-gap: 2rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  padding-left: 2rem;
   p {
     margin-top: 4px;
   }

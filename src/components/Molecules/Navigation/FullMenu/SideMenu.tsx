@@ -17,7 +17,7 @@ const defaultProps = {
 
 const FullNavigationSideMenuRoot = styled.div`
   background-color: hsla(233, 49%, 55%, 0.1);
-  width: 220px;
+  width: 188px;
   padding: 2rem 3rem 0rem 2rem;
 
   p {
