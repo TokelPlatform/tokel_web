@@ -15,7 +15,7 @@ type DropDownMenuProps = {
 const getMenu = data => {
   switch (data.type) {
     case 'simple':
-      return <SimpleDropDown data={data.submenu} />;
+      return <SimpleDropDown data={data.submenu[0]} />;
     case 'listing':
       return <ListingMenu menuLinks={data.submenu} />;
     case 'header':

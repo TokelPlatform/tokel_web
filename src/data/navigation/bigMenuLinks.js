@@ -136,21 +136,22 @@ const bigMenuLinks = [
       url: '#', 
       title: 'About',
       type: 'simple',
-      submenu: {
-        // title: 'About Tokel',
-        subitems: [{
-          title: 'Tokel Team',
-          url: '/team'
-        },
-        {
-          title: 'White Paper',
-          url: links.whitepaper
-        },
-        {
-          title: 'Roadmap',
-          url: '/roadmap'
-        }] 
-      }
+      submenu: [
+        {        // title: 'About Tokel',
+          subitems: [{
+            title: 'Tokel Team',
+            url: '/team'
+          },
+          {
+            title: 'White Paper',
+            url: links.whitepaper
+          },
+          {
+            title: 'Roadmap',
+            url: '/roadmap'
+          }] 
+        }
+      ]
     },
     { url: '/faq', title: 'FAQ' },
   ];
