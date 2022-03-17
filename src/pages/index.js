@@ -15,7 +15,7 @@ import partnersData from 'data/partnersData'
 import exchangeData from 'data/exchangeData'
 import {  VSpacerBig } from "styles/common"
 import { FlexRowCenter } from "styles/common"
-import BannerSubscribe from "components/Molecules/banners/BannerSubscribe"
+// import BannerSubscribe from "components/Molecules/banners/BannerSubscribe"
 import { FlexCol } from "styles/common"
 import partnersBg from "images/backgrounds/partners.svg"
 
@@ -62,7 +62,7 @@ const IndexPage = ()  => {
         <FlexRowCenter>
           <h4 style={{textAlign: 'center', padding: '0 2rem'}}>Tokel will soon be also available through direct swaps</h4>
         </FlexRowCenter>
-        <BannerSubscribe />
+        {/* <BannerSubscribe /> */}
       </PageRoot>
     </MainPage>
   )

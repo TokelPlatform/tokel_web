@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
+import breakpoints from 'styles/breakpoints';
+import styled from '@emotion/styled';
 
 import Burger from 'components/Molecules/Navigation/mobile/Burger';
 import NavigationSide from 'components/Molecules/Navigation/mobile/NavigationSide';
-import breakpoints from 'styles/breakpoints';
-import styled from '@emotion/styled';
 import bigMenuLinks from 'data/navigation/bigMenuLinks';
 import MenuLink from 'components/Atoms/navigation/MenuLink';
-import DropDownMenu from 'components/Molecules/Navigation/fullmenu/DropDownMenu';
+import DropDownMenu from 'components/Molecules/Navigation/DropdownMenu';
 const changeNavigationStyleAt = breakpoints.smallScreen;
 
 const NavigationHorizontal = styled.ul`
@@ -18,6 +18,7 @@ const NavigationHorizontal = styled.ul`
   color: var(--color-almostWhite);
   padding-top: 0.5rem;
   z-index: 3;
+  position: relative;
   @media (max-width: ${changeNavigationStyleAt}) {
     display: none;
   }
@@ -43,7 +44,7 @@ const ListItem = styled.li`
 `;
 
 let menuNames = {};
-bigMenuLinks.forEach(link => (menuNames[link.name] = false));
+bigMenuLinks.forEach(link => (menuNames[link.title] = false));
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
@@ -64,16 +65,16 @@ const Navigation = () => {
     <div>
       <NavigationHorizontal>
         {bigMenuLinks.map(item => (
-          <ListItem key={item.name} onClick={() => openSubmenu(item.name)}>
-            <MenuLink href={item.link}>{item.name}</MenuLink>
-            {item.submenu && <DropDownMenu data={item} open={openSubMenu[item.name]} />}
+          <ListItem key={item.title} onClick={() => openSubmenu(item.title)}>
+            <MenuLink href={item.url}>{item.title}</MenuLink>
+            {item.submenu && <DropDownMenu data={item} open={openSubMenu[item.title]} />}
           </ListItem>
         ))}
       </NavigationHorizontal>
 
       <NavigationVertical ref={node}>
         <Burger open={open} setOpen={setOpen} />
-        <NavigationSide menuLinks={bigMenuLinks} open={open} setOpen={setOpen} />
+        <NavigationSide data={bigMenuLinks} open={open} setOpen={setOpen} />
       </NavigationVertical>
     </div>
   );

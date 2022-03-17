@@ -2,23 +2,23 @@ import links from "data/links";
 import nSPVLinks from "data/nSpvLinks";
 const bigMenuLinks = [
     {
-      link: '#',
-      name: 'Get Started',
+      url: '#',
+      title: 'Get Started',
       type: 'listing',
       submenu: [
         {
           title: 'Wallets',
           subitems: [
             {
-              name: 'Tokel dAPP',
+              title: 'Tokel dAPP',
               desc: 'Store, send,  receive and create NFTs and tokens',
-              link: '/#ecosystem',
+              url: '/#ecosystem',
               logo: 'tokel',
             },
             {
-              name: 'Local wallet',
+              title: 'Local wallet',
               desc: 'Sync the chain locally and you can run your own wallet.',
-              link: '#',
+              url: '#',
               logo: 'cli',
             },
           ],
@@ -27,15 +27,15 @@ const bigMenuLinks = [
           title: 'Exchanges',
           subitems: [
             {
-              name: 'Atomic DEX',
+              title: 'Atomic DEX',
               desc: 'Decentralized Exchange, no KYC',
-              link: links.atomicDex,
+              url: links.atomicDex,
               logo: 'atomicDexSmall',
             },
             {
-              name: 'DEX Trade',
+              title: 'DEX Trade',
               desc: 'Centralized exchange',
-              link: links.dexTrade,
+              url: links.dexTrade,
               logo: 'dexTradeSmall',
             },
           ],
@@ -44,8 +44,8 @@ const bigMenuLinks = [
           title: 'Explorer',
           subitems: [
             {
-              name: 'Tokel Explorer',
-              link: links.explorer,
+              title: 'Tokel Explorer',
+              url: links.explorer,
               desc: 'Explore tokens, nfts and transaction on Tokel chain',
               logo: 'tokel',
             },
@@ -57,24 +57,24 @@ const bigMenuLinks = [
           title: 'Guides',
           links: [
             {
-              link: links.documentationCreateTokenNFT,
-              name: 'Create NFT/tokens',
+              url: links.documentationCreateTokenNFT,
+              title: 'Create NFT/tokens',
             },
             {
-              link: links.aDexBuyTKLVideo,
-              name: 'Buy TKL on AtomicDEX',
+              url: links.aDexBuyTKLVideo,
+              title: 'Buy TKL on AtomicDEX',
             },
             {
-              link: '/how-to',
-              name: 'How to use Tokel Blockchain',
+              url: '/how-to',
+              title: 'How to use Tokel Blockchain',
             },
           ],
         },
       ],
     },
     { 
-        link: '#', 
-        name: 'Developers',
+        url: '#', 
+        title: 'Developers',
         type: 'header',
         submenu: [
             {
@@ -86,16 +86,16 @@ const bigMenuLinks = [
                     title: 'Tokel Blockchain',
                     links: [
                         {
-                            name: 'Launch the Tokel Chain',
-                            link: 'https://docs.tokel.io/guides/LaunchTheChain/#introduction'
+                            title: 'Launch the Tokel Chain',
+                            url: 'https://docs.tokel.io/guides/LaunchTheChain/#introduction'
                         },
                         {
-                            name: 'Launch the TKLTEST Chain',
-                            link: 'https://docs.tokel.io/guides/LaunchTKLTESTchain/'
+                            title: 'Launch the TKLTEST Chain',
+                            url: 'https://docs.tokel.io/guides/LaunchTKLTESTchain/'
                         },
                         {
-                            name: 'Create Tokel or NFT',
-                            link: 'https://docs.tokel.io/guides/CreateAToken/#suggested-reading'
+                            title: 'Create Tokel or NFT',
+                            url: 'https://docs.tokel.io/guides/CreateAToken/#suggested-reading'
                         }
                     ]
                 },
@@ -103,12 +103,12 @@ const bigMenuLinks = [
                     title: 'Next-gen SPV',
                     links: [
                         {
-                            name: 'nSPV-js',
-                            link: links.github_nspv
+                            title: 'nSPV-js',
+                            url: links.github_nspv
                         },
                         {
-                            name: 'nSPV-js API',
-                            link: links.nspvApi
+                            title: 'nSPV-js API',
+                            url: links.nspvApi
                         }
                     ]
                 }
@@ -120,21 +120,21 @@ const bigMenuLinks = [
               desc: 'Learn about Tokel Technology',
               links: [
                 {
-                  link: nSPVLinks[2].url,
-                  name: 'nSPV - The Next Generation of Simple Payment Verification.',
+                  url: nSPVLinks[2].url,
+                  title: 'nSPV - The Next Generation of Simple Payment Verification.',
                 },
                 {
-                  link: nSPVLinks[3].url,
-                  name: 'nSPV means a truly decentralized and secure communication.',
+                  url: nSPVLinks[3].url,
+                  title: 'nSPV means a truly decentralized and secure communication.',
                 },
               ],
             },
           ]},
-    { link: '/blog', name: 'Tokel News' },
-    { link: '/tokeltalk', name: 'Tokel Talk' },
+    { url: '/blog', title: 'Tokel News' },
+    { url: '/tokeltalk', title: 'Tokel Talk' },
     { 
-      link: '#', 
-      name: 'About',
+      url: '#', 
+      title: 'About',
       type: 'simple',
       submenu: {
         // title: 'About Tokel',
@@ -152,7 +152,7 @@ const bigMenuLinks = [
         }] 
       }
     },
-    { link: '/faq', name: 'FAQ' },
+    { url: '/faq', title: 'FAQ' },
   ];
 
   export default bigMenuLinks;

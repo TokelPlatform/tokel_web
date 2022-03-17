@@ -17,7 +17,8 @@ const defaultProps = {
 
 const FullNavigationSideMenuRoot = styled.div`
   background-color: hsla(233, 49%, 55%, 0.1);
-  width: 188px;
+  /* width: 188px; */
+  width: inherit;
   padding: 2rem 3rem 0rem 2rem;
 
   p {
@@ -47,10 +48,10 @@ const FullNavigationSideMenu = ({ menuLinks }: NavigationSideProps) => {
           {link.desc && <p>{link.desc}</p>}
           <div className="links">
             {link.links.map(item => (
-              <div key={item.name}>
+              <div key={item.title}>
                 <FlexCol>
-                  <a href={item.link}>
-                    <h5 style={{ fontWeight: '400', paddingBottom: '1rem' }}>{item.name}</h5>
+                  <a href={item.url}>
+                    <h5 style={{ fontWeight: '400', paddingBottom: '1rem' }}>{item.title}</h5>
                   </a>
                 </FlexCol>
               </div>

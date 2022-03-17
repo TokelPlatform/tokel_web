@@ -32,10 +32,17 @@ const TextBoxRoot = styled.div<TextBoxRootProps>`
   padding: 1.5rem;
   max-width: 270px;
   border-radius: 10px;
+  position: relative;
+  z-index: 3;
+  background-color: var(--color-darkestBlue);
   border: ${p => (!p.border ? 'none' : '1px solid')};
   border-image-slice: 1;
   border-image-source: var(--gradient-purple-to-lighblue);
   z-index: 1;
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
   p {
     opacity: 0.8;
   }

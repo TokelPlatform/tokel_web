@@ -32,12 +32,12 @@ const ListingMenu = ({ menuLinks }: NavigationSideProps) => {
         <div key={link.title}>
           <h4>{link.title}</h4>
           {link.subitems.map(item => (
-            <div key={item.name}>
+            <div key={item.title}>
               <HoverMenuRow>
                 <img src={icons[item.logo]}></img>
                 <FlexCol>
-                  <a href={item.link}>
-                    <h5>{item.name}</h5>
+                  <a href={item.url}>
+                    <h5>{item.title}</h5>
                   </a>
                   <p>{item.desc}</p>
                 </FlexCol>

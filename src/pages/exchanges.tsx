@@ -6,10 +6,10 @@ import React from 'react';
 import links from '../data/links';
 import styled from '@emotion/styled';
 import PageMeta from 'components/Molecules/PageMeta';
-import { FlexCol, FlexColCenter, FlexRowCenter, VSpacerBig } from 'styles/common';
+import { FlexColCenter, FlexRowCenter, VSpacerBig } from 'styles/common';
 import icons from 'data/icons';
 import breakpoints from 'styles/breakpoints';
-import BannerSubscribe from 'components/Molecules/banners/BannerSubscribe';
+// import BannerSubscribe from 'components/Molecules/banners/BannerSubscribe';
 
 const ExchangesRoot = styled(PageRoot)`
   h3 {
@@ -18,9 +18,24 @@ const ExchangesRoot = styled(PageRoot)`
 `;
 
 const Items = styled(FlexRowCenter)`
+  margin-top: 2rem;
   gap: 4rem;
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
+  }
+`;
+
+const Border = styled(FlexColCenter)`
+  border: 1px solid white;
+  background-color: var(--color-darkestBlue);
+  z-index: 3;
+  position: relative;
+  padding: 2rem;
+  border-image-slice: 1;
+  border-image-source: var(--gradient-purple-to-lighblue);
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 
@@ -36,21 +51,21 @@ export default function Exchanges() {
         <FlexColCenter>
           <h3>Exchanges</h3>
           <Items>
-            <FlexCol>
+            <Border>
               <a href={links.atomicDex}>
                 <img alt="atomicDex" src={icons.atomicDex}></img>
               </a>
-              <a href={links.aDEXStepByStep}>Tutorial: Basic step-by-step AtomicDEX</a>
-              <a href={links.aDexBuyTKLVideo}>Video: How to Buy TKL on AtomicDEX</a>
-            </FlexCol>
+              <a href={links.aDEXStepByStep}>Step-by-step AtomicDEX</a>
+              <a href={links.aDexBuyTKLVideo}>How to Buy TKL on AtomicDEX</a>
+            </Border>
 
-            <FlexCol>
+            <Border>
               <a href={links.dexTrade}>
                 <img alt="dexTrade" src={icons.dexTrade}></img>
               </a>
-              <a href={links.dexTradeTutorials.signup}>Video: Sign up on Dex Trade</a>
-              <a href={links.dexTradeTutorials.deposit}>Video: How to make a deposit</a>
-            </FlexCol>
+              <a href={links.dexTradeTutorials.signup}>Sign up on Dex Trade</a>
+              <a href={links.dexTradeTutorials.deposit}>How to make a deposit</a>
+            </Border>
           </Items>
         </FlexColCenter>
         <VSpacerBig />
@@ -61,7 +76,7 @@ export default function Exchanges() {
             <img alt="swapBTCTKL" src={icons.swapBTC}></img>
           </FlexRowCenter>
         </FlexColCenter>
-        <BannerSubscribe />
+        {/* <BannerSubscribe /> */}
       </ExchangesRoot>
     </div>
   );

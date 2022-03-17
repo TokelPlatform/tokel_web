@@ -64,10 +64,10 @@ const HeaderMenu = ({ menuLinks }: NavigationSideProps) => {
                 <h5>{item.title}</h5>
 
                 {item.links.map(item => (
-                  <HoverMenuRow key={item.name}>
+                  <HoverMenuRow key={item.title}>
                     <FlexCol>
-                      <a href={item.link}>
-                        <p style={{ marginBottom: '4px' }}>{item.name}</p>
+                      <a href={item.url}>
+                        <p style={{ marginBottom: '4px' }}>{item.title}</p>
                       </a>
                     </FlexCol>
                   </HoverMenuRow>
@@ -83,13 +83,3 @@ const HeaderMenu = ({ menuLinks }: NavigationSideProps) => {
 
 HeaderMenu.defaultProps = defaultProps;
 export default HeaderMenu;
-
-// <HoverMenuRow>
-//                 <img src={icons[item.logo]}></img>
-//                 <FlexCol>
-//                   <a href={item.link}>
-//                     <h5>{item.name}</h5>
-//                   </a>
-//                   <p>{item.desc}</p>
-//                 </FlexCol>
-//               </HoverMenuRow>

@@ -15,6 +15,9 @@ const BannerSubscribeRoot = styled.div`
   border-image-source: var(--gradient-purple-to-lighblue);
   padding: 1rem 2rem;
   margin-top: 6rem;
+  background-color: var(--color-darkestBlue);
+  z-index: 3;
+  position: relative;
 
   h4 {
     font-weight: 700;

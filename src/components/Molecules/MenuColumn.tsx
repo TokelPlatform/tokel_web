@@ -28,7 +28,7 @@ const MenuColumnRoot = styled(FlexColCenter)`
 type SectionListProps = {
   menuItems: [
     {
-      name: string;
+      title: string;
       url: string;
     }
   ];
@@ -40,10 +40,10 @@ const MenuColumn = ({ title, menuItems }: SectionListProps): ReactElement => (
     <h5>{title}</h5>
     <FlexCol>
       {menuItems.map((menuItem, idx) => {
-        if (!menuItem.url) return <p key={idx + 100}>{menuItem.name}</p>;
+        if (!menuItem.url) return <p key={idx + 100}>{menuItem.title}</p>;
         return (
           <a key={idx} href={menuItem.url}>
-            {menuItem.name}
+            {menuItem.title}
           </a>
         );
       })}

@@ -1,10 +1,11 @@
 import DropDownMenuRoot from 'components/Atoms/navigation/DropDownMenuRoot';
 import Tail from 'components/Atoms/navigation/Tail';
 import React from 'react';
-import HeaderMenu from './HeaderMenu';
-import ListingMenu from './ListingMenu';
-import FullNavigationSideMenu from './SideMenu';
-import SimpleDropDown from './SimpleDropDown';
+import { FlexRow } from 'styles/common';
+import HeaderMenu from './types/HeaderMenu';
+import ListingMenu from './types/ListingMenu';
+import FullNavigationSideMenu from './types/SideMenu';
+import SimpleDropDown from './types/SimpleDropdown';
 
 type DropDownMenuProps = {
   data: any;
@@ -29,8 +30,10 @@ const DropDownMenu = ({ data, open }: DropDownMenuProps) => {
   return (
     <DropDownMenuRoot open={open} wide={data.type !== 'simple'}>
       <Tail />
-      {menu}
-      {menu && data.type !== 'simple' && <FullNavigationSideMenu menuLinks={data.submenuSide} />}
+      <FlexRow>
+        {menu}
+        {menu && data.type !== 'simple' && <FullNavigationSideMenu menuLinks={data.submenuSide} />}
+      </FlexRow>
     </DropDownMenuRoot>
   );
 };

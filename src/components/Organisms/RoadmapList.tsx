@@ -5,7 +5,7 @@ import breakpoints from '../../styles/breakpoints';
 import phases from '../../data/phaseData';
 import planetsBottom from '../../images/planets-bottom.svg';
 import styled from '@emotion/styled';
-import BannerSubscribe from 'components/Molecules/banners/BannerSubscribe';
+// import BannerSubscribe from 'components/Molecules/banners/BannerSubscribe';
 
 const BottomPlanets = styled.img`
   height: 1750px;
@@ -47,7 +47,7 @@ const RoadmapList = () => {
       <FuturePlans />
       <h2 style={{ marginBottom: 0 }}>Completed phases</h2>
       {past && past.map((data, idx) => <Phase key={idx} idx={idx} data={data} />)}
-      <BannerSubscribe />
+      {/* <BannerSubscribe /> */}
     </RoadmapListRoot>
   );
 };

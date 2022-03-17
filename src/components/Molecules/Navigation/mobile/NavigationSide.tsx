@@ -5,21 +5,21 @@ import { StyledSideMenu } from 'components/Atoms/navigation/mobile/StyledSideMen
 type NavigationSideProps = {
   open: boolean;
   setOpen: Function;
-  menuLinks: Array<MenuLink>;
+  data: Array<MenuLink>;
 };
 
 const defaultProps = {
   open: false,
   setOpen: o => !o,
-  menuLinks: [],
+  data: [],
 };
 
-const NavigationSide = ({ open, setOpen, menuLinks }: NavigationSideProps) => {
+const NavigationSide = ({ open, setOpen, data }: NavigationSideProps) => {
   return (
     <StyledSideMenu open={open}>
-      {menuLinks.map(link => (
-        <a href={link.link} key={link.name} onClick={() => setOpen(false)}>
-          {link.name}
+      {data.map(link => (
+        <a href={link.url} key={link.title} onClick={() => setOpen(false)}>
+          {link.title}
         </a>
       ))}
     </StyledSideMenu>
