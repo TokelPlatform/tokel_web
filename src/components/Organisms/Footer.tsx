@@ -31,6 +31,7 @@ const BottomMenuLinks = styled(FlexRow)`
 `;
 
 const StyledFooter = styled.div`
+  padding-top: 5rem;
   background-color: #000;
   p,
   a {
