@@ -5,19 +5,19 @@ const menuLinks = [
       title: 'Get Started',
       links: [
         {
-          name: 'Exchanges',
+          title: 'Exchanges',
           url: '/exchanges',
         },
         {
-          name: 'Roadmap',
+          title: 'Roadmap',
           url: '/roadmap',
         },
         {
-          name: 'Whitepaper',
+          title: 'Whitepaper',
           url: links.whitepaper,
         },        
         {
-          name: 'Explorer',
+          title: 'Explorer',
           url: links.explorer,
         },
       ],
@@ -26,19 +26,19 @@ const menuLinks = [
       title: 'Developers',
       links: [
         {
-          name: 'How-to Guides',
+          title: 'How-to Guides',
           url: links.documentationChain,
         },
         {
-          name: 'nSPV',
+          title: 'nSPV',
           url: links.github_nspv,
         },
         {
-          name: 'nSPV API',
+          title: 'nSPV API',
           url: links.nspvApi,
         },
         {
-          name: 'Tokel Blockchain',
+          title: 'Tokel Blockchain',
           url: links.github_chain,
         },
       ],
@@ -47,11 +47,11 @@ const menuLinks = [
       title: 'Individuals',
       links: [
         {
-          name: 'How-to Guides',
+          title: 'How-to Guides',
           url: links.documentationCreateTokenNFT,
         },
         {
-          name: 'Coming soon...',
+          title: 'Coming soon...',
           url: null,
         },
       ],
@@ -60,7 +60,7 @@ const menuLinks = [
       title: 'Businesses',
       links: [
         {
-          name: 'Coming soon.....',
+          title: 'Coming soon.....',
           url: null,
         },
       ],
@@ -69,11 +69,11 @@ const menuLinks = [
       title: 'Media',
       links: [
         {
-          name: 'Tokel Talk',
+          title: 'Tokel Talk',
           url: '/tokeltalk',
         },
         {
-          name: 'Tokel News',
+          title: 'Tokel News',
           url: '/blog',
         },
         // {
@@ -90,15 +90,15 @@ const menuLinks = [
         //   url: '#',
         // },
         {
-          name: 'Become Partner',
+          title: 'Become Partner',
           url: 'mailto:contact@tokel.io',
         },
         {
-          name: 'Join Discord',
+          title: 'Join Discord',
           url: links.discord,
         },
         {
-          name: 'contact@tokel.io',
+          title: 'contact@tokel.io',
           url: 'mailto:contact@tokel.io',
         },
       ],
