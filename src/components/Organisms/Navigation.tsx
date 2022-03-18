@@ -9,6 +9,7 @@ import MenuLink from 'components/Atoms/navigation/MenuLink';
 import DropDownMenu from 'components/Molecules/Navigation/DropdownMenu';
 import { StyledSideMenu } from 'components/Atoms/navigation/mobile/StyledSideMenu';
 import DropDownMobileMenu from 'components/Molecules/Navigation/mobile/DropdownMobileMenu';
+import { VSpacerMedium } from 'styles/common';
 // import { FlexColCenter } from 'styles/common';
 const changeNavigationStyleAt = breakpoints.smallScreen;
 
@@ -47,7 +48,7 @@ const ListItem = styled.li`
 `;
 
 const SideListItem = styled.li`
-  /* margin-right: 2rem; */
+  text-transform: uppercase;
   position: relative;
   list-style-type: none;
   padding: 2rem;
@@ -57,8 +58,6 @@ const SideListItem = styled.li`
   }
   width: 100%;
   text-align: center;
-  &:active {
-  }
 `;
 
 let menuNames = {};
@@ -94,8 +93,11 @@ const Navigation = () => {
         <Burger open={open} setOpen={setOpen} />
         <StyledSideMenu open={open}>
           {bigMenuLinks.map(item => (
-            <SideListItem key={item.title} onClick={() => openSubmenu(item.title)}>
-              <MenuLink href={item.url}>{item.title}</MenuLink>
+            <SideListItem key={item.title} id={item.title} onClick={() => openSubmenu(item.title)}>
+              <MenuLink href={item.url} id={item.title}>
+                {item.title}
+              </MenuLink>
+              <VSpacerMedium />
               {item.submenu && <DropDownMobileMenu data={item} open={openSubMenu[item.title]} />}
             </SideListItem>
           ))}

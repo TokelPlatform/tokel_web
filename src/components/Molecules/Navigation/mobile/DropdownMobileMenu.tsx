@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import icons from 'data/icons';
 import React from 'react';
-import { FlexColCenter, FlexRow } from 'styles/common';
+import { FlexColCenter, FlexRow, HSpacerMedium } from 'styles/common';
 
 type DropDownMenuProps = {
   data: any;
@@ -38,7 +38,7 @@ const HeaderSection = styled.h5`
 `;
 
 const MenuItemRow = styled(FlexRow)`
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   padding: 2rem;
@@ -73,12 +73,14 @@ const DropDownMobileMenu = ({ data, open }: DropDownMenuProps) => {
               }}
             >
               <MenuItemRow>
+                <HSpacerMedium />
                 {item.logo && <img width="40" src={icons[item.logo]}></img>}
                 <a href={item.url}>{item.title}</a>
               </MenuItemRow>
               {item.links &&
                 item.links.map(subitem => (
                   <SubSubSection key={subitem.title}>
+                    <HSpacerMedium />
                     <a style={{ fontSize: '18px' }} href={subitem.url}>
                       {subitem.title}
                     </a>

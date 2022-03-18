@@ -2,7 +2,7 @@ import links from "data/links";
 import nSPVLinks from "data/nSpvLinks";
 const bigMenuLinks = [
     {
-      url: '#',
+      url: '#Get Started',
       title: 'Get Started',
       type: 'listing',
       submenu: [
@@ -73,7 +73,7 @@ const bigMenuLinks = [
       ],
     },
     { 
-        url: '#', 
+        url: '#Developers', 
         title: 'Developers',
         type: 'header',
         submenu: [
