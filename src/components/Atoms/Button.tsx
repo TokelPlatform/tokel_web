@@ -134,7 +134,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  z-index: 1;
+  z-index: 3;
   position: relative;
   p {
     font-size: 22px;
