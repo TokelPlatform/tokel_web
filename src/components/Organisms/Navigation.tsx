@@ -46,17 +46,16 @@ const ListItem = styled.li`
   position: relative;
 `;
 
-const SideListItem = styled.li`
+const SideListItem = styled.div`
   text-transform: uppercase;
   position: relative;
   list-style-type: none;
-  padding: 2rem;
   transition: all 0.3s ease;
-  @media (max-width: ${breakpoints.mobilebig}) {
-    padding: 3rem 0rem;
-  }
   width: 100%;
   text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 let menuNames = {};
@@ -98,12 +97,13 @@ const Navigation = () => {
             {bigMenuLinks.map(item => (
               <SideListItem
                 key={item.title}
-                // id={item.title}
-                onClick={() => openSubmenu(item.title)}
+                id={item.title}
+                onClick={() => {
+                  // eslint-disable-next-line no-undef
+                  item.submenu ? openSubmenu(item.title) : (window.location.href = item.url);
+                }}
               >
-                <MenuLink href={item.url} id={item.title}>
-                  {item.title}
-                </MenuLink>
+                <h3>{item.title}</h3>
                 <VSpacerMedium />
                 {item.submenu && <DropDownMobileMenu data={item} open={openSubMenu[item.title]} />}
               </SideListItem>

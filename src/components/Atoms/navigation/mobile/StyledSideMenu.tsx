@@ -11,9 +11,7 @@ export const StyledSideMenu = styled.nav<StyledSideMenuProps>`
   justify-content: center;
   align-items: center;
   background: var(--color-almostWhite);
-  /* height: 100vh; */
   text-align: left;
-  /* padding: 0.5rem; */
   padding-top: 4rem;
   position: absolute;
   top: 0;
@@ -26,7 +24,8 @@ export const StyledSideMenu = styled.nav<StyledSideMenuProps>`
     width: 100%;
   }
 
-  a {
+  a,
+  h3 {
     color: var(--color-darkPurple);
     text-decoration: none;
     transition: color 0.3s linear;
@@ -36,9 +35,8 @@ export const StyledSideMenu = styled.nav<StyledSideMenuProps>`
       font-size: 1.5rem;
       text-align: center;
     }
-
-    /* &:hover {
-      background-color: var(--color-lightBlue);
-    } */
+  }
+  a {
+    font-size: 1.25rem;
   }
 `;
