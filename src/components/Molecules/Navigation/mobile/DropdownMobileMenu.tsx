@@ -61,8 +61,8 @@ const DropDownMobileMenu = ({ data, open }: DropDownMenuProps) => {
   // const menu = getMenu(data);
   return (
     <DropDownMobileMenuRoot open={open}>
-      {data.submenu.map(submenuItem => (
-        <Section key={submenuItem.title}>
+      {data.submenu.map((submenuItem, idx) => (
+        <Section key={idx}>
           {submenuItem.title && <HeaderSection>{submenuItem.title}</HeaderSection>}
           {submenuItem.subitems.map(item => (
             <FlexColCenter

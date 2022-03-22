@@ -133,7 +133,7 @@ const bigMenuLinks = [
     { url: '/blog', title: 'Tokel News' },
     { url: '/tokeltalk', title: 'Tokel Talk' },
     { 
-      url: '#', 
+      url: '#About', 
       title: 'About',
       type: 'simple',
       submenu: [

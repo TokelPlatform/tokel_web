@@ -98,7 +98,7 @@ const Navigation = () => {
             {bigMenuLinks.map(item => (
               <SideListItem
                 key={item.title}
-                id={item.title}
+                // id={item.title}
                 onClick={() => openSubmenu(item.title)}
               >
                 <MenuLink href={item.url} id={item.title}>
