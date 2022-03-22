@@ -4,7 +4,6 @@ import { FlexCol, FlexRow } from 'styles/common';
 import styled from '@emotion/styled';
 import icons from 'data/icons';
 import DropDownMenuItemsSide from 'components/Atoms/navigation/DropDownMenuItemsSide';
-// import icons from 'data/icons';
 
 type NavigationSideProps = {
   open: boolean;

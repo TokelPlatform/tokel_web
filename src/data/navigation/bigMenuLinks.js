@@ -15,12 +15,12 @@ const bigMenuLinks = [
               url: '/#ecosystem',
               logo: 'tokel',
             },
-            {
-              title: 'Local wallet',
-              desc: 'Sync the chain locally and you can run your own wallet.',
-              url: '#',
-              logo: 'cli',
-            },
+            // {
+            //   title: 'Local wallet',
+            //   desc: 'Sync the chain locally and you can run your own wallet.',
+            //   url: '#',
+            //   logo: 'cli',
+            // },
           ],
         },
         {

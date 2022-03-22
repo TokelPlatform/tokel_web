@@ -3,14 +3,13 @@ import breakpoints from 'styles/breakpoints';
 import styled from '@emotion/styled';
 
 import Burger from 'components/Molecules/Navigation/mobile/Burger';
-// import NavigationSide from 'components/Molecules/Navigation/mobile/NavigationSide';
 import bigMenuLinks from 'data/navigation/bigMenuLinks';
 import MenuLink from 'components/Atoms/navigation/MenuLink';
 import DropDownMenu from 'components/Molecules/Navigation/DropdownMenu';
 import { StyledSideMenu } from 'components/Atoms/navigation/mobile/StyledSideMenu';
 import DropDownMobileMenu from 'components/Molecules/Navigation/mobile/DropdownMobileMenu';
 import { VSpacerMedium } from 'styles/common';
-// import { FlexColCenter } from 'styles/common';
+import OutsideAlerter from 'helpers/OutsideAlerter';
 const changeNavigationStyleAt = breakpoints.smallScreen;
 
 const NavigationHorizontal = styled.ul`
@@ -66,9 +65,7 @@ bigMenuLinks.forEach(link => (menuNames[link.title] = false));
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   const node = useRef();
-
   const [openSubMenu, setOpenSubMenu] = useState(menuNames);
-  console.log(openSubMenu);
 
   const openSubmenu = name => {
     const newMenuState = {
@@ -78,31 +75,42 @@ const Navigation = () => {
     setOpenSubMenu(newMenuState);
   };
 
+  const closeMenuAction = () => {
+    setOpen(false);
+    setOpenSubMenu({ ...menuNames });
+  };
+
   return (
     <div>
-      <NavigationHorizontal>
-        {bigMenuLinks.map(item => (
-          <ListItem key={item.title} onClick={() => openSubmenu(item.title)}>
-            <MenuLink href={item.url}>{item.title}</MenuLink>
-            {item.submenu && <DropDownMenu data={item} open={openSubMenu[item.title]} />}
-          </ListItem>
-        ))}
-      </NavigationHorizontal>
-
-      <NavigationVertical ref={node}>
-        <Burger open={open} setOpen={setOpen} />
-        <StyledSideMenu open={open}>
+      <OutsideAlerter detectClickOutside={closeMenuAction}>
+        <NavigationHorizontal>
           {bigMenuLinks.map(item => (
-            <SideListItem key={item.title} id={item.title} onClick={() => openSubmenu(item.title)}>
-              <MenuLink href={item.url} id={item.title}>
-                {item.title}
-              </MenuLink>
-              <VSpacerMedium />
-              {item.submenu && <DropDownMobileMenu data={item} open={openSubMenu[item.title]} />}
-            </SideListItem>
+            <ListItem key={item.title} onClick={() => openSubmenu(item.title)}>
+              <MenuLink href={item.url}>{item.title}</MenuLink>
+              {item.submenu && <DropDownMenu data={item} open={openSubMenu[item.title]} />}
+            </ListItem>
           ))}
-        </StyledSideMenu>
-      </NavigationVertical>
+        </NavigationHorizontal>
+
+        <NavigationVertical ref={node}>
+          <Burger open={open} setOpen={setOpen} />
+          <StyledSideMenu open={open}>
+            {bigMenuLinks.map(item => (
+              <SideListItem
+                key={item.title}
+                id={item.title}
+                onClick={() => openSubmenu(item.title)}
+              >
+                <MenuLink href={item.url} id={item.title}>
+                  {item.title}
+                </MenuLink>
+                <VSpacerMedium />
+                {item.submenu && <DropDownMobileMenu data={item} open={openSubMenu[item.title]} />}
+              </SideListItem>
+            ))}
+          </StyledSideMenu>
+        </NavigationVertical>
+      </OutsideAlerter>
     </div>
   );
 };
