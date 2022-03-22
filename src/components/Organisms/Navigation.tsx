@@ -95,18 +95,23 @@ const Navigation = () => {
           <Burger open={open} setOpen={setOpen} />
           <StyledSideMenu open={open}>
             {bigMenuLinks.map(item => (
-              <SideListItem
-                key={item.title}
-                id={item.title}
-                onClick={() => {
-                  // eslint-disable-next-line no-undef
-                  item.submenu ? openSubmenu(item.title) : (window.location.href = item.url);
-                }}
-              >
-                <h3>{item.title}</h3>
-                <VSpacerMedium />
-                {item.submenu && <DropDownMobileMenu data={item} open={openSubMenu[item.title]} />}
-              </SideListItem>
+              <div key={item.title} style={{ width: '100%' }}>
+                <SideListItem
+                  id={item.title}
+                  onClick={() => {
+                    // eslint-disable-next-line no-undef
+                    item.submenu ? openSubmenu(item.title) : (window.location.href = item.url);
+                  }}
+                >
+                  <h3>{item.title}</h3>
+                </SideListItem>
+                <div>
+                  <VSpacerMedium />
+                  {item.submenu && (
+                    <DropDownMobileMenu data={item} open={openSubMenu[item.title]} />
+                  )}
+                </div>
+              </div>
             ))}
           </StyledSideMenu>
         </NavigationVertical>
