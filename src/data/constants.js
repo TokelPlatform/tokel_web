@@ -3,3 +3,10 @@ export const tabs = {
     NFT: 'nft',
     TOKENS: 'tokens'
 }
+
+export const curves = {
+    EaseIn: 'ease-in',
+    EaseOut: 'ease-out',
+    EaseInOut: 'ease-in-out',
+    Ease: 'ease',
+  };

@@ -1,118 +1,76 @@
-import FooterBlock from "../Molecules/FooterBlock"
-import React from "react"
-import breakpoints from "../../styles/breakpoints"
-import footerData from "../../data/footer"
-import logoTextDark from "../../images/logo-text-dark.svg"
-import styled from "@emotion/styled"
+import IconBlock from '../Molecules/IconBlock';
+import React from 'react';
+import breakpoints from 'styles/breakpoints';
+import footerData from '../../data/footer';
+import styled from '@emotion/styled';
+import { FlexRow, FlexColCenter } from 'styles/common';
+import MenuColumn from 'components/Molecules/MenuColumn';
+import menuLinks from 'data/footerMenuLinks';
 
-const defaultProps = {
-}
+const FooterIcons = styled(FlexRow)`
+  flex-wrap: wrap;
+  @media (max-width: ${breakpoints.smallScreen}) {
+    justify-content: center;
+  }
+`;
 
-const Container = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3rem 4rem 0 4rem;
-    padding-bottom: 2rem;
+const BottomMenuLinksWrapper = styled(FlexColCenter)`
+  background-color: var(--color-almostWhite);
+  width: 100%;
+`;
 
-    @media (max-width: ${breakpoints.smallScreen}) {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-    @media (max-width: ${breakpoints.mobilebig}) {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }    
-`
-const FooterMainBlock = styled.div`
-    margin-right: 6rem;        
-    @media (max-width: ${breakpoints.smallScreen}) {
-       margin-bottom: 1rem;
-    }
-    @media (max-width: ${breakpoints.mobilebig}) {
-        margin: 0 0 1rem 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }       
-`
-
-const FooterSecondaryBlock = styled.div`
-    display: flex;
-    flex-direction: row;
-    @media (max-width: ${breakpoints.smallScreen}) {
-        justify-content: space-between;
-        width: 100%;
-    }
-    @media (max-width: ${breakpoints.mobilebig}) {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-`
+const BottomMenuLinks = styled(FlexRow)`
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  max-width: 1300px;
+  width: 100%;
+  @media (orientation: portrait) {
+    justify-content: flex-start;
+  }
+`;
 
 const StyledFooter = styled.div`
-    p, a {
-        color: var(--color-darkestBlue-50opacity);
-    }
-` 
+  padding-top: 5rem;
+  background-color: #000;
+  p,
+  a {
+    color: var(--color-almostWhite);
+  }
+`;
+
 const Footnote = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-top: 1px solid var(--color-darkestBlue-10opacity);
-    padding: 0 4rem;
-    p, a {
-        font-size: 0.75rem;
-    }
-
-    div {
-        margin-top: 1rem;
-
-        a {
-            margin-left: 1rem;
-        }
-    }
-    @media (max-width: ${breakpoints.mobilebig}) {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-`
+  text-align: center;
+  margin-top: 2rem;
+  p {
+    font-size: 0.75rem;
+    color: #000;
+  }
+`;
 
 const Footer = () => (
-    <StyledFooter>
-        <Container>
-            <FooterMainBlock>
-                <img width="120px" src={logoTextDark} />
-                <p>Komodo ecosystem’s Token Platform. </p>
-            </FooterMainBlock>
-            <FooterSecondaryBlock>
-            {footerData.map((col, idx) => (
-                <FooterBlock
-                    title={col.title}
-                    icons={col.icons}
-                    desc={col.desc}
-                    key={idx}
-                    idx={idx}
-                />
-            ))}
-            </FooterSecondaryBlock>
-        </Container>
+  <StyledFooter>
+    <FlexColCenter>
+      <FooterIcons>
+        {footerData.map((col, idx) => (
+          <IconBlock title={col.title} iconsList={col.icons} desc={col.desc} key={idx} idx={idx} />
+        ))}
+      </FooterIcons>
+      <BottomMenuLinksWrapper>
+        <BottomMenuLinks>
+          {menuLinks.map((link, idx) => (
+            <MenuColumn key={idx} title={link.title} menuItems={link.links} />
+          ))}
+        </BottomMenuLinks>
         <Footnote>
-            <p>Tokel 2021. Created with love and passion for blockchain and all things decentralized by <a href="mailto:hello@daria.engineer">Daria</a></p>
-            {/* <div>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>                
-            </div> */}
+          <p>
+            Tokel {new Date().getFullYear()}. Created with 💙 for blockchain and all things
+            decentralized by Tokel Team
+          </p>
         </Footnote>
-    </StyledFooter>
-)
+      </BottomMenuLinksWrapper>
+    </FlexColCenter>
+  </StyledFooter>
+);
 
-Footer.defaultProps = defaultProps
-export default Footer
+export default Footer;
