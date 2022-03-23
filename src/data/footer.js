@@ -1,17 +1,22 @@
 export default [
     {
-        title: 'Connect',
-        icons: ['discord_dark'],
-        desc: 'Reach out to us on Discord. Follow us for project updates.'
+        title: 'Follow Us',
+        icons: ['twitter', 'facebook', 'flote', 'instagram'],
+        desc: 'Be among the first to hear about updates and new releases while helping the platform grow.'
     },
     {
-        title: 'Collaborate',
-        icons: ['github_dark'],
-        desc: 'We strongly believe in open source and transparency.'
+        title: 'Get Involved ',
+        icons: ['github', 'discord', 'telegram'],
+        desc: 'Actively participate in the community, get to know the team and be rewarded!'
     },
     {
-        title: 'Contribute',
-        icons: ['donate'],
-        desc: 'Contributions are welcome. Reach out for details.'
+        title: 'Learn More',
+        icons: ['youtube', 'reddit' , 'medium'],
+        desc: 'Useful articles, videos and discussions.'
+    },
+    {
+        title: 'Tune in to Tokel Talk',
+        icons: ['deezer', 'applePodcasts', 'spotify', 'amazonMusic', 'googlePodcasts', 'stitcher'],
+        desc: 'We talk about the latest in NFTs, tokenization, blockchain and the future, every 2 weeks.'
     }
 ]

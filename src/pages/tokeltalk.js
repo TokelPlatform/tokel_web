@@ -4,16 +4,17 @@ import {Form, Formik} from 'formik';
 
 import FormRow from "../components/Atoms/FormRow";
 import FormRowBlock from "../components/Molecules/FormRowBlock";
-import { Helmet } from "react-helmet"
 import Img from "gatsby-image"
 import PodcastRoot from "./template"
 import PropTypes from 'prop-types'
 import axios from "axios";
 import breakpoints from "../styles/breakpoints"
 import { graphql } from "gatsby"
-import links from "../data/links"
+import links, { podcasts } from "../data/links"
 import podcastValidationSchema from '../helpers/podcastValidationSchema'
 import styled from "@emotion/styled"
+import { PageHeader } from "components/Atoms/Title";
+import PageMeta from "components/Molecules/PageMeta";
 
 const PlayerContainer = styled.div`
   width: 100%;
@@ -33,7 +34,6 @@ const HeaderWrapper = styled.div`
 `
 
 const Content = styled.div`
-  padding: 10rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,7 +51,7 @@ const Content = styled.div`
     color: #FFFFFF;
     font-size: 30px;
   }
-  h3 {
+  h5 {
     text-align: left;
     color: #7C91A7;
   }
@@ -101,8 +101,8 @@ const SubmitButton = styled.button`
   margin-top: 2rem;
   height: 3rem;
   min-width: 300px;
-  font-size: var(--font-size-h3);
-  background-color:  ${p => p.submitted ? 'var(--color-tellurian)' : 'var(--color-cornFlowerHard'});
+  font-size: var(--font-size-h4);
+  background-color:  ${p => p.submitted ? 'var(--color-tellurian)' : 'var(--color-cornFlowerHard)'};
   color: #FFFFFF;
   border: none;
   border-radius: 0.25rem;
@@ -115,6 +115,8 @@ const ReachOutToUs = styled.p`
   color: #FFFFFF;
   opacity: 0.8;
   margin-top: 2rem;
+  text-align: center;
+  margin-bottom: 5rem;
 `
 
 const hook = process.env.GATSBY_DISCORD_HOOK;
@@ -152,8 +154,8 @@ const pickFields = option => {
 }
 
 const getPodcastLinks = data => 
-  Object.keys(links.podcast).map(podcastPlatform => 
-     <a key={podcastPlatform} href={links.podcast[podcastPlatform]}><Img fixed={data[podcastPlatform].childImageSharp.fixed}></Img></a>
+    Object.keys(podcasts).map(podcastPlatform => 
+    <a key={podcastPlatform} href={links[podcastPlatform]}><Img alt={podcastPlatform} fixed={data[podcastPlatform].childImageSharp.fixed}></Img></a>
   )
 
 const TokelTalk = ({data})  => {
@@ -161,17 +163,16 @@ const TokelTalk = ({data})  => {
 
   return (
       <PodcastRoot>
-        <Helmet>
-            <meta charSet="utf-8" />
-            <title>Tokel Talk: NFT & Tokenization Podcast & Live Stream</title>
-            <meta name="description" content="Podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform, Tokel. Listen to the latest episodes." />
-        </Helmet>
+        <PageMeta
+          title="Tokel Talk: NFT & Tokenization Podcast & Live Stream"
+          description="Podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform, Tokel. Listen to the latest episodes."
+        />
         <Content>
           <HeaderWrapper>
             <div>
-              <h1>Tokel Talk</h1>
+              <PageHeader>Tokel Talk</PageHeader>
               <h2><a href="https://www.bcast.fm/blog/best-nft-podcasts">Voted in the Top 10 of best NFT podcasts</a></h2>           
-              <h3>Listened to in 49 countries. Downloaded in 142 cities. Streamed on 7 social networks.</h3>
+              <h5>Listened to in 49 countries. Downloaded in 142 cities. Streamed on 7 social networks.</h5>
               <Desc>Tokel Talk is the live stream and podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform Tokel. The Tokel platform provides end-to-end token solutions to creators, businesses and projects alike.</Desc>
             </div>
 
@@ -183,7 +184,7 @@ const TokelTalk = ({data})  => {
             {getPodcastLinks(data)}
           </ListenOn>
           <GuestSignUp>
-            <h2 id="#join-tokel-talk-as-a-guest">Join Tokel Talk as a Guest</h2>
+            <h2 id="join-tokel-talk-as-a-guest">Join Tokel Talk as a Guest</h2>
             <p>Would you like to be the guest on Tokel Talk Podcast? If yes, please fill in the  form below and we will get in touch with you as soon as we can.</p>
             <Formik
               initialValues={{ 
@@ -256,14 +257,14 @@ export const query = graphql`
         }
       }
     }
-    apple: file(relativePath: { eq: "podcast/listen-on-apple.png" }) {
+    applePodcasts: file(relativePath: { eq: "podcast/listen-on-apple.png" }) {
       childImageSharp {
         fixed(height: 58) {
           ...GatsbyImageSharpFixed
         }
       }
     } 
-    amazon: file(relativePath: { eq: "podcast/listen-on-amazon.png" }) {
+    amazonMusic: file(relativePath: { eq: "podcast/listen-on-amazon.png" }) {
       childImageSharp {
         fixed(height: 58) {
           ...GatsbyImageSharpFixed
@@ -277,7 +278,7 @@ export const query = graphql`
         }
       }
     } 
-    google: file(relativePath: { eq: "podcast/listen-on-google.png" }) {
+    googlePodcasts: file(relativePath: { eq: "podcast/listen-on-google.png" }) {
       childImageSharp {
         fixed(height: 58) {
           ...GatsbyImageSharpFixed
