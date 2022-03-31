@@ -205,12 +205,12 @@ const Ido = ()  => {
             <div>
                 <Title>TOKEL IDO</Title>
                 <InfoTable>
-                    <h2>SOLD</h2>
-                    <h1 className="yellow">2,695,306 TKL</h1>
-                    <h2>RAISED</h2>
-                    <h1 className="yellow">722,837 KMD</h1>
-                    <h2>EQUIVALENT</h2>
-                    <h1 className="yellow">$831,262</h1>
+                    <h3>SOLD</h3>
+                    <h2 className="yellow">2,695,306 TKL</h2>
+                    <h3>RAISED</h3>
+                    <h2 className="yellow">722,837 KMD</h2>
+                    <h3>EQUIVALENT</h3>
+                    <h2 className="yellow">$831,262</h2>
                     <p>KMD price on 15.09.2021 8pm UTC</p>
                 </InfoTable>
             </div>
@@ -252,7 +252,7 @@ const Ido = ()  => {
                 </Video>
             
              <Phases>
-                <div className="phase"><h3>PHASE 1: Price discovery</h3>
+                <div Tid="phases" className="phase"><h3>PHASE 1: Price discovery</h3>
 
                     <h4><a style={{color: '#FAB64B', marginLeft: '0'}} href={links.idoLiveStream}>Watch Finished Live Stream</a></h4>
                     <br></br>

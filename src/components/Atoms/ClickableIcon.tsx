@@ -1,29 +1,23 @@
-import React, { ReactElement } from "react"
-import styled from "@emotion/styled"
-import icons from "../../data/icons"
+import React, { ReactElement } from 'react';
+import styled from '@emotion/styled';
 
 type ClickableIconProps = {
-  link: string,
-  icon: string
-}
-
-const defaultProps = {
-  link: "https://link.com",
-  icon: icons.github,
-}
+  link: string;
+  icon: string;
+};
 
 const IconLink = styled.a`
-  transition: transform .5s ease;
+  padding-right: 1rem;
+  transition: transform 0.5s ease;
   &:hover {
     transform: scale(1.3);
   }
-`
+`;
 
 const ClickableIcon = ({ link, icon }: ClickableIconProps): ReactElement => (
   <IconLink target="_blank" href={link}>
-    <img src={icon}></img>
+    <img alt="clickableicon" src={icon}></img>
   </IconLink>
-)
+);
 
-ClickableIcon.defaultProps = defaultProps
-export default ClickableIcon
+export default ClickableIcon;

@@ -97,44 +97,44 @@ const HowTo = ({data})  => {
              Token DEX is currently only accessible directly on the blockchain via terminal.</Disclaimer>
             <Options>
                 <OptionWrapper>
-                    <h2>For all users: <br/>Tokel All-in-one Application</h2>
+                    <h4>For all users: <br/>Tokel All-in-one Application</h4>
                     <ImgWrapper>
-                      <Img fluid={data.app.childImageSharp.fluid}></Img>
+                      <Img alt="all-users-screen"  fluid={data.app.childImageSharp.fluid}></Img>
                     </ImgWrapper>
-                    <h3><a href={links.github_release_page}>Download latest release (Desktop)</a></h3>
+                    <h5><a href={links.github_release_page}>Download latest release (Desktop)</a></h5>
                 </OptionWrapper>
                 <OptionWrapper>
                     <div>
-                      <h2>For tech savvy or curious: <br/>Cli interface </h2>
+                      <h4>For tech savvy or curious: <br/>Cli interface </h4>
                       <ImgWrapper>
-                        <Img fluid={data.cli.childImageSharp.fluid}></Img>
+                        <Img alt="tech-savvy-screen"  fluid={data.cli.childImageSharp.fluid}></Img>
                       </ImgWrapper>
                     </div>
-                    <h3><a href={links.documentationChain + 'guides/LaunchTheChain/'}>Run Tokel blockchain</a></h3>
-                    <h3><a href={links.documentationCreateTokenNFT}>Create your tokens/NFTs</a></h3>
-                    <h3><a href={links.documentationChain + '/api/assets/#introduction/'}>Use the tokenDEX</a></h3>
+                    <h5><a href={links.documentationChain + 'guides/LaunchTheChain/'}>Run Tokel blockchain</a></h5>
+                    <h5><a href={links.documentationCreateTokenNFT}>Create your tokens/NFTs</a></h5>
+                    <h5><a href={links.documentationChain + '/api/assets/#introduction/'}>Use the tokenDEX</a></h5>
                 </OptionWrapper>
             </Options>
             <Options>
                 <OptionWrapper>
-                    <h2>For all users: <br/>Tokel Documenation</h2>
+                    <h4>For all users: <br/>Tokel Documenation</h4>
                     <ImgWrapper>
-                      <Img fluid={data.docs.childImageSharp.fluid}></Img>
+                      <Img alt="users-screen" fluid={data.docs.childImageSharp.fluid}></Img>
                     </ImgWrapper>
-                    <h3><a href={links.documentationChain + '#what-is-the-tokel-platform'}>What is the Tokel Platform?</a></h3>
-                    <h3><a href={links.documentationChain + '#tokel-blockchain-specifics'}>Tokel Blockchain Specifics</a></h3>
-                    <h3><a href={links.documentationChain + 'guides/FindYourPubkey/'}>Find your pubkey to receive tokens</a></h3>
+                    <h5><a href={links.documentationChain + '#what-is-the-tokel-platform'}>What is the Tokel Platform?</a></h5>
+                    <h5><a href={links.documentationChain + '#tokel-blockchain-specifics'}>Tokel Blockchain Specifics</a></h5>
+                    <h5><a href={links.documentationChain + 'guides/FindYourPubkey/'}>Find your pubkey to receive tokens</a></h5>
                 </OptionWrapper>
                 <OptionWrapper>
                     <div>
-                      <h2>For developers: <br/>Nspv-js</h2>
+                      <h4>For developers: <br/>Nspv-js</h4>
                       <ImgWrapper>
-                        <Img fluid={data.nspv.childImageSharp.fluid}></Img>
+                        <Img alt="developers-screen" fluid={data.nspv.childImageSharp.fluid}></Img>
                       </ImgWrapper>
                     </div>
-                    <h3><a href={links.github_nspv + '#why-nspv'}>Why Nspv-js?</a></h3>
-                    <h3><a href={links.github_nspv + '#prerequisites'}>Installation Prerequisites</a></h3>
-                    <h3><a href={links.github_nspv + '/blob/development/API.md'}>Nspv-js API</a></h3>
+                    <h5><a href={links.github_nspv + '#why-nspv'}>Why Nspv-js?</a></h5>
+                    <h5><a href={links.github_nspv + '#prerequisites'}>Installation Prerequisites</a></h5>
+                    <h5><a href={links.github_nspv + '/blob/development/API.md'}>Nspv-js API</a></h5>
                 </OptionWrapper>
             </Options>
         </HowToRoot>

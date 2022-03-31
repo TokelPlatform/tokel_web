@@ -1,57 +1,61 @@
-import React from "react"
-import styled from "@emotion/styled"
-import features from "../../data/features"
-import FeatureCard from "../Molecules/FeatureCard"
-import icons from "../../data/icons"
-import LogoImg from "../Atoms/LogoImg"
-import breakpoints from "../../styles/breakpoints"
+import styled from '@emotion/styled';
+import BannerRewards from 'components/Molecules/banners/BannerRewards';
+import CommunityDriven from 'components/Molecules/Features/CommunityDriven';
+import Feature from 'components/Molecules/Features/Feature';
+import features from 'data/features';
+import React from 'react';
+import { VSpacerBig } from 'styles/common';
+import featuresBg from 'images/backgrounds/features-bg.svg';
 
-const defaultProps = {
-}
+export const BoxTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, #13182A 22.92%, #3E315E 100%);
-    padding: 7rem 0 5rem 0;
-    h1 {
-        text-transform: uppercase;
-        color: var(--color-almostWhite);
-        margin-top: 2.5rem;
-    }
-`
-const FeaturesContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 780px;
-    flex-wrap: wrap;
-    margin-top: 4rem;
-    @media (max-width: ${breakpoints.mobilebig}) {
-        width: 100%;
-    }
-`
+const FeaturesRoot = styled.div`
+  background-image: url(${featuresBg});
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h3,
+  h2 {
+    margin: 0;
+  }
+  h3 {
+    color: var(--color-base-lilac);
+  }
+`;
 
 const Features = () => (
-    <Container>
-        <LogoImg open={true} width={'150px'}/>
-        <h1>Platform Features</h1>
-        <FeaturesContainer>
-            {features.map((val, idx) => 
-                (
-                    <FeatureCard
-                        key={idx}
-                        icon={icons[val.icon]}
-                        title={val.title}
-                        desc={val.desc}
-                    />
-                )
-            )}
-        </FeaturesContainer>
-    </Container>
-)
+  <FeaturesRoot>
+    {features.map((feat, idx) => (
+      <Feature
+        key={idx}
+        title={feat.title}
+        subtitle={feat.subtitle}
+        desc={feat.desc}
+        image={feat.image}
+        data={feat.data}
+        links={feat.links}
+        bg={feat.bg}
+        banner={feat.banner}
+      />
+    ))}
+    <CommunityDriven
+      subtitle="Community Driven"
+      title="Join The Tokel Community"
+      desc="Tokel has a vibrant community of digital creators, engineers, game designers and blockchain developers."
+    />
+    <VSpacerBig />
+    <VSpacerBig />
+    <BannerRewards />
+    <VSpacerBig />
+  </FeaturesRoot>
+);
 
-Features.defaultProps = defaultProps
-export default Features
+export default Features;

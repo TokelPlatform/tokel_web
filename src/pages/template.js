@@ -1,14 +1,14 @@
 import * as React from "react"
 
-import Footer from "../components/Organisms/Footer"
-import PropTypes from 'prop-types'
-import Stars from "../components/Atoms/Stars"
-import TopBar from "../components/Molecules/TopBar"
+import Footer from "components/Organisms/Footer"
+import Stars from "components/Atoms/Stars"
+import TopBar from "components/Organisms/TopBar"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
+import PropTypes from 'prop-types'
 
 const PageRoot = styled.div`
-  background: linear-gradient(180deg, #192432 0%, #000000 100%);
+  background: var(--gradient-deep-sky);
 `
 
 const PageRootContainer = ({starsTop = '300px', children})  => {
@@ -38,7 +38,7 @@ export const query = graphql`
   }
 `
 PageRootContainer.propTypes = {
-    children: React.ReactNode,
+    children: PropTypes.node,
     starsTop: PropTypes.string
 }
 export default PageRootContainer
