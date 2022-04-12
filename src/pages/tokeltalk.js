@@ -171,7 +171,7 @@ const TokelTalk = ({data})  => {
           <HeaderWrapper>
             <div>
               <PageHeader>Tokel Talk</PageHeader>
-              <h2><a href="https://www.bcast.fm/blog/best-nft-podcasts">Voted in the Top 10 of best NFT podcasts</a></h2>           
+              <h2><a href={links.nftPodcastTop}>Voted in the Top 10 of best NFT podcasts</a></h2>           
               <h5>Listened to in 49 countries. Downloaded in 142 cities. Streamed on 7 social networks.</h5>
               <Desc>Tokel Talk is the live stream and podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform Tokel. The Tokel platform provides end-to-end token solutions to creators, businesses and projects alike.</Desc>
             </div>

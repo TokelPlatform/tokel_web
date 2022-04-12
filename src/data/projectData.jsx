@@ -56,7 +56,7 @@ const data = [
       title: 'Tokel Talk Podcast',
       desc: ( <div>
         <p>
-          <a href="#">Voted #2 in the Top 10 best NFT podcasts</a>{' '}
+          <a href={links.nftPodcastTop}>Voted #2 in the Top 10 best NFT podcasts</a>{' '}
         </p>
         <h5 style={{ opacity: '0.8' }}>
           Listened to in 49 countries. Downloaded in 142 cities. Streamed on 7 social networks.
