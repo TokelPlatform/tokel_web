@@ -1,5 +1,4 @@
 import Footer from "../components/Organisms/Footer"
-import { PageHeader } from "../components/Atoms/Title"
 import PropTypes from 'prop-types'
 import React from "react"
 import Stars from "../components/Atoms/Stars"
@@ -98,7 +97,7 @@ export default function Faq() {
 
       <TokelQuestionsWrapper>
         <WhyTokel>
-          <PageHeader>TOKEL FAQ</PageHeader>
+          <h1>TOKEL FAQ</h1>
           <div>
             <WhiteHeader>
               What can Tokel do for you?

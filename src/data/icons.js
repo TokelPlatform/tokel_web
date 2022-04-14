@@ -28,6 +28,13 @@ import swapKMD from 'images/swap-kmd-tkl.svg'
 import tokel from 'images/icons/tokel.svg'
 import cli from 'images/icons/cli.svg'
 import magic from 'images/icons/magic.svg'
+import BTC from 'images/crypto/BTC.svg'
+import LTC from 'images/crypto/LTC.svg'
+import KMD from 'images/crypto/KMD.svg'
+import ARRR from 'images/crypto/ARRR.svg'
+import TKL from 'images/icons/tokel.svg'
+import arrowRight from 'images/crypto/arrowRight.svg'
+import warning from 'images/warning.svg'
 
 const icons = {
   amazonMusic,
@@ -59,7 +66,14 @@ const icons = {
   dexTradeSmall,
   atomicDexSmall,
   cli,
-  magic
+  magic,
+  BTC,
+  ARRR,
+  LTC,
+  KMD,
+  TKL,
+  arrowRight,
+  warning
 }
 
 export default icons

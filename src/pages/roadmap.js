@@ -1,5 +1,4 @@
 
-import { PageHeader } from "../components/Atoms/Title"
 import PropTypes from 'prop-types'
 import React from "react"
 import RoadmapList from "../components/Organisms/RoadmapList"
@@ -49,7 +48,7 @@ export default function Roadmap() {
       <RoadmapRoot starsTop='3700px'>
         <RoadmapWrapper>
           <TopPlanets src={planetsTop} />
-          <PageHeader>Roadmap</PageHeader>
+          <h1>Roadmap</h1>
           <RoadmapList style={{marginTop: '12rem'}}/>
         </RoadmapWrapper>
       </RoadmapRoot>
