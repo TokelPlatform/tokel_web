@@ -5,6 +5,7 @@ import axios from 'axios';
 import breakpoints from '../styles/breakpoints';
 import links from '../data/links';
 import styled from '@emotion/styled';
+import { isAddressValid } from 'helpers/general';
 
 const RewardsRoot = styled.div`
   text-align: center;
@@ -149,9 +150,6 @@ const Section = styled.div`
   }
 `;
 
-export const isAddressValid = (address) =>
-  /^[a-km-zA-HJ-NP-Z1-9]{26,35}$/.test(address);
-
 const Rewards = () => {
   const [address, setAddress] = React.useState(null);
   const [balance, setBalance] = React.useState(null);
@@ -202,7 +200,7 @@ const Rewards = () => {
       <RewardsRoot>
         <h1>Early adopter rewards initiative</h1>
         <a href={links.mediumEarlyAdopters}>
-          <h2>Read about TKL time lock rewards here</h2>
+          <h3>Read about TKL time lock rewards here</h3>
         </a>
         <div style={{ marginTop: '30px' }}>
           <div style={{ height: '20px' }}>

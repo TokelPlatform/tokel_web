@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet"
+
 import { PageHeader } from "../components/Atoms/Title"
 import PropTypes from 'prop-types'
 import React from "react"
@@ -7,6 +7,7 @@ import RoadmapRoot from './template'
 import breakpoints from "../styles/breakpoints"
 import planetsTop from '../images/planets-top.svg'
 import styled from "@emotion/styled"
+import PageMeta from "components/Molecules/PageMeta"
 
 const RoadmapWrapper = styled.div`
   margin: auto;
@@ -41,11 +42,10 @@ const TopPlanets = styled.img`
 export default function Roadmap() {
   return (
     <div>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Project Roadmap 2021 - 2022 | Tokel Platform</title>
-          <meta name="description" content="A complete roadmap of the Tokel Platform project to showcase the development plans and goals for the next 2 years." />
-       </Helmet>
+      <PageMeta
+        title="Project Roadmap 2021 - 2022 | Tokel Platform"
+        description="A complete roadmap of the Tokel Platform project to showcase the development plans and goals for the next 2 years."
+      />
       <RoadmapRoot starsTop='3700px'>
         <RoadmapWrapper>
           <TopPlanets src={planetsTop} />

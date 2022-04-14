@@ -40,16 +40,8 @@ const Content = styled.div`
   align-items: center;
   max-width: 800px;
   margin: auto;
-  h1 {
-    color: #FFFFFF;
+  h1, h3 {
     text-align: center;
-    font-size: 50px;
-    line-height: 60px;
-  }
-  h2 {
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 30px;
   }
   h5 {
     text-align: left;
@@ -92,9 +84,6 @@ const GuestSignUp = styled.div`
   margin-top: 5rem;
   min-width: 300px;
   max-width: 500px;
-  p {
-    color: #FFFFFF;
-  }
 `
 
 const SubmitButton = styled.button`
@@ -171,7 +160,7 @@ const TokelTalk = ({data})  => {
           <HeaderWrapper>
             <div>
               <PageHeader>Tokel Talk</PageHeader>
-              <h2><a href={links.nftPodcastTop}>Voted in the Top 10 of best NFT podcasts</a></h2>           
+              <h3><a href={links.nftPodcastTop}>Voted in the Top 10 of best NFT podcasts</a></h3>           
               <h5>Listened to in 49 countries. Downloaded in 142 cities. Streamed on 7 social networks.</h5>
               <Desc>Tokel Talk is the live stream and podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform Tokel. The Tokel platform provides end-to-end token solutions to creators, businesses and projects alike.</Desc>
             </div>
@@ -184,7 +173,7 @@ const TokelTalk = ({data})  => {
             {getPodcastLinks(data)}
           </ListenOn>
           <GuestSignUp>
-            <h2 id="join-tokel-talk-as-a-guest">Join Tokel Talk as a Guest</h2>
+            <h3 id="join-tokel-talk-as-a-guest">Join Tokel Talk as a Guest</h3>
             <p>Would you like to be the guest on Tokel Talk Podcast? If yes, please fill in the  form below and we will get in touch with you as soon as we can.</p>
             <Formik
               initialValues={{ 
