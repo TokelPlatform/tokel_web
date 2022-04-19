@@ -108,7 +108,7 @@ export default function Swap() {
       {showModal && <PickCurrencyModal values={TKLvalue} pickCurrency={setChosenCurrency} />}
       <PageMeta title="Swap TKL | Tokel Platform" description="" />
       <Overlay displayOverlay={showModal} />
-      <SwapRoot starsTop={document.documentElement.scrollHeight + 'px'}>
+      <SwapRoot starsTop={'1000px'}>
         <SwapWrapper>
           {/* <PageHeader>Swap TKL</PageHeader>
           <p>
