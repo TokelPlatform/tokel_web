@@ -14,6 +14,10 @@ type CurrencyProps = {
 
 const CurrencyRoot = styled(PurpleBorderBox)<CurrencyProps>`
   padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 170px;
   height: 100px;
   transition: box-shadow 0.25s;
