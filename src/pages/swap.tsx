@@ -119,7 +119,9 @@ export default function Swap() {
           <Box>
             <BoxTitle>Create Swap</BoxTitle>
             <Step>1. Enter amount to swap</Step>
-            <p style={{ marginTop: 0, opacity: '0.6' }}>1 KMD = 0.08 TKL</p>
+            <p style={{ marginTop: 0, opacity: '0.6' }}>
+              1 {chosenCurrency} = {TKLvalue[chosenCurrency]} TKL
+            </p>
             <Currencies>
               <CurrencyItem
                 title="You send"
