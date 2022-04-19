@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SwapRoot from './template';
-// import breakpoints from "../styles/breakpoints"
+import breakpoints from '../styles/breakpoints';
 import styled from '@emotion/styled';
 import PageMeta from 'components/Molecules/PageMeta';
 // import { PageHeader } from 'components/Atoms/Title';
 import PurpleBorderBox from 'components/Atoms/PurpleBorderBox';
-import GrayLabel from 'components/Atoms/GrayLabel';
-import { FlexCol, FlexRow, VSpacerMedium } from 'styles/common';
-import icons from 'data/icons';
+import { FlexRow, VSpacerMedium } from 'styles/common';
 import Input from 'components/Atoms/Input';
 import Warning from 'components/Atoms/Warning';
 import { Colors } from 'components/Atoms/Button';
 import SpecialButton from 'components/Atoms/SpecialButton';
+import { isAddressValid } from 'helpers/general';
+import Error from 'components/Atoms/Error';
+import Overlay from 'components/Atoms/Overlay';
+import { CurrencyItem } from 'components/Molecules/swap/Currency';
+import PickCurrencyModal from 'components/Molecules/swap/PickerModal';
+import { MAX_TKL, TKLvalue } from 'helpers/swapConfig';
 
 const SwapWrapper = styled.div`
   margin: auto;
@@ -38,6 +42,10 @@ const Box = styled(PurpleBorderBox)`
   justify-content: center;
   align-items: center;
   padding: 1rem 0 4rem 0;
+
+  @media (max-width: ${breakpoints.mobilebig}) {
+    flex-direction: column;
+  }
 `;
 
 const Step = styled.h5`
@@ -45,28 +53,6 @@ const Step = styled.h5`
   font-weight: 700;
   margin: 0;
   margin-top: 1rem;
-`;
-
-type CurrencyProps = {
-  disabled: boolean;
-};
-
-const Currency = styled(PurpleBorderBox)<CurrencyProps>`
-  padding: 20px 10px;
-  width: 170px;
-  height: 100px;
-  transition: box-shadow 0.25s;
-  border-radius: 0;
-  h4 {
-    margin: 0;
-    margin-top: 0.5rem;
-  }
-  ${p =>
-    !p.disabled &&
-    `&:hover {
-        box-shadow: 0 0 5px 5px var(--color-purple);
-        cursor: pointer;
-    }`}
 `;
 
 const Currencies = styled(FlexRow)`
@@ -79,41 +65,53 @@ const WarningWrapper = styled(Warning)`
   margin: auto;
 `;
 
-type CurrencyItemProps = {
-  title: string;
-  currencyName: string;
-  value: number;
-  disabled: boolean;
-  note: string;
-};
-
-const CurrencyItem = ({ title, currencyName, value, disabled, note }: CurrencyItemProps) => (
-  <FlexCol>
-    <GrayLabel>{title}</GrayLabel>
-    <Currency disabled={disabled}>
-      <img src={icons[currencyName]} width="60" height="60"></img>
-      <h4>{currencyName}</h4>
-    </Currency>
-    <VSpacerMedium />
-    <Input width="166px" value={value} disabled={disabled} />
-    <p style={{ opacity: '0.6' }}>{note}</p>
-  </FlexCol>
-);
-
-const TKLvalue = {
-  KMD: '0.08',
-};
+const Disclaimer = styled.p`
+  font-size: var(--font-size-small-p);
+  opacity: 0.5;
+  margin-top: 1rem;
+  text-align: left;
+  padding: 1rem;
+`;
 
 export default function Swap() {
   const [swapAmount, setSwapAmount] = useState(0);
-  const [chosenCurrency] = useState('KMD');
+  const [receiveingAmount, setReceivingAmount] = useState(0);
+  const [receivingAddress, setReceivingAddress] = useState('');
+  const [addressError, setAddressError] = useState('');
+  const [chosenCurrency, setChosenCurrency] = useState('KMD');
+  const [showModal, setShowModal] = useState(false);
+  console.log(chosenCurrency, 'chosenCurrency');
+
+  const createSwapEvent = () => {
+    setAddressError('');
+    if (!isAddressValid(receivingAddress)) {
+      setAddressError('Invalid Address');
+    }
+  };
+
+  useEffect(() => {
+    setShowModal(false);
+  }, [chosenCurrency]);
+
+  useEffect(() => {
+    let tkl = swapAmount / TKLvalue[chosenCurrency];
+    if (tkl > MAX_TKL) {
+      tkl = MAX_TKL;
+      setSwapAmount(MAX_TKL * TKLvalue[chosenCurrency]);
+    }
+    setReceivingAmount(tkl);
+  }, [swapAmount]);
+
+  /* eslint-disable no-undef */
   return (
     <div>
+      {showModal && <PickCurrencyModal values={TKLvalue} pickCurrency={setChosenCurrency} />}
       <PageMeta title="Swap TKL | Tokel Platform" description="" />
-      <SwapRoot starsTop="3700px">
+      <Overlay displayOverlay={showModal} />
+      <SwapRoot starsTop={document.documentElement.scrollHeight + 'px'}>
         <SwapWrapper>
-          {/* <PageHeader>Swap TKL</PageHeader> */}
-          {/* <p>
+          {/* <PageHeader>Swap TKL</PageHeader>
+          <p>
             Simply swap your BTC, LTC and other cryptocurrencies for TKL. <br />
             Follow the guidelines below to perform a swap.
           </p> */}
@@ -127,23 +125,34 @@ export default function Swap() {
                 title="You send"
                 currencyName={chosenCurrency}
                 value={swapAmount}
-                onChange={setSwapAmount}
+                onChange={val => setSwapAmount(val.target.value)}
+                onClick={() => setShowModal(true)}
               />
               <CurrencyItem
                 title="You receive"
                 currencyName="TKL"
-                value={swapAmount * TKLvalue[chosenCurrency]}
+                value={receiveingAmount}
                 disabled
                 note="max 50,000 TKL per swap"
               />
             </Currencies>
             <Step>2. ENTER YOUR RECEIVING TKL ADDRESS</Step>
             <WarningWrapper text="Please double check the address below. That is where you will receive your TKL" />
-            <Input width="358px" />
+            <Input
+              width="358px"
+              value={receivingAddress}
+              onChange={e => setReceivingAddress(e.target.value)}
+            />
+            <Error>{addressError}</Error>
             <VSpacerMedium />
-            <SpecialButton theme={Colors.PURPLE}>
+            <SpecialButton theme={Colors.PURPLE} onClick={() => createSwapEvent()}>
               <h5>Lets swap</h5>
             </SpecialButton>
+            <Disclaimer>
+              DISCLAIMER
+              <br />
+              All the transactions are final and we do not issue any refunds on the performed swaps.
+            </Disclaimer>
           </Box>
         </SwapWrapper>
       </SwapRoot>

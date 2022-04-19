@@ -18,7 +18,7 @@ const OutsideAlerter = ({ detectClickOutside, children }: OutsideAlerterProps) =
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
         // alert("You clicked outside of me!");
-        console.log('click outside');
+        // console.log('click outside');
         detectClickOutside(true);
       }
     }

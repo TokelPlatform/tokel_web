@@ -37,7 +37,6 @@ const PartnersSection = styled(FlexCol)`
     padding-top: 0;
   }
 `
-
 const IndexPage = ()  => {
   return (
     <MainPage>

@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 type InputProps = {
   width: string;
   backgroundColor?: string;
+  disabled?: boolean;
 };
 
 const Input = styled.input<InputProps>`
@@ -14,6 +15,7 @@ const Input = styled.input<InputProps>`
   font-family: var(--font-family-primary);
   width: ${p => p.width ?? 'auto'};
   color: var(--color-almostWhite);
+  ${p => (p.disabled ? 'opacity: 0.5' : null)}
 `;
 
 export default Input;

@@ -6,6 +6,7 @@ import breakpoints from '../styles/breakpoints';
 import links from '../data/links';
 import styled from '@emotion/styled';
 import { isAddressValid } from 'helpers/general';
+import Error from 'components/Atoms/Error';
 
 const RewardsRoot = styled.div`
   text-align: center;
@@ -110,12 +111,6 @@ const Input = styled.input`
   background-color: transparent;
 `;
 
-const Error = styled.div`
-  height: 20px;
-  margin-bottom: 20px;
-  color: #ce395f;
-`;
-
 const Note = styled.div`
   color: white;
   height: 20px;
@@ -164,7 +159,7 @@ const Rewards = () => {
     setError(null);
     setFetching('Fetching data...');
 
-    if (!address || address.length < 26 || !isAddressValid(address)) {
+    if (!isAddressValid(address)) {
       setError('Invalid address');
       setFetching(null);
       return;
