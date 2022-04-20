@@ -7,6 +7,7 @@ import PageMeta from 'components/Molecules/PageMeta';
 import PurpleBorderBox from 'components/Atoms/PurpleBorderBox';
 import CreateSwap from 'components/Organisms/swap/CreateSwap';
 import FinishSwap from 'components/Organisms/swap/FinishSwap';
+import SwapSuccess from 'components/Organisms/swap/Success';
 
 const SwapWrapper = styled.div`
   margin: auto;
@@ -34,16 +35,15 @@ const Box = styled(PurpleBorderBox)`
 
 const CREATE = 'create';
 const FINISH = 'finish';
-// const SUCCESS = 'success';
+const SUCCESS = 'success';
 // const ERROR = 'error';
 
 export default function Swap() {
-  const [swapAmount, setSwapAmount] = useState(0);
-  const [receiveingAmount, setReceivingAmount] = useState(0);
-  const [receivingAddress, setReceivingAddress] = useState('');
+  const [swapAmount, setSwapAmount] = useState(100);
+  const [receiveingAmount, setReceivingAmount] = useState(200);
+  const [receivingAddress, setReceivingAddress] = useState('RQ2SPQedyuGnWxTfAmzNjqRTN1hd3LkSrn');
   const [chosenCurrency, setChosenCurrency] = useState('KMD');
-  const [step, setStep] = useState(CREATE);
-  console.log(chosenCurrency, 'chosenCurrency');
+  const [step, setStep] = useState(SUCCESS);
 
   const createSwapEvent = (swapAmount, receivingAmount, address, currency) => {
     console.log('yeps');
@@ -77,6 +77,14 @@ export default function Swap() {
                 receivingAddress={receivingAddress}
                 chosenCurrency={chosenCurrency}
                 goBack={goBack}
+              />
+            )}
+            {step === SUCCESS && (
+              <SwapSuccess
+                swapAmount={swapAmount}
+                receivingAmount={receiveingAmount}
+                receivingAddress={receivingAddress}
+                chosenCurrency={chosenCurrency}
               />
             )}
           </Box>

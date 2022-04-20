@@ -6,12 +6,6 @@ import icons from 'data/icons';
 import React from 'react';
 import { FlexCol, VSpacerMedium } from 'styles/common';
 
-type CurrencyProps = {
-  disabled?: boolean;
-  onClick?: (val: any) => void;
-  currencyName?: string;
-};
-
 const CurrencyRoot = styled(PurpleBorderBox)<CurrencyProps>`
   padding: 20px 10px;
   display: flex;
@@ -34,6 +28,25 @@ const CurrencyRoot = styled(PurpleBorderBox)<CurrencyProps>`
       }`}
 `;
 
+type CurrencyProps = {
+  disabled?: boolean;
+  onClick?: (val: any) => void;
+  currencyName?: string;
+  amount: number;
+};
+
+export const Currency = ({ disabled, onClick, currencyName, amount }: CurrencyProps) => {
+  return (
+    <CurrencyRoot disabled={disabled} onClick={onClick}>
+      <img src={icons[currencyName]} width="60" height="60"></img>
+      <h4>
+        {amount && amount}
+        {currencyName}
+      </h4>
+    </CurrencyRoot>
+  );
+};
+
 type CurrencyItemProps = {
   title: string;
   currencyName: string;
@@ -43,15 +56,6 @@ type CurrencyItemProps = {
   onChange?: (val: any) => void;
   onClick?: (val: any) => void;
   onBlur?: () => void;
-};
-
-export const Currency = ({ disabled, onClick, currencyName }: CurrencyProps) => {
-  return (
-    <CurrencyRoot disabled={disabled} onClick={onClick}>
-      <img src={icons[currencyName]} width="60" height="60"></img>
-      <h4>{currencyName}</h4>
-    </CurrencyRoot>
-  );
 };
 
 export const CurrencyItem = ({

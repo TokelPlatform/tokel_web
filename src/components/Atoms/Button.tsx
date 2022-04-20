@@ -32,7 +32,7 @@ export const Colors = {
   GRAY: 'gray',
 };
 
-const getTheme = (theme, chosen) => {
+const getTheme = theme => {
   switch (theme) {
     case Colors.PURPLE:
       return css`
@@ -99,17 +99,6 @@ const getTheme = (theme, chosen) => {
         }
       `;
     default:
-      // transparent theme
-      if (chosen) {
-        return css`
-          background: var(--color-darkBlue);
-          border: 1px solid var(--color-purple);
-          h5 {
-            color: var(--color-almostWhite);
-            font-weight: 600;
-          }
-        `;
-      }
       return css`
         background: transparent;
         border: 4px solid var(--color-almostWhite);
@@ -119,14 +108,13 @@ const getTheme = (theme, chosen) => {
 };
 
 type StyledButtonProps = {
-  chosen: boolean;
   theme: string;
   width: string;
   height?: string;
 };
 
 const StyledButton = styled.button<StyledButtonProps>`
-  ${props => getTheme(props.theme, props.chosen)};
+  ${props => getTheme(props.theme)};
   width: ${props => props.width};
   height: ${props => (props.height ? props.height : '70px')};
   cursor: pointer;
@@ -144,7 +132,6 @@ const StyledButton = styled.button<StyledButtonProps>`
 const Button = ({
   text,
   theme,
-  chosen,
   width,
   height,
   onClick,
@@ -152,13 +139,7 @@ const Button = ({
   url,
 }: ButtonProps): ReactElement => (
   <ButtonLink className={className} to={url ? url : '#'}>
-    <StyledButton
-      onClick={() => onClick()}
-      width={width}
-      height={height}
-      chosen={chosen}
-      theme={theme}
-    >
+    <StyledButton onClick={() => onClick()} width={width} height={height} theme={theme}>
       <h5>{text}</h5>
     </StyledButton>
   </ButtonLink>
