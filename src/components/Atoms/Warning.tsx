@@ -13,11 +13,12 @@ const WarningRoot = styled(FlexRow)`
   border: 1px solid var(--color-base-cerise);
   justify-content: flex-start;
   align-items: flex-start;
-  max-width: 350px;
+  width: 333px;
   text-align: left;
   p {
     margin: 0;
     font-size: var(--font-size-small-p);
+    opacity: 0.8;
   }
   margin: 1rem 0;
 `;

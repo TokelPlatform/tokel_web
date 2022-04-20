@@ -17,8 +17,9 @@ type StepProps = {
 };
 
 const StepRoot = styled(FlexCol)<StepProps>`
+  align-items: ${p => p.justify ?? 'center'};
   justify-content: center;
-  align-items: center;
+  margin-top: 2rem;
 `;
 
 const Step = ({ justify, title, children }: StepProps) => (

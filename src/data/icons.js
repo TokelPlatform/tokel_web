@@ -35,6 +35,7 @@ import ARRR from 'images/crypto/ARRR.svg'
 import TKL from 'images/icons/tokel.svg'
 import arrowRight from 'images/crypto/arrowRight.svg'
 import warning from 'images/warning.svg'
+import copy from 'images/icons/copy.svg'
 
 const icons = {
   amazonMusic,
@@ -73,7 +74,8 @@ const icons = {
   KMD,
   TKL,
   arrowRight,
-  warning
+  warning,
+  copy
 }
 
 export default icons

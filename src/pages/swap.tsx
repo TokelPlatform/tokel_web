@@ -6,6 +6,7 @@ import PageMeta from 'components/Molecules/PageMeta';
 // import { PageHeader } from 'components/Atoms/Title';
 import PurpleBorderBox from 'components/Atoms/PurpleBorderBox';
 import CreateSwap from 'components/Organisms/swap/CreateSwap';
+import FinishSwap from 'components/Organisms/swap/FinishSwap';
 
 const SwapWrapper = styled.div`
   margin: auto;
@@ -22,7 +23,7 @@ const Box = styled(PurpleBorderBox)`
   margin-top: 2rem;
   flex-direction: column;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 1rem 0 4rem 0;
 
@@ -68,11 +69,12 @@ export default function Swap() {
           <Box>
             {step === CREATE && <CreateSwap createSwapEvent={createSwapEvent} />}
             {step === FINISH && (
-              <div>
-                {swapAmount}
-                {receiveingAmount}
-                {receivingAddress}
-              </div>
+              <FinishSwap
+                swapAmount={swapAmount}
+                receivingAmount={receiveingAmount}
+                receivingAddress={receivingAddress}
+                chosenCurrency={chosenCurrency}
+              />
             )}
           </Box>
         </SwapWrapper>
