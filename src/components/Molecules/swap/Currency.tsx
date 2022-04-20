@@ -42,6 +42,7 @@ type CurrencyItemProps = {
   note?: string;
   onChange?: (val: any) => void;
   onClick?: (val: any) => void;
+  onBlur?: () => void;
 };
 
 export const Currency = ({ disabled, onClick, currencyName }: CurrencyProps) => {
@@ -61,6 +62,7 @@ export const CurrencyItem = ({
   note,
   onChange,
   onClick,
+  onBlur,
 }: CurrencyItemProps) => (
   <FlexCol>
     <GrayLabel>{title}</GrayLabel>
@@ -73,7 +75,10 @@ export const CurrencyItem = ({
       onChange={a => onChange(a)}
       type="number"
       onFocus={e => (e.target.value === '0' ? (e.target.value = '') : e.target.value)}
+      onBlur={onBlur}
     />
-    <p style={{ opacity: '0.6', marginTop: '0.25rem' }}>{note}</p>
+    <p style={{ fontSize: 'var(--font-size-small-p)', opacity: '0.6', marginTop: '0.25rem' }}>
+      {note}
+    </p>
   </FlexCol>
 );

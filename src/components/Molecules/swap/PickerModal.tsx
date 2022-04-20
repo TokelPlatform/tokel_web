@@ -25,8 +25,6 @@ const CurrencyBox = styled(PurpleBorderBox)`
   z-index: 7;
   padding: 2rem;
   position: absolute;
-  left: 30%;
-  top: 20%;
   transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;

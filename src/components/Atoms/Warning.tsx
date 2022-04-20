@@ -19,7 +19,7 @@ const WarningRoot = styled(FlexRow)`
     margin: 0;
     font-size: var(--font-size-small-p);
   }
-  margin: 1rem;
+  margin: 1rem 0;
 `;
 
 const Warning = ({ text }: WarningProps) => (

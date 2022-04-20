@@ -1,26 +1,17 @@
-import React, { useState } from 'react';
-import SwapRoot from '../template';
-// import breakpoints from "../styles/breakpoints"
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import PageMeta from 'components/Molecules/PageMeta';
-import { PageHeader } from 'components/Atoms/Title';
-import PurpleBorderBox from 'components/Atoms/PurpleBorderBox';
-import GrayLabel from 'components/Atoms/GrayLabel';
-import { FlexCol, FlexRow, VSpacerMedium } from 'styles/common';
-import icons from 'data/icons';
+import { FlexRow, VSpacerMedium } from 'styles/common';
 import Input from 'components/Atoms/Input';
 import Warning from 'components/Atoms/Warning';
 import { Colors } from 'components/Atoms/Button';
 import SpecialButton from 'components/Atoms/SpecialButton';
 import { isAddressValid } from 'helpers/general';
-
-const SwapWrapper = styled.div`
-  margin: auto;
-  text-align: center;
-  h3 {
-    margin-bottom: 0;
-  }
-`;
+import Error from 'components/Atoms/Error';
+import Overlay from 'components/Atoms/Overlay';
+import { CurrencyItem } from 'components/Molecules/swap/Currency';
+import PickCurrencyModal from 'components/Molecules/swap/PickerModal';
+import { MAX_TKL, MIN_TKL, TKLvalue } from 'helpers/swapConfig';
+import Step from 'components/Molecules/swap/Step';
 
 const BoxTitle = styled.h3`
   text-transform: uppercase;
@@ -28,46 +19,6 @@ const BoxTitle = styled.h3`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 400;
-`;
-
-const Box = styled(PurpleBorderBox)`
-  max-width: 740px;
-  margin: auto;
-  margin-top: 2rem;
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 0 4rem 0;
-`;
-
-const Step = styled.h5`
-  text-transform: uppercase;
-  font-weight: 700;
-  margin: 0;
-  margin-top: 1rem;
-`;
-
-type CurrencyProps = {
-  disabled: boolean;
-};
-
-const Currency = styled(PurpleBorderBox)<CurrencyProps>`
-  padding: 20px 10px;
-  width: 170px;
-  height: 100px;
-  transition: box-shadow 0.25s;
-  border-radius: 0;
-  h4 {
-    margin: 0;
-    margin-top: 0.5rem;
-  }
-  ${p =>
-    !p.disabled &&
-    `&:hover {
-        box-shadow: 0 0 5px 5px var(--color-purple);
-        cursor: pointer;
-    }`}
 `;
 
 const Currencies = styled(FlexRow)`
@@ -80,93 +31,117 @@ const WarningWrapper = styled(Warning)`
   margin: auto;
 `;
 
-type CurrencyItemProps = {
-  title: string;
-  currencyName: string;
-  value: number;
-  disabled?: boolean;
-  note?: string;
-  onChange?: (val: any) => void;
+const Disclaimer = styled.p`
+  font-size: var(--font-size-small-p);
+  opacity: 0.5;
+  margin-top: 1rem;
+  text-align: left;
+  padding: 1rem;
+`;
+
+type CreateSwapProps = {
+  createSwapEvent: (
+    swapAmount: number,
+    receivingAmount: number,
+    receivingAddress: string,
+    chosenCurrency: string
+  ) => void;
 };
 
-const CurrencyItem = ({
-  title,
-  currencyName,
-  value,
-  disabled,
-  note,
-  onChange,
-}: CurrencyItemProps) => (
-  <FlexCol>
-    <GrayLabel>{title}</GrayLabel>
-    <Currency disabled={disabled}>
-      <img src={icons[currencyName]} width="60" height="60"></img>
-      <h4>{currencyName}</h4>
-    </Currency>
-    <VSpacerMedium />
-    <Input width="166px" value={value} disabled={disabled} onChange={a => onChange(a)} />
-    <p style={{ opacity: '0.6' }}>{note}</p>
-  </FlexCol>
-);
-
-const TKLvalue = {
-  KMD: '0.08',
-};
-
-export default function CreateSwap() {
-  const [swapAmount, setSwapAmount] = useState(0);
+export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   const [receivingAddress, setReceivingAddress] = useState('');
-  //   const [addressError, setAddressError] = useState('');
-  const [chosenCurrency] = useState('KMD');
-  console.log(swapAmount);
+  const [addressError, setAddressError] = useState('');
+  const [chosenCurrency, setChosenCurrency] = useState('KMD');
+  const [receivingAmount, setReceivingAmount] = useState(500);
+  const [swapAmount, setSwapAmount] = useState(500 * TKLvalue[chosenCurrency]);
+  const [showModal, setShowModal] = useState(false);
+  console.log(chosenCurrency, 'chosenCurrency');
 
-  const handleAddressChange = event => {
-    if (isAddressValid(event.target.value)) {
-      setReceivingAddress(event.target.value);
-    } else {
-      //   setAddressError('Invalid Address');
+  const submitSwapInfo = () => {
+    setAddressError('');
+    if (!isAddressValid(receivingAddress)) {
+      setAddressError('Invalid Address');
+      return;
+    }
+    if (receivingAmount < MIN_TKL) {
+      setSwapAmount(MIN_TKL * TKLvalue[chosenCurrency]);
+      setAddressError(`Minimum Swap Amount ${MIN_TKL}TKL`);
+      return;
+    }
+    if (receivingAmount > MAX_TKL) {
+      setSwapAmount(MAX_TKL * TKLvalue[chosenCurrency]);
+      setAddressError(`Maximum Swap Amount ${MAX_TKL}TKL`);
+      return;
+    }
+    createSwapEvent(swapAmount, receivingAmount, receivingAddress, chosenCurrency);
+  };
+
+  useEffect(() => {
+    setShowModal(false);
+  }, [chosenCurrency]);
+
+  useEffect(() => {
+    let tkl = swapAmount / TKLvalue[chosenCurrency];
+    if (tkl > MAX_TKL) {
+      tkl = MAX_TKL;
+      setSwapAmount(MAX_TKL * TKLvalue[chosenCurrency]);
+    }
+    setReceivingAmount(tkl);
+  }, [swapAmount]);
+
+  const checkMinAmount = () => {
+    if (swapAmount < MIN_TKL) {
+      setReceivingAmount(MIN_TKL);
+      setSwapAmount(MIN_TKL * TKLvalue[chosenCurrency]);
     }
   };
+
+  /* eslint-disable no-undef */
   return (
     <div>
-      <PageMeta title="Swap TKL | Tokel Platform" description="" />
-      <SwapRoot starsTop="3700px">
-        <SwapWrapper>
-          <PageHeader>Swap TKL</PageHeader>
-          <p>
-            Simply swap your BTC, LTC and other cryptocurrencies for TKL. <br />
-            Follow the guidelines below to perform a swap.
-          </p>
-
-          <Box>
-            <BoxTitle>Create Swap</BoxTitle>
-            <Step>1. Enter amount to swap</Step>
-            <p style={{ marginTop: 0, opacity: '0.6' }}>1 KMD = 0.08 TKL</p>
-            <Currencies>
-              <CurrencyItem
-                title="You send"
-                currencyName={chosenCurrency}
-                value={swapAmount}
-                onChange={val => setSwapAmount(val.target.value)}
-              />
-              <CurrencyItem
-                title="You receive"
-                currencyName="TKL"
-                value={swapAmount * TKLvalue[chosenCurrency]}
-                disabled
-                note="max 50,000 TKL per swap"
-              />
-            </Currencies>
-            <Step>2. ENTER YOUR RECEIVING TKL ADDRESS</Step>
-            <WarningWrapper text="Please double check the address below. That is where you will receive your TKL" />
-            <Input width="358px" value={receivingAddress} onChange={handleAddressChange} />
-            <VSpacerMedium />
-            <SpecialButton theme={Colors.PURPLE}>
-              <h5>Lets swap</h5>
-            </SpecialButton>
-          </Box>
-        </SwapWrapper>
-      </SwapRoot>
+      <Overlay displayOverlay={showModal} />
+      {showModal && <PickCurrencyModal values={TKLvalue} pickCurrency={setChosenCurrency} />}
+      <BoxTitle>Create Swap</BoxTitle>
+      <Step title="1. Enter amount to swap">
+        <p style={{ marginTop: 0, opacity: '0.6' }}>
+          1 {chosenCurrency} = {TKLvalue[chosenCurrency]} TKL
+        </p>
+        <Currencies>
+          <CurrencyItem
+            title="You send"
+            currencyName={chosenCurrency}
+            value={swapAmount}
+            onChange={val => setSwapAmount(val.target.value)}
+            onClick={() => setShowModal(true)}
+            onBlur={checkMinAmount}
+          />
+          <CurrencyItem
+            title="You receive"
+            currencyName="TKL"
+            value={receivingAmount}
+            disabled
+            note="min 500 max 50,000 TKL"
+          />
+        </Currencies>
+      </Step>
+      <Step title="2. ENTER YOUR RECEIVING TKL ADDRESS">
+        <WarningWrapper text="Please double check the address below. That is where you will receive your TKL" />
+        <Input
+          width="358px"
+          value={receivingAddress}
+          onChange={e => setReceivingAddress(e.target.value)}
+        />
+        <Error>{addressError}</Error>
+      </Step>
+      <VSpacerMedium />
+      <SpecialButton theme={Colors.PURPLE} onClick={() => submitSwapInfo()}>
+        <h5>Lets swap</h5>
+      </SpecialButton>
+      <Disclaimer>
+        DISCLAIMER
+        <br />
+        All the transactions are final and we do not issue any refunds on the performed swaps.
+      </Disclaimer>
     </div>
   );
 }
