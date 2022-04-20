@@ -53,7 +53,9 @@ export default function Swap() {
     setChosenCurrency(currency);
     setStep(FINISH);
   };
-
+  const goBack = () => {
+    setStep(CREATE);
+  };
   /* eslint-disable no-undef */
   return (
     <div>
@@ -74,6 +76,7 @@ export default function Swap() {
                 receivingAmount={receiveingAmount}
                 receivingAddress={receivingAddress}
                 chosenCurrency={chosenCurrency}
+                goBack={goBack}
               />
             )}
           </Box>

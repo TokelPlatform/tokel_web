@@ -5,6 +5,7 @@ import Step from 'components/Molecules/swap/Step';
 import QRCode from 'qrcode.react';
 import InputWithCopy from 'components/Molecules/InputWithCopy';
 import { VSpacerMedium } from 'styles/common';
+import Button, { Colors } from 'components/Atoms/Button';
 
 const BoxTitle = styled.h3`
   text-transform: uppercase;
@@ -36,11 +37,17 @@ const QRCodeWrapper = styled.div`
   justify-content: center;
 `;
 
+const Top = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`;
+
 type FinishSwapProps = {
   swapAmount: number;
   receivingAmount: number;
   receivingAddress: string;
   chosenCurrency: string;
+  goBack: () => void;
 };
 
 export default function FinishSwap({
@@ -48,10 +55,20 @@ export default function FinishSwap({
   receivingAmount,
   receivingAddress,
   chosenCurrency,
+  goBack,
 }: FinishSwapProps) {
   return (
     <div>
-      <BoxTitle>Finish THE Swap</BoxTitle>
+      <Top>
+        <Button
+          theme={Colors.GRAY}
+          onClick={() => goBack()}
+          text="Go Back"
+          width="85px"
+          height="40px"
+        />
+        <BoxTitle>Finish THE Swap</BoxTitle>
+      </Top>
       <div style={{ marginLeft: '20%' }}>
         <Step
           title={`1. SEND ${swapAmount} ${chosenCurrency} TO THE ADDRESS BELOW`}

@@ -1,7 +1,5 @@
 import React, { ReactElement } from 'react';
 
-import breakpoints from '../../styles/breakpoints';
-import buttonDecor from '../../images/general/button-decoration.svg';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import ButtonLink from './ButtonLink';
@@ -15,7 +13,6 @@ type ButtonProps = {
   onClick: () => {};
   url?: string;
   className: string;
-  showButtonDecor?: boolean;
 };
 
 const defaultProps = {
@@ -32,6 +29,7 @@ export const Colors = {
   WHITE: 'white',
   BLACK: 'black',
   YELLOW: 'yellow',
+  GRAY: 'gray',
 };
 
 const getTheme = (theme, chosen) => {
@@ -39,13 +37,7 @@ const getTheme = (theme, chosen) => {
     case Colors.PURPLE:
       return css`
         background: var(--gradient-purple-direct);
-        border-radius: 5px;
         border: 4px solid var(--color-purple);
-        h2 {
-          color: var(--color-almostWhite);
-          font-weight: 700 !important;
-        }
-
         &:hover {
           border-color: var(--color-almostWhite);
           transform: scale(1.1);
@@ -54,7 +46,6 @@ const getTheme = (theme, chosen) => {
     case Colors.WHITE:
       return css`
         background: var(--color-almostWhite);
-        border-radius: 10px;
         border: none;
         outline: none;
         h5 {
@@ -70,7 +61,6 @@ const getTheme = (theme, chosen) => {
     case Colors.BLACK:
       return css`
         background: #000000;
-        border-radius: 5px;
         border: 1px solid;
         border-image-slice: 1;
         border-image-source: var(--gradient-purple-to-lighblue);
@@ -87,11 +77,25 @@ const getTheme = (theme, chosen) => {
     case Colors.YELLOW:
       return css`
         background: var(--color-base-richyellow);
-        border-radius: 5px;
         border: 3px solid white;
         h5 {
           color: black;
           font-weight: 700;
+        }
+      `;
+    case Colors.GRAY:
+      return css`
+        background-color: transparent;
+        border: 1px solid var(--color-base-slate);
+        h5 {
+          color: #fff;
+          opacity: 0.8;
+          font-weight: 400;
+          font-size: var(--font-size-small-p);
+        }
+        &:hover {
+          border-color: var(--color-purple);
+          transform: scale(1.1);
         }
       `;
     default:
@@ -99,7 +103,6 @@ const getTheme = (theme, chosen) => {
       if (chosen) {
         return css`
           background: var(--color-darkBlue);
-          border-radius: 3px;
           border: 1px solid var(--color-purple);
           h5 {
             color: var(--color-almostWhite);
@@ -109,7 +112,6 @@ const getTheme = (theme, chosen) => {
       }
       return css`
         background: transparent;
-        border-radius: 4px;
         border: 4px solid var(--color-almostWhite);
         font-weight: bold;
       `;
@@ -136,15 +138,7 @@ const StyledButton = styled.button<StyledButtonProps>`
   align-items: center;
   z-index: 3;
   position: relative;
-  p {
-    font-size: 22px;
-  }
-  @media (max-width: ${breakpoints.tablet}) {
-    /* width: 200px; */
-    h2 {
-      font-size: var(--font-size-h3);
-    }
-  }
+  border-radius: 5px;
 `;
 
 const Button = ({
@@ -156,7 +150,6 @@ const Button = ({
   onClick,
   className,
   url,
-  showButtonDecor = null,
 }: ButtonProps): ReactElement => (
   <ButtonLink className={className} to={url ? url : '#'}>
     <StyledButton
@@ -166,7 +159,6 @@ const Button = ({
       chosen={chosen}
       theme={theme}
     >
-      {showButtonDecor && <img alt="buttondecoration" src={buttonDecor}></img>}
       <h5>{text}</h5>
     </StyledButton>
   </ButtonLink>
