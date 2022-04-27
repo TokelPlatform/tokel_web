@@ -6,38 +6,43 @@
 
 import styled from '@emotion/styled';
 import React from 'react';
-import { FlexRowCenter } from 'styles/common';
+import { FlexRow, FlexRowCenter } from 'styles/common';
 import CopyToClipboard from './CopyToClipboard';
 
 type InputWithCopyProps = {
   textToCopy: string;
+  width?: string;
 };
 
-const AddressInput = styled(FlexRowCenter)`
-  height: 40px;
-  box-sizing: border-box;
+const ValueWithCopyRoot = styled(FlexRow)`
+  align-items: center;
+  justify-content: flex-start;
 `;
 
-const TextWrapper = styled.p`
-  text-align: center;
-  width: 100%;
+type TextWrapperProps = {
+  width: string;
+};
+
+const TextWrapper = styled.p<TextWrapperProps>`
+  text-align: left;
   overflow-x: auto;
   font-size: var(--font-size-small-p);
+  width: ${p => p.width ?? '275px'};
 `;
 
 const Copy = styled(FlexRowCenter)`
-  height: 40px;
   width: 40px;
-  padding: 0 0.5rem;
 `;
 
-const ValueWithCopy = ({ textToCopy }: InputWithCopyProps) => (
-  <AddressInput>
-    <TextWrapper>{textToCopy}</TextWrapper>
+const ValueWithCopy = ({ textToCopy, width }: InputWithCopyProps) => (
+  <ValueWithCopyRoot>
+    <TextWrapper width={width}>
+      {textToCopy.length > 30 ? textToCopy.substring(0, 30) + '...' : textToCopy}{' '}
+    </TextWrapper>
     <Copy>
       <CopyToClipboard textToCopy={textToCopy} />
     </Copy>
-  </AddressInput>
+  </ValueWithCopyRoot>
 );
 
 export default ValueWithCopy;

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Trophy from 'images/trophy.svg';
 import SpecialButton from 'components/Atoms/SpecialButton';
 import { Colors } from 'components/Atoms/Button';
 import { InfoBlock } from 'components/Molecules/swap/InfoBlock';
@@ -23,72 +22,66 @@ const BoxTitle = styled.h3<BoxTitleProps>`
   margin-bottom: 2rem;
 `;
 
-const TrophyWrapper = styled.div`
-  margin: 3rem 0;
-`;
-
 const ButtonWrapper = styled(SpecialButton)`
   margin-top: 2rem;
 `;
 
 type SwapSuccessProps = {
-  swapAmount: number;
-  receivingAmount: number;
-  receivingAddress: string;
+  amountFromUser: number;
+  transactionIdFromUser: string;
+  sendingAddress: string;
   chosenCurrency: string;
-  transactionIdReceived: string;
-  transactionIdSent: string;
+  refundAmount: number;
+  transactionIdRefund: string;
   newSwap: () => void;
+  reason: string;
 };
 
-export default function SwapSuccess({
-  swapAmount,
-  receivingAmount,
-  transactionIdReceived,
-  transactionIdSent,
-  receivingAddress,
+export default function SwapFailure({
+  amountFromUser,
+  refundAmount,
+  transactionIdFromUser,
+  transactionIdRefund,
+  sendingAddress,
   chosenCurrency,
   newSwap,
+  reason = 'REFUND',
 }: SwapSuccessProps) {
-  transactionIdReceived = 'cd1cc8d91c33af4f84153529a284af6f0d69090000e4a5d58876606a838a2a87';
-  transactionIdSent = 'cd1cc8d91c33af4f84153529a284af6f0d69090000e4a5d58876606a838a2a87';
+  transactionIdFromUser = 'cd1cc8d91c33af4f84153529a284af6f0d69090000e4a5d58876606a838a2a87';
+  transactionIdRefund = 'cd1cc8d91c33af4f84153529a284af6f0d69090000e4a5d58876606a838a2a87';
   return (
     <div>
-      <BoxTitle state="success">SWAP SUCCESSFUL</BoxTitle>
-      <TrophyWrapper>
-        <img src={Trophy} />
-        <h4 style={{ color: 'var(--color-base-richyellow)' }}>
-          Congratulations! <br />
-          You are an official holder of TKL!
-        </h4>
-      </TrophyWrapper>
+      <BoxTitle state="error">SWAP FAILED</BoxTitle>
+      {reason === 'REFUND' && (
+        <h4>We have received an incorrect amount of BTC. A refund has been issued to you.</h4>
+      )}
       <InfoBlock
-        amount={receivingAmount}
-        currencyName="TKL"
-        header={'Received by you'}
-        values={[
-          {
-            label: 'Address',
-            value: receivingAddress,
-          },
-          {
-            label: 'Tx id',
-            value: transactionIdReceived,
-          },
-        ]}
-      />
-      <InfoBlock
-        amount={swapAmount}
+        amount={amountFromUser}
         currencyName={chosenCurrency}
         header={'Sent by you'}
         values={[
           {
-            label: 'Date received',
+            label: 'Address',
+            value: sendingAddress,
+          },
+          {
+            label: 'Tx id',
+            value: transactionIdFromUser,
+          },
+        ]}
+      />
+      <InfoBlock
+        amount={refundAmount}
+        currencyName={chosenCurrency}
+        header={'Refund'}
+        values={[
+          {
+            label: 'Date sent',
             value: '10.04.2022 at 15:04:29',
           },
           {
             label: 'Tx id',
-            value: transactionIdSent,
+            value: transactionIdRefund,
           },
         ]}
       />
