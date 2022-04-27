@@ -2,7 +2,6 @@ import PageRoot from './template';
 import { PageHeader } from '../components/Atoms/Title';
 import PropTypes from 'prop-types';
 import React from 'react';
-// import breakpoints from '../styles/breakpoints';
 import links from '../data/links';
 import styled from '@emotion/styled';
 import PageMeta from 'components/Molecules/PageMeta';

@@ -1,5 +1,4 @@
 import Footer from "../components/Organisms/Footer"
-import { Helmet } from "react-helmet"
 import { PageHeader } from "../components/Atoms/Title"
 import PropTypes from 'prop-types'
 import React from "react"
@@ -12,6 +11,7 @@ import links from "../data/links"
 import Contact from "components/Molecules/Contact"
 import planetsOrbits from '../images/launch/planets-orbits.svg'
 import styled from "@emotion/styled"
+import PageMeta from "components/Molecules/PageMeta"
 
 const ChainLaunchRoot = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%); 
@@ -86,11 +86,10 @@ const FeaturesImage = styled.img`
 export default function Faq() {
   return (
     <div>
-    <Helmet>
-        <meta charSet="utf-8" />
-        <title>FAQ | Tokel Platform </title>
-        <meta name="description" content="With the Tokel App you can sell art, browse NFTs, create and trade tokens for your projects. All on a unified and inexpensive platform." />
-    </Helmet>
+      <PageMeta
+        title="FAQ | Tokel Platform"
+        description="With the Tokel App you can sell art, browse NFTs, create and trade tokens for your projects. All on a unified and inexpensive platform."
+    />
     <ChainLaunchRoot> 
       <Stars starSize={'small'} />
       <Stars starSize={'medium'}/>

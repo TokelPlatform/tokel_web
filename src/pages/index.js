@@ -1,7 +1,6 @@
 import * as React from "react"
 
 import Comparison from "components/Organisms/Comparison"
-import { Helmet } from "react-helmet"
 import PageRoot from "./template"
 import PropTypes from 'prop-types'
 import WelcomeText from "components/Molecules/WelcomeText"
@@ -18,6 +17,7 @@ import { FlexRowCenter } from "styles/common"
 // import BannerSubscribe from "components/Molecules/banners/BannerSubscribe"
 import { FlexCol } from "styles/common"
 import partnersBg from "images/backgrounds/partners.svg"
+import PageMeta from "components/Molecules/PageMeta"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -38,15 +38,13 @@ const PartnersSection = styled(FlexCol)`
   }
 `
 
-
 const IndexPage = ()  => {
   return (
     <MainPage>
-      <Helmet>
-          <meta charSet="utf-8" />
-          <title>Tokel | Making NFT & Token Creation Easy For Everyone</title>
-          <meta name="description" content="Tokel truly opens the door for every single person to create & access tokens and NFTs in an inexpensive, decentralized fashion." />
-      </Helmet>
+      <PageMeta
+        title="Tokel | Making NFT & Token Creation Easy For Everyone"
+        description="Tokel truly opens the door for every single person to create & access tokens and NFTs in an inexpensive, decentralized fashion."
+      />
       <PageRoot starsTop='8000px'>
         <WelcomeText />
         <VSpacerBig/>
