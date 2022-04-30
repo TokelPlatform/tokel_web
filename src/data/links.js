@@ -58,7 +58,8 @@ const links = {
   tokelistArticle:
     'https://medium.com/@tokel-platform/what-is-a-tokelist-how-to-become-one-855ca6686494',
   createTokelWallet: 'https://www.youtube.com/watch?v=kYiV41XeWfg',
-  nftPodcastTop: 'https://www.bcast.fm/blog/best-nft-podcasts'
+  nftPodcastTop: 'https://www.bcast.fm/blog/best-nft-podcasts',
+  komodo: 'https://komodoplatform.com/'
 };
 
 export const podcasts = {
