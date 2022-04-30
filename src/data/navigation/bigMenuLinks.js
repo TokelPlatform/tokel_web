@@ -94,7 +94,7 @@ const bigMenuLinks = [
                             url: 'https://docs.tokel.io/guides/LaunchTKLTESTchain/'
                         },
                         {
-                            title: 'Create Tokel or NFT',
+                            title: 'Create Token or NFT',
                             url: 'https://docs.tokel.io/guides/CreateAToken/#suggested-reading'
                         }
                     ]

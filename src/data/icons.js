@@ -11,6 +11,7 @@ import amazonMusic from 'images/icons/amazon-music.svg'
 import applePodcasts from 'images/icons/apple-podcasts.svg'
 import deezer from 'images/icons/deezer.svg'
 import facebook from 'images/icons/facebook.svg'
+import linkedin from 'images/icons/linkedin.svg'
 import googlePodcasts from 'images/icons/google-podcasts.svg'
 import instagram from 'images/icons/instagram.svg'
 import spotify from 'images/icons/spotify.svg'
@@ -28,6 +29,22 @@ import swapKMD from 'images/swap-kmd-tkl.svg'
 import tokel from 'images/icons/tokel.svg'
 import cli from 'images/icons/cli.svg'
 import magic from 'images/icons/magic.svg'
+import nutella from 'images/team/nutella.png'
+import daria from 'images/team/daria.png'
+import jl777 from 'images/team/jl777.png'
+import dreamTim from 'images/team/dreamTim.png'
+import lenilsonjr from 'images/team/lenilsonjr.png'
+import acnebs from 'images/team/acnebs.png'
+import kelcie from 'images/team/kelcie.png'
+import ejuliano from 'images/team/ejuliano.png'
+import cascrypto from 'images/team/cascrypto.png'
+import chmex from 'images/team/chmex.png'
+import jorian from 'images/team/jorian.png'
+import gingerDesign from 'images/team/gingerDesign.png'
+import ahmedDhaif from 'images/team/ahmedDhaif.png'
+import pbca26 from 'images/team/pbca26.png'
+import dimxy from 'images/team/dimxy.png'
+import alright from 'images/team/alright.png'
 
 const icons = {
   amazonMusic,
@@ -59,7 +76,24 @@ const icons = {
   dexTradeSmall,
   atomicDexSmall,
   cli,
-  magic
+  magic,
+  nutella,
+  daria,
+  jl777,
+  dreamTim,
+  lenilsonjr,
+  acnebs,
+  kelcie,
+  ejuliano,
+  cascrypto,
+  chmex,
+  jorian,
+  gingerDesign,
+  ahmedDhaif,
+  pbca26,
+  dimxy,
+  alright,
+  linkedin
 }
 
 export default icons
