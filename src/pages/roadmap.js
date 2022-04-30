@@ -46,7 +46,7 @@ export default function Roadmap() {
         title="Project Roadmap 2021 - 2022 | Tokel Platform"
         description="A complete roadmap of the Tokel Platform project to showcase the development plans and goals for the next 2 years."
       />
-      <RoadmapRoot starsTop='3700px'>
+      <RoadmapRoot >
         <RoadmapWrapper>
           <TopPlanets src={planetsTop} />
           <PageHeader>Roadmap</PageHeader>

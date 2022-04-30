@@ -36,13 +36,15 @@ const ContributorSection = styled(FlexColCenter)`
 `
 
 export default function Team({data}) {
+  // eslint-disable-next-line no-undef
+  console.log(window.innerHeight);
   return (
     <div>
       <PageMeta
         title="About Tokel - Create NFTs & Tokens Easily"
         description="Tokel is an open-source, dedicated, token & NFT creation platform with no gas fees and no complicated smart contracts."
       />
-      <TeamPageRoot starsTop='2500px'>
+      <TeamPageRoot>
         <PageHeader>Tokel Contributors</PageHeader>
         <ContributorsMesh>
           {contributors.map(person => 
