@@ -39,18 +39,14 @@ export default function Team({data}) {
   return (
     <div>
       <PageMeta
-        title="About Tokel | Tokel Platform"
-        description="Learn about Tokel Platform, its ideals and its contributors"
+        title="About Tokel - Create NFTs & Tokens Easily"
+        description="Tokel is an open-source, dedicated, token & NFT creation platform with no gas fees and no complicated smart contracts."
       />
-      <TeamPageRoot starsTop='3000px'>
+      <TeamPageRoot starsTop='2500px'>
         <PageHeader>Tokel Contributors</PageHeader>
         <ContributorsMesh>
-          {contributors.map(person => {
-            console.log(person);
-            return <Contributor key={person.name} name={person.name} imageCircle={data[person.image].childImageSharp.fixed} position={person.position} socials={person.socials}/>
-
-
-          }
+          {contributors.map(person => 
+            <Contributor key={person.name} name={person.name} imageCircle={data[person.image].childImageSharp.fixed} position={person.position} socials={person.socials}/>
           )}
         </ContributorsMesh>
         <ContributorSection>
