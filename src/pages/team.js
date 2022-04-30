@@ -36,8 +36,6 @@ const ContributorSection = styled(FlexColCenter)`
 `
 
 export default function Team({data}) {
-  // eslint-disable-next-line no-undef
-  console.log(window.innerHeight);
   return (
     <div>
       <PageMeta

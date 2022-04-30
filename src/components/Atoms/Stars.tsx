@@ -84,12 +84,12 @@ const Stars = ({ starSize }: StarProps): ReactElement => {
 
   const [deviceHeight, setDeviceHeight] = useState(defaultHeight);
 
-  useEffect(() => {
-    // eslint-disable-next-line no-undef
-    console.log(document.body.scrollHeight);
-    // eslint-disable-next-line no-undef
-    setDeviceHeight(document.body.scrollHeight);
-  }, []);
+  useEffect(
+    () =>
+      // eslint-disable-next-line no-undef
+      setDeviceHeight(document.body.scrollHeight),
+    []
+  );
 
   return (
     <StarContainer
