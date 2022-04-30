@@ -88,7 +88,7 @@ export const query = graphql`
         }
       }
     }
-    alright: file(relativePath: { eq: "team/alright.png" }) {
+    alright: file(relativePath: { eq: "team/alright-image.png" }) {
       childImageSharp {
         fixed(height: 80) {
           ...GatsbyImageSharpFixed
