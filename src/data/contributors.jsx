@@ -44,7 +44,7 @@ export default [
     {
         name:'JL777',
         position: 'Project & blockchain technology advisor',
-        image: 'jl777',
+        image: 'blue',
         socials: [
             {
                 type: 'github',
@@ -179,7 +179,7 @@ export default [
     {
         name:'CHMEX',
         position: 'Blockchain specialist & project advisor',
-        image: 'chmex',
+        image: 'gray',
         socials: [
             {
                 type: 'github',
@@ -198,7 +198,7 @@ export default [
     {
         name:'jorian',
         position: 'Project advisor',
-        image: 'jorian',
+        image: 'blue',
         socials: [
             {
                 type: 'github',
@@ -255,7 +255,7 @@ export default [
     {
         name:'pbca26',
         position: 'Blockchain explorer specialist',
-        image: 'jorian',
+        image: 'blue',
         socials: [
             {
                 type: 'github',

@@ -3,12 +3,13 @@ import { PageHeader } from "../components/Atoms/Title"
 import PropTypes from 'prop-types'
 import React from "react"
 import TeamPageRoot from './template'
+import { graphql } from "gatsby"
 // import breakpoints from "../styles/breakpoints"
 import styled from "@emotion/styled"
 import PageMeta from "components/Molecules/PageMeta"
 import contributors from "data/contributors"
 import Contributor from "components/Molecules/Contributor"
-import {  FlexColCenter, FlexRowCenter } from "styles/common"
+import {  FlexColCenter, FlexRowCenter, VSpacerBig } from "styles/common"
 import heart from "images/heart.png"
 import icons from "data/icons"
 import links from "data/links"
@@ -31,7 +32,7 @@ const Heart = styled.img`
   height: 150px;
 `
 
-export default function Team() {
+export default function Team({data}) {
   return (
     <div>
       <PageMeta
@@ -42,7 +43,7 @@ export default function Team() {
         <PageHeader>Tokel Contributors</PageHeader>
         <ContributorsMesh>
           {contributors.map(person => 
-            <Contributor key={person.name} name={person.name} image={person.image} position={person.position} socials={person.socials}/>
+            <Contributor key={person.name} name={person.name} imageCircle={data[person.image].childImageSharp.fixed} position={person.position} socials={person.socials}/>
           )}
         </ContributorsMesh>
         <FlexColCenter>
@@ -56,10 +57,116 @@ export default function Team() {
             <ClickableIcon width="35px" link={links.github} icon={icons.github} />
           </FlexRowCenter>
         </FlexColCenter>
+        <VSpacerBig />
+        <VSpacerBig />
+        <VSpacerBig />
       </TeamPageRoot>
     </div>
   )
 }
+
+export const query = graphql`
+  query {
+    acnebs: file(relativePath: { eq: "team/acnebs.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }     
+    ahmedDhaif: file(relativePath: { eq: "team/ahmedDhaif.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    alright: file(relativePath: { eq: "team/alright.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    cascrypto: file(relativePath: { eq: "team/cascrypto.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    blue: file(relativePath: { eq: "team/blue.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    daria: file(relativePath: { eq: "team/daria.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    dimxy: file(relativePath: { eq: "team/dimxy.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    } 
+    dreamTim: file(relativePath: { eq: "team/dreamTim.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }  
+    ejuliano: file(relativePath: { eq: "team/ejuliano.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    } 
+    gingerDesign: file(relativePath: { eq: "team/gingerDesign.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }  
+    gray: file(relativePath: { eq: "team/gray.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    } 
+    kelcie: file(relativePath: { eq: "team/kelcie.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    } 
+    lenilsonjr: file(relativePath: { eq: "team/lenilsonjr.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    } 
+    nutella: file(relativePath: { eq: "team/nutella.png" }) {
+      childImageSharp {
+        fixed(height: 80) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }                             
+  }
+`
 
 Team.propTypes = {
     data: PropTypes.any
