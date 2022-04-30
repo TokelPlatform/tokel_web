@@ -42,7 +42,7 @@ export default function Team({data}) {
         title="About Tokel | Tokel Platform"
         description="Learn about Tokel Platform, its ideals and its contributors"
       />
-      <TeamPageRoot starsTop='3700px'>
+      <TeamPageRoot starsTop='3000px'>
         <PageHeader>Tokel Contributors</PageHeader>
         <ContributorsMesh>
           {contributors.map(person => {
