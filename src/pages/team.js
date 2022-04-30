@@ -14,13 +14,12 @@ import heart from "images/heart.png"
 import icons from "data/icons"
 import links from "data/links"
 import ClickableIcon from "components/Atoms/ClickableIcon"
-// import { FlexRow } from "styles/common"
 
 const ContributorsMesh = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   max-width:860px;
   margin: auto;
   margin-top: 100px;
@@ -30,6 +29,10 @@ const ContributorsMesh = styled.div`
 const Heart = styled.img`
   z-index: 5;
   height: 150px;
+`
+
+const ContributorSection = styled(FlexColCenter)`
+  padding: 1rem;
 `
 
 export default function Team({data}) {
@@ -42,11 +45,15 @@ export default function Team({data}) {
       <TeamPageRoot starsTop='3700px'>
         <PageHeader>Tokel Contributors</PageHeader>
         <ContributorsMesh>
-          {contributors.map(person => 
-            <Contributor key={person.name} name={person.name} imageCircle={data[person.image].childImageSharp.fixed} position={person.position} socials={person.socials}/>
+          {contributors.map(person => {
+            console.log(person);
+            return <Contributor key={person.name} name={person.name} imageCircle={data[person.image].childImageSharp.fixed} position={person.position} socials={person.socials}/>
+
+
+          }
           )}
         </ContributorsMesh>
-        <FlexColCenter>
+        <ContributorSection>
           <h3 style={{marginBottom: '4px'}}>Want to become a contributor?</h3>
           <h5 style={{marginTop: 0, fontWeight: 400, color: 'var(--color-base-slate)'}}>Everyone is welcome to contribute to Tokel Platform.</h5>
           <Heart src={heart}></Heart>
@@ -56,7 +63,7 @@ export default function Team({data}) {
             <ClickableIcon width="35px" link={links.discord} icon={icons.discord} />
             <ClickableIcon width="35px" link={links.github} icon={icons.github} />
           </FlexRowCenter>
-        </FlexColCenter>
+        </ContributorSection>
         <VSpacerBig />
         <VSpacerBig />
         <VSpacerBig />
@@ -74,7 +81,7 @@ export const query = graphql`
         }
       }
     }     
-    ahmedDhaif: file(relativePath: { eq: "team/ahmedDhaif.png" }) {
+    ahmedDhaif: file(relativePath: { eq: "team/ahmed.png" }) {
       childImageSharp {
         fixed(height: 80) {
           ...GatsbyImageSharpFixed
