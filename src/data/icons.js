@@ -11,6 +11,7 @@ import amazonMusic from 'images/icons/amazon-music.svg'
 import applePodcasts from 'images/icons/apple-podcasts.svg'
 import deezer from 'images/icons/deezer.svg'
 import facebook from 'images/icons/facebook.svg'
+import linkedin from 'images/icons/linkedin.svg'
 import googlePodcasts from 'images/icons/google-podcasts.svg'
 import instagram from 'images/icons/instagram.svg'
 import spotify from 'images/icons/spotify.svg'
@@ -75,7 +76,8 @@ const icons = {
   TKL,
   arrowRight,
   warning,
-  copy
+  copy,
+  linkedin
 }
 
 export default icons
