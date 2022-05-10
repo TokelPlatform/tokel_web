@@ -46,9 +46,12 @@ export default function Contributor({ name, position, imageCircle, socials }: Co
       <h5>{name}</h5>
       <Position>{position}</Position>
       <FlexRow>
-        {socials.map(soc => (
-          <ClickableIcon width="24px" key={soc.link} link={soc.link} icon={icons[soc.type]} />
-        ))}
+        {socials.map(
+          soc =>
+            soc.link && (
+              <ClickableIcon width="24px" key={soc.link} link={soc.link} icon={icons[soc.type]} />
+            )
+        )}
       </FlexRow>
     </ContributorRoot>
   );

@@ -9,15 +9,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/NutellaLicka'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/LickaNutella'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ]
        
@@ -29,15 +29,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/piggydoughnut'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/piggydoughnut'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     },
@@ -48,15 +48,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/jl777'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/Jl777News'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     },
@@ -67,35 +67,34 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/DreamTrims'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/SindreamTim'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     },
     {
         name:'Lenilsonjr',
-        // eslint-disable-next-line react/jsx-key
-        position: ['Senior', <br/>, 'Software Engineer'],
+        position: 'Senior Software Engineer',
         image: 'lenilsonjr',
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/lenilsonjr'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/lenilsonjr_?s=20&t=WnvX0D4TKGfqjlDI4PpTfQ'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     } ,
@@ -106,35 +105,34 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/kelcie33'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/k31ci3'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: 'https://www.linkedin.com/in/kelcie-feeney-55818328/'
             }
         ] 
     },
     {
         name:'acnebs',
-        // eslint-disable-next-line react/jsx-key
-        position: ['Senior', <br/>, 'Software Engineer'],
+        position: 'Senior Software Engineer',
         image: 'acnebs',
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/acnebs'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/acnebs'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     },
@@ -145,15 +143,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: null
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/Komodo4all'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     },
@@ -164,15 +162,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: null
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/cascrypto'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     },
@@ -183,15 +181,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/CHMEX'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: null
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     },
@@ -202,15 +200,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/jorian'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: null
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     },
@@ -221,15 +219,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: null
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/GingerDesigne'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     },
@@ -240,15 +238,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/AhmedDhaif93'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: 'https://twitter.com/AhmedDhaif9'
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: 'https://www.linkedin.com/in/ahmed-dhaif-693572171'
             }
         ] 
     },
@@ -259,15 +257,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/pbca26'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: null
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     } ,
@@ -278,15 +276,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/dimxy'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: null
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     } ,
@@ -297,15 +295,15 @@ export default [
         socials: [
             {
                 type: 'github',
-                link: '#'
+                link: 'https://github.com/alrighttt'
             },
             {
                 type: 'twitter',
-                link: '#'
+                link: null
             },
             {
                 type: 'linkedin',
-                link: '#'
+                link: null
             }
         ] 
     }  

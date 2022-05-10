@@ -19,8 +19,9 @@ const ContributorsMesh = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  column-gap: 1.5rem;
   flex-wrap: wrap;
-  max-width:860px;
+  max-width:900px;
   margin: auto;
   margin-top: 100px;
   margin-bottom: 100px;
