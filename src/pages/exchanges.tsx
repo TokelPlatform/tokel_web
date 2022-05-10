@@ -45,7 +45,7 @@ export default function Exchanges() {
         title="Exchanges | Tokel Platform"
         description="With the Tokel App you can sell art, browse NFTs, create and trade tokens for your projects. All on a unified and inexpensive platform."
       />
-      <ExchangesRoot starsTop="400px">
+      <ExchangesRoot>
         <PageHeader>BUY TKL</PageHeader>
         <FlexColCenter>
           <h3>Exchanges</h3>

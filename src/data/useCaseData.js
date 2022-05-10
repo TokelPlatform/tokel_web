@@ -1,9 +1,3 @@
-// import individuals from 'images/usecase/individuals.svg';
-// import businesses from 'images/usecase/businesses.svg';
-// import bchaindevs from 'images/usecase/bchaindevs.svg'
-// import gamedevs from 'images/usecase/gamedevs.svg'
-// import creators from 'images/usecase/creators.svg'
-
 import links from './links';
 
 const boxData = [
