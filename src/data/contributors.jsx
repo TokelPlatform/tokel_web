@@ -24,7 +24,7 @@ export default [
     },
     {
         name:'Daria',
-        position: 'Co-founder & Development lead',
+        position: 'Co-founder & Senior Software Engineer',
         image: 'daria',
         socials: [
             {
