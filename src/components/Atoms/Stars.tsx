@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import { css, keyframes } from '@emotion/react';
 
 import breakpoints from '../../styles/breakpoints';
@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 
 type StarProps = {
   starSize: string;
-  top: string;
+  top?: string;
 };
 
 const rand = () => Math.random() * 5000 + 1;
@@ -37,6 +37,7 @@ type StarContainerProps = {
   size: string;
   top: string;
 };
+
 /**
  * will-change was added coz the stars were blurry in Chrome
  * https://css-tricks.com/almanac/properties/w/will-change/
@@ -62,15 +63,44 @@ const StarContainer = styled.div<StarContainerProps>`
   }
 `;
 
-const Stars = ({ starSize, top }: StarProps): ReactElement => (
-  <StarContainer
-    size={starSize}
-    top={top}
-    css={css`
-      animation: ${animStar} 120s linear infinite;
-    `}
-  />
-);
+const getTimeByStarSize = size => {
+  switch (size) {
+    case 'small':
+      return '70s';
+    case 'medium':
+      return '90s';
+    default:
+      return '120s';
+  }
+};
+
+const Stars = ({ starSize }: StarProps): ReactElement => {
+  let defaultHeight;
+
+  if (typeof window !== `undefined`) {
+    // eslint-disable-next-line no-undef
+    defaultHeight = window.innerHeight;
+  }
+
+  const [deviceHeight, setDeviceHeight] = useState(defaultHeight);
+
+  useEffect(
+    () =>
+      // eslint-disable-next-line no-undef
+      setDeviceHeight(document.body.scrollHeight),
+    []
+  );
+
+  return (
+    <StarContainer
+      size={starSize}
+      top={deviceHeight - 2000 + 'px'}
+      css={css`
+        animation: ${animStar} ${getTimeByStarSize(starSize)} linear infinite;
+      `}
+    />
+  );
+};
 
 Stars.defaultProps = {
   starSize: 'small',

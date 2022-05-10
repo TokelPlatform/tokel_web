@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 type ClickableIconProps = {
   link: string;
   icon: string;
+  width?: string;
 };
 
 const IconLink = styled.a`
@@ -14,9 +15,9 @@ const IconLink = styled.a`
   }
 `;
 
-const ClickableIcon = ({ link, icon }: ClickableIconProps): ReactElement => (
+const ClickableIcon = ({ link, icon, width }: ClickableIconProps): ReactElement => (
   <IconLink target="_blank" href={link}>
-    <img alt="clickableicon" src={icon}></img>
+    <img width={width ?? '35px'} alt="clickableicon" src={icon}></img>
   </IconLink>
 );
 

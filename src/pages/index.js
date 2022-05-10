@@ -45,7 +45,7 @@ const IndexPage = ()  => {
         title="Tokel | Making NFT & Token Creation Easy For Everyone"
         description="Tokel truly opens the door for every single person to create & access tokens and NFTs in an inexpensive, decentralized fashion."
       />
-      <PageRoot starsTop='8000px'>
+      <PageRoot>
         <WelcomeText />
         <VSpacerBig/>
         <div id="compare"/>

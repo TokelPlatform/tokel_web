@@ -11,14 +11,14 @@ const PageRoot = styled.div`
   background: var(--gradient-deep-sky);
 `
 
-const PageRootContainer = ({starsTop = '300px', children})  => {
+const PageRootContainer = ({children})  => {
   return (
       <div>
         <PageRoot>
             <TopBar />
-            <Stars top={starsTop} starSize={'small'} />
-            <Stars top={starsTop} starSize={'medium'}/>
-            <Stars top={starsTop} starSize={'big'}/>
+            <Stars starSize={'small'} />
+            <Stars starSize={'medium'}/>
+            <Stars starSize={'big'}/>
             {children}
         </PageRoot>
          <Footer />
