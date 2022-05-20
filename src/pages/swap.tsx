@@ -39,11 +39,6 @@ const Box = styled(PurpleBorderBox)`
   margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* flex-direction: column;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center; */
-  /* padding: 1rem 0; */
 
   @media (max-width: ${breakpoints.mobilebig}) {
     flex-direction: column;
@@ -60,7 +55,7 @@ export default function Swap() {
   const [receiveingAmount, setReceivingAmount] = useState(200);
   const [receivingAddress, setReceivingAddress] = useState('RQ2SPQedyuGnWxTfAmzNjqRTN1hd3LkSrn');
   const [chosenCurrency, setChosenCurrency] = useState('KMD');
-  const [step, setStep] = useState(SUCCESS);
+  const [step, setStep] = useState(CREATE);
 
   const createSwapEvent = (swapAmount, receivingAmount, address, currency) => {
     setSwapAmount(swapAmount);
@@ -122,6 +117,7 @@ export default function Swap() {
                 transactionIdRefund={''}
                 sendingAddress={''}
                 chosenCurrency={chosenCurrency}
+                newSwap={() => setStep(CREATE)}
               />
             )}
             <div></div>

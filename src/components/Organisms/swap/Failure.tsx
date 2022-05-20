@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import SpecialButton from 'components/Atoms/SpecialButton';
 import { Colors } from 'components/Atoms/Button';
 import { InfoBlock } from 'components/Molecules/swap/InfoBlock';
+import { FlexRow } from 'styles/common';
 
 type BoxTitleProps = {
   state?: string;
@@ -24,6 +25,10 @@ const BoxTitle = styled.h3<BoxTitleProps>`
 
 const ButtonWrapper = styled(SpecialButton)`
   margin-top: 2rem;
+`;
+
+const TransactionInfo = styled(FlexRow)`
+  column-gap: 2rem;
 `;
 
 type SwapSuccessProps = {
@@ -55,36 +60,38 @@ export default function SwapFailure({
       {reason === 'REFUND' && (
         <h4>We have received an incorrect amount of BTC. A refund has been issued to you.</h4>
       )}
-      <InfoBlock
-        amount={amountFromUser}
-        currencyName={chosenCurrency}
-        header={'Sent by you'}
-        values={[
-          {
-            label: 'Address',
-            value: sendingAddress,
-          },
-          {
-            label: 'Tx id',
-            value: transactionIdFromUser,
-          },
-        ]}
-      />
-      <InfoBlock
-        amount={refundAmount}
-        currencyName={chosenCurrency}
-        header={'Refund'}
-        values={[
-          {
-            label: 'Date sent',
-            value: '10.04.2022 at 15:04:29',
-          },
-          {
-            label: 'Tx id',
-            value: transactionIdRefund,
-          },
-        ]}
-      />
+      <TransactionInfo>
+        <InfoBlock
+          amount={amountFromUser}
+          currencyName={chosenCurrency}
+          header={'Sent by you'}
+          values={[
+            {
+              label: 'Address',
+              value: sendingAddress,
+            },
+            {
+              label: 'Tx id',
+              value: transactionIdFromUser,
+            },
+          ]}
+        />
+        <InfoBlock
+          amount={refundAmount}
+          currencyName={chosenCurrency}
+          header={'Refund'}
+          values={[
+            {
+              label: 'Date sent',
+              value: '10.04.2022 at 15:04:29',
+            },
+            {
+              label: 'Tx id',
+              value: transactionIdRefund,
+            },
+          ]}
+        />
+      </TransactionInfo>
       <ButtonWrapper theme={Colors.PURPLE} onClick={newSwap}>
         <h5>Make a new swap</h5>
       </ButtonWrapper>
