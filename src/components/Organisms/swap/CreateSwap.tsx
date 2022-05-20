@@ -10,7 +10,7 @@ import Error from 'components/Atoms/Error';
 import Overlay from 'components/Atoms/Overlay';
 import { CurrencyItem } from 'components/Molecules/swap/Currency';
 import PickCurrencyModal from 'components/Molecules/swap/PickerModal';
-import { MAX_TKL, MIN_TKL, TKLvalue } from 'helpers/swapConfig';
+import { MAX_TKL, MIN_TKL } from 'helpers/swapConfig';
 import Step from 'components/Molecules/swap/Step';
 import breakpoints from 'styles/breakpoints';
 
@@ -45,16 +45,21 @@ type CreateSwapProps = {
 };
 
 export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
+  const [prices, setPrices] = useState({
+    KMD: 0,
+    BTC: 0,
+    LTC: 0,
+  });
   const [receivingAddress, setReceivingAddress] = useState('');
-  const [addressError, setAddressError] = useState('');
-  const [chosenCurrency, setChosenCurrency] = useState('KMD');
   const [receivingAmount, setReceivingAmount] = useState(500);
-  const [swapAmount, setSwapAmount] = useState(parseNumber(500 * TKLvalue[chosenCurrency]));
+  const [chosenCurrency, setChosenCurrency] = useState('KMD');
+  const [swapAmount, setSwapAmount] = useState(parseNumber(500 * prices[chosenCurrency]));
+  const [addressError, setAddressError] = useState('');
   const [showModal, setShowModal] = useState(false);
 
-  const setSendingAmountValue = amount => setSwapAmount(parseNumber(amount) + '');
-  const minValue = () => MIN_TKL * TKLvalue[chosenCurrency];
-  const maxValue = () => MAX_TKL * TKLvalue[chosenCurrency];
+  const setSendingAmountValue = amount => setSwapAmount(parseNumber(amount));
+  const minValue = () => MIN_TKL * prices[chosenCurrency];
+  const maxValue = () => MAX_TKL * prices[chosenCurrency];
 
   const submitSwapInfo = () => {
     setAddressError('');
@@ -72,8 +77,18 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
       setAddressError(`Maximum Swap Amount ${MAX_TKL}TKL`);
       return;
     }
-    createSwapEvent(swapAmount, receivingAmount, receivingAddress, chosenCurrency);
+    createSwapEvent(swapAmount.toString(), receivingAmount, receivingAddress, chosenCurrency);
   };
+
+  // get prices for the currencies
+  useEffect(() => {
+    // call to get prices
+    setPrices({
+      KMD: 0.3,
+      LTC: 0.0005,
+      BTC: 0.0000005,
+    });
+  }, []);
 
   useEffect(() => {
     setShowModal(false);
@@ -81,7 +96,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   }, [chosenCurrency]);
 
   useEffect(() => {
-    let tkl = swapAmount / TKLvalue[chosenCurrency];
+    let tkl = swapAmount / prices[chosenCurrency];
     if (tkl > MAX_TKL) {
       tkl = MAX_TKL;
       setSendingAmountValue(maxValue());
@@ -100,7 +115,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   return (
     <div>
       <Overlay displayOverlay={showModal} />
-      {showModal && <PickCurrencyModal values={TKLvalue} pickCurrency={setChosenCurrency} />}
+      {showModal && <PickCurrencyModal values={prices} pickCurrency={setChosenCurrency} />}
       <BoxTitle>Create Swap</BoxTitle>
       <Step title="1. Enter amount you want to swap">
         <Currencies>
@@ -111,7 +126,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
             onChange={val => setSwapAmount(val.target.value)}
             onClick={() => setShowModal(true)}
             onBlur={checkMinAmount}
-            note={`1 ${chosenCurrency} =  ${parseNumber(1 / TKLvalue[chosenCurrency])} TKL`}
+            note={`1 ${chosenCurrency} =  ${parseNumber(1 / prices[chosenCurrency])} TKL`}
           />
           <CurrencyItem
             title="You receive"
