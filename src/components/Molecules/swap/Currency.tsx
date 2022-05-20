@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import GrayLabel from 'components/Atoms/GrayLabel';
+import { GrayLabel } from 'components/Atoms/GrayLabel';
 import Input from 'components/Atoms/Input';
 import PurpleBorderBox from 'components/Atoms/PurpleBorderBox';
 import icons from 'data/icons';
@@ -13,7 +13,7 @@ const CurrencyRoot = styled(PurpleBorderBox)<CurrencyProps>`
   align-items: center;
   justify-content: center;
   width: 170px;
-  height: 100px;
+  max-height: 130px;
   transition: box-shadow 0.25s;
   border-radius: 0;
   h4 {
@@ -32,13 +32,15 @@ type CurrencyProps = {
   disabled?: boolean;
   onClick?: (val: any) => void;
   currencyName?: string;
-  amount: number;
+  amount?: number;
+  title: string;
 };
 
-export const Currency = ({ disabled, onClick, currencyName, amount }: CurrencyProps) => {
+export const Currency = ({ disabled, onClick, currencyName, amount, title }: CurrencyProps) => {
   return (
     <CurrencyRoot disabled={disabled} onClick={onClick}>
-      <img src={icons[currencyName]} width="60" height="60"></img>
+      {title && <GrayLabel>{title}</GrayLabel>}
+      <img src={icons[currencyName]} width="50" height="50"></img>
       <h4>
         {amount && amount}
         {currencyName}
@@ -69,8 +71,7 @@ export const CurrencyItem = ({
   onBlur,
 }: CurrencyItemProps) => (
   <FlexCol>
-    <GrayLabel>{title}</GrayLabel>
-    <Currency disabled={disabled} onClick={onClick} currencyName={currencyName} />
+    <Currency disabled={disabled} title={title} onClick={onClick} currencyName={currencyName} />
     <VSpacerMedium />
     <Input
       width="166px"

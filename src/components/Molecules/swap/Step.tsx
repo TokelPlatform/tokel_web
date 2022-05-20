@@ -4,10 +4,10 @@ import React from 'react';
 import { FlexCol } from 'styles/common';
 
 const StepTitle = styled.h5`
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   font-weight: 400;
-  margin: 0;
-  margin-top: 1rem;
+  margin: 1rem 0;
+  text-align: left;
 `;
 
 type StepProps = {
@@ -19,7 +19,7 @@ type StepProps = {
 const StepRoot = styled(FlexCol)<StepProps>`
   align-items: ${p => p.justify ?? 'center'};
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 `;
 
 const Step = ({ justify, title, children }: StepProps) => (

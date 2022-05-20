@@ -1,8 +1,13 @@
 import styled from '@emotion/styled';
 
-const GrayLabel = styled.p`
+export const GrayLabel = styled.p`
   opacity: 0.8;
   text-transform: uppercase;
 `;
 
-export default GrayLabel;
+export const TinyGrayLabel = styled.h5`
+  font-size: 14px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  margin: 0;
+`;

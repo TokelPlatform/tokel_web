@@ -11,17 +11,19 @@ import CopyToClipboard from './CopyToClipboard';
 
 type InputWithCopyProps = {
   textToCopy: string;
+  width: string;
 };
 
-const AddressInput = styled(FlexRowCenter)`
+const ValueInput = styled(FlexRowCenter)`
   height: 40px;
   border: 1px solid var(--color-base-slate);
   opacity: 0.6;
   box-sizing: border-box;
   background-color: #000;
+  ${p => (p.width ? 'width: '.concat(p.width) : '')};
 `;
 
-const AddressWrapper = styled.p`
+const ValueWrapper = styled.p`
   text-align: center;
   width: 100%;
   overflow-x: auto;
@@ -36,13 +38,13 @@ const Copy = styled(FlexRowCenter)`
   padding: 0 0.5rem;
 `;
 
-const InputWithCopy = ({ textToCopy }: InputWithCopyProps) => (
-  <AddressInput>
-    <AddressWrapper>{textToCopy}</AddressWrapper>
+const InputWithCopy = ({ textToCopy, width }: InputWithCopyProps) => (
+  <ValueInput width={width}>
+    <ValueWrapper>{textToCopy}</ValueWrapper>
     <Copy>
       <CopyToClipboard textToCopy={textToCopy} />
     </Copy>
-  </AddressInput>
+  </ValueInput>
 );
 
 export default InputWithCopy;

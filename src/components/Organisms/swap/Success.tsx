@@ -4,6 +4,7 @@ import Trophy from 'images/trophy.svg';
 import SpecialButton from 'components/Atoms/SpecialButton';
 import { Colors } from 'components/Atoms/Button';
 import { InfoBlock } from 'components/Molecules/swap/InfoBlock';
+import { FlexRow, VSpacerMedium } from 'styles/common';
 
 type BoxTitleProps = {
   state?: string;
@@ -24,11 +25,14 @@ const BoxTitle = styled.h3<BoxTitleProps>`
 `;
 
 const TrophyWrapper = styled.div`
-  margin: 3rem 0;
+  margin: 2.5rem 0;
 `;
 
 const ButtonWrapper = styled(SpecialButton)`
   margin-top: 2rem;
+`;
+const TransactionInfo = styled(FlexRow)`
+  column-gap: 2rem;
 `;
 
 type SwapSuccessProps = {
@@ -56,45 +60,48 @@ export default function SwapSuccess({
     <div>
       <BoxTitle state="success">SWAP SUCCESSFUL</BoxTitle>
       <TrophyWrapper>
-        <img src={Trophy} />
-        <h4 style={{ color: 'var(--color-base-richyellow)' }}>
+        <img height="120px" src={Trophy} />
+        <h4 style={{ color: 'var(--color-base-richyellow)', margin: '1rem 0' }}>
           Congratulations! <br />
           You are an official holder of TKL!
         </h4>
       </TrophyWrapper>
-      <InfoBlock
-        amount={receivingAmount}
-        currencyName="TKL"
-        header={'Received by you'}
-        values={[
-          {
-            label: 'Address',
-            value: receivingAddress,
-          },
-          {
-            label: 'Tx id',
-            value: transactionIdReceived,
-          },
-        ]}
-      />
-      <InfoBlock
-        amount={swapAmount}
-        currencyName={chosenCurrency}
-        header={'Sent by you'}
-        values={[
-          {
-            label: 'Date received',
-            value: '10.04.2022 at 15:04:29',
-          },
-          {
-            label: 'Tx id',
-            value: transactionIdSent,
-          },
-        ]}
-      />
+      <TransactionInfo>
+        <InfoBlock
+          amount={receivingAmount}
+          currencyName="TKL"
+          header={'Received by you'}
+          values={[
+            {
+              label: 'Tx id',
+              value: transactionIdReceived,
+            },
+            {
+              label: 'Address',
+              value: receivingAddress,
+            },
+          ]}
+        />
+        <InfoBlock
+          amount={swapAmount}
+          currencyName={chosenCurrency}
+          header={'Sent by you'}
+          values={[
+            {
+              label: 'Tx id',
+              value: transactionIdSent,
+            },
+            {
+              label: 'Date received',
+              value: '10.04.2022 at 15:04:29',
+            },
+          ]}
+        />
+      </TransactionInfo>
       <ButtonWrapper theme={Colors.PURPLE} onClick={newSwap}>
         <h5>Make a new swap</h5>
       </ButtonWrapper>
+      <VSpacerMedium />
     </div>
   );
 }

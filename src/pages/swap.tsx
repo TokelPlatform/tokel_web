@@ -3,7 +3,7 @@ import SwapRoot from './template';
 import breakpoints from '../styles/breakpoints';
 import styled from '@emotion/styled';
 import PageMeta from 'components/Molecules/PageMeta';
-import { PageHeader } from 'components/Atoms/Title';
+// import { PageHeader } from 'components/Atoms/Title';
 import PurpleBorderBox from 'components/Atoms/PurpleBorderBox';
 import CreateSwap from 'components/Organisms/swap/CreateSwap';
 import FinishSwap from 'components/Organisms/swap/FinishSwap';
@@ -11,6 +11,7 @@ import SwapSuccess from 'components/Organisms/swap/Success';
 import SwapFailure from 'components/Organisms/swap/Failure';
 import { FlexColCenter } from 'styles/common';
 import links from 'data/links';
+import Button, { Colors } from 'components/Atoms/Button';
 
 const SwapWrapper = styled.div`
   margin: auto;
@@ -27,19 +28,22 @@ const Disclaimer = styled.p`
   margin-top: 1rem;
   text-align: left;
   padding: 1rem;
-  width: 380px;
+  min-width: 380px;
+  max-width: 740px;
 `;
 
 const Box = styled(PurpleBorderBox)`
   max-width: 740px;
-  height: 780px;
+  min-height: 760px;
   margin: auto;
   margin-top: 2rem;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* flex-direction: column;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
-  padding: 1rem 0 4rem 0;
+  align-items: center; */
+  /* padding: 1rem 0; */
 
   @media (max-width: ${breakpoints.mobilebig}) {
     flex-direction: column;
@@ -56,10 +60,9 @@ export default function Swap() {
   const [receiveingAmount, setReceivingAmount] = useState(200);
   const [receivingAddress, setReceivingAddress] = useState('RQ2SPQedyuGnWxTfAmzNjqRTN1hd3LkSrn');
   const [chosenCurrency, setChosenCurrency] = useState('KMD');
-  const [step, setStep] = useState(CREATE);
+  const [step, setStep] = useState(SUCCESS);
 
   const createSwapEvent = (swapAmount, receivingAmount, address, currency) => {
-    console.log('yeps');
     setSwapAmount(swapAmount);
     setReceivingAmount(receivingAmount);
     setReceivingAddress(address);
@@ -75,13 +78,23 @@ export default function Swap() {
       <PageMeta title="Swap TKL | Tokel Platform" description="" />
       <SwapRoot starsTop={'1000px'}>
         <SwapWrapper>
-          <PageHeader>Swap TKL</PageHeader>
+          {/* <PageHeader>Swap TKL</PageHeader>
           <p>
             Simply swap your BTC, LTC and other cryptocurrencies for TKL. <br />
             Follow the guidelines below to perform a swap.
-          </p>
-
+          </p> */}
           <Box id="swapBox">
+            <div style={{ marginLeft: '2rem', marginTop: '2rem' }}>
+              {step === FINISH && (
+                <Button
+                  theme={Colors.GRAY}
+                  onClick={() => setStep(CREATE)}
+                  text="Go Back"
+                  width="85px"
+                  height="40px"
+                />
+              )}
+            </div>
             {step === CREATE && <CreateSwap createSwapEvent={createSwapEvent} />}
             {step === FINISH && (
               <FinishSwap
@@ -111,19 +124,22 @@ export default function Swap() {
                 chosenCurrency={chosenCurrency}
               />
             )}
+            <div></div>
           </Box>
         </SwapWrapper>
         <FlexColCenter>
-          <p style={{ maxWidth: '500px', textAlign: 'center' }}>
+          {/* <p style={{ maxWidth: '500px', textAlign: 'center' }}>
             Please reach out to us on <a href={links.discord}>Discord</a>, by{' '}
             <a href="mailto:contact@tokel.io">email</a> or using{' '}
             <a href={links.telegram}>Telegram</a> in case you are seeking any assistance.
-          </p>
+          </p> */}
           <Disclaimer>
             <b>DISCLAIMER</b>
             <br />
             All the transactions are final and we do not issue any refunds on the performed swaps.
-            Please double check all of your information.
+            Please double check all of your information. Reach out to us on{' '}
+            <a href={links.discord}>Discord</a>, by <a href="mailto:contact@tokel.io">email</a> or
+            using <a href={links.telegram}>Telegram</a> in case you are seeking any assistance.
           </Disclaimer>
         </FlexColCenter>
       </SwapRoot>

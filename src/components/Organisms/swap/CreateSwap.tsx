@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import { FlexRow, VSpacerMedium } from 'styles/common';
+import { FlexRow, VSpacerSmall } from 'styles/common';
 import Input from 'components/Atoms/Input';
 import Warning from 'components/Atoms/Warning';
 import { Colors } from 'components/Atoms/Button';
@@ -12,6 +12,7 @@ import { CurrencyItem } from 'components/Molecules/swap/Currency';
 import PickCurrencyModal from 'components/Molecules/swap/PickerModal';
 import { MAX_TKL, MIN_TKL, TKLvalue } from 'helpers/swapConfig';
 import Step from 'components/Molecules/swap/Step';
+import breakpoints from 'styles/breakpoints';
 
 const BoxTitle = styled.h3`
   text-transform: uppercase;
@@ -25,6 +26,9 @@ const Currencies = styled(FlexRow)`
   align-items: flex-start;
   justify-content: center;
   column-gap: 2rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 const WarningWrapper = styled(Warning)`
@@ -98,7 +102,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
       <Overlay displayOverlay={showModal} />
       {showModal && <PickCurrencyModal values={TKLvalue} pickCurrency={setChosenCurrency} />}
       <BoxTitle>Create Swap</BoxTitle>
-      <Step title="1. Enter amount to swap">
+      <Step title="1. Enter amount you want to swap">
         <Currencies>
           <CurrencyItem
             title="You send"
@@ -120,14 +124,14 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
       </Step>
       <Step title="2. ENTER YOUR RECEIVING TKL ADDRESS">
         <WarningWrapper text="Please double check the address below. That is where you will receive your TKL" />
+        <VSpacerSmall />
         <Input
-          width="358px"
+          width="342px"
           value={receivingAddress}
           onChange={e => setReceivingAddress(e.target.value)}
         />
         <Error>{addressError}</Error>
       </Step>
-      <VSpacerMedium />
       <SpecialButton theme={Colors.PURPLE} onClick={() => submitSwapInfo()}>
         <h5>Lets swap</h5>
       </SpecialButton>
