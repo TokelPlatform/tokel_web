@@ -37,7 +37,7 @@ export default [
             },
             {
                 type: 'linkedin',
-                link: null
+                link: 'https://www.linkedin.com/in/daria-mikhailova'
             }
         ] 
     },
