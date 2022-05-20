@@ -97,6 +97,8 @@ export default function Swap() {
                 receivingAmount={receiveingAmount}
                 receivingAddress={receivingAddress}
                 chosenCurrency={chosenCurrency}
+                transactionIdReceived={''}
+                transactionIdSent={''}
                 newSwap={() => setStep(CREATE)}
               />
             )}
@@ -109,24 +111,20 @@ export default function Swap() {
                 sendingAddress={''}
                 chosenCurrency={chosenCurrency}
                 newSwap={() => setStep(CREATE)}
+                reason={''}
               />
             )}
             <div></div>
           </Box>
         </SwapWrapper>
         <FlexColCenter>
-          {/* <p style={{ maxWidth: '500px', textAlign: 'center' }}>
-            Please reach out to us on <a href={links.discord}>Discord</a>, by{' '}
-            <a href="mailto:contact@tokel.io">email</a> or using{' '}
-            <a href={links.telegram}>Telegram</a> in case you are seeking any assistance.
-          </p> */}
           <Disclaimer>
             <b>DISCLAIMER</b>
             <br />
             All the transactions are final and we do not issue any refunds on the performed swaps.
             Please double check all of your information. Reach out to us on{' '}
-            <a href={links.discord}>Discord</a>, by <a href="mailto:contact@tokel.io">email</a> or
-            using <a href={links.telegram}>Telegram</a> in case you are seeking any assistance.
+            <a href={links.discord}>Discord</a>, by <a href={links.mailContact}>email</a> or using{' '}
+            <a href={links.telegram}>Telegram</a> in case you are seeking any assistance.
           </Disclaimer>
         </FlexColCenter>
       </SwapRoot>

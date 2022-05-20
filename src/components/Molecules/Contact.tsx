@@ -13,7 +13,7 @@ const ContactStyled = styled.div`
 const Contact = () => (
   <ContactStyled>
     <h4>
-      Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join{' '}
+      Contact us at <a href={links.mailContact}>contact@tokel.io</a> or join{' '}
       <a href={links.discord}>Tokel Discord</a>{' '}
     </h4>
     <img alt="flying-tokel" src={flyingTokel}></img>

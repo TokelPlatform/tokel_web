@@ -34,7 +34,6 @@ type FinishSwapProps = {
   receivingAmount: number;
   receivingAddress: string;
   chosenCurrency: string;
-  goBack: () => {};
 };
 
 export default function FinishSwap({
@@ -42,8 +41,7 @@ export default function FinishSwap({
   receivingAmount,
   receivingAddress,
   chosenCurrency,
-}: // goBack,
-FinishSwapProps) {
+}: FinishSwapProps) {
   return (
     <div>
       <BoxTitle>Finish THE Swap</BoxTitle>

@@ -229,7 +229,7 @@ const TokelTalk = ({data})  => {
               )}
             </Formik>
           </GuestSignUp>
-          <ReachOutToUs>If you are experiencing any difficulties, feel free to reach out to us in <a href={links.discord}>Tokel Discord</a> or email us at <a href="mailto:suppor@tokel.io">suppor@tokel.io</a></ReachOutToUs>
+          <ReachOutToUs>If you are experiencing any difficulties, feel free to reach out to us in <a href={links.discord}>Tokel Discord</a> or email us at <a href={links.mailSupport}>suppor@tokel.io</a></ReachOutToUs>
         </Content>
 
       </PodcastRoot>
