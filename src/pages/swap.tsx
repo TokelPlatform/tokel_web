@@ -64,20 +64,12 @@ export default function Swap() {
     setChosenCurrency(currency);
     setStep(FINISH);
   };
-  const goBack = () => {
-    setStep(CREATE);
-  };
-  /* eslint-disable no-undef */
+
   return (
     <div>
       <PageMeta title="Swap TKL | Tokel Platform" description="" />
       <SwapRoot starsTop={'1000px'}>
         <SwapWrapper>
-          {/* <PageHeader>Swap TKL</PageHeader>
-          <p>
-            Simply swap your BTC, LTC and other cryptocurrencies for TKL. <br />
-            Follow the guidelines below to perform a swap.
-          </p> */}
           <Box id="swapBox">
             <div style={{ marginLeft: '2rem', marginTop: '2rem' }}>
               {step === FINISH && (
@@ -97,7 +89,6 @@ export default function Swap() {
                 receivingAmount={receiveingAmount}
                 receivingAddress={receivingAddress}
                 chosenCurrency={chosenCurrency}
-                goBack={goBack}
               />
             )}
             {step === SUCCESS && (

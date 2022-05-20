@@ -1,8 +1,6 @@
 import Footer from "../components/Organisms/Footer"
 import PropTypes from 'prop-types'
 import React from "react"
-import Stars from "../components/Atoms/Stars"
-import TopBar from "../components/Organisms/TopBar"
 import { Video } from "../components/Atoms/Video"
 import breakpoints from "../styles/breakpoints"
 import features from '../images/launch/features.svg'
@@ -11,10 +9,8 @@ import Contact from "components/Molecules/Contact"
 import planetsOrbits from '../images/launch/planets-orbits.svg'
 import styled from "@emotion/styled"
 import PageMeta from "components/Molecules/PageMeta"
-
-const ChainLaunchRoot = styled.div`
-  background: linear-gradient(180deg, #13182A 0%, #263867 100%); 
-`
+import ChainLaunchRoot from './template'
+import { PageHeader } from "components/Atoms/Title"
 
 const TokelQuestionsWrapper = styled.div`
   background-image: url(${planetsOrbits});
@@ -90,14 +86,9 @@ export default function Faq() {
         description="With the Tokel App you can sell art, browse NFTs, create and trade tokens for your projects. All on a unified and inexpensive platform."
     />
     <ChainLaunchRoot> 
-      <Stars starSize={'small'} />
-      <Stars starSize={'medium'}/>
-      <Stars starSize={'big'}/>
-      <TopBar />  
-
+      <PageHeader>TOKEL FAQ</PageHeader>
       <TokelQuestionsWrapper>
         <WhyTokel>
-          <h1>TOKEL FAQ</h1>
           <div>
             <WhiteHeader>
               What can Tokel do for you?

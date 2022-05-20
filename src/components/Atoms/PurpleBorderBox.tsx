@@ -7,7 +7,7 @@ const PurpleBorderBox = styled.div`
   border-image-source: var(--gradient-purple-to-lighblue);
   border-radius: 10px;
   position: relative;
-  z-index: 3;
+  z-index: 2;
 `;
 
 export default PurpleBorderBox;
