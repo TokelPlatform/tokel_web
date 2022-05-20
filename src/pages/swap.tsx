@@ -3,12 +3,14 @@ import SwapRoot from './template';
 import breakpoints from '../styles/breakpoints';
 import styled from '@emotion/styled';
 import PageMeta from 'components/Molecules/PageMeta';
-// import { PageHeader } from 'components/Atoms/Title';
+import { PageHeader } from 'components/Atoms/Title';
 import PurpleBorderBox from 'components/Atoms/PurpleBorderBox';
 import CreateSwap from 'components/Organisms/swap/CreateSwap';
 import FinishSwap from 'components/Organisms/swap/FinishSwap';
 import SwapSuccess from 'components/Organisms/swap/Success';
 import SwapFailure from 'components/Organisms/swap/Failure';
+import { FlexColCenter } from 'styles/common';
+import links from 'data/links';
 
 const SwapWrapper = styled.div`
   margin: auto;
@@ -18,9 +20,19 @@ const SwapWrapper = styled.div`
   }
 `;
 
+const Disclaimer = styled.p`
+  font-size: var(--font-size-small-p);
+  opacity: 0.5;
+  margin: auto;
+  margin-top: 1rem;
+  text-align: left;
+  padding: 1rem;
+  width: 380px;
+`;
+
 const Box = styled(PurpleBorderBox)`
   max-width: 740px;
-  height: 850px;
+  height: 780px;
   margin: auto;
   margin-top: 2rem;
   flex-direction: column;
@@ -63,13 +75,13 @@ export default function Swap() {
       <PageMeta title="Swap TKL | Tokel Platform" description="" />
       <SwapRoot starsTop={'1000px'}>
         <SwapWrapper>
-          {/* <PageHeader>Swap TKL</PageHeader>
+          <PageHeader>Swap TKL</PageHeader>
           <p>
             Simply swap your BTC, LTC and other cryptocurrencies for TKL. <br />
             Follow the guidelines below to perform a swap.
-          </p> */}
+          </p>
 
-          <Box>
+          <Box id="swapBox">
             {step === CREATE && <CreateSwap createSwapEvent={createSwapEvent} />}
             {step === FINISH && (
               <FinishSwap
@@ -101,6 +113,19 @@ export default function Swap() {
             )}
           </Box>
         </SwapWrapper>
+        <FlexColCenter>
+          <p style={{ maxWidth: '500px', textAlign: 'center' }}>
+            Please reach out to us on <a href={links.discord}>Discord</a>, by{' '}
+            <a href="mailto:contact@tokel.io">email</a> or using{' '}
+            <a href={links.telegram}>Telegram</a> in case you are seeking any assistance.
+          </p>
+          <Disclaimer>
+            <b>DISCLAIMER</b>
+            <br />
+            All the transactions are final and we do not issue any refunds on the performed swaps.
+            Please double check all of your information.
+          </Disclaimer>
+        </FlexColCenter>
       </SwapRoot>
     </div>
   );

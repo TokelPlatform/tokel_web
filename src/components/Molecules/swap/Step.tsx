@@ -4,8 +4,8 @@ import React from 'react';
 import { FlexCol } from 'styles/common';
 
 const StepTitle = styled.h5`
-  text-transform: uppercase;
-  font-weight: 700;
+  /* text-transform: uppercase; */
+  font-weight: 400;
   margin: 0;
   margin-top: 1rem;
 `;

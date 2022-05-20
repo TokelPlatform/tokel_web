@@ -5,7 +5,7 @@ import Input from 'components/Atoms/Input';
 import Warning from 'components/Atoms/Warning';
 import { Colors } from 'components/Atoms/Button';
 import SpecialButton from 'components/Atoms/SpecialButton';
-import { isAddressValid } from 'helpers/general';
+import { isAddressValid, parseNumber } from 'helpers/general';
 import Error from 'components/Atoms/Error';
 import Overlay from 'components/Atoms/Overlay';
 import { CurrencyItem } from 'components/Molecules/swap/Currency';
@@ -31,17 +31,9 @@ const WarningWrapper = styled(Warning)`
   margin: auto;
 `;
 
-const Disclaimer = styled.p`
-  font-size: var(--font-size-small-p);
-  opacity: 0.5;
-  margin-top: 1rem;
-  text-align: left;
-  padding: 1rem;
-`;
-
 type CreateSwapProps = {
   createSwapEvent: (
-    swapAmount: number,
+    swapAmount: string,
     receivingAmount: number,
     receivingAddress: string,
     chosenCurrency: string
@@ -53,9 +45,12 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   const [addressError, setAddressError] = useState('');
   const [chosenCurrency, setChosenCurrency] = useState('KMD');
   const [receivingAmount, setReceivingAmount] = useState(500);
-  const [swapAmount, setSwapAmount] = useState(500 * TKLvalue[chosenCurrency]);
+  const [swapAmount, setSwapAmount] = useState(parseNumber(500 * TKLvalue[chosenCurrency]));
   const [showModal, setShowModal] = useState(false);
-  console.log(chosenCurrency, 'chosenCurrency');
+
+  const setSendingAmountValue = amount => setSwapAmount(parseNumber(amount) + '');
+  const minValue = () => MIN_TKL * TKLvalue[chosenCurrency];
+  const maxValue = () => MAX_TKL * TKLvalue[chosenCurrency];
 
   const submitSwapInfo = () => {
     setAddressError('');
@@ -64,12 +59,12 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
       return;
     }
     if (receivingAmount < MIN_TKL) {
-      setSwapAmount(MIN_TKL * TKLvalue[chosenCurrency]);
+      setSendingAmountValue(minValue());
       setAddressError(`Minimum Swap Amount ${MIN_TKL}TKL`);
       return;
     }
     if (receivingAmount > MAX_TKL) {
-      setSwapAmount(MAX_TKL * TKLvalue[chosenCurrency]);
+      setSendingAmountValue(maxValue());
       setAddressError(`Maximum Swap Amount ${MAX_TKL}TKL`);
       return;
     }
@@ -78,21 +73,22 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
 
   useEffect(() => {
     setShowModal(false);
+    setSendingAmountValue(minValue());
   }, [chosenCurrency]);
 
   useEffect(() => {
     let tkl = swapAmount / TKLvalue[chosenCurrency];
     if (tkl > MAX_TKL) {
       tkl = MAX_TKL;
-      setSwapAmount(MAX_TKL * TKLvalue[chosenCurrency]);
+      setSendingAmountValue(maxValue());
     }
-    setReceivingAmount(tkl);
+    setReceivingAmount(Number(tkl.toFixed(6)));
   }, [swapAmount]);
 
   const checkMinAmount = () => {
-    if (swapAmount < MIN_TKL) {
-      setReceivingAmount(MIN_TKL);
-      setSwapAmount(MIN_TKL * TKLvalue[chosenCurrency]);
+    const min = minValue();
+    if (swapAmount < min) {
+      setSendingAmountValue(min);
     }
   };
 
@@ -103,9 +99,6 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
       {showModal && <PickCurrencyModal values={TKLvalue} pickCurrency={setChosenCurrency} />}
       <BoxTitle>Create Swap</BoxTitle>
       <Step title="1. Enter amount to swap">
-        <p style={{ marginTop: 0, opacity: '0.6' }}>
-          1 {chosenCurrency} = {TKLvalue[chosenCurrency]} TKL
-        </p>
         <Currencies>
           <CurrencyItem
             title="You send"
@@ -114,6 +107,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
             onChange={val => setSwapAmount(val.target.value)}
             onClick={() => setShowModal(true)}
             onBlur={checkMinAmount}
+            note={`1 ${chosenCurrency} =  ${parseNumber(1 / TKLvalue[chosenCurrency])} TKL`}
           />
           <CurrencyItem
             title="You receive"
@@ -137,11 +131,6 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
       <SpecialButton theme={Colors.PURPLE} onClick={() => submitSwapInfo()}>
         <h5>Lets swap</h5>
       </SpecialButton>
-      <Disclaimer>
-        DISCLAIMER
-        <br />
-        All the transactions are final and we do not issue any refunds on the performed swaps.
-      </Disclaimer>
     </div>
   );
 }

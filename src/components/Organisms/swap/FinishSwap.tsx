@@ -19,14 +19,6 @@ const WarningWrapper = styled(Warning)`
   margin: auto;
 `;
 
-const Disclaimer = styled.p`
-  font-size: var(--font-size-small-p);
-  opacity: 0.5;
-  margin-top: 1rem;
-  text-align: left;
-  padding: 1rem;
-`;
-
 const QRCodeWrapper = styled.div`
   background-color: #fff;
   padding: 12px;
@@ -40,6 +32,7 @@ const QRCodeWrapper = styled.div`
 const Top = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 1rem;
 `;
 
 type FinishSwapProps = {
@@ -69,10 +62,17 @@ export default function FinishSwap({
         />
         <BoxTitle>Finish THE Swap</BoxTitle>
       </Top>
-      <div style={{ marginLeft: '20%' }}>
+      <p style={{ margin: 0, opacity: 0.6 }}>created on 10.04.2022 at 15:04:29 </p>
+      <div>
         <Step
-          title={`1. SEND ${swapAmount} ${chosenCurrency} TO THE ADDRESS BELOW`}
-          justify="flex-start"
+          title={[
+            '1. Send ',
+            <b key={swapAmount}>
+              {swapAmount} {chosenCurrency}
+            </b>,
+            ' to the address below',
+          ]}
+          justify="center"
         >
           <Warning text="Make sure to send BTC only to this address" />
           <InputWithCopy textToCopy={receivingAddress} />
@@ -82,19 +82,18 @@ export default function FinishSwap({
           </QRCodeWrapper>
         </Step>
         <Step
-          title={`2. ONCE WE RECEIVE THE ${chosenCurrency} You will receive ${receivingAmount} TKL`}
-          justify="flex-start"
+          title={[
+            `2. Once we receive the ${chosenCurrency} You will`,
+            // eslint-disable-next-line react/jsx-key
+            'receive ',
+            // eslint-disable-next-line react/jsx-key
+            <b>{receivingAmount} TKL</b>,
+          ]}
+          justify="center"
         >
           <WarningWrapper text="Please double check the address below. That is where you will receive your TKL. If this address is incorrect, do not send the funds. Please click 'Go Back' and restart the swap with the correct address" />
           <InputWithCopy textToCopy={receivingAddress} />
         </Step>
-
-        <Disclaimer>
-          DISCLAIMER
-          <br />
-          All the transactions are final and we do not issue any refunds on the performed swaps.
-        </Disclaimer>
-        <p>created on 10.04.2022 at 15:04:29 </p>
       </div>
     </div>
   );
