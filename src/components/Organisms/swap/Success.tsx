@@ -1,10 +1,11 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import styled from '@emotion/styled';
 import Trophy from 'images/trophy.svg';
 import SpecialButton from 'components/Atoms/SpecialButton';
 import { Colors } from 'components/Atoms/Button';
 import { InfoBlock } from 'components/Molecules/swap/InfoBlock';
-import { FlexRow, VSpacerMedium } from 'styles/common';
+import { FlexCol, FlexRow, VSpacerMedium } from 'styles/common';
 
 type BoxTitleProps = {
   state?: string;
@@ -42,6 +43,8 @@ type SwapSuccessProps = {
   chosenCurrency: string;
   transactionIdReceived: string;
   transactionIdSent: string;
+  paymentTransactionUrl: string;
+  sendingTransactionUrl: string;
   newSwap: () => void;
 };
 
@@ -50,8 +53,9 @@ export default function SwapSuccess({
   receivingAmount,
   transactionIdReceived,
   transactionIdSent,
-  receivingAddress,
   chosenCurrency,
+  paymentTransactionUrl,
+  sendingTransactionUrl,
   newSwap,
 }: SwapSuccessProps) {
   return (
@@ -65,38 +69,53 @@ export default function SwapSuccess({
         </h4>
       </TrophyWrapper>
       <TransactionInfo>
-        <InfoBlock
-          amount={receivingAmount}
-          currencyName="TKL"
-          header={'Received by you'}
-          values={[
-            {
-              label: 'Tx id',
-              value: transactionIdReceived,
-            },
-            {
-              label: 'Address',
-              value: receivingAddress,
-            },
-          ]}
-        />
-        <InfoBlock
-          amount={depositAmount}
-          currencyName={chosenCurrency}
-          header={'Sent by you'}
-          values={[
-            {
-              label: 'Tx id',
-              value: transactionIdSent,
-            },
-            {
-              label: 'Date received',
-              value: '10.04.2022 at 15:04:29',
-            },
-          ]}
-        />
+        <FlexCol>
+          <InfoBlock
+            amount={receivingAmount}
+            currencyName="TKL"
+            header={'Received by you'}
+            values={[
+              {
+                label: 'Tx id',
+                value: transactionIdReceived,
+              },
+            ]}
+          />
+          <a target="_blank" rel="noreferrer" href={sendingTransactionUrl}>
+            View in Explorer
+          </a>
+        </FlexCol>
+
+        <FlexCol>
+          <InfoBlock
+            amount={depositAmount}
+            currencyName={chosenCurrency}
+            header={'Sent by you'}
+            values={[
+              {
+                label: 'Tx id',
+                value: transactionIdSent,
+              },
+            ]}
+          />
+          <a target="_blank" rel="noreferrer" href={paymentTransactionUrl}>
+            View in Explorer
+          </a>
+        </FlexCol>
       </TransactionInfo>
-      <ButtonWrapper theme={Colors.PURPLE} onClick={newSwap}>
+      <p>
+        Please save your personal swap status url:
+        <br /> <a href={window.location.toString()}>{window.location.toString()}</a>
+      </p>
+      <ButtonWrapper
+        theme={Colors.PURPLE}
+        onClick={() => {
+          const params = new URLSearchParams(window.location.search);
+          params.delete('id');
+          window.history.pushState(null, null, window.location.pathname);
+          newSwap();
+        }}
+      >
         <h5>Make a new swap</h5>
       </ButtonWrapper>
       <VSpacerMedium />

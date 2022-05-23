@@ -61,6 +61,8 @@ export default function Swap() {
   const [receivingAddress, setReceivingAddress] = useState(null);
   const [chosenCurrency, setChosenCurrency] = useState('KMD');
   const [exchangeId, setExchangeId] = useState(null);
+  const [paymentTransactionUrl, setPaymentTransactionUrl] = useState(null);
+  const [sendingTransactionUrl, setSendingTransactionUrl] = useState(null);
   const [step, setStep] = useState(CREATE);
 
   const createSwapEvent = (depositAmount, address, currency, receivingAmount) => {
@@ -76,10 +78,41 @@ export default function Swap() {
         setReceivingAmount(res.receivingamount);
         setDepositAddress(res.depositaddress);
         setExchangeId(res.exchangeid);
+        // eslint-disable-next-line no-undef
+        const params = new URLSearchParams(window.location.search);
+        params.set('id', res.exchangeid);
+        // eslint-disable-next-line no-undef
+        window.location.search = params.toString();
         setStep(FINISH);
       }
     });
   };
+
+  const lookup = id =>
+    lookupSwapApi(id).then((res: ExchangeStatusResult) => {
+      if (res.result === 'success') {
+        console.log(res);
+        setTransactionIdSent(res.paymenttrx);
+        setTransactionIdReceived(res.sendingtrx);
+        setReceivingAddress(res.senttoaddress);
+        setDepositAmount(res.depositamount);
+        setReceivingAmount(res.sentamount);
+        setChosenCurrency(res.depositcoin);
+        setPaymentTransactionUrl(res.paymenttrxurl);
+        setSendingTransactionUrl(res.sendingtrxurl);
+        setStep(SUCCESS);
+      }
+    });
+
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    const params = new URLSearchParams(window.location.search);
+    const exchangeId = params.get('id');
+    if (exchangeId) {
+      lookup(exchangeId);
+      setExchangeId(exchangeId);
+    }
+  }, []);
 
   useEffect(() => {
     if (!exchangeId) {
@@ -87,14 +120,7 @@ export default function Swap() {
     }
     const txInterval = setInterval(() => {
       console.log('fetching info by exchangeid: ', exchangeId);
-      lookupSwapApi(exchangeId).then((res: ExchangeStatusResult) => {
-        if (res.result === 'success') {
-          console.log(res);
-          setTransactionIdSent(res.paymenttrx);
-          setTransactionIdReceived(res.sendingtrx);
-          setStep(SUCCESS);
-        }
-      });
+      lookup(exchangeId);
     }, TX_FETCH_INTERVAL_MS);
     return () => {
       clearInterval(txInterval);
@@ -132,11 +158,15 @@ export default function Swap() {
               <SwapSuccess
                 depositAmount={depositAmount}
                 receivingAmount={receivingAmount}
-                receivingAddress={receivingAddress}
                 chosenCurrency={chosenCurrency}
                 transactionIdReceived={transactionIdReceived}
                 transactionIdSent={transactionIdSent}
-                newSwap={() => setStep(CREATE)}
+                paymentTransactionUrl={paymentTransactionUrl}
+                sendingTransactionUrl={sendingTransactionUrl}
+                newSwap={() => {
+                  setExchangeId(null);
+                  setStep(CREATE);
+                }}
               />
             )}
             {step === ERROR && (
