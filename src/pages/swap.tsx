@@ -77,24 +77,6 @@ export default function Swap() {
       .catch(e => console.log(e));
   };
 
-  // createSwapApi(chosenCurrency, receivingAddress, swapAmount)
-  //   .then(res => {
-  //     setReceivingAmount(res.receivingamount);
-  //     setExchangeId(res.exchangeid);
-  //   })
-  //   .catch(e => console.log(e));
-
-  // useEffect(() => {
-  //   console.log('Lets create a swap.');
-  //   if ()
-  //   createSwapApi(chosenCurrency, receivingAddress, swapAmount)
-  //     .then(res => {
-  //       setReceivingAmount(res.receivingamount);
-  //       setExchangeId(res.exchangeid);
-  //     })
-  //     .catch(e => console.log(e));
-  // }, [receivingAmount, swapAmount, receivingAddress]);
-
   useEffect(() => {
     if (!exchangeId) {
       return;

@@ -11,10 +11,14 @@ import CopyToClipboard from './CopyToClipboard';
 
 type InputWithCopyProps = {
   textToCopy: string;
+  width?: string;
+};
+
+type ValueInputProps = {
   width: string;
 };
 
-const ValueInput = styled(FlexRowCenter)`
+const ValueInput = styled(FlexRowCenter)<ValueInputProps>`
   height: 40px;
   border: 1px solid var(--color-base-slate);
   opacity: 0.6;
