@@ -13,7 +13,7 @@ const StepTitle = styled.h5`
 type StepProps = {
   children?: ReactJSXElement | ReactJSXElement[];
   justify?: string;
-  title?: string;
+  title?: string | ReactJSXElement[];
 };
 
 const StepRoot = styled(FlexCol)<StepProps>`

@@ -54,8 +54,6 @@ export default function SwapSuccess({
   chosenCurrency,
   newSwap,
 }: SwapSuccessProps) {
-  transactionIdReceived = 'cd1cc8d91c33af4f84153529a284af6f0d69090000e4a5d58876606a838a2a87';
-  transactionIdSent = 'cd1cc8d91c33af4f84153529a284af6f0d69090000e4a5d58876606a838a2a87';
   return (
     <div>
       <BoxTitle state="success">SWAP SUCCESSFUL</BoxTitle>

@@ -31,6 +31,7 @@ const QRCodeWrapper = styled.div`
 
 type FinishSwapProps = {
   depositAmount: number;
+  depositAddress: string;
   receivingAmount: number;
   receivingAddress: string;
   chosenCurrency: string;
@@ -38,38 +39,41 @@ type FinishSwapProps = {
 
 export default function FinishSwap({
   depositAmount,
+  depositAddress,
   receivingAmount,
   receivingAddress,
   chosenCurrency,
 }: FinishSwapProps) {
   return (
     <div>
-      <BoxTitle>Finish THE Swap</BoxTitle>
+      <BoxTitle>Finish the swap</BoxTitle>
       <p style={{ margin: 0, opacity: 0.6 }}>created on 10.04.2022 at 15:04:29 </p>
       <div>
         <Step
+          key={'1-send'}
           title={[
             '1. Send ',
             <b key={depositAmount}>
               {depositAmount} {chosenCurrency}
             </b>,
-            ' to us',
+            ' to the swap address',
           ]}
           justify="center"
         >
-          <Warning text={`Make sure to send ${chosenCurrency} only to this address.`} />
+          {/* <Warning text={`Make sure to only send ${chosenCurrency} to this address.`} /> */}
           <VSpacerSmall />
-          <InputWithCopy textToCopy={receivingAddress} />
+          <InputWithCopy textToCopy={depositAddress} />
           <VSpacerMedium />
           <QRCodeWrapper>
-            <QRCode value={receivingAddress} />
+            <QRCode value={depositAddress} />
           </QRCodeWrapper>
         </Step>
         <Step
+          key={'2-receive'}
           title={[
             `2. Once we receive ${chosenCurrency} You will receive `,
             // eslint-disable-next-line react/jsx-key
-            <b>{receivingAmount} TKL</b>,
+            <b key={receivingAmount}>{receivingAmount} TKL</b>,
           ]}
           justify="center"
         >

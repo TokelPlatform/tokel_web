@@ -54,6 +54,7 @@ const TX_FETCH_INTERVAL_MS = 5 * 1000;
 
 export default function Swap() {
   const [depositAmount, setDepositAmount] = useState(0);
+  const [depositAddress, setDepositAddress] = useState(null);
   const [receivingAmount, setReceivingAmount] = useState(0);
   const [transactionIdSent, setTransactionIdSent] = useState(null);
   const [transactionIdReceived, setTransactionIdReceived] = useState(null);
@@ -68,13 +69,16 @@ export default function Swap() {
     setReceivingAddress(address);
     setReceivingAmount(receivingAmount);
     setChosenCurrency(currency);
-    setStep(FINISH);
-    createDeposit(chosenCurrency, receivingAddress, receivingAmount)
-      .then(res => {
+    return createDeposit(chosenCurrency, receivingAddress, receivingAmount).then(res => {
+      if (res.result === 'error') {
+        throw new Error(res.error);
+      } else {
         setReceivingAmount(res.receivingamount);
+        setDepositAddress(res.depositaddress);
         setExchangeId(res.exchangeid);
-      })
-      .catch(e => console.log(e));
+        setStep(FINISH);
+      }
+    });
   };
 
   useEffect(() => {
@@ -85,9 +89,10 @@ export default function Swap() {
       console.log('fetching info by exchangeid: ', exchangeId);
       lookupSwapApi(exchangeId).then((res: ExchangeStatusResult) => {
         if (res.result === 'success') {
+          console.log(res);
           setTransactionIdSent(res.paymenttrx);
           setTransactionIdReceived(res.sendingtrx);
-          setDepositAmount(res.depositamount);
+          setStep(SUCCESS);
         }
       });
     }, TX_FETCH_INTERVAL_MS);
@@ -117,6 +122,7 @@ export default function Swap() {
             {step === FINISH && (
               <FinishSwap
                 depositAmount={depositAmount}
+                depositAddress={depositAddress}
                 receivingAmount={receivingAmount}
                 receivingAddress={receivingAddress}
                 chosenCurrency={chosenCurrency}
