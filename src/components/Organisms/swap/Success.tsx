@@ -36,7 +36,7 @@ const TransactionInfo = styled(FlexRow)`
 `;
 
 type SwapSuccessProps = {
-  swapAmount: number;
+  depositAmount: number;
   receivingAmount: number;
   receivingAddress: string;
   chosenCurrency: string;
@@ -46,7 +46,7 @@ type SwapSuccessProps = {
 };
 
 export default function SwapSuccess({
-  swapAmount,
+  depositAmount,
   receivingAmount,
   transactionIdReceived,
   transactionIdSent,
@@ -83,7 +83,7 @@ export default function SwapSuccess({
           ]}
         />
         <InfoBlock
-          amount={swapAmount}
+          amount={depositAmount}
           currencyName={chosenCurrency}
           header={'Sent by you'}
           values={[

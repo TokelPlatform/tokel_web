@@ -33,7 +33,7 @@ type CurrencyProps = {
   onClick?: (val: any) => void;
   currencyName?: string;
   amount?: number;
-  title: string;
+  title?: string;
 };
 
 export const Currency = ({ disabled, onClick, currencyName, amount, title }: CurrencyProps) => {
@@ -75,7 +75,7 @@ export const CurrencyItem = ({
     <VSpacerMedium />
     <Input
       width="166px"
-      value={value}
+      value={value || '0'}
       disabled={disabled}
       onChange={a => onChange(a)}
       type="number"

@@ -30,14 +30,14 @@ const QRCodeWrapper = styled.div`
 `;
 
 type FinishSwapProps = {
-  swapAmount: number;
+  depositAmount: number;
   receivingAmount: number;
   receivingAddress: string;
   chosenCurrency: string;
 };
 
 export default function FinishSwap({
-  swapAmount,
+  depositAmount,
   receivingAmount,
   receivingAddress,
   chosenCurrency,
@@ -50,8 +50,8 @@ export default function FinishSwap({
         <Step
           title={[
             '1. Send ',
-            <b key={swapAmount}>
-              {swapAmount} {chosenCurrency}
+            <b key={depositAmount}>
+              {depositAmount} {chosenCurrency}
             </b>,
             ' to us',
           ]}

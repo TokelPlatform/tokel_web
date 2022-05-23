@@ -37,10 +37,10 @@ const WarningWrapper = styled(Warning)`
 
 type CreateSwapProps = {
   createSwapEvent: (
-    swapAmount: string,
-    receivingAmount: number,
+    depositAmount: string,
     receivingAddress: string,
-    chosenCurrency: string
+    chosenCurrency: string,
+    receivingAmount: number
   ) => void;
 };
 
@@ -51,13 +51,13 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
     LTC: 0,
   });
   const [receivingAddress, setReceivingAddress] = useState('');
-  const [receivingAmount, setReceivingAmount] = useState(500);
+  const [receivingAmount, setReceivingAmount] = useState(1000);
   const [chosenCurrency, setChosenCurrency] = useState('KMD');
-  const [swapAmount, setSwapAmount] = useState(parseNumber(500 * prices[chosenCurrency]));
+  const [depositAmount, setDepositAmount] = useState(parseNumber(MIN_TKL * prices[chosenCurrency]));
   const [addressError, setAddressError] = useState('');
   const [showModal, setShowModal] = useState(false);
 
-  const setSendingAmountValue = amount => setSwapAmount(parseNumber(amount));
+  const setSendingAmountValue = amount => setDepositAmount(parseNumber(amount));
   const minValue = () => MIN_TKL * prices[chosenCurrency];
   const maxValue = () => MAX_TKL * prices[chosenCurrency];
 
@@ -77,17 +77,19 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
       setAddressError(`Maximum Swap Amount ${MAX_TKL}TKL`);
       return;
     }
-    createSwapEvent(swapAmount.toString(), receivingAmount, receivingAddress, chosenCurrency);
+    createSwapEvent(depositAmount.toString(), receivingAddress, chosenCurrency, receivingAmount);
   };
 
   // get prices for the currencies
   useEffect(() => {
     // call to get prices
+    console.log('Simulating setting prices');
     setPrices({
       KMD: 0.3,
       LTC: 0.0005,
       BTC: 0.0000005,
     });
+    setDepositAmount(parseNumber(500 * prices[chosenCurrency]));
   }, []);
 
   useEffect(() => {
@@ -96,22 +98,21 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   }, [chosenCurrency]);
 
   useEffect(() => {
-    let tkl = swapAmount / prices[chosenCurrency];
+    let tkl = depositAmount / prices[chosenCurrency];
     if (tkl > MAX_TKL) {
       tkl = MAX_TKL;
       setSendingAmountValue(maxValue());
     }
     setReceivingAmount(Number(tkl.toFixed(6)));
-  }, [swapAmount]);
+  }, [depositAmount]);
 
   const checkMinAmount = () => {
     const min = minValue();
-    if (swapAmount < min) {
+    if (depositAmount < min) {
       setSendingAmountValue(min);
     }
   };
 
-  /* eslint-disable no-undef */
   return (
     <div>
       <Overlay displayOverlay={showModal} />
@@ -122,8 +123,8 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
           <CurrencyItem
             title="You send"
             currencyName={chosenCurrency}
-            value={swapAmount}
-            onChange={val => setSwapAmount(val.target.value)}
+            value={depositAmount}
+            onChange={val => setDepositAmount(val.target.value)}
             onClick={() => setShowModal(true)}
             onBlur={checkMinAmount}
             note={`1 ${chosenCurrency} =  ${parseNumber(1 / prices[chosenCurrency])} TKL`}
