@@ -6,7 +6,7 @@ import { FlexCol } from 'styles/common';
 const StepTitle = styled.h5`
   text-transform: uppercase;
   font-weight: 400;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   text-align: left;
 `;
 

@@ -64,6 +64,7 @@ export default function Swap() {
   const [paymentTransactionUrl, setPaymentTransactionUrl] = useState(null);
   const [sendingTransactionUrl, setSendingTransactionUrl] = useState(null);
   const [step, setStep] = useState(CREATE);
+  const [loading, setLoading] = useState(false);
 
   const createSwapEvent = (depositAmount, address, currency, receivingAmount) => {
     console.log('Setting up for a swap creation.');
@@ -71,7 +72,7 @@ export default function Swap() {
     setReceivingAddress(address);
     setReceivingAmount(receivingAmount);
     setChosenCurrency(currency);
-    return createDeposit(chosenCurrency, receivingAddress, receivingAmount).then(res => {
+    return createDeposit(currency, address, receivingAmount).then(res => {
       if (res.result === 'error') {
         throw new Error(res.error);
       } else {
@@ -79,10 +80,10 @@ export default function Swap() {
         setDepositAddress(res.depositaddress);
         setExchangeId(res.exchangeid);
         // eslint-disable-next-line no-undef
-        const params = new URLSearchParams(window.location.search);
-        params.set('id', res.exchangeid);
+        // const params = new URLSearchParams(window.location.search);
+        // params.set('id', res.exchangeid);
         // eslint-disable-next-line no-undef
-        window.location.search = params.toString();
+        // window.location.search = params.toString();
         setStep(FINISH);
       }
     });
@@ -102,6 +103,16 @@ export default function Swap() {
         setSendingTransactionUrl(res.sendingtrxurl);
         setStep(SUCCESS);
       }
+      if (res.result === 'pending') {
+        setReceivingAddress(res.senttoaddress);
+        setDepositAmount(res.depositamount);
+        setDepositAddress(res.depositaddress);
+        setReceivingAmount(res.sentamount);
+        setChosenCurrency(res.depositcoin);
+        setLoading(false);
+        setStep(FINISH);
+      }
+      // result can be "pending" or "error"
     });
 
   useEffect(() => {
@@ -109,16 +120,21 @@ export default function Swap() {
     const params = new URLSearchParams(window.location.search);
     const exchangeId = params.get('id');
     if (exchangeId) {
+      setLoading(true);
+      setStep(null);
       lookup(exchangeId);
       setExchangeId(exchangeId);
     }
   }, []);
 
   useEffect(() => {
+    console.log('reset');
+    let txInterval;
     if (!exchangeId) {
+      txInterval && clearInterval(txInterval);
       return;
     }
-    const txInterval = setInterval(() => {
+    txInterval = setInterval(() => {
       console.log('fetching info by exchangeid: ', exchangeId);
       lookup(exchangeId);
     }, TX_FETCH_INTERVAL_MS);
@@ -137,13 +153,18 @@ export default function Swap() {
               {step === FINISH && (
                 <Button
                   theme={Colors.GRAY}
-                  onClick={() => setStep(CREATE)}
+                  onClick={() => {
+                    setStep(CREATE);
+                    console.log('setting it to null');
+                    setExchangeId(null);
+                  }}
                   text="Go Back"
                   width="85px"
                   height="40px"
                 />
               )}
             </div>
+            {loading && <h3>Loading your swap information...</h3>}
             {step === CREATE && <CreateSwap createSwapEvent={createSwapEvent} />}
             {step === FINISH && (
               <FinishSwap
@@ -152,6 +173,7 @@ export default function Swap() {
                 receivingAmount={receivingAmount}
                 receivingAddress={receivingAddress}
                 chosenCurrency={chosenCurrency}
+                exchangeId={exchangeId}
               />
             )}
             {step === SUCCESS && (

@@ -35,6 +35,7 @@ type FinishSwapProps = {
   receivingAmount: number;
   receivingAddress: string;
   chosenCurrency: string;
+  exchangeId: string;
 };
 
 export default function FinishSwap({
@@ -43,11 +44,18 @@ export default function FinishSwap({
   receivingAmount,
   receivingAddress,
   chosenCurrency,
+  exchangeId,
 }: FinishSwapProps) {
   return (
     <div>
       <BoxTitle>Finish the swap</BoxTitle>
-      <p style={{ margin: 0, opacity: 0.6 }}>created on 10.04.2022 at 15:04:29 </p>
+      <p style={{ opacity: 0.8 }}>
+        Status: PENDING
+        <br />
+        <a href="https://tokel.io/swap?id={exchangeId}">
+          https://tokel.io/swap?id={exchangeId}
+        </a>{' '}
+      </p>
       <div>
         <Step
           key={'1-send'}
