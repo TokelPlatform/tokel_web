@@ -14,7 +14,6 @@ import { MAX_TKL, MIN_TKL } from 'helpers/swapConfig';
 import Step from 'components/Molecules/swap/Step';
 import breakpoints from 'styles/breakpoints';
 import { SellTokelResult } from 'helpers/swapApiCalls';
-import Spinner from 'components/Atoms/Spinner';
 
 const BoxTitle = styled.h3`
   text-transform: uppercase;
@@ -54,11 +53,15 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   const [depositAmount, setDepositAmount] = useState(0);
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const [showSpinner, setShowSpinner] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const minValue = useMemo(() => MIN_TKL * prices[chosenCurrency], [chosenCurrency, prices]);
   const maxValue = useMemo(() => MAX_TKL * prices[chosenCurrency], [chosenCurrency, prices]);
   const setDeposit = (num: number | string) => setDepositAmount(parseNumber(num));
+  const setSwapError = err => {
+    setError(err);
+    setLoading(false);
+  };
 
   // get prices for the currencies
   useEffect(() => {
@@ -87,33 +90,33 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   }, [depositAmount, chosenCurrency]);
 
   const submitSwapInfo = () => {
-    setError('');
+    setSwapError('');
 
     if (depositAmount < minValue) {
-      return setError('Deposit amount too small.');
+      return setSwapError('Deposit amount too small.');
     }
     if (!isAddressValid(receivingAddress)) {
-      return setError('Invalid Address');
+      return setSwapError('Invalid Address');
     }
     if (receivingAmount < MIN_TKL) {
       setDeposit(minValue);
-      return setError(`Minimum Swap Amount ${MIN_TKL}TKL`);
+      return setSwapError(`Minimum Swap Amount ${MIN_TKL}TKL`);
     }
     if (receivingAmount > MAX_TKL) {
       setDeposit(maxValue);
-      return setError(`Maximum Swap Amount ${MAX_TKL}TKL`);
+      return setSwapError(`Maximum Swap Amount ${MAX_TKL}TKL`);
     }
-    setShowSpinner(true);
+    setLoading(true);
     return createSwapEvent(
       depositAmount.toString(),
       receivingAddress,
       chosenCurrency,
       receivingAmount
     )
-      .then(() => setShowSpinner(false))
+      .then(() => setLoading(false))
       .catch(e => {
         console.log(e);
-        setError(e.message);
+        setSwapError(e.message);
       });
   };
 
@@ -138,7 +141,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
             currencyName="TKL"
             value={receivingAmount}
             disabled
-            note="min 500 max 50,000 TKL"
+            note={`min ${MIN_TKL} max ${MAX_TKL} TKL`}
           />
         </Currencies>
       </Step>
@@ -150,8 +153,11 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
           value={receivingAddress}
           onChange={e => setReceivingAddress(e.target.value)}
         />
-        <Error>{error}</Error>
-        {showSpinner && <Spinner />}
+        <VSpacerSmall />
+        <p style={{ height: '1.5rem' }}>
+          {' '}
+          {loading && 'Just a moment. Creating your swap...'} {error && <Error>{error}</Error>}
+        </p>
       </Step>
       <SpecialButton theme={Colors.PURPLE} onClick={() => submitSwapInfo()}>
         <h5>Lets swap</h5>

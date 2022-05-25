@@ -46,15 +46,15 @@ export default function FinishSwap({
   chosenCurrency,
   exchangeId,
 }: FinishSwapProps) {
+  // eslint-disable-next-line no-undef
+  let url = window.location.toString().concat('?id=', exchangeId);
   return (
     <div>
       <BoxTitle>Finish the swap</BoxTitle>
       <p style={{ opacity: 0.8 }}>
         Status: PENDING
         <br />
-        <a href="https://tokel.io/swap?id={exchangeId}">
-          https://tokel.io/swap?id={exchangeId}
-        </a>{' '}
+        <a href={url}>{url}</a>{' '}
       </p>
       <div>
         <Step
