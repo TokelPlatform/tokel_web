@@ -88,7 +88,6 @@ export default function Swap() {
   const lookup = id =>
     lookupSwapApi(id).then((res: ExchangeStatusResult) => {
       if (res.result === 'success') {
-        console.log(res);
         setTransactionIdSent(res.paymenttrx);
         setTransactionIdReceived(res.sendingtrx);
         setReceivingAddress(res.senttoaddress);
@@ -125,7 +124,6 @@ export default function Swap() {
   }, []);
 
   useEffect(() => {
-    console.log('reset');
     let txInterval;
     if (!exchangeId) {
       txInterval && clearInterval(txInterval);
