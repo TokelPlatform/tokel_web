@@ -123,7 +123,16 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   return (
     <div>
       <Overlay displayOverlay={showModal} />
-      {showModal && <PickCurrencyModal values={prices} pickCurrency={setChosenCurrency} />}
+      {showModal && (
+        <PickCurrencyModal
+          values={prices}
+          pickCurrency={c => {
+            setChosenCurrency(c);
+            setShowModal(false);
+          }}
+          closeMe={() => setShowModal(false)}
+        />
+      )}
       <BoxTitle>Create Swap</BoxTitle>
       <Step title="1. Enter amount you want to swap">
         <Currencies>

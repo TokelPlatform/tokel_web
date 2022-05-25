@@ -2,6 +2,7 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import PurpleBorderBox from 'components/Atoms/PurpleBorderBox';
 // import OutsideAlerter from 'helpers/OutsideAlerter';
+import close from 'images/table/close.svg';
 import React from 'react';
 import { FlexColCenter, FlexRow } from 'styles/common';
 import { Currency } from './Currency';
@@ -29,7 +30,7 @@ const CurrencyBox = styled(PurpleBorderBox)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px;
+  max-width: 300px;
   h3 {
     margin-bottom: 0.5rem;
   }
@@ -48,13 +49,25 @@ const CurrencyRow = styled(FlexRow)`
   justify-content: center;
 `;
 
+const Close = styled.div`
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
 // eslint-disable-next-line no-unused-vars
-const PickerModal = ({ pickCurrency, values }: PickerModalProps) => {
+const PickerModal = ({ pickCurrency, values, closeMe }: PickerModalProps) => {
   const currencies = Object.keys(values);
   return (
     <CurrencyBox>
+      <Close>
+        <img src={close} width="42px" height="42px" onClick={() => closeMe()} />
+      </Close>
       <FlexColCenter>
-        <h3>YOU SEND</h3>
+        <h3 style={{ marginTop: '0.5rem' }}>YOU SEND</h3>
         <h4>Pick currency you want to swap TKL for</h4>
       </FlexColCenter>
       <CurrencyRow>
