@@ -6,6 +6,7 @@ import QRCode from 'qrcode.react';
 import InputWithCopy from 'components/Molecules/InputWithCopy';
 import { VSpacerMedium, VSpacerSmall } from 'styles/common';
 import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
+import ValueWithCopy from 'components/Molecules/ValueWithCopy';
 // import Button, { Colors } from 'components/Atoms/Button';
 
 const BoxTitle = styled.h3`
@@ -60,8 +61,8 @@ export default function FinishSwap({
         <TinyGrayLabel>Status </TinyGrayLabel>
         <span style={{ color: 'var(--color-base-richyellow' }}> PENDING</span>
         <VSpacerSmall />
-        <TinyGrayLabel>Your swap url</TinyGrayLabel>
-        <a href={url}>{url}</a>{' '}
+        {/* <TinyGrayLabel>Your swap url</TinyGrayLabel>
+        <a href={url}>{url}</a>{' '} */}
       </p>
       <div>
         <Step
@@ -97,6 +98,13 @@ export default function FinishSwap({
           <WarningWrapper text="Please double check the address below. That is where you will receive your TKL. If this address is incorrect, do not send the funds. Please click 'Go Back' and restart the swap with the correct address." />
           <VSpacerSmall />
           <InputWithCopy textToCopy={receivingAddress} />
+        </Step>
+        <Step
+          key={'3-receive'}
+          title={[`3. Save your swap url for future reference `]}
+          justify="center"
+        >
+          <ValueWithCopy width={'100%'} cutString={false} textToCopy={url}></ValueWithCopy>
         </Step>
       </div>
     </div>

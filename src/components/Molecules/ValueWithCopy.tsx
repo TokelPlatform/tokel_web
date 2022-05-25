@@ -12,6 +12,7 @@ import CopyToClipboard from './CopyToClipboard';
 type InputWithCopyProps = {
   textToCopy: string;
   width?: string;
+  cutString?: boolean;
 };
 
 const ValueWithCopyRoot = styled(FlexRow)`
@@ -34,10 +35,10 @@ const Copy = styled(FlexRowCenter)`
   width: 40px;
 `;
 
-const ValueWithCopy = ({ textToCopy, width }: InputWithCopyProps) => (
+const ValueWithCopy = ({ textToCopy, width, cutString }: InputWithCopyProps) => (
   <ValueWithCopyRoot>
     <TextWrapper width={width}>
-      {textToCopy.length > 30 ? textToCopy.substring(0, 30) + '...' : textToCopy}{' '}
+      {cutString && textToCopy.length > 30 ? textToCopy.substring(0, 30) + '...' : textToCopy}
     </TextWrapper>
     <Copy>
       <CopyToClipboard textToCopy={textToCopy} />
