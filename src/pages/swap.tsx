@@ -30,7 +30,7 @@ const Disclaimer = styled.p`
   margin-top: 1rem;
   text-align: left;
   padding: 1rem;
-  min-width: 380px;
+  min-width: 180px;
   max-width: 740px;
 `;
 
@@ -40,11 +40,10 @@ const Box = styled(PurpleBorderBox)`
   margin: auto;
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 15% 70% 15%;
 
   @media (max-width: ${breakpoints.mobilebig}) {
     flex-direction: column;
-    width: 100%;
     padding: 1rem;
     display: flex;
     flex-direction: column;

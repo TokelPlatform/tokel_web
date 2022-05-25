@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import Warning from 'components/Atoms/Warning';
 import Step from 'components/Molecules/swap/Step';
 import QRCode from 'qrcode.react';
 import InputWithCopy from 'components/Molecules/InputWithCopy';
 import { VSpacerMedium, VSpacerSmall } from 'styles/common';
+import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
 // import Button, { Colors } from 'components/Atoms/Button';
 
 const BoxTitle = styled.h3`
@@ -46,14 +47,20 @@ export default function FinishSwap({
   chosenCurrency,
   exchangeId,
 }: FinishSwapProps) {
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    window.scrollTo(0, 0);
+  }, []);
   // eslint-disable-next-line no-undef
   let url = window.location.origin.concat(window.location.pathname, '?id=', exchangeId);
   return (
     <div>
       <BoxTitle>Finish the swap</BoxTitle>
       <p style={{ opacity: 0.8 }}>
-        Status: PENDING
-        <br />
+        <TinyGrayLabel>Status </TinyGrayLabel>
+        <span style={{ color: 'var(--color-base-richyellow' }}> PENDING</span>
+        <VSpacerSmall />
+        <TinyGrayLabel>Your swap url</TinyGrayLabel>
         <a href={url}>{url}</a>{' '}
       </p>
       <div>
@@ -61,10 +68,10 @@ export default function FinishSwap({
           key={'1-send'}
           title={[
             '1. Send ',
-            <b key={depositAmount}>
+            <b style={{ color: 'var(--color-base-richyellow' }} key={depositAmount}>
               {depositAmount} {chosenCurrency}
             </b>,
-            ' to the swap address',
+            ' to the following swap address',
           ]}
           justify="center"
         >
@@ -81,7 +88,9 @@ export default function FinishSwap({
           title={[
             `2. Once we receive ${chosenCurrency} You will receive `,
             // eslint-disable-next-line react/jsx-key
-            <b key={receivingAmount}>{receivingAmount} TKL</b>,
+            <b style={{ color: 'var(--color-base-richyellow' }} key={receivingAmount}>
+              {receivingAmount} TKL
+            </b>,
           ]}
           justify="center"
         >

@@ -1,6 +1,7 @@
 import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import styled from '@emotion/styled';
 import React from 'react';
+import breakpoints from 'styles/breakpoints';
 import { FlexCol } from 'styles/common';
 
 const StepTitle = styled.h5`
@@ -20,6 +21,9 @@ const StepRoot = styled(FlexCol)<StepProps>`
   align-items: ${p => p.justify ?? 'center'};
   justify-content: center;
   margin-top: 1.5rem;
+  @media (max-width: ${breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 const Step = ({ justify, title, children }: StepProps) => (

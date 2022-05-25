@@ -164,8 +164,12 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
         />
         <VSpacerSmall />
         <p style={{ height: '1.5rem' }}>
-          {' '}
-          {loading && 'Just a moment. Creating your swap...'} {error && <Error>{error}</Error>}
+          {loading && (
+            <span style={{ color: 'var(--color-base-richyellow' }}>
+              Just a moment. Creating your swap...
+            </span>
+          )}
+          {error && <Error>{error}</Error>}
         </p>
       </Step>
       <SpecialButton theme={Colors.PURPLE} onClick={() => submitSwapInfo()}>
