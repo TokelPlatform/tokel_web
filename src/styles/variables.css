@@ -42,7 +42,7 @@
   /* Gradients */
   --gradient-darkBlue: linear-gradient(180deg, #13182a 0%, #222e4d 57.62%, #263867 100%);
   --gradient-purple: linear-gradient(90deg, #8050ef 0%, #687bf7 100%, #8050ef 0%);
-  --gradient-purple-to-lighblue: linear-gradient(97.43deg, #973af5 0%, #4ca6fe 100%);
+  --gradient-purple-to-lightblue: linear-gradient(97.43deg, #973af5 0%, #4ca6fe 100%);
   --gradient-purple-direct: linear-gradient(180deg, #8050ef 0%, #687bf7 100%, #8050ef 0%);
   --gradient-deep-sky: linear-gradient(
     180deg,

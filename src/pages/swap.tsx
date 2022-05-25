@@ -44,6 +44,20 @@ const Box = styled(PurpleBorderBox)`
 
   @media (max-width: ${breakpoints.mobilebig}) {
     flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
+const BackButtonWrapper = styled.div`
+  margin-left: 2rem;
+  margin-top: 2rem;
+  @media (max-width: ${breakpoints.mobilebig}) {
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 0;
   }
 `;
 
@@ -144,7 +158,7 @@ export default function Swap() {
       <SwapRoot starsTop={'1000px'}>
         <SwapWrapper>
           <Box id="swapBox">
-            <div style={{ marginLeft: '2rem', marginTop: '2rem' }}>
+            <BackButtonWrapper>
               {step === FINISH && (
                 <Button
                   theme={Colors.GRAY}
@@ -158,7 +172,7 @@ export default function Swap() {
                   height="40px"
                 />
               )}
-            </div>
+            </BackButtonWrapper>
             {loading && <h3>Loading your swap information...</h3>}
             {step === CREATE && <CreateSwap createSwapEvent={createSwapEvent} />}
             {step === FINISH && (

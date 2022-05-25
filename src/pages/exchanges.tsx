@@ -31,7 +31,7 @@ const Border = styled(FlexColCenter)`
   position: relative;
   padding: 2rem;
   border-image-slice: 1;
-  border-image-source: var(--gradient-purple-to-lighblue);
+  border-image-source: var(--gradient-purple-to-lightblue);
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.1);

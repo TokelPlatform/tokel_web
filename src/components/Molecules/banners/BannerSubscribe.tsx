@@ -12,7 +12,7 @@ const BannerSubscribeRoot = styled.div`
   margin: auto;
   border: 8px solid;
   border-image-slice: 1;
-  border-image-source: var(--gradient-purple-to-lighblue);
+  border-image-source: var(--gradient-purple-to-lightblue);
   padding: 1rem 2rem;
   margin-top: 6rem;
   background-color: var(--color-darkestBlue);

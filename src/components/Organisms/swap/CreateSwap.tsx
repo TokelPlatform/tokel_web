@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from '@emotion/styled';
-import { FlexRow, VSpacerSmall } from 'styles/common';
+import { FlexRow, VSpacerMedium, VSpacerSmall } from 'styles/common';
 import Input from 'components/Atoms/Input';
 import Warning from 'components/Atoms/Warning';
 import { Colors } from 'components/Atoms/Button';
@@ -158,7 +158,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
         <WarningWrapper text="Please double check the address below. That is where you will receive your TKL" />
         <VSpacerSmall />
         <Input
-          width="342px"
+          width="300px"
           value={receivingAddress}
           onChange={e => setReceivingAddress(e.target.value)}
         />
@@ -171,6 +171,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
       <SpecialButton theme={Colors.PURPLE} onClick={() => submitSwapInfo()}>
         <h5>Lets swap</h5>
       </SpecialButton>
+      <VSpacerMedium />
     </div>
   );
 }
