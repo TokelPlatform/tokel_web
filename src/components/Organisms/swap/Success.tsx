@@ -6,6 +6,7 @@ import SpecialButton from 'components/Atoms/SpecialButton';
 import { Colors } from 'components/Atoms/Button';
 import { InfoBlock } from 'components/Molecules/swap/InfoBlock';
 import { FlexCol, FlexRow, VSpacerMedium } from 'styles/common';
+import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
 
 type BoxTitleProps = {
   state?: string;
@@ -34,6 +35,7 @@ const ButtonWrapper = styled(SpecialButton)`
 `;
 const TransactionInfo = styled(FlexRow)`
   column-gap: 2rem;
+  justify-content: center;
 `;
 
 type SwapSuccessProps = {
@@ -64,9 +66,6 @@ export default function SwapSuccess({
   return (
     <div>
       <BoxTitle state="success">SWAP SUCCESSFUL</BoxTitle>
-      <p style={{ opacity: 0.8 }}>
-        <a href={url}>{url}</a>{' '}
-      </p>
       <TrophyWrapper>
         <img height="120px" src={Trophy} />
         <h4 style={{ color: 'var(--color-base-richyellow)', margin: '1rem 0' }}>
@@ -74,6 +73,10 @@ export default function SwapSuccess({
           You are an official holder of TKL!
         </h4>
       </TrophyWrapper>
+      <TinyGrayLabel>Your swap url</TinyGrayLabel>
+      <p style={{ opacity: 0.8, marginTop: 0 }}>
+        <a href={url}>{url}</a>{' '}
+      </p>
       <TransactionInfo>
         <FlexCol>
           <InfoBlock
