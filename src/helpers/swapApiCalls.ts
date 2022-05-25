@@ -62,3 +62,20 @@ GET(API + SELL(depositCoin, receivingAddress, receivingAmount));
 
 export const lookupSwapApi = async (id: string): Promise<ExchangeStatusResult> => 
   GET(API + LOOKUP(id));
+  // {
+  //   return {
+  //     "result": "success",
+  //     "onboardingid": "626e8f69322ca",
+  //     "sendingtrx": "ad9062dc5bf2108a3d27488b00923ada6f393a088e9a65187e21948f0c6aa68b",
+  //     "sentamount": 100,
+  //     "senttoaddress": "RMaprYNUp8ErJ9ZAKcxMfpC4ioVycYCCCc",
+  //     "sentcoin": "TKL",
+  //     "sendingtrxurl": "https://explorer.tokel.io/tx/ad9062dc5bf2108a3d27488b00923ada6f393a088e9a65187e21948f0c6aa68b",
+  //     "paymenttrx": "743fdefe92a9d06f79baf2b3b9acbbb451543d27cefac3b871142fd272c0474e",
+  //     "depositcoin": "BTC",
+  //     "depositamount": 0.00011035,
+  //     "depositaddress": "bc1qmaj38pdnj7tp6zm4hpkmslhs6kclj0elqkvf5j",
+  //     "paymenttrxurl": "https://blockchair.com/bitcoin/transaction/743fdefe92a9d06f79baf2b3b9acbbb451543d27cefac3b871142fd272c0474e",
+  //     "complete": 1
+  //     }
+  // }

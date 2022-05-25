@@ -41,26 +41,32 @@ type SwapSuccessProps = {
   receivingAmount: number;
   receivingAddress: string;
   chosenCurrency: string;
-  transactionIdReceived: string;
-  transactionIdSent: string;
+  transactionIdReceived?: string;
+  transactionIdSent?: string;
   paymentTransactionUrl: string;
   sendingTransactionUrl: string;
+  exchangeId: string;
   newSwap: () => void;
 };
 
 export default function SwapSuccess({
   depositAmount,
   receivingAmount,
-  transactionIdReceived,
-  transactionIdSent,
+  // transactionIdReceived,
+  // transactionIdSent,
   chosenCurrency,
   paymentTransactionUrl,
   sendingTransactionUrl,
+  exchangeId,
   newSwap,
 }: SwapSuccessProps) {
+  const url = window.location.origin.concat(window.location.pathname, '?id=', exchangeId);
   return (
     <div>
       <BoxTitle state="success">SWAP SUCCESSFUL</BoxTitle>
+      <p style={{ opacity: 0.8 }}>
+        <a href={url}>{url}</a>{' '}
+      </p>
       <TrophyWrapper>
         <img height="120px" src={Trophy} />
         <h4 style={{ color: 'var(--color-base-richyellow)', margin: '1rem 0' }}>
@@ -74,12 +80,7 @@ export default function SwapSuccess({
             amount={receivingAmount}
             currencyName="TKL"
             header={'Received by you'}
-            values={[
-              {
-                label: 'Tx id',
-                value: transactionIdReceived,
-              },
-            ]}
+            values={[]}
           />
           <a target="_blank" rel="noreferrer" href={sendingTransactionUrl}>
             View in Explorer
@@ -91,22 +92,13 @@ export default function SwapSuccess({
             amount={depositAmount}
             currencyName={chosenCurrency}
             header={'Sent by you'}
-            values={[
-              {
-                label: 'Tx id',
-                value: transactionIdSent,
-              },
-            ]}
+            values={[]}
           />
           <a target="_blank" rel="noreferrer" href={paymentTransactionUrl}>
             View in Explorer
           </a>
         </FlexCol>
       </TransactionInfo>
-      <p>
-        Please save your personal swap status url:
-        <br /> <a href={window.location.toString()}>{window.location.toString()}</a>
-      </p>
       <ButtonWrapper
         theme={Colors.PURPLE}
         onClick={() => {

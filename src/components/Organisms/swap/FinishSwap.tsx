@@ -47,7 +47,7 @@ export default function FinishSwap({
   exchangeId,
 }: FinishSwapProps) {
   // eslint-disable-next-line no-undef
-  let url = window.location.toString().concat('?id=', exchangeId);
+  let url = window.location.origin.concat(window.location.pathname, '?id=', exchangeId);
   return (
     <div>
       <BoxTitle>Finish the swap</BoxTitle>

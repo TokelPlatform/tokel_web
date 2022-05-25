@@ -13,6 +13,7 @@ import { FlexColCenter } from 'styles/common';
 import links from 'data/links';
 import Button, { Colors } from 'components/Atoms/Button';
 import { createDeposit, ExchangeStatusResult, lookupSwapApi } from 'helpers/swapApiCalls';
+import { exchangeIdRegex } from 'helpers/general';
 
 const SwapWrapper = styled.div`
   margin: auto;
@@ -79,11 +80,6 @@ export default function Swap() {
         setReceivingAmount(res.receivingamount);
         setDepositAddress(res.depositaddress);
         setExchangeId(res.exchangeid);
-        // eslint-disable-next-line no-undef
-        // const params = new URLSearchParams(window.location.search);
-        // params.set('id', res.exchangeid);
-        // eslint-disable-next-line no-undef
-        // window.location.search = params.toString();
         setStep(FINISH);
       }
     });
@@ -101,6 +97,7 @@ export default function Swap() {
         setChosenCurrency(res.depositcoin);
         setPaymentTransactionUrl(res.paymenttrxurl);
         setSendingTransactionUrl(res.sendingtrxurl);
+        setLoading(false);
         setStep(SUCCESS);
       }
       if (res.result === 'pending') {
@@ -119,7 +116,7 @@ export default function Swap() {
     // eslint-disable-next-line no-undef
     const params = new URLSearchParams(window.location.search);
     const exchangeId = params.get('id');
-    if (exchangeId) {
+    if (exchangeId && exchangeId.match(exchangeIdRegex)) {
       setLoading(true);
       setStep(null);
       lookup(exchangeId);
@@ -185,6 +182,7 @@ export default function Swap() {
                 transactionIdSent={transactionIdSent}
                 paymentTransactionUrl={paymentTransactionUrl}
                 sendingTransactionUrl={sendingTransactionUrl}
+                exchangeId={exchangeId}
                 newSwap={() => {
                   setExchangeId(null);
                   setStep(CREATE);

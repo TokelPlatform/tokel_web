@@ -5,4 +5,6 @@ export const isAddressValid = address =>
 
 export const parseNumber = num => Number(num.toFixed(FIXED_POINT));
 
+export const exchangeIdRegex = /^[0-9a-z]{13}$/i;
+
 export const hello = 'jello';
