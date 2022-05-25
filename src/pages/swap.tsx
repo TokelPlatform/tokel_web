@@ -14,6 +14,7 @@ import links from 'data/links';
 import Button, { Colors } from 'components/Atoms/Button';
 import { createDeposit, ExchangeStatusResult, lookupSwapApi } from 'helpers/swapApiCalls';
 import { exchangeIdRegex } from 'helpers/general';
+import { SwapStep, TX_FETCH_INTERVAL_MS } from 'helpers/swapConfig';
 
 const SwapWrapper = styled.div`
   margin: auto;
@@ -60,24 +61,16 @@ const BackButtonWrapper = styled.div`
   }
 `;
 
-const CREATE = 'create';
-const FINISH = 'finish';
-const SUCCESS = 'success';
-const ERROR = 'error';
-const TX_FETCH_INTERVAL_MS = 5 * 1000;
-
 export default function Swap() {
   const [depositAmount, setDepositAmount] = useState(0);
   const [depositAddress, setDepositAddress] = useState(null);
   const [receivingAmount, setReceivingAmount] = useState(0);
-  const [transactionIdSent, setTransactionIdSent] = useState(null);
-  const [transactionIdReceived, setTransactionIdReceived] = useState(null);
   const [receivingAddress, setReceivingAddress] = useState(null);
   const [chosenCurrency, setChosenCurrency] = useState('KMD');
   const [exchangeId, setExchangeId] = useState(null);
   const [paymentTransactionUrl, setPaymentTransactionUrl] = useState(null);
   const [sendingTransactionUrl, setSendingTransactionUrl] = useState(null);
-  const [step, setStep] = useState(CREATE);
+  const [step, setStep] = useState(SwapStep.CREATE);
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
 
@@ -91,7 +84,7 @@ export default function Swap() {
       if (res.result === 'error') {
         throw new Error(res.error);
       } else {
-        setStep(FINISH);
+        setStep(SwapStep.FINISH);
         setReceivingAmount(res.receivingamount);
         setDepositAddress(res.depositaddress);
         setExchangeId(res.exchangeid);
@@ -101,31 +94,21 @@ export default function Swap() {
 
   const lookup = id =>
     lookupSwapApi(id).then((res: ExchangeStatusResult) => {
-      if (res.result === 'success') {
-        setTransactionIdSent(res.paymenttrx);
-        setTransactionIdReceived(res.sendingtrx);
-        setReceivingAddress(res.senttoaddress);
-        setDepositAmount(res.depositamount);
-        setReceivingAmount(res.sentamount);
-        setChosenCurrency(res.depositcoin);
-        setPaymentTransactionUrl(res.paymenttrxurl);
-        setSendingTransactionUrl(res.sendingtrxurl);
-        setLoading(false);
-        setStep(SUCCESS);
-      }
-      if (res.result === 'pending') {
-        setReceivingAddress(res.senttoaddress);
-        setDepositAmount(res.depositamount);
-        setDepositAddress(res.depositaddress);
-        setReceivingAmount(res.sentamount);
-        setChosenCurrency(res.depositcoin);
-        setLoading(false);
-        setStep(FINISH);
-      }
       if (res.result === 'error') {
         setApiError(res.error);
-        setStep(ERROR);
+        setStep(SwapStep.ERROR);
+        return;
       }
+      setReceivingAddress(res.senttoaddress);
+      setDepositAmount(res.depositamount);
+      setReceivingAmount(res.sentamount);
+      setChosenCurrency(res.depositcoin);
+      setDepositAddress(res.depositaddress);
+      setPaymentTransactionUrl(res.paymenttrxurl);
+      setSendingTransactionUrl(res.sendingtrxurl);
+      setLoading(false);
+
+      res.result === 'success' ? setStep(SwapStep.SUCCESS) : setStep(SwapStep.FINISH);
     });
 
   useEffect(() => {
@@ -162,11 +145,11 @@ export default function Swap() {
         <SwapWrapper>
           <Box id="swapBox">
             <BackButtonWrapper>
-              {step === FINISH && (
+              {step === SwapStep.FINISH && (
                 <Button
                   theme={Colors.GRAY}
                   onClick={() => {
-                    setStep(CREATE);
+                    setStep(SwapStep.CREATE);
                     console.log('setting it to null');
                     setExchangeId(null);
                   }}
@@ -177,8 +160,8 @@ export default function Swap() {
               )}
             </BackButtonWrapper>
             {loading && <h3>Loading your swap information...</h3>}
-            {step === CREATE && <CreateSwap createSwapEvent={createSwapEvent} />}
-            {step === FINISH && (
+            {step === SwapStep.CREATE && <CreateSwap createSwapEvent={createSwapEvent} />}
+            {step === SwapStep.FINISH && (
               <FinishSwap
                 depositAmount={depositAmount}
                 depositAddress={depositAddress}
@@ -188,29 +171,27 @@ export default function Swap() {
                 exchangeId={exchangeId}
               />
             )}
-            {step === SUCCESS && (
+            {step === SwapStep.SUCCESS && (
               <SwapSuccess
                 depositAmount={depositAmount}
                 receivingAmount={receivingAmount}
                 chosenCurrency={chosenCurrency}
-                transactionIdReceived={transactionIdReceived}
-                transactionIdSent={transactionIdSent}
                 paymentTransactionUrl={paymentTransactionUrl}
                 sendingTransactionUrl={sendingTransactionUrl}
                 exchangeId={exchangeId}
                 newSwap={() => {
                   setExchangeId(null);
-                  setStep(CREATE);
+                  setStep(SwapStep.CREATE);
                 }}
               />
             )}
-            {step === ERROR && (
+            {step === SwapStep.ERROR && (
               <SwapFailure
                 error={apiError}
                 newSwap={() => {
                   setApiError(null);
                   setExchangeId(null);
-                  setStep(CREATE);
+                  setStep(SwapStep.CREATE);
                 }}
               />
             )}

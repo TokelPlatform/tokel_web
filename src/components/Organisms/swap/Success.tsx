@@ -34,7 +34,6 @@ const TxUrl = styled.a`
 type SwapSuccessProps = {
   depositAmount: number;
   receivingAmount: number;
-  receivingAddress: string;
   chosenCurrency: string;
   transactionIdReceived?: string;
   transactionIdSent?: string;
