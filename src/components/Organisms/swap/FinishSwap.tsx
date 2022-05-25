@@ -4,7 +4,7 @@ import Warning from 'components/Atoms/Warning';
 import Step from 'components/Molecules/swap/Step';
 import QRCode from 'qrcode.react';
 import InputWithCopy from 'components/Molecules/InputWithCopy';
-import { VSpacerMedium, VSpacerSmall } from 'styles/common';
+import { VSpacerBig, VSpacerMedium, VSpacerSmall } from 'styles/common';
 import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
 import ValueWithCopy from 'components/Molecules/ValueWithCopy';
 // import Button, { Colors } from 'components/Atoms/Button';
@@ -57,13 +57,11 @@ export default function FinishSwap({
   return (
     <div>
       <BoxTitle>Finish the swap</BoxTitle>
-      <p style={{ opacity: 0.8 }}>
+      <div style={{ opacity: 0.8, marginTop: '0.5rem' }}>
         <TinyGrayLabel>Status </TinyGrayLabel>
         <span style={{ color: 'var(--color-base-richyellow' }}> PENDING</span>
         <VSpacerSmall />
-        {/* <TinyGrayLabel>Your swap url</TinyGrayLabel>
-        <a href={url}>{url}</a>{' '} */}
-      </p>
+      </div>
       <div>
         <Step
           key={'1-send'}
@@ -107,6 +105,7 @@ export default function FinishSwap({
           <ValueWithCopy width={'100%'} cutString={false} textToCopy={url}></ValueWithCopy>
         </Step>
       </div>
+      <VSpacerBig />
     </div>
   );
 }

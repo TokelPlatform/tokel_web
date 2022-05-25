@@ -79,6 +79,7 @@ export default function Swap() {
   const [sendingTransactionUrl, setSendingTransactionUrl] = useState(null);
   const [step, setStep] = useState(CREATE);
   const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState(null);
 
   const createSwapEvent = (depositAmount, address, currency, receivingAmount) => {
     console.log('Setting up for a swap creation.');
@@ -90,10 +91,10 @@ export default function Swap() {
       if (res.result === 'error') {
         throw new Error(res.error);
       } else {
+        setStep(FINISH);
         setReceivingAmount(res.receivingamount);
         setDepositAddress(res.depositaddress);
         setExchangeId(res.exchangeid);
-        setStep(FINISH);
       }
     });
   };
@@ -121,7 +122,10 @@ export default function Swap() {
         setLoading(false);
         setStep(FINISH);
       }
-      // result can be "pending" or "error"
+      if (res.result === 'error') {
+        setApiError(res.error);
+        setStep(ERROR);
+      }
     });
 
   useEffect(() => {
@@ -202,14 +206,12 @@ export default function Swap() {
             )}
             {step === ERROR && (
               <SwapFailure
-                amountFromUser={2}
-                refundAmount={2}
-                transactionIdFromUser={''}
-                transactionIdRefund={''}
-                sendingAddress={''}
-                chosenCurrency={chosenCurrency}
-                newSwap={() => setStep(CREATE)}
-                reason={''}
+                error={apiError}
+                newSwap={() => {
+                  setApiError(null);
+                  setExchangeId(null);
+                  setStep(CREATE);
+                }}
               />
             )}
             <div></div>

@@ -7,6 +7,7 @@ import { Colors } from 'components/Atoms/Button';
 import { InfoBlock } from 'components/Molecules/swap/InfoBlock';
 import { FlexCol, FlexRow, VSpacerMedium } from 'styles/common';
 import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
+import breakpoints from 'styles/breakpoints';
 
 type BoxTitleProps = {
   state?: string;
@@ -36,6 +37,15 @@ const ButtonWrapper = styled(SpecialButton)`
 const TransactionInfo = styled(FlexRow)`
   column-gap: 2rem;
   justify-content: center;
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+  }
+`;
+
+const TxUrl = styled.a`
+  @media (max-width: ${breakpoints.mobile}) {
+    margin-bottom: 1.5rem;
+  }
 `;
 
 type SwapSuccessProps = {
@@ -85,9 +95,9 @@ export default function SwapSuccess({
             header={'Received by you'}
             values={[]}
           />
-          <a target="_blank" rel="noreferrer" href={sendingTransactionUrl}>
+          <TxUrl target="_blank" rel="noreferrer" href={sendingTransactionUrl}>
             View in Explorer
-          </a>
+          </TxUrl>
         </FlexCol>
 
         <FlexCol>
@@ -97,9 +107,9 @@ export default function SwapSuccess({
             header={'Sent by you'}
             values={[]}
           />
-          <a target="_blank" rel="noreferrer" href={paymentTransactionUrl}>
+          <TxUrl target="_blank" rel="noreferrer" href={paymentTransactionUrl}>
             View in Explorer
-          </a>
+          </TxUrl>
         </FlexCol>
       </TransactionInfo>
       <ButtonWrapper

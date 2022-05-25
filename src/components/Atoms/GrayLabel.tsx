@@ -5,7 +5,7 @@ export const GrayLabel = styled.p`
   text-transform: uppercase;
 `;
 
-export const TinyGrayLabel = styled.h5`
+export const TinyGrayLabel = styled.p`
   font-size: 14px;
   opacity: 0.8;
   text-transform: uppercase;
