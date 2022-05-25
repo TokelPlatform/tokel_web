@@ -14,10 +14,14 @@ export interface SellTokelResult {
   exchangeid: string;
 }
 
+export interface SellTokelResultError {
+  result: string;
+  error: string;
+}
+
 // https://dexstats.info/api/exchangestatus.php?exchangeid=626e8f69322ca
 export interface ExchangeStatusResult {
   result: string;
-  error?: string;
   onboardingid: string; //same as exchangeid
   sendingtrx: string; // transaction sent to the user, TKL tx
   sentamount: number; // TKL amount
@@ -30,6 +34,11 @@ export interface ExchangeStatusResult {
   depositaddress: string;
   paymenttrxurl: string;
   complete: number;
+}
+
+export interface ExchangeStatusResultError {
+  result: string;
+  error: string;
 }
 
 const API = 'https://dexstats.info/api/';
@@ -57,11 +66,11 @@ export const createDeposit = async (
   depositCoin: string,
   receivingAddress: string,
   receivingAmount: number
-): Promise<SellTokelResult> => 
+): Promise<SellTokelResult | SellTokelResultError> => 
 GET(API + SELL(depositCoin, receivingAddress, receivingAmount));
 
 
-export const lookupSwapApi = async (id: string): Promise<ExchangeStatusResult> => 
+export const lookupSwapApi = async (id: string): Promise<ExchangeStatusResult | ExchangeStatusResultError> => 
   GET(API + LOOKUP(id));
   {
     // return {

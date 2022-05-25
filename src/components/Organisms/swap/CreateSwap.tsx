@@ -13,15 +13,7 @@ import PickCurrencyModal from 'components/Molecules/swap/PickerModal';
 import { MAX_TKL, MIN_TKL } from 'helpers/swapConfig';
 import Step from 'components/Molecules/swap/Step';
 import breakpoints from 'styles/breakpoints';
-import { SellTokelResult } from 'helpers/swapApiCalls';
-
-const BoxTitle = styled.h3`
-  text-transform: uppercase;
-  background: var(--gradient-purple-direct);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 400;
-`;
+import { BoxTitle } from 'components/Atoms/BoxTitle';
 
 const Currencies = styled(FlexRow)`
   align-items: flex-start;
@@ -42,7 +34,7 @@ type CreateSwapProps = {
     receivingAddress: string,
     chosenCurrency: string,
     receivingAmount: number
-  ) => Promise<SellTokelResult>;
+  ) => void;
 };
 
 export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {

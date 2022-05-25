@@ -7,15 +7,8 @@ import InputWithCopy from 'components/Molecules/InputWithCopy';
 import { VSpacerBig, VSpacerMedium, VSpacerSmall } from 'styles/common';
 import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
 import ValueWithCopy from 'components/Molecules/ValueWithCopy';
+import { BoxTitle } from 'components/Atoms/BoxTitle';
 // import Button, { Colors } from 'components/Atoms/Button';
-
-const BoxTitle = styled.h3`
-  text-transform: uppercase;
-  background: var(--gradient-purple-direct);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 400;
-`;
 
 const WarningWrapper = styled(Warning)`
   margin: auto;

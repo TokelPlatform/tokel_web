@@ -8,24 +8,7 @@ import { InfoBlock } from 'components/Molecules/swap/InfoBlock';
 import { FlexCol, FlexRow, VSpacerMedium } from 'styles/common';
 import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
 import breakpoints from 'styles/breakpoints';
-
-type BoxTitleProps = {
-  state?: string;
-};
-
-const BoxTitle = styled.h3<BoxTitleProps>`
-  text-transform: uppercase;
-  background: ${p =>
-    p.state === 'success'
-      ? 'var(--color-tellurian)'
-      : p.state === 'error'
-      ? 'red'
-      : 'var(--gradient-purple-direct)'};
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 400;
-  margin-bottom: 2rem;
-`;
+import { BoxTitle } from 'components/Atoms/BoxTitle';
 
 const TrophyWrapper = styled.div`
   margin: 2.5rem 0;
@@ -64,8 +47,6 @@ type SwapSuccessProps = {
 export default function SwapSuccess({
   depositAmount,
   receivingAmount,
-  // transactionIdReceived,
-  // transactionIdSent,
   chosenCurrency,
   paymentTransactionUrl,
   sendingTransactionUrl,
