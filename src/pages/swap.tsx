@@ -12,9 +12,16 @@ import SwapFailure from 'components/Organisms/swap/Failure';
 import { FlexColCenter } from 'styles/common';
 import links from 'data/links';
 import Button, { Colors } from 'components/Atoms/Button';
-import { createDeposit, ExchangeStatusResult, lookupSwapApi } from 'helpers/swapApiCalls';
+
+import {
+  createDeposit,
+  ExchangeStatusResult,
+  getAllPrices,
+  lookupSwapApi,
+} from 'helpers/swapApiCalls';
 import { exchangeIdRegex } from 'helpers/general';
 import { SwapStep, TX_FETCH_INTERVAL_MS } from 'helpers/swapConfig';
+import LoadingMessage from 'components/Atoms/LoadingMessage';
 
 const SwapWrapper = styled.div`
   margin: auto;
@@ -62,6 +69,7 @@ const BackButtonWrapper = styled.div`
 `;
 
 export default function Swap() {
+  const [prices, setPrices] = useState(null);
   const [depositAmount, setDepositAmount] = useState(0);
   const [depositAddress, setDepositAddress] = useState(null);
   const [receivingAmount, setReceivingAmount] = useState(0);
@@ -74,20 +82,19 @@ export default function Swap() {
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState(null);
 
-  const createSwapEvent = (depositAmount, address, currency, receivingAmount) => {
+  const createSwapEvent = (address, currency, receivingAmount) => {
     console.log('Setting up for a swap creation.');
-    setDepositAmount(depositAmount);
-    setReceivingAddress(address);
-    setReceivingAmount(receivingAmount);
     setChosenCurrency(currency);
     return createDeposit(currency, address, receivingAmount).then(res => {
       if (res.result === 'error') {
         throw new Error(res.error);
       } else {
-        setStep(SwapStep.FINISH);
+        setReceivingAddress(address);
+        setDepositAmount(res.depositamount);
         setReceivingAmount(res.receivingamount);
         setDepositAddress(res.depositaddress);
         setExchangeId(res.exchangeid);
+        setStep(SwapStep.FINISH);
       }
     });
   };
@@ -121,6 +128,16 @@ export default function Swap() {
       lookup(exchangeId);
       setExchangeId(exchangeId);
     }
+  }, []);
+
+  // get prices for the currencies
+  useEffect(() => {
+    // call to get prices
+    console.log('Simulating setting prices');
+    getAllPrices().then((currentPrices: any) => {
+      console.log('got prices');
+      setPrices(currentPrices);
+    });
   }, []);
 
   useEffect(() => {
@@ -159,8 +176,11 @@ export default function Swap() {
                 />
               )}
             </BackButtonWrapper>
-            {loading && <h3>Loading your swap information...</h3>}
-            {step === SwapStep.CREATE && <CreateSwap createSwapEvent={createSwapEvent} />}
+            {loading && <LoadingMessage />}
+            {!prices && step === SwapStep.CREATE && <LoadingMessage />}
+            {prices && step === SwapStep.CREATE && (
+              <CreateSwap createSwapEvent={createSwapEvent} prices={prices} />
+            )}
             {step === SwapStep.FINISH && (
               <FinishSwap
                 depositAmount={depositAmount}

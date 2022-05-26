@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styled from '@emotion/styled';
-import { FlexRow, VSpacerMedium, VSpacerSmall } from 'styles/common';
+import { FlexColCenter, FlexRow, VSpacerMedium, VSpacerSmall } from 'styles/common';
 import Input from 'components/Atoms/Input';
 import Warning from 'components/Atoms/Warning';
 import { Colors } from 'components/Atoms/Button';
 import SpecialButton from 'components/Atoms/SpecialButton';
-import { isAddressValid, parseNumber } from 'helpers/general';
+import { isAddressValid } from 'helpers/general';
 import Error from 'components/Atoms/Error';
 import Overlay from 'components/Atoms/Overlay';
 import { CurrencyItem } from 'components/Molecules/swap/Currency';
@@ -29,16 +29,19 @@ const WarningWrapper = styled(Warning)`
 `;
 
 type CreateSwapProps = {
+  prices: {
+    KMD: number;
+    LTC: number;
+    BTC: number;
+  };
   createSwapEvent: (
-    depositAmount: string,
     receivingAddress: string,
     chosenCurrency: string,
     receivingAmount: number
   ) => void;
 };
 
-export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
-  const [prices, setPrices] = useState({});
+export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps) {
   const [receivingAddress, setReceivingAddress] = useState('');
   const [receivingAmount, setReceivingAmount] = useState(0);
   const [chosenCurrency, setChosenCurrency] = useState('KMD');
@@ -49,23 +52,11 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
 
   const minValue = useMemo(() => MIN_TKL * prices[chosenCurrency], [chosenCurrency, prices]);
   const maxValue = useMemo(() => MAX_TKL * prices[chosenCurrency], [chosenCurrency, prices]);
-  const setDeposit = (num: number | string) => setDepositAmount(parseNumber(num));
+  const setDeposit = (num: number | string) => setDepositAmount(Number(num));
   const setSwapError = err => {
     setError(err);
     setLoading(false);
   };
-
-  // get prices for the currencies
-  useEffect(() => {
-    // call to get prices
-    console.log('Simulating setting prices');
-    const currentPrices = {
-      KMD: 0.3,
-      LTC: 0.00895,
-      BTC: 0.00004305,
-    };
-    setPrices(currentPrices);
-  }, []);
 
   useEffect(() => {
     !depositAmount && prices[chosenCurrency] && setDepositAmount(minValue);
@@ -73,13 +64,12 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   }, [prices, chosenCurrency]);
 
   useEffect(() => {
-    let tkl = depositAmount / prices[chosenCurrency];
-    if (tkl > MAX_TKL) {
-      tkl = MAX_TKL;
-      setDeposit(maxValue);
-    }
-    setReceivingAmount(parseNumber(tkl));
+    setReceivingAmount(Number(depositAmount / prices[chosenCurrency]));
   }, [depositAmount, chosenCurrency]);
+
+  useEffect(() => {
+    setDepositAmount(prices[chosenCurrency] * receivingAmount);
+  }, [receivingAmount]);
 
   const submitSwapInfo = () => {
     setSwapError('');
@@ -99,12 +89,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
       return setSwapError(`Maximum Swap Amount ${MAX_TKL}TKL`);
     }
     setLoading(true);
-    return createSwapEvent(
-      depositAmount.toString(),
-      receivingAddress,
-      chosenCurrency,
-      receivingAmount
-    )
+    return createSwapEvent(receivingAddress, chosenCurrency, receivingAmount)
       .then(() => setLoading(false))
       .catch(e => {
         console.log(e);
@@ -113,7 +98,7 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
   };
 
   return (
-    <div>
+    <FlexColCenter>
       <Overlay displayOverlay={showModal} />
       {showModal && (
         <PickCurrencyModal
@@ -134,14 +119,21 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
             value={depositAmount}
             onChange={val => setDepositAmount(val.target.value)}
             onClick={() => setShowModal(true)}
-            onBlur={() => (depositAmount < minValue ? setDeposit(minValue) : null)}
-            note={`1 ${chosenCurrency} =  ${parseNumber(1 / prices[chosenCurrency])} TKL`}
+            onBlur={() => {
+              depositAmount > maxValue ? setDeposit(maxValue) : null;
+              depositAmount < minValue ? setDeposit(minValue) : null;
+            }}
+            note={`1 ${chosenCurrency} ≈  ${Number(1 / prices[chosenCurrency]).toFixed(5)} TKL`}
           />
           <CurrencyItem
             title="You receive"
             currencyName="TKL"
             value={receivingAmount}
-            disabled
+            onBlur={() => {
+              receivingAmount > MAX_TKL ? setReceivingAmount(MAX_TKL) : null;
+              receivingAmount < MIN_TKL ? setReceivingAmount(MIN_TKL) : null;
+            }}
+            onChange={val => setReceivingAmount(val.target.value)}
             note={`min ${MIN_TKL} max ${MAX_TKL} TKL`}
           />
         </Currencies>
@@ -168,6 +160,6 @@ export default function CreateSwap({ createSwapEvent }: CreateSwapProps) {
         <h5>Lets swap</h5>
       </SpecialButton>
       <VSpacerMedium />
-    </div>
+    </FlexColCenter>
   );
 }

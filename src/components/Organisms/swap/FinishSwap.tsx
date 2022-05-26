@@ -61,7 +61,7 @@ export default function FinishSwap({
           title={[
             '1. Send ',
             <b style={{ color: 'var(--color-base-richyellow' }} key={depositAmount}>
-              {depositAmount} {chosenCurrency}
+              {parseFloat(depositAmount.toString())} {chosenCurrency}
             </b>,
             ' to the following swap address',
           ]}
@@ -81,7 +81,7 @@ export default function FinishSwap({
             `2. Once we receive ${chosenCurrency} You will receive `,
             // eslint-disable-next-line react/jsx-key
             <b style={{ color: 'var(--color-base-richyellow' }} key={receivingAmount}>
-              {receivingAmount} TKL
+              {parseFloat(receivingAmount.toString())} TKL
             </b>,
           ]}
           justify="center"

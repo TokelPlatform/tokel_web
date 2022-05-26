@@ -48,6 +48,8 @@ const SELL = (depositCoin: string, receivingAddress: string, receivingAmount: nu
 
 const LOOKUP = (id: string) => `exchangestatus.php?exchangeid=${id}`;
 
+const GET_PRICES = (depositCoin: string, amount: number) => `selltokel.php?depositcoin=${depositCoin}&amount=${amount}&priceonly=true`
+
 const GET = async uri => {
 
   try {
@@ -61,6 +63,26 @@ const GET = async uri => {
     };
   }
 };
+
+export const getPrice = async (
+  depositCoin: string,
+  receivingAmount: number) =>
+GET(API + GET_PRICES(depositCoin, receivingAmount));
+
+
+export const getAllPrices = async () => {
+  const kmd = await getPrice('KMD', 1000);
+  const ltc = await getPrice('LTC', 1000);
+  const btc = await getPrice('BTC', 1000);
+  if(kmd.error || ltc.error || btc.error) {
+    throw new Error(kmd.error);
+  }
+  return {
+    KMD: kmd.depositamount/1000,
+    LTC: ltc.depositamount/1000,
+    BTC: btc.depositamount/1000
+  }
+}
 
 export const createDeposit = async (
   depositCoin: string,

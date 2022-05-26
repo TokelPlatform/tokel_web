@@ -7,18 +7,19 @@ import React from 'react';
 import { FlexCol, VSpacerMedium } from 'styles/common';
 
 const CurrencyRoot = styled(PurpleBorderBox)<CurrencyProps>`
-  padding: 20px 10px;
+  padding: 10px 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 170px;
-  max-height: 130px;
+  width: 186px;
+  min-height: ${p => (p.title ? '170px' : '130px')};
   transition: box-shadow 0.25s;
   border-radius: 0;
   h4 {
     margin: 0;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    font-size: 18px;
   }
   ${p =>
     !p.disabled &&
@@ -38,12 +39,11 @@ type CurrencyProps = {
 
 export const Currency = ({ disabled, onClick, currencyName, amount, title }: CurrencyProps) => {
   return (
-    <CurrencyRoot disabled={disabled} onClick={onClick}>
+    <CurrencyRoot disabled={disabled} onClick={onClick} title={title}>
       {title && <GrayLabel>{title}</GrayLabel>}
       <img src={icons[currencyName]} width="50" height="50"></img>
       <h4>
-        {amount && amount}
-        {currencyName}
+        {amount && parseFloat(amount.toString())} {currencyName}
       </h4>
     </CurrencyRoot>
   );
@@ -71,7 +71,12 @@ export const CurrencyItem = ({
   onBlur,
 }: CurrencyItemProps) => (
   <FlexCol>
-    <Currency disabled={disabled} title={title} onClick={onClick} currencyName={currencyName} />
+    <Currency
+      disabled={disabled || !onClick}
+      title={title}
+      onClick={onClick}
+      currencyName={currencyName}
+    />
     <VSpacerMedium />
     <Input
       width="166px"
