@@ -6,7 +6,7 @@ import QRCode from 'qrcode.react';
 import InputWithCopy from 'components/Molecules/InputWithCopy';
 import { VSpacerBig, VSpacerMedium, VSpacerSmall } from 'styles/common';
 import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
-import ValueWithCopy from 'components/Molecules/ValueWithCopy';
+// import ValueWithCopy from 'components/Molecules/ValueWithCopy';
 import { BoxTitle } from 'components/Atoms/BoxTitle';
 // import Button, { Colors } from 'components/Atoms/Button';
 
@@ -41,12 +41,15 @@ export default function FinishSwap({
   chosenCurrency,
   exchangeId,
 }: FinishSwapProps) {
+  // eslint-disable-next-line no-undef
+  let url = window.location.origin.concat(window.location.pathname, '?id=', exchangeId);
   useEffect(() => {
     // eslint-disable-next-line no-undef
     window.scrollTo(0, 0);
+    // eslint-disable-next-line no-undef
+    window.history.pushState(null, null, url);
   }, []);
-  // eslint-disable-next-line no-undef
-  let url = window.location.origin.concat(window.location.pathname, '?id=', exchangeId);
+
   return (
     <div>
       <BoxTitle>Finish the swap</BoxTitle>
@@ -57,13 +60,20 @@ export default function FinishSwap({
       </div>
       <div>
         <Step
-          key={'1-send'}
+          key={'1-receive'}
+          title={[`1. Save your swap url for future reference `]}
+          justify="center"
+        >
+          <InputWithCopy textToCopy={url}></InputWithCopy>
+        </Step>
+        <Step
+          key={'2-send'}
           title={[
-            '1. Send ',
+            '2. Send ',
             <b style={{ color: 'var(--color-base-richyellow' }} key={depositAmount}>
               {parseFloat(depositAmount.toString())} {chosenCurrency}
             </b>,
-            ' to the following swap address',
+            ' to the swap address',
           ]}
           justify="center"
         >
@@ -76,7 +86,7 @@ export default function FinishSwap({
           </QRCodeWrapper>
         </Step>
         <Step
-          key={'2-receive'}
+          key={'3-receive'}
           title={[
             `2. Once we receive ${chosenCurrency} You will receive `,
             // eslint-disable-next-line react/jsx-key
@@ -89,13 +99,6 @@ export default function FinishSwap({
           <WarningWrapper text="Please double check the address below. That is where you will receive your TKL. If this address is incorrect, do not send the funds. Please click 'Go Back' and restart the swap with the correct address." />
           <VSpacerSmall />
           <InputWithCopy textToCopy={receivingAddress} />
-        </Step>
-        <Step
-          key={'3-receive'}
-          title={[`3. Save your swap url for future reference `]}
-          justify="center"
-        >
-          <ValueWithCopy width={'100%'} cutString={false} textToCopy={url}></ValueWithCopy>
         </Step>
       </div>
       <VSpacerBig />
