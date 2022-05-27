@@ -16,7 +16,7 @@ type SwapFailureProps = {
 export default function SwapFailure({ error, newSwap }: SwapFailureProps) {
   return (
     <div>
-      <BoxTitle state="error">SWAP FAILED</BoxTitle>
+      <BoxTitle state="error">ERROR</BoxTitle>
       <p>{error}</p>
       <ButtonWrapper theme={Colors.PURPLE} onClick={newSwap}>
         <h5>Make a new swap</h5>

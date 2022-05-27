@@ -6,9 +6,8 @@ import QRCode from 'qrcode.react';
 import InputWithCopy from 'components/Molecules/InputWithCopy';
 import { VSpacerBig, VSpacerMedium, VSpacerSmall } from 'styles/common';
 import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
-// import ValueWithCopy from 'components/Molecules/ValueWithCopy';
 import { BoxTitle } from 'components/Atoms/BoxTitle';
-// import Button, { Colors } from 'components/Atoms/Button';
+import CopyToClipboard from 'components/Molecules/CopyToClipboard';
 
 const WarningWrapper = styled(Warning)`
   margin: auto;
@@ -69,11 +68,18 @@ export default function FinishSwap({
         <Step
           key={'2-send'}
           title={[
-            '2. Send ',
-            <b style={{ color: 'var(--color-base-richyellow' }} key={depositAmount}>
-              {parseFloat(depositAmount.toString())} {chosenCurrency}
+            // eslint-disable-next-line react/jsx-key
+            <span>2. Send &nbsp;</span>,
+            <b key={depositAmount} style={{ color: 'var(--color-base-richyellow' }}>
+              {' '}
+              {parseFloat(depositAmount.toString())} {chosenCurrency}{' '}
             </b>,
-            ' to the swap address',
+            <div key={depositAmount + '1'} style={{ marginTop: '1px' }}>
+              <CopyToClipboard textToCopy={parseFloat(depositAmount.toString()).toString()} />
+            </div>,
+            // eslint-disable-next-line react/jsx-key
+            <span>&nbsp;</span>,
+            'to the swap address',
           ]}
           justify="center"
         >
@@ -88,11 +94,12 @@ export default function FinishSwap({
         <Step
           key={'3-receive'}
           title={[
-            `2. Once we receive ${chosenCurrency} You will receive `,
-            // eslint-disable-next-line react/jsx-key
-            <b style={{ color: 'var(--color-base-richyellow' }} key={receivingAmount}>
-              {parseFloat(receivingAmount.toString())} TKL
-            </b>,
+            <h5 key={receivingAmount + 'title'} style={{ margin: 0 }}>
+              2. Once we receive {chosenCurrency} You will receive <br />
+              <b style={{ color: 'var(--color-base-richyellow' }} key={receivingAmount}>
+                {parseFloat(receivingAmount.toString())} TKL
+              </b>
+            </h5>,
           ]}
           justify="center"
         >

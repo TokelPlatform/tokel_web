@@ -2,13 +2,16 @@ import { ReactJSXElement } from '@emotion/react/types/jsx-namespace';
 import styled from '@emotion/styled';
 import React from 'react';
 import breakpoints from 'styles/breakpoints';
-import { FlexCol } from 'styles/common';
+import { FlexCol, FlexRow } from 'styles/common';
 
-const StepTitle = styled.h5`
+const StepTitle = styled(FlexRow)`
   text-transform: uppercase;
   font-weight: 400;
   margin: 0.5rem 0;
   text-align: left;
+  font-size: 20px;
+  color: var(--color-almostWhite);
+  font-weight: 700;
 `;
 
 type StepProps = {
