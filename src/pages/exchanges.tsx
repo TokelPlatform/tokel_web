@@ -8,6 +8,7 @@ import PageMeta from 'components/Molecules/PageMeta';
 import { FlexColCenter, FlexRowCenter, VSpacerBig } from 'styles/common';
 import icons from 'data/icons';
 import breakpoints from 'styles/breakpoints';
+import DirectSwapsInfo from 'components/Molecules/DirectSwapsInfo';
 // import BannerSubscribe from 'components/Molecules/banners/BannerSubscribe';
 
 const ExchangesRoot = styled(PageRoot)`
@@ -46,9 +47,12 @@ export default function Exchanges() {
         description="With the Tokel App you can sell art, browse NFTs, create and trade tokens for your projects. All on a unified and inexpensive platform."
       />
       <ExchangesRoot>
-        <PageHeader>BUY TKL</PageHeader>
+        <PageHeader>HOW TO BUY TKL</PageHeader>
+
+        <DirectSwapsInfo />
+        <VSpacerBig />
         <FlexColCenter>
-          <h3>Exchanges</h3>
+          <h3>Trade on Exchanges</h3>
           <Items>
             <Border>
               <a href={links.atomicDex}>
@@ -66,14 +70,6 @@ export default function Exchanges() {
               <a href={links.dexTradeTutorials.deposit}>How to make a deposit</a>
             </Border>
           </Items>
-        </FlexColCenter>
-        <VSpacerBig />
-        <FlexColCenter>
-          <h3>Direct swaps</h3>
-          <h4>Direct Swap Functionality coming soon...</h4>
-          <FlexRowCenter>
-            <img alt="swapBTCTKL" src={icons.swapBTC}></img>
-          </FlexRowCenter>
         </FlexColCenter>
         {/* <BannerSubscribe /> */}
       </ExchangesRoot>

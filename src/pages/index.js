@@ -13,11 +13,11 @@ import SectionList from "components/Molecules/SectionList"
 import partnersData from 'data/partnersData'
 import exchangeData from 'data/exchangeData'
 import {  VSpacerBig } from "styles/common"
-import { FlexRowCenter } from "styles/common"
 // import BannerSubscribe from "components/Molecules/banners/BannerSubscribe"
 import { FlexCol } from "styles/common"
 import partnersBg from "images/backgrounds/partners.svg"
 import PageMeta from "components/Molecules/PageMeta"
+import DirectSwapsInfo from "components/Molecules/DirectSwapsInfo"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -55,10 +55,8 @@ const IndexPage = ()  => {
         <PartnersSection>
           <SectionList title="Our Partners" data={partnersData}/>
           <SectionList id="buy-tkl" title="Buy Tokel on" data={exchangeData}/>
+          <DirectSwapsInfo />
         </PartnersSection>
-        <FlexRowCenter>
-          <h4 style={{textAlign: 'center', padding: '0 2rem'}}>Tokel will soon be also available through direct swaps</h4>
-        </FlexRowCenter>
         {/* <BannerSubscribe /> */}
       </PageRoot>
     </MainPage>
