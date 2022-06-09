@@ -45,7 +45,8 @@ type CreateSwapProps = {
   createSwapEvent: (
     receivingAddress: string,
     chosenCurrency: string,
-    receivingAmount: string
+    receivingAmount: string,
+    note: string
   ) => void;
 };
 
@@ -107,7 +108,12 @@ export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps)
       return setSwapError('Invalid Address');
     }
     setLoading(true);
-    return createSwapEvent(receivingAddress, chosenCurrency, receivingAmount)
+    return createSwapEvent(
+      receivingAddress,
+      chosenCurrency,
+      receivingAmount,
+      `1 ${chosenCurrency} ≈  ${pricePerOne} TKL`
+    )
       .then(() => setLoading(false))
       .catch(e => {
         console.log(e);

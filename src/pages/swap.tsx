@@ -185,6 +185,7 @@ export default function Swap() {
                 receivingAddress={receivingAddress}
                 chosenCurrency={chosenCurrency}
                 exchangeId={exchangeId}
+                currencyPrice={prices && prices[chosenCurrency]}
               />
             )}
             {step === SwapStep.SUCCESS && (

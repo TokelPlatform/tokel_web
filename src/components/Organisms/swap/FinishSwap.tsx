@@ -5,9 +5,10 @@ import Step from 'components/Molecules/swap/Step';
 import QRCode from 'qrcode.react';
 import InputWithCopy from 'components/Molecules/InputWithCopy';
 import { VSpacerBig, VSpacerMedium, VSpacerSmall } from 'styles/common';
-import { TinyGrayLabel } from 'components/Atoms/GrayLabel';
+import { GrayLabel, TinyGrayLabel } from 'components/Atoms/GrayLabel';
 import { BoxTitle } from 'components/Atoms/BoxTitle';
 import CopyToClipboard from 'components/Molecules/CopyToClipboard';
+import { getTKLValue } from 'helpers/swapConfig';
 
 const WarningWrapper = styled(Warning)`
   margin: auto;
@@ -30,6 +31,7 @@ type FinishSwapProps = {
   receivingAddress: string;
   chosenCurrency: string;
   exchangeId: string;
+  currencyPrice: string;
 };
 
 export default function FinishSwap({
@@ -39,6 +41,7 @@ export default function FinishSwap({
   receivingAddress,
   chosenCurrency,
   exchangeId,
+  currencyPrice,
 }: FinishSwapProps) {
   // eslint-disable-next-line no-undef
   let url = window.location.origin.concat(window.location.pathname, '?id=', exchangeId);
@@ -57,6 +60,9 @@ export default function FinishSwap({
         <span style={{ color: 'var(--color-base-richyellow' }}> PENDING</span>
         <VSpacerSmall />
       </div>
+      {currencyPrice && (
+        <GrayLabel>{`1 ${chosenCurrency} ≈  ${getTKLValue('1', currencyPrice)} TKL`}</GrayLabel>
+      )}
       <div>
         <Step
           key={'1-receive'}
@@ -95,7 +101,7 @@ export default function FinishSwap({
           key={'3-receive'}
           title={[
             <h5 key={receivingAmount + 'title'} style={{ margin: 0 }}>
-              2. Once we receive {chosenCurrency} You will receive <br />
+              3. Once we receive {chosenCurrency} You will receive{' '}
               <b style={{ color: 'var(--color-base-richyellow' }} key={receivingAmount}>
                 {parseFloat(receivingAmount.toString())} TKL
               </b>
