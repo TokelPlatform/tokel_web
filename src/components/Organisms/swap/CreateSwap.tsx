@@ -5,15 +5,27 @@ import Input from 'components/Atoms/Input';
 import Warning from 'components/Atoms/Warning';
 import { Colors } from 'components/Atoms/Button';
 import SpecialButton from 'components/Atoms/SpecialButton';
-import { isAddressValid } from 'helpers/general';
+import { isAddressValid, toBitcoinAmount } from 'helpers/general';
 import Error from 'components/Atoms/Error';
 import Overlay from 'components/Atoms/Overlay';
 import { CurrencyItem } from 'components/Molecules/swap/Currency';
 import PickCurrencyModal from 'components/Molecules/swap/PickerModal';
-import { MAX_TKL, MIN_TKL } from 'helpers/swapConfig';
+import {
+  lessThan,
+  MAX_TKL,
+  MAX_TKL_SAT,
+  MAX_TKL_TEXT,
+  MIN_TKL,
+  MIN_TKL_SAT,
+  MIN_TKL_TEXT,
+  moreThan,
+  SATOSHIS,
+} from 'helpers/swapConfig';
 import Step from 'components/Molecules/swap/Step';
 import breakpoints from 'styles/breakpoints';
 import { BoxTitle } from 'components/Atoms/BoxTitle';
+import { toSatoshi } from 'satoshi-bitcoin';
+import BN from 'bn.js';
 
 const Currencies = styled(FlexRow)`
   align-items: flex-start;
@@ -37,56 +49,77 @@ type CreateSwapProps = {
   createSwapEvent: (
     receivingAddress: string,
     chosenCurrency: string,
-    receivingAmount: number
+    receivingAmount: string
   ) => void;
 };
 
+/**
+ * All numbers are internally parsed and calculated using SATOSHIS and Big Number
+ */
+
 export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps) {
-  const [receivingAddress, setReceivingAddress] = useState('');
-  const [receivingAmount, setReceivingAmount] = useState(0);
   const [chosenCurrency, setChosenCurrency] = useState('KMD');
-  const [depositAmount, setDepositAmount] = useState(0);
+
+  // Helpers for min max values
+  const minValueBNSat = useMemo(
+    () => MIN_TKL.mul(prices[chosenCurrency]),
+    [chosenCurrency, prices]
+  );
+  const MIN_DEPOSIT_VALUE = useMemo(
+    () => toBitcoinAmount(minValueBNSat.toString()).toString(),
+    [minValueBNSat]
+  );
+  const maxValueBNSat = useMemo(
+    () => MAX_TKL.mul(prices[chosenCurrency]),
+    [chosenCurrency, prices]
+  );
+  const MAX_DEPOSIT_VALUE = useMemo(
+    () => toBitcoinAmount(maxValueBNSat.toString()).toString(),
+    [maxValueBNSat]
+  );
+
+  const [receivingAddress, setReceivingAddress] = useState('');
+  const [receivingAmount, setReceivingAmount] = useState(MIN_TKL_TEXT);
+  const [depositAmount, setDepositAmount] = useState(MIN_DEPOSIT_VALUE);
   const [error, setError] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const minValue = useMemo(() => MIN_TKL * prices[chosenCurrency], [chosenCurrency, prices]);
-  const maxValue = useMemo(() => MAX_TKL * prices[chosenCurrency], [chosenCurrency, prices]);
-  const setDeposit = (num: number | string) => setDepositAmount(Number(num));
+  const pricePerOne = useMemo(() => new BN(SATOSHIS).div(prices[chosenCurrency]), [chosenCurrency]);
+
+  const setDepositAmountHelper = amnt => setDepositAmount(toBitcoinAmount(amnt));
+  const setReceivingAmountHelper = amnt => setReceivingAmount(toBitcoinAmount(amnt));
+
   const setSwapError = err => {
     setError(err);
     setLoading(false);
   };
 
+  const setMinimum = () => {
+    setReceivingAmount(MIN_TKL_TEXT);
+    setDepositAmount(MIN_DEPOSIT_VALUE);
+  };
+
+  const setMaximum = () => {
+    setReceivingAmount(MAX_TKL_TEXT);
+    setDepositAmount(MAX_DEPOSIT_VALUE);
+  };
+
   useEffect(() => {
-    !depositAmount && prices[chosenCurrency] && setDepositAmount(minValue);
+    !depositAmount && prices[chosenCurrency] && setDepositAmount(MIN_DEPOSIT_VALUE);
     setShowModal(false);
   }, [prices, chosenCurrency]);
 
   useEffect(() => {
-    setReceivingAmount(Number(depositAmount / prices[chosenCurrency]));
-  }, [depositAmount, chosenCurrency]);
-
-  useEffect(() => {
-    setDepositAmount(prices[chosenCurrency] * receivingAmount);
-  }, [receivingAmount]);
+    depositAmount &&
+      depositAmount !== '0' &&
+      setReceivingAmount(new BN(toSatoshi(depositAmount)).div(prices[chosenCurrency]).toString());
+  }, [chosenCurrency]);
 
   const submitSwapInfo = () => {
     setSwapError('');
-
-    if (depositAmount < minValue) {
-      return setSwapError('Deposit amount too small.');
-    }
     if (!isAddressValid(receivingAddress)) {
       return setSwapError('Invalid Address');
-    }
-    if (receivingAmount < MIN_TKL) {
-      setDeposit(minValue);
-      return setSwapError(`Minimum Swap Amount ${MIN_TKL}TKL`);
-    }
-    if (receivingAmount > MAX_TKL) {
-      setDeposit(maxValue);
-      return setSwapError(`Maximum Swap Amount ${MAX_TKL}TKL`);
     }
     setLoading(true);
     return createSwapEvent(receivingAddress, chosenCurrency, receivingAmount)
@@ -117,24 +150,37 @@ export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps)
             title="You send"
             currencyName={chosenCurrency}
             value={depositAmount}
-            onChange={val => setDepositAmount(val.target.value)}
-            onClick={() => setShowModal(true)}
-            onBlur={() => {
-              depositAmount > maxValue ? setDeposit(maxValue) : null;
-              depositAmount < minValue ? setDeposit(minValue) : null;
+            onChange={val => {
+              if (moreThan(val.target.value, maxValueBNSat)) {
+                setMaximum();
+              } else {
+                const satVal = toSatoshi(val.target.value);
+                setDepositAmountHelper(satVal);
+                setReceivingAmount(new BN(satVal).div(prices[chosenCurrency]).toString());
+              }
             }}
-            note={`1 ${chosenCurrency} ≈  ${Number(1 / prices[chosenCurrency]).toFixed(5)} TKL`}
+            onClick={() => setShowModal(true)}
+            onBlur={() => (lessThan(depositAmount, minValueBNSat) ? setMinimum() : null)}
+            note={`1 ${chosenCurrency} ≈  ${pricePerOne} TKL`}
           />
           <CurrencyItem
             title="You receive"
             currencyName="TKL"
             value={receivingAmount}
-            onBlur={() => {
-              receivingAmount > MAX_TKL ? setReceivingAmount(MAX_TKL) : null;
-              receivingAmount < MIN_TKL ? setReceivingAmount(MIN_TKL) : null;
+            onBlur={() => (lessThan(receivingAmount, MIN_TKL_SAT) ? setMinimum() : null)}
+            onChange={val => {
+              const satVal = toSatoshi(val.target.value);
+              // check if value is not more than maximum TKL value
+              if (moreThan(val.target.value, MAX_TKL_SAT)) {
+                setMaximum();
+              } else {
+                setReceivingAmountHelper(satVal);
+                setDepositAmountHelper(
+                  prices[chosenCurrency].mul(new BN(val.target.value)).toString()
+                );
+              }
             }}
-            onChange={val => setReceivingAmount(val.target.value)}
-            note={`min ${MIN_TKL} max ${MAX_TKL} TKL`}
+            note={`min ${MIN_TKL_TEXT} max ${MAX_TKL_TEXT} TKL`}
           />
         </Currencies>
       </Step>

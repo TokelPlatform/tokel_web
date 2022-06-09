@@ -1,6 +1,10 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 
+import { MIN_TKL } from './swapConfig';
+import { toSatoshi } from 'satoshi-bitcoin'
+import BN from 'bn.js'
+
 // https://dexstats.info/api/selltokel.php?depositcoin=KMD&receivingaddress=RMaprYNUp8ErJ9ZAKcxMfpC4ioVycYCCCc&amount=0.08
 export interface SellTokelResult {
   result: string;
@@ -69,18 +73,19 @@ export const getPrice = async (
   receivingAmount: number) =>
 GET(API + GET_PRICES(depositCoin, receivingAmount));
 
+const getPricePerOne = (value) => new BN(toSatoshi(value)/MIN_TKL)
 
 export const getAllPrices = async () => {
-  const kmd = await getPrice('KMD', 1000);
-  const ltc = await getPrice('LTC', 1000);
-  const btc = await getPrice('BTC', 1000);
+  const kmd = await getPrice('KMD', MIN_TKL);
+  const ltc = await getPrice('LTC', MIN_TKL);
+  const btc = await getPrice('BTC', MIN_TKL);
   if(kmd.error || ltc.error || btc.error) {
     throw new Error(kmd.error);
   }
   return {
-    KMD: kmd.depositamount/1000,
-    LTC: ltc.depositamount/1000,
-    BTC: btc.depositamount/1000
+    KMD: getPricePerOne(kmd.depositamount),
+    LTC: getPricePerOne(ltc.depositamount),
+    BTC: getPricePerOne(btc.depositamount),
   }
 }
 

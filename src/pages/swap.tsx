@@ -133,11 +133,7 @@ export default function Swap() {
   // get prices for the currencies
   useEffect(() => {
     // call to get prices
-    console.log('Simulating setting prices');
-    getAllPrices().then((currentPrices: any) => {
-      console.log('got prices');
-      setPrices(currentPrices);
-    });
+    getAllPrices().then((currentPrices: any) => setPrices(currentPrices));
   }, []);
 
   useEffect(() => {
@@ -224,8 +220,8 @@ export default function Swap() {
             <br />
             All the transactions are final and we do not issue any refunds on the performed swaps.
             Please double check all of your information. Reach out to us on{' '}
-            <a href={links.discord}>Discord</a>, by <a href={links.mailContact}>email</a> or using{' '}
-            <a href={links.telegram}>Telegram</a> in case you are seeking any assistance.
+            <a href={links.discord}>Discord</a> or by <a href={links.mailContact}>email</a> in case
+            you are seeking any assistance.
           </Disclaimer>
         </FlexColCenter>
       </SwapRoot>
