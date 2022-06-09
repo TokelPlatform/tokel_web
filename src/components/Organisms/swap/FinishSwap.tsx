@@ -24,9 +24,9 @@ const QRCodeWrapper = styled.div`
 `;
 
 type FinishSwapProps = {
-  depositAmount: number;
+  depositAmount: string;
   depositAddress: string;
-  receivingAmount: number;
+  receivingAmount: string;
   receivingAddress: string;
   chosenCurrency: string;
   exchangeId: string;
@@ -69,7 +69,7 @@ export default function FinishSwap({
           key={'2-send'}
           title={[
             // eslint-disable-next-line react/jsx-key
-            <span>2. Send &nbsp;</span>,
+            <span key={depositAmount.concat('span')}>2. Send &nbsp;</span>,
             <b key={depositAmount} style={{ color: 'var(--color-base-richyellow' }}>
               {' '}
               {parseFloat(depositAmount.toString())} {chosenCurrency}{' '}
@@ -78,7 +78,7 @@ export default function FinishSwap({
               <CopyToClipboard textToCopy={parseFloat(depositAmount.toString()).toString()} />
             </div>,
             // eslint-disable-next-line react/jsx-key
-            <span>&nbsp;</span>,
+            <span key={'space'}>&nbsp;</span>,
             'to the swap address',
           ]}
           justify="center"

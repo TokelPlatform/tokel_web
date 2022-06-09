@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 
-import { MIN_TKL } from './swapConfig';
+import { getTKLValue, MIN_TKL } from './swapConfig';
 import { toSatoshi } from 'satoshi-bitcoin'
 import BN from 'bn.js'
 
@@ -52,7 +52,7 @@ const SELL = (depositCoin: string, receivingAddress: string, receivingAmount: nu
 
 const LOOKUP = (id: string) => `exchangestatus.php?exchangeid=${id}`;
 
-const GET_PRICES = (depositCoin: string, amount: number) => `selltokel.php?depositcoin=${depositCoin}&amount=${amount}&priceonly=true`
+const GET_PRICES = (depositCoin: string, amount: string) => `selltokel.php?depositcoin=${depositCoin}&amount=${amount}&priceonly=true`
 
 const GET = async uri => {
 
@@ -70,10 +70,10 @@ const GET = async uri => {
 
 export const getPrice = async (
   depositCoin: string,
-  receivingAmount: number) =>
+  receivingAmount: string) =>
 GET(API + GET_PRICES(depositCoin, receivingAmount));
 
-const getPricePerOne = (value) => new BN(toSatoshi(value)/MIN_TKL)
+const getPricePerOne = (value: string): string => getTKLValue(value, MIN_TKL);
 
 export const getAllPrices = async () => {
   const kmd = await getPrice('KMD', MIN_TKL);
