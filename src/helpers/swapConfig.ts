@@ -9,7 +9,7 @@ export const Config = {
   DECIMAL_FIAT: 6,
 };
 
-export const MIN_TKL = '10';
+export const MIN_TKL = '1000';
 export const MAX_TKL = '50000';
 
 export const TX_FETCH_INTERVAL_MS = 5 * 1000;
