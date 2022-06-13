@@ -173,7 +173,7 @@ export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps)
           onChange={e => setReceivingAddress(e.target.value)}
         />
         <VSpacerSmall />
-        <p style={{ height: '1.5rem' }}>
+        <p style={{ height: '1.1rem' }}>
           {loading && (
             <span style={{ color: 'var(--color-base-richyellow' }}>
               Just a moment. Creating your swap...
@@ -185,6 +185,7 @@ export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps)
       <SpecialButton theme={Colors.PURPLE} onClick={() => submitSwapInfo()}>
         <h5>Lets swap</h5>
       </SpecialButton>
+      <p style={{ opacity: 0.6, fontSize: '16px' }}>Transaction fee: 0.0001 {chosenCurrency}</p>
       <VSpacerMedium />
     </FlexColCenter>
   );
