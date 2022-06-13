@@ -10,12 +10,8 @@ const CurrencyImage = styled.img`
   margin: 1rem;
 `;
 
-const DirectSwapsInfo = (): ReactElement => (
+const AvailableCurrencies = (): ReactElement => (
   <FlexColCenter>
-    <h3>
-      <a href="/swap">Direct swaps for TKL</a>
-    </h3>
-    <p>Easily and quickly swap for TKL now!</p>
     <GrayLabel>Available currencies</GrayLabel>
     <FlexRowCenter>
       <CurrencyImage alt="swapBTC" src={icons.BTC} />
@@ -24,4 +20,4 @@ const DirectSwapsInfo = (): ReactElement => (
     </FlexRowCenter>
   </FlexColCenter>
 );
-export default DirectSwapsInfo;
+export default AvailableCurrencies;

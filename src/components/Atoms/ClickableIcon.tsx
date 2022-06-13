@@ -9,6 +9,8 @@ type ClickableIconProps = {
 
 const IconLink = styled.a`
   padding-right: 1rem;
+  position: relative;
+  z-index: 5;
   transition: transform 0.5s ease;
   &:hover {
     transform: scale(1.3);

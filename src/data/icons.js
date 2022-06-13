@@ -37,6 +37,7 @@ import TKL from 'images/icons/tokel.svg'
 import arrowRight from 'images/crypto/arrowRight.svg'
 import warning from 'images/warning.svg'
 import copy from 'images/icons/copy.svg'
+import swappurple from 'images/icons/swappurple.svg'
 
 const icons = {
   amazonMusic,
@@ -77,7 +78,8 @@ const icons = {
   arrowRight,
   warning,
   copy,
-  linkedin
+  linkedin,
+  swappurple
 }
 
 export default icons
