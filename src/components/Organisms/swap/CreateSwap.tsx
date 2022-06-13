@@ -45,8 +45,7 @@ type CreateSwapProps = {
   createSwapEvent: (
     receivingAddress: string,
     chosenCurrency: string,
-    receivingAmount: string,
-    note: string
+    receivingAmount: string
   ) => void;
 };
 
@@ -74,7 +73,7 @@ export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps)
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const pricePerOne = useMemo(() => getTKLValue('1', prices[chosenCurrency]), [chosenCurrency]);
+  const pricePerOne = useMemo(() => getDepositValue('1', prices[chosenCurrency]), [chosenCurrency]);
 
   const setSwapError = (err: string) => {
     setError(err);
@@ -108,12 +107,7 @@ export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps)
       return setSwapError('Invalid Address');
     }
     setLoading(true);
-    return createSwapEvent(
-      receivingAddress,
-      chosenCurrency,
-      receivingAmount,
-      `1 ${chosenCurrency} ≈  ${pricePerOne} TKL`
-    )
+    return createSwapEvent(receivingAddress, chosenCurrency, receivingAmount)
       .then(() => setLoading(false))
       .catch(e => {
         console.log(e);
@@ -151,7 +145,7 @@ export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps)
             }}
             onClick={() => setShowModal(true)}
             onBlur={() => (lessThan(depositAmount, MIN_DEPOSIT_VALUE) ? setMinimum() : null)}
-            note={`1 ${chosenCurrency} ≈  ${pricePerOne} TKL`}
+            note={`1 TKL ≈  ${pricePerOne} ${chosenCurrency}`}
           />
           <CurrencyItem
             title="You receive"

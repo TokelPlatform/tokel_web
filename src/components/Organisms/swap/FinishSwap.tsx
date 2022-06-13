@@ -8,7 +8,7 @@ import { VSpacerBig, VSpacerMedium, VSpacerSmall } from 'styles/common';
 import { GrayLabel, TinyGrayLabel } from 'components/Atoms/GrayLabel';
 import { BoxTitle } from 'components/Atoms/BoxTitle';
 import CopyToClipboard from 'components/Molecules/CopyToClipboard';
-import { getTKLValue } from 'helpers/swapConfig';
+import { getDepositValue } from 'helpers/swapConfig';
 
 const WarningWrapper = styled(Warning)`
   margin: auto;
@@ -61,7 +61,7 @@ export default function FinishSwap({
         <VSpacerSmall />
       </div>
       {currencyPrice && (
-        <GrayLabel>{`1 ${chosenCurrency} ≈  ${getTKLValue('1', currencyPrice)} TKL`}</GrayLabel>
+        <GrayLabel>{`1 TKL ≈  ${getDepositValue('1', currencyPrice)} ${chosenCurrency}`}</GrayLabel>
       )}
       <div>
         <Step

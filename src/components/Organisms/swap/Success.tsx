@@ -69,24 +69,14 @@ export default function SwapSuccess({
       </p>
       <TransactionInfo>
         <FlexCol>
-          <InfoBlock
-            amount={receivingAmount}
-            currencyName="TKL"
-            header={'Received by you'}
-            values={[]}
-          />
+          <InfoBlock amount={receivingAmount} currencyName="TKL" header={'Received by you'} />
           <TxUrl target="_blank" rel="noreferrer" href={sendingTransactionUrl}>
             View in Explorer
           </TxUrl>
         </FlexCol>
 
         <FlexCol>
-          <InfoBlock
-            amount={depositAmount}
-            currencyName={chosenCurrency}
-            header={'Sent by you'}
-            values={[]}
-          />
+          <InfoBlock amount={depositAmount} currencyName={chosenCurrency} header={'Sent by you'} />
           <TxUrl target="_blank" rel="noreferrer" href={paymentTransactionUrl}>
             View in Explorer
           </TxUrl>

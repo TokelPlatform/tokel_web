@@ -26,8 +26,8 @@ export const lessThan = (a: BN, b: BN): BN => new BN(toSatoshi(a)).lt(new BN(toS
 export const moreThan = (a: BN, b: BN): BN => new BN(toSatoshi(a)).gt(new BN(toSatoshi(b)));
 
 /**
- * @param amount in in Bitcoin Format
- * @param price in Satoshi
+ * @param amount in TKL in Bitcoin Format
+ * @param price in TKL Satoshi
  * @returns string in Bitcoin Format
  */
 export const getDepositValue = (amount: string, price: string): string => toBitcoinAmount(new BN(amount).mul(new BN(price)).toString());

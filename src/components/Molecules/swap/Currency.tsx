@@ -33,7 +33,7 @@ type CurrencyProps = {
   disabled?: boolean;
   onClick?: (val: any) => void;
   currencyName?: string;
-  amount?: number;
+  amount?: string;
   title?: string;
 };
 
@@ -43,7 +43,7 @@ export const Currency = ({ disabled, onClick, currencyName, amount, title }: Cur
       {title && <GrayLabel>{title}</GrayLabel>}
       <img src={icons[currencyName]} width="50" height="50"></img>
       <h4>
-        {amount && parseFloat(amount.toString())} {currencyName}
+        {amount && parseFloat(amount)} {currencyName}
       </h4>
     </CurrencyRoot>
   );
