@@ -96,9 +96,18 @@ export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps)
   }, [prices, chosenCurrency]);
 
   useEffect(() => {
-    depositAmount &&
-      depositAmount !== '0' &&
-      setReceivingAmount(getTKLValue(depositAmount, prices[chosenCurrency]));
+    if (depositAmount && depositAmount !== '0') {
+      const rec = getTKLValue(depositAmount, prices[chosenCurrency]);
+      if (moreThan(rec, MAX_TKL)) {
+        setReceivingAmount(MAX_TKL);
+        setDepositAmount(MAX_DEPOSIT_VALUE);
+      } else if (lessThan(rec, MIN_TKL)) {
+        setReceivingAmount(MIN_TKL);
+        setDepositAmount(MIN_DEPOSIT_VALUE);
+      } else {
+        setReceivingAmount(rec);
+      }
+    }
   }, [chosenCurrency]);
 
   const submitSwapInfo = () => {
