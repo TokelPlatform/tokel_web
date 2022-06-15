@@ -2,8 +2,6 @@
 import axios from 'axios';
 
 import { getTKLValue, MIN_TKL } from './swapConfig';
-import { toSatoshi } from 'satoshi-bitcoin'
-import BN from 'bn.js'
 
 // https://dexstats.info/api/selltokel.php?depositcoin=KMD&receivingaddress=RMaprYNUp8ErJ9ZAKcxMfpC4ioVycYCCCc&amount=0.08
 export interface SellTokelResult {

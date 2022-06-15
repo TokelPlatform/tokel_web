@@ -21,9 +21,9 @@ export enum SwapStep {
     ERROR = 'error',
   }
 
-export const lessThan = (a: BN, b: BN): BN => new BN(toSatoshi(a)).lt(new BN(toSatoshi(b)));
+export const lessThan = (a: string, b: string): BN => new BN(toSatoshi(a)).lt(new BN(toSatoshi(b)));
 
-export const moreThan = (a: BN, b: BN): BN => new BN(toSatoshi(a)).gt(new BN(toSatoshi(b)));
+export const moreThan = (a: string, b: string): BN => new BN(toSatoshi(a)).gt(new BN(toSatoshi(b)));
 
 /**
  * @param amount in TKL in Bitcoin Format

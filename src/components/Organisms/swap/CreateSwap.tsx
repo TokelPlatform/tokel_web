@@ -73,7 +73,14 @@ export default function CreateSwap({ createSwapEvent, prices }: CreateSwapProps)
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const pricePerOne = useMemo(() => getDepositValue('1', prices[chosenCurrency]), [chosenCurrency]);
+  const pricePerOne = useMemo(
+    () =>
+      parseFloat(getDepositValue('1', prices[chosenCurrency])).toLocaleString('fullwide', {
+        useGrouping: true,
+        maximumSignificantDigits: 12,
+      }),
+    [chosenCurrency]
+  );
 
   const setSwapError = (err: string) => {
     setError(err);
