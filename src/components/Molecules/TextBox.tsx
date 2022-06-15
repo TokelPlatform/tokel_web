@@ -38,7 +38,7 @@ const TextBoxRoot = styled.div<TextBoxRootProps>`
   background-color: var(--color-darkestBlue);
   border: ${p => (!p.border ? 'none' : '1px solid')};
   border-image-slice: 1;
-  border-image-source: var(--gradient-purple-to-lighblue);
+  border-image-source: var(--gradient-purple-to-lightblue);
   z-index: 1;
   transition: transform 0.3s ease;
   &:hover {

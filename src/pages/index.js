@@ -12,12 +12,13 @@ import Ecosystem from "components/Organisms/Ecosystem"
 import SectionList from "components/Molecules/SectionList"
 import partnersData from 'data/partnersData'
 import exchangeData from 'data/exchangeData'
-import {  VSpacerBig } from "styles/common"
-import { FlexRowCenter } from "styles/common"
+import {  FlexColCenter, VSpacerBig, VSpacerSmall } from "styles/common"
 // import BannerSubscribe from "components/Molecules/banners/BannerSubscribe"
-import { FlexCol } from "styles/common"
 import partnersBg from "images/backgrounds/partners.svg"
 import PageMeta from "components/Molecules/PageMeta"
+import ClickableIcon from "components/Atoms/ClickableIcon"
+import icons from "data/icons"
+import AvailableCurrencies from "components/Molecules/AvailableCurrencies"
 
 const MainPage = styled.div`
   background: linear-gradient(180deg, #13182A 0%, #263867 100%);
@@ -27,7 +28,7 @@ const MainPage = styled.div`
   }
 `
 
-const PartnersSection = styled(FlexCol)`
+const PartnersSection = styled(FlexColCenter)`
   padding-top: 10rem;
   background: url(${partnersBg});
   background-repeat: no-repeat;
@@ -37,7 +38,6 @@ const PartnersSection = styled(FlexCol)`
     padding-top: 0;
   }
 `
-
 const IndexPage = ()  => {
   return (
     <MainPage>
@@ -55,11 +55,16 @@ const IndexPage = ()  => {
         <Ecosystem />
         <PartnersSection>
           <SectionList title="Our Partners" data={partnersData}/>
-          <SectionList id="buy-tkl" title="Buy Tokel on" data={exchangeData}/>
+          <SectionList id="buy-tkl" title="Buy Tokel" data={exchangeData}/>
+          <h3>Direct swaps</h3>
+          <VSpacerSmall/>
+          <ClickableIcon 
+            link="/swap"
+            icon={icons.swappurple}
+            width="100px"/>
+          <VSpacerBig/>
+          <AvailableCurrencies />
         </PartnersSection>
-        <FlexRowCenter>
-          <h4 style={{textAlign: 'center', padding: '0 2rem'}}>Tokel will soon be also available through direct swaps</h4>
-        </FlexRowCenter>
         {/* <BannerSubscribe /> */}
       </PageRoot>
     </MainPage>

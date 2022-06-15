@@ -91,7 +91,7 @@ const menuLinks = [
         // },
         {
           title: 'Become Partner',
-          url: 'mailto:contact@tokel.io',
+          url: links.mailContact,
         },
         {
           title: 'Join Discord',
@@ -99,7 +99,7 @@ const menuLinks = [
         },
         {
           title: 'contact@tokel.io',
-          url: 'mailto:contact@tokel.io',
+          url: links.mailContact,
         },
       ],
     },

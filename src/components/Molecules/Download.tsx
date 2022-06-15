@@ -7,7 +7,7 @@ const DownloadRoot = styled.div``;
 const Box = styled.div`
   border: 8px solid;
   border-image-slice: 1;
-  border-image-source: var(--gradient-purple-to-lighblue);
+  border-image-source: var(--gradient-purple-to-lightblue);
   display: inline-block;
   img {
     padding: 1rem;
