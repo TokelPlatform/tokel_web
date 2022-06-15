@@ -13,7 +13,6 @@ import { graphql } from "gatsby"
 import links, { podcasts } from "../data/links"
 import podcastValidationSchema from '../helpers/podcastValidationSchema'
 import styled from "@emotion/styled"
-import { PageHeader } from "components/Atoms/Title";
 import PageMeta from "components/Molecules/PageMeta";
 
 const PlayerContainer = styled.div`
@@ -159,7 +158,7 @@ const TokelTalk = ({data})  => {
         <Content>
           <HeaderWrapper>
             <div>
-              <PageHeader>Tokel Talk</PageHeader>
+              <h1>Tokel Talk</h1>
               <h3><a href={links.nftPodcastTop}>Voted in the Top 10 of best NFT podcasts</a></h3>           
               <h5>Listened to in 49 countries. Downloaded in 142 cities. Streamed on 7 social networks.</h5>
               <Desc>Tokel Talk is the live stream and podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform Tokel. The Tokel platform provides end-to-end token solutions to creators, businesses and projects alike.</Desc>
@@ -230,7 +229,7 @@ const TokelTalk = ({data})  => {
               )}
             </Formik>
           </GuestSignUp>
-          <ReachOutToUs>If you are experiencing any difficulties, feel free to reach out to us in <a href={links.discord}>Tokel Discord</a> or email us at <a href="mailto:suppor@tokel.io">suppor@tokel.io</a></ReachOutToUs>
+          <ReachOutToUs>If you are experiencing any difficulties, feel free to reach out to us in <a href={links.discord}>Tokel Discord</a> or email us at <a href={links.mailSupport}>suppor@tokel.io</a></ReachOutToUs>
         </Content>
 
       </PodcastRoot>

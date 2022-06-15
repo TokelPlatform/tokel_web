@@ -1,5 +1,9 @@
 import styled from '@emotion/styled';
 
+export const VSpacerSmall = styled.div`
+  height: 0.5rem;
+`;
+
 export const VSpacerMedium = styled.div`
   height: 1rem;
 `;

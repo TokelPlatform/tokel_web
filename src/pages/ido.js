@@ -369,7 +369,7 @@ const Ido = ()  => {
                     <SectionHeader>
                         QUESTIONS?
                     </SectionHeader>
-                    <p style={{textAlign: 'center', marginBottom: '20px'}}>Contact us at <a href="mailto:contact@tokel.io">contact@tokel.io</a> or join <a href={links.discord}>Tokel Discord</a> </p>
+                    <p style={{textAlign: 'center', marginBottom: '20px'}}>Contact us at <a href={links.mailContact}>contact@tokel.io</a> or join <a href={links.discord}>Tokel Discord</a> </p>
                 </div>    
             </Section>       
             <Galaxy className="tokelGalaxy" src={tokelGalaxy}/>

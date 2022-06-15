@@ -8,6 +8,7 @@ import PageMeta from 'components/Molecules/PageMeta';
 import { FlexColCenter, FlexRowCenter, VSpacerBig } from 'styles/common';
 import icons from 'data/icons';
 import breakpoints from 'styles/breakpoints';
+import AvailableCurrencies from 'components/Molecules/AvailableCurrencies';
 // import BannerSubscribe from 'components/Molecules/banners/BannerSubscribe';
 
 const ExchangesRoot = styled(PageRoot)`
@@ -31,7 +32,7 @@ const Border = styled(FlexColCenter)`
   position: relative;
   padding: 2rem;
   border-image-slice: 1;
-  border-image-source: var(--gradient-purple-to-lighblue);
+  border-image-source: var(--gradient-purple-to-lightblue);
   transition: transform 0.3s ease;
   &:hover {
     transform: scale(1.1);
@@ -46,9 +47,20 @@ export default function Exchanges() {
         description="With the Tokel App you can sell art, browse NFTs, create and trade tokens for your projects. All on a unified and inexpensive platform."
       />
       <ExchangesRoot>
-        <PageHeader>BUY TKL</PageHeader>
         <FlexColCenter>
-          <h3>Exchanges</h3>
+          <PageHeader>HOW TO BUY TKL</PageHeader>
+          <VSpacerBig />
+          <Border>
+            <a href="/swap" style={{ textDecoration: 'none' }}>
+              <FlexColCenter>
+                <h3 style={{ margin: 0 }}>Direct swaps</h3>
+                <p>Easily and quickly swap for TKL now!</p>
+                <AvailableCurrencies />
+              </FlexColCenter>
+            </a>
+          </Border>
+          <VSpacerBig />
+          <h3>Trade on Exchanges</h3>
           <Items>
             <Border>
               <a href={links.atomicDex}>
@@ -66,14 +78,6 @@ export default function Exchanges() {
               <a href={links.dexTradeTutorials.deposit}>How to make a deposit</a>
             </Border>
           </Items>
-        </FlexColCenter>
-        <VSpacerBig />
-        <FlexColCenter>
-          <h3>Direct swaps</h3>
-          <h4>Direct Swap Functionality coming soon...</h4>
-          <FlexRowCenter>
-            <img alt="swapBTCTKL" src={icons.swapBTC}></img>
-          </FlexRowCenter>
         </FlexColCenter>
         {/* <BannerSubscribe /> */}
       </ExchangesRoot>
