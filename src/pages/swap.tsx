@@ -68,6 +68,36 @@ const BackButtonWrapper = styled.div`
   }
 `;
 
+const getErrorMessage = msg => {
+  switch (msg) {
+    case 'exchange-timed-out':
+      return [
+        <div key="errtext">
+          <h4>You swap has timed out</h4>
+          <p>
+            {' '}
+            Time limit on swaps is 6 hours. It looks like you have waited too long to send us the
+            coins. That is allright. Just create yourself a new swap and be mindful of the time
+            limit. <br /> <br />{' '}
+            <span style={{ opacity: 0.6, fontSize: '16px' }}>
+              In the case you have already sent the coins and you are seeing this message, please
+              reach out to us on <a href={links.discord}>Discord</a> or by{' '}
+              <a href={links.mailContact}>email</a> with your transaction number and the swap url
+              and we will assist you.{' '}
+            </span>
+          </p>
+          ,
+        </div>,
+      ];
+    case 'network-error':
+      return [
+        <p key="errtext">Looks like there are some network issues. Please try again later.</p>,
+      ];
+    default:
+      return msg;
+  }
+};
+
 export default function Swap() {
   const [prices, setPrices] = useState(null);
   const [depositAmount, setDepositAmount] = useState(0);
@@ -102,8 +132,9 @@ export default function Swap() {
   const lookup = id =>
     lookupSwapApi(id).then((res: ExchangeStatusResult) => {
       if (res.result === 'error') {
-        setApiError(res.error);
+        setApiError(getErrorMessage(res.error));
         setStep(SwapStep.ERROR);
+        setLoading(false);
         return;
       }
       setReceivingAddress(res.senttoaddress);

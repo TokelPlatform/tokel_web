@@ -89,6 +89,9 @@ export default function FinishSwap({
           ]}
           justify="center"
         >
+          <p style={{ fontSize: '16px', marginTop: 0 }}>
+            The transaction has to be made within 6 hours of generating this swap.
+          </p>
           {/* <Warning text={`Make sure to only send ${chosenCurrency} to this address.`} /> */}
           <VSpacerSmall />
           <InputWithCopy textToCopy={depositAddress} />

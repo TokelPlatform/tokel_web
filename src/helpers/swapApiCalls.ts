@@ -74,16 +74,29 @@ GET(API + GET_PRICES(depositCoin, receivingAmount));
 const getPricePerOne = (value: string): string => getTKLValue(value, MIN_TKL);
 
 export const getAllPrices = async () => {
-  const kmd = await getPrice('KMD', MIN_TKL);
-  const ltc = await getPrice('LTC', MIN_TKL);
-  const btc = await getPrice('BTC', MIN_TKL);
-  if(kmd.error || ltc.error || btc.error) {
-    throw new Error(kmd.error);
-  }
-  return {
-    KMD: getPricePerOne(kmd.depositamount),
-    LTC: getPricePerOne(ltc.depositamount),
-    BTC: getPricePerOne(btc.depositamount),
+  try {
+    const kmd = await getPrice('KMD', MIN_TKL);
+    const ltc = await getPrice('LTC', MIN_TKL);
+    const btc = await getPrice('BTC', MIN_TKL);
+    const error = kmd.error ? kmd.error : (ltc.error ? ltc.error : btc.error)
+    if(error) {
+      throw new Error(error);
+    }
+    return {
+      KMD: getPricePerOne(kmd.depositamount),
+      LTC: getPricePerOne(ltc.depositamount),
+      BTC: getPricePerOne(btc.depositamount),
+    }
+  } catch (e) {
+    if (process.env.NODE_ENV === 'development') {
+      return {
+        KMD: 1,
+        LTC: 1,
+        BTC: 1
+      }
+    } else {
+      throw new Error(e);
+    }
   }
 }
 
@@ -98,10 +111,35 @@ GET(API + SELL(depositCoin, receivingAddress, receivingAmount));
 export const lookupSwapApi = async (id: string): Promise<ExchangeStatusResult | ExchangeStatusResultError> => 
   GET(API + LOOKUP(id));
   {
+
+    // ERROR RESPONSE
     // return {
     //   "result": "error",
-    //   "error": "Err Oh no Oh no"
+    //   "error": "exchange-timed-out"
     //   }
+
+    // PENDING
+
+    // return {
+    //   "result": "pending",
+    //   "onboardingid": "62b3e88853d1d",
+    //   "sendingtrx": null,
+    //   "sentamount": "1000.0000000000000000",
+    //   "senttoaddress": "RRaZk3ENnGjeZitMxxQv1qVVPckjQXTyDY",
+    //   "sentcoin": "TKL",
+    //   "sendingtrxurl": "https://explorer.tokel.io/tx/",
+    //   "paymenttrx": null,
+    //   "depositcoin": "KMD",
+    //   "depositamount": "27.2071592900000000",
+    //   "depositaddress": "RFSuaZbosy45zebSU6vdfj98D6awwyd6x9",
+    //   "espilapsed": 6822,
+    //   "timeleft": 14778,
+    //   "paymenttrxurl": "https://kmd.explorer.dexstats.info/tx/",
+    //   "complete": 0
+    // }
+
+    // SUCCESS
+
     // return {
     //   "result": "success",
     //   "onboardingid": "626e8f69322ca",
