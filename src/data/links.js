@@ -22,8 +22,7 @@ const links = {
   facebook: 'https://www.facebook.com/TokelPlatform/',
   bittube: 'https://bittube.tv/profile/Tokel',
   telegram: 'https://t.me/TokelPlatformchat',
-  nspv:
-    'https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-setup/nspv.html#introduction',
+  nspv: 'https://developers.komodoplatform.com/basic-docs/smart-chains/smart-chain-setup/nspv.html#introduction',
   nspvApi: 'https://github.com/TokelPlatform/nspv-js/blob/development/API.md',
   atomicDex: 'https://atomicdex.io/',
   idoLiveStream: 'https://www.youtube.com/watch?v=WQ39eTAgdB0',
@@ -50,10 +49,8 @@ const links = {
   downloads: {
     linux:
       'https://github.com/TokelPlatform/tokel_dapp/releases/download/latest/LINUX-TokelPlatform-1.2.1.AppImage',
-    win:
-      'https://github.com/TokelPlatform/tokel_dapp/releases/download/latest/WINDOWS-TokelPlatform-Setup-1.2.1.exe',
-    mac:
-      'https://github.com/TokelPlatform/tokel_dapp/releases/download/latest/MAC-TokelPlatform-1.2.1.dmg',
+    win: 'https://github.com/TokelPlatform/tokel_dapp/releases/download/latest/WINDOWS-TokelPlatform-Setup-1.2.1.exe',
+    mac: 'https://github.com/TokelPlatform/tokel_dapp/releases/download/latest/MAC-TokelPlatform-1.2.1.dmg',
   },
   tokelistArticle:
     'https://medium.com/@tokel-platform/what-is-a-tokelist-how-to-become-one-855ca6686494',
@@ -62,7 +59,7 @@ const links = {
   komodo: 'https://komodoplatform.com/',
   mailContact: 'mailto:contact@tokel.io',
   mailSupport: 'mailto:support@tokel.io',
-
+  exploreTokel: 'https://exploretokel.com',
 };
 
 export const podcasts = {
