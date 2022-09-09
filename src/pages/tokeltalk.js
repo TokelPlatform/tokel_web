@@ -154,6 +154,7 @@ const TokelTalk = ({data})  => {
         <PageMeta
           title="Tokel Talk: NFT & Tokenization Podcast & Live Stream"
           description="Podcast of open-source, dedicated, fungible & non-fungible token (NFT) platform, Tokel. Listen to the latest episodes."
+          url="blog"
         />
         <Content>
           <HeaderWrapper>
